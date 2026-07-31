@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kamruzzaman Minju — Lead Generation Expert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12161D;
+    --paper:#EDE9DE;
+    --paper-soft:#E4DFD1;
+    --amber:#D98F2B;
+    --amber-dim:#B8791F;
+    --verify:#3F8F62;
+    --ink-text:#1B2029;
+    --muted:#6E7686;
+    --muted-on-ink:#8A93A3;
+    --line-dark:rgba(238,234,224,0.14);
+    --line-light:rgba(27,32,41,0.14);
+    --font-display:'Space Grotesk',sans-serif;
+    --font-body:'Inter',sans-serif;
+    --font-mono:'IBM Plex Mono',monospace;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink-text);
+    font-family:var(--font-body);
+    line-height:1.55;
+  }
+  .wrap{max-width:980px; margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--amber-dim);
+  }
+
+  /* NAV */
+  header{
+    background:var(--ink);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 28px;
+    max-width:980px;
+    margin:0 auto;
+  }
+  .nav .name{
+    font-family:var(--font-mono);
+    color:var(--paper);
+    font-size:14px;
+  }
+  .nav a{
+    color:var(--muted-on-ink);
+    text-decoration:none;
+    font-size:14px;
+    margin-left:22px;
+  }
+  .nav a:hover{color:var(--amber);}
+
+  /* HERO */
+  .hero{
+    background:var(--ink);
+    color:var(--paper);
+    padding:64px 0 80px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:40px;
+    align-items:center;
+  }
+  @media (max-width:600px){.hero-grid{grid-template-columns:1fr; text-align:center;}}
+
+  /* PHOTO — swap the placeholder for your real photo, see comment below */
+  .photo-frame{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    border:2px solid var(--amber);
+    padding:6px;
+    margin:0 auto;
+  }
+  .photo-placeholder{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    background:var(--ink-soft, #1B212B);
+    border:1px dashed var(--line-dark);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--font-display);
+    font-size:42px;
+    color:var(--amber);
+    overflow:hidden;
+  }
+  .photo-placeholder img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+  }
+
+  h1{
+    font-family:var(--font-display);
+    font-size:clamp(28px,4vw,42px);
+    font-weight:700;
+    color:var(--amber);
+    margin:10px 0 6px;
+  }
+  .role{
+    font-size:17px;
+    color:var(--muted-on-ink);
+    margin:0 0 14px;
+  }
+  .hero-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    color:var(--muted-on-ink);
+  }
+  @media (max-width:600px){.hero-meta{justify-content:center;}}
+  .hero-meta span::before{content:'— ';}
+
+  /* STATS */
+  .stats{background:var(--paper-soft); padding:36px 0;}
+  .stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:2px;
+    background:var(--line-light);
+    border:1px solid var(--line-light);
+    border-radius:8px;
+    overflow:hidden;
+  }
+  @media (max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
+  .stat{
+    background:var(--paper);
+    padding:22px 18px;
+    text-align:center;
+  }
+  .stat .num{
+    font-family:var(--font-display);
+    font-size:26px;
+    font-weight:700;
+    color:var(--amber-dim);
+  }
+  .stat .label{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    margin-top:4px;
+  }
+
+  /* PORTFOLIO */
+  .portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  @media (max-width:700px){.portfolio-grid{grid-template-columns:1fr;}}
+  .portfolio-card{text-align:center;}
+  .portfolio-thumb{
+    aspect-ratio:1/1;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:14px;
+  }
+  .thumb-amber{background:#EFCB8E;}
+  .thumb-verify{background:#A9D6BC;}
+  .thumb-ink{background:#D8D2C2;}
+  .portfolio-card h3{
+    font-family:var(--font-display);
+    font-size:17px;
+    margin:0 0 4px;
+  }
+  .portfolio-sub{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    color:var(--muted);
+    margin:0;
+  }
+
+  section{padding:64px 0;}
+  h2{
+    font-family:var(--font-display);
+    font-size:26px;
+    font-weight:700;
+    color:var(--amber-dim);
+    margin:10px 0 30px;
+  }
+
+  /* ABOUT */
+  .about p{font-size:15.5px; color:var(--ink-text); max-width:680px;}
+
+  /* SPECIALTIES */
+  .cat-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:2px;
+    background:var(--line-light);
+    border:1px solid var(--line-light);
+    border-radius:8px;
+    overflow:hidden;
+  }
+  @media (max-width:760px){.cat-grid{grid-template-columns:1fr;}}
+  .cat{
+    background:var(--paper-soft);
+    padding:24px;
+  }
+  .cat h3{
+    font-family:var(--font-display);
+    font-size:16px;
+    margin:0 0 12px;
+  }
+  .cat ul{margin:0; padding-left:18px; font-size:14px; color:var(--muted);}
+  .cat li{margin-bottom:5px;}
+
+  /* TOOLS */
+  .tools{background:var(--ink); color:var(--paper);}
+  .tools h2{color:var(--amber);}
+  .tool-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .tool-chip{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    border:1px solid var(--line-dark);
+    padding:7px 14px;
+    border-radius:20px;
+    color:var(--paper);
+  }
+
+  /* WORK */
+  .work-item{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding:18px 0;
+    border-bottom:1px solid var(--line-light);
+  }
+  .work-item:last-child{border-bottom:none;}
+  .work-item .plat{font-weight:600;}
+  .work-item .desc{color:var(--muted); font-size:14px; margin-top:3px;}
+  .work-item .figure{
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--verify);
+    white-space:nowrap;
+  }
+
+  /* TESTIMONIALS */
+  .testimonial-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  @media (max-width:760px){.testimonial-grid{grid-template-columns:1fr;}}
+  .testimonial-card{
+    background:var(--paper);
+    border:1px solid var(--line-light);
+    border-radius:8px;
+    padding:24px;
+  }
+  .testimonial-card .stars{
+    color:var(--amber);
+    font-size:16px;
+    letter-spacing:2px;
+    margin-bottom:12px;
+  }
+  .testimonial-card .quote{
+    font-size:14.5px;
+    color:var(--ink-text);
+    margin:0 0 14px;
+    font-style:italic;
+  }
+  .testimonial-card .client-name{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--muted);
+    margin:0;
+  }
+
+  /* CONTACT */
+  .contact{background:var(--paper-soft);}
+  .contact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .contact-btn{
+    font-family:var(--font-mono);
+    font-size:13.5px;
+    background:var(--ink);
+    color:var(--paper);
+    padding:12px 20px;
+    border-radius:4px;
+    text-decoration:none;
+  }
+  .contact-btn:hover{background:var(--amber-dim); color:var(--ink);}
+  .contact-btn.secondary{
+    background:transparent;
+    color:var(--ink-text);
+    border:1px solid var(--line-light);
+  }
+
+  .contact-form{
+    margin-top:32px;
+    max-width:480px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .form-field{display:flex; flex-direction:column;}
+  .form-field label{
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:6px;
+  }
+  .form-field input, .form-field textarea{
+    font-family:var(--font-body);
+    font-size:14.5px;
+    padding:11px 13px;
+    border:1px solid var(--line-light);
+    border-radius:4px;
+    background:var(--paper);
+    color:var(--ink-text);
+  }
+  .form-field textarea{resize:vertical;}
+  .form-field input:focus, .form-field textarea:focus{
+    outline:2px solid var(--amber-dim);
+    outline-offset:1px;
+  }
+  .contact-form button{
+    align-self:flex-start;
+    border:none;
+    cursor:pointer;
+  }
+  .contact-success{
+    display:none;
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--verify);
+    border:1px dashed var(--verify);
+    padding:10px 14px;
+    border-radius:4px;
+  }
+
+  footer{
+    background:var(--ink);
+    color:var(--muted-on-ink);
+    text-align:center;
+    padding:24px;
+    font-family:var(--font-mono);
+    font-size:11.5px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <span class="name">KAMRUZZAMAN MINJU</span>
+    <div>
+      <a href="#about">About</a>
+      <a href="#specialties">Specialties</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#work">Track Record</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="photo-frame">
+      <div class="photo-placeholder">
+        <!--
+          TO ADD YOUR PHOTO:
+          1. Save your photo in this same folder as "photo.jpg"
+          2. Replace the line below with:
+             <img src="photo.jpg" alt="Kamruzzaman Minju">
+          3. Delete the "KM" text line once your photo is in place
+        -->
+        KM
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow">Lead Generation Expert</div>
+      <h1>Kamruzzaman Minju</h1>
+      <p class="role">Amazon Seller Leads · B2B Lead Generation · LinkedIn Research &amp; Verified Data</p>
+      <div class="hero-meta">
+        <span>8+ years experience</span>
+        <span>1,500+ orders delivered</span>
+        <span>Worldwide</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat"><div class="num">1,500+</div><div class="label">Orders Delivered</div></div>
+      <div class="stat"><div class="num">100%</div><div class="label">Job Success</div></div>
+      <div class="stat"><div class="num">8+</div><div class="label">Years Experience</div></div>
+      <div class="stat"><div class="num">Worldwide</div><div class="label">Client Base</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <h2>Verified leads, sourced by hand</h2>
+    <p>I help agencies, marketers, and businesses find their ideal clients through manually researched, verified leads — not scraped, mass-produced lists. My work covers Amazon and ecommerce seller leads, B2B prospecting, and specialized niches like solar, investor, and homeowner leads, for clients across the USA, Germany, Spain, UK, France, Netherlands, Austria, Australia, and most other markets worldwide.</p>
+    <p>Every list I deliver goes through manual review before it reaches you, with verified emails to keep bounce rates low. I offer a free sample before any commitment, so you can check quality and format first.</p>
+  </div>
+</section>
+
+<section class="specialties" id="specialties" style="background:var(--paper-soft);">
+  <div class="wrap">
+    <div class="eyebrow">What I do</div>
+    <h2>Specialties</h2>
+    <div class="cat-grid">
+      <div class="cat">
+        <h3>Lead Generation</h3>
+        <ul>
+          <li>Amazon Seller Leads (Private Label, FBA/FBM, Vendor Central)</li>
+          <li>B2B Lead Generation &amp; Prospect Lists</li>
+          <li>Investor Leads</li>
+          <li>Solar Leads</li>
+          <li>Homeowner Leads / Skip Tracing</li>
+          <li>Real Estate Leads</li>
+        </ul>
+      </div>
+      <div class="cat">
+        <h3>Research &amp; Data Collection</h3>
+        <ul>
+          <li>LinkedIn Research &amp; Scraping</li>
+          <li>Web Research &amp; Data Mining</li>
+          <li>Email List Building &amp; Verification</li>
+        </ul>
+      </div>
+      <div class="cat">
+        <h3>Data &amp; File Services</h3>
+        <ul>
+          <li>Data Entry &amp; Data Enrichment</li>
+          <li>Excel to PDF Conversion</li>
+          <li>PDF Conversion &amp; Formatting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <div class="wrap">
+    <div class="eyebrow">Portfolio</div>
+    <h2>Recent work</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-thumb thumb-amber">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M32 6 L54 17.5 V46.5 L32 58 L10 46.5 V17.5 Z" stroke="#12161D" stroke-width="2" fill="none"/>
+            <path d="M10 17.5 L32 29 L54 17.5" stroke="#12161D" stroke-width="2" fill="none"/>
+            <path d="M32 29 V58" stroke="#12161D" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Amazon Leads</h3>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-thumb thumb-verify">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M16 22 H48 L44 46 H20 Z" stroke="#12161D" stroke-width="2" fill="none"/>
+            <path d="M16 22 L12 12 H6" stroke="#12161D" stroke-width="2" fill="none"/>
+            <circle cx="24" cy="52" r="3.5" stroke="#12161D" stroke-width="2" fill="none"/>
+            <circle cx="40" cy="52" r="3.5" stroke="#12161D" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+        <h3>Ecommerce Leads</h3>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-thumb thumb-ink">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="20" stroke="#D98F2B" stroke-width="2" fill="none"/>
+            <circle cx="32" cy="32" r="11" stroke="#D98F2B" stroke-width="2" fill="none"/>
+            <circle cx="32" cy="32" r="3" fill="#D98F2B"/>
+          </svg>
+        </div>
+        <h3>Custom Leads</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tools">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--amber);">Tools</div>
+    <h2>What I work with</h2>
+    <div class="tool-row">
+      <span class="tool-chip">LinkedIn Sales Navigator</span>
+      <span class="tool-chip">SalesQL</span>
+      <span class="tool-chip">Apollo</span>
+      <span class="tool-chip">Clearbit</span>
+      <span class="tool-chip">Hunter</span>
+      <span class="tool-chip">Name2Email</span>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="eyebrow">Track record</div>
+    <h2>Where I deliver</h2>
+    <div class="work-item">
+      <div>
+        <div class="plat">Upwork</div>
+        <div class="desc">Lead generation, LinkedIn research, Amazon seller leads</div>
+      </div>
+      <div class="figure">100% Job Success · Top Rated</div>
+    </div>
+    <div class="work-item">
+      <div>
+        <div class="plat">Fiverr</div>
+        <div class="desc">Amazon seller leads, ecommerce &amp; B2B lead lists</div>
+      </div>
+      <div class="figure">500+ orders · $50K+ earned</div>
+    </div>
+    <div class="work-item">
+      <div>
+        <div class="plat">Direct &amp; Off-Marketplace Clients</div>
+        <div class="desc">Large-scale lead generation projects outside Upwork and Fiverr</div>
+      </div>
+      <div class="figure">$70K+ earned</div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="reviews" style="background:var(--paper-soft);">
+  <div class="wrap">
+    <div class="eyebrow">Reviews</div>
+    <h2>What clients say</h2>
+    <div class="testimonial-grid">
+      <!--
+        PLACEHOLDER — replace with a real client quote, name, and role/company.
+        Add one card per review by copying this block.
+      -->
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"[Add a real client quote here]"</p>
+        <p class="client-name">[Client Name] — [Company / Role]</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"[Add a real client quote here]"</p>
+        <p class="client-name">[Client Name] — [Company / Role]</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"[Add a real client quote here]"</p>
+        <p class="client-name">[Client Name] — [Company / Role]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h2>Let's work together</h2>
+    <p style="max-width:600px; color:var(--muted); margin-bottom:24px;">Message me with your target market and requirements — I'll send a free sample so you can see the quality before committing.</p>
+    <div class="contact-row">
+      <!-- Replace with your current email -->
+      <a class="contact-btn" href="mailto:your-email@example.com">Email Me</a>
+      <a class="contact-btn secondary" href="#">LinkedIn</a>
+    </div>
+
+    <form class="contact-form" id="contactForm">
+      <div class="form-field">
+        <label for="cname">Name</label>
+        <input type="text" id="cname" name="name" required>
+      </div>
+      <div class="form-field">
+        <label for="cemail">Email</label>
+        <input type="email" id="cemail" name="email" required>
+      </div>
+      <div class="form-field">
+        <label for="cdesc">Description</label>
+        <textarea id="cdesc" name="description" rows="5" placeholder="Tell me about your target market and requirements..." required></textarea>
+      </div>
+      <button type="submit" class="contact-btn">Send Message</button>
+      <div id="contactSuccess" class="contact-success">Message sent — I'll get back to you shortly.</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © 2026 Kamruzzaman Minju · Lead Generation Expert
+</footer>
+
+<script>
+  const contactForm = document.getElementById('contactForm');
+  const contactSuccess = document.getElementById('contactSuccess');
+  contactForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    contactSuccess.style.display = 'block';
+    contactForm.querySelectorAll('input, textarea, button').forEach(el => el.disabled = true);
+  });
+</script>
+
+</body>
+</html>
