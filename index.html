@@ -9,6 +9,7 @@
 <style>
   :root{
     --ink:#12161D;
+    --ink-soft:#1B212B;
     --paper:#EDE9DE;
     --paper-soft:#E4DFD1;
     --amber:#D98F2B;
@@ -44,6 +45,9 @@
   header{
     background:var(--ink);
     border-bottom:1px solid var(--line-dark);
+    position:sticky;
+    top:0;
+    z-index:100;
   }
   .nav{
     display:flex;
@@ -54,17 +58,51 @@
     margin:0 auto;
   }
   .nav .name{
-    font-family:var(--font-mono);
-    color:var(--paper);
-    font-size:14px;
+    font-family:var(--font-display);
+    font-weight:700;
+    color:var(--amber);
+    font-size:17px;
+    letter-spacing:0.02em;
+    text-shadow:
+      1px 1px 0 var(--amber-dim),
+      2px 2px 0 #96611a,
+      3px 3px 0 #7a4f16,
+      4px 4px 6px rgba(0,0,0,0.35);
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:8px;
   }
   .nav a{
     color:var(--muted-on-ink);
     text-decoration:none;
     font-size:14px;
+    font-weight:700;
     margin-left:22px;
   }
   .nav a:hover{color:var(--amber);}
+  .nav-right{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+  .nav-cta{
+    background:var(--amber);
+    color:var(--ink) !important;
+    font-family:var(--font-mono);
+    font-size:12.5px !important;
+    font-weight:600;
+    padding:8px 14px;
+    border-radius:4px;
+    margin-left:22px;
+  }
+  .nav-cta:hover{background:var(--amber-dim); color:var(--ink) !important;}
+  @media (max-width:760px){
+    .nav{flex-direction:column; align-items:flex-start; gap:10px;}
+    .nav-right{gap:10px 16px;}
+    .nav-right a{margin-left:0;}
+  }
 
   /* HERO */
   .hero{
@@ -197,6 +235,55 @@
   }
 
   section{padding:64px 0;}
+
+  /* SCROLL REVEAL — used by Specialties, Portfolio, Reviews cards */
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.in-view{opacity:1; transform:translateY(0);}
+  .cat-grid .cat:nth-child(1){transition-delay:0s;}
+  .cat-grid .cat:nth-child(2){transition-delay:.15s;}
+  .cat-grid .cat:nth-child(3){transition-delay:.3s;}
+  .portfolio-grid .portfolio-card:nth-child(1){transition-delay:0s;}
+  .portfolio-grid .portfolio-card:nth-child(2){transition-delay:.15s;}
+  .portfolio-grid .portfolio-card:nth-child(3){transition-delay:.3s;}
+  .testimonial-grid .testimonial-card:nth-child(1){transition-delay:0s;}
+  .testimonial-grid .testimonial-card:nth-child(2){transition-delay:.15s;}
+  .testimonial-grid .testimonial-card:nth-child(3){transition-delay:.3s;}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+
+  /* PORTFOLIO ICON ANIMATIONS */
+  .icon-box{
+    animation:boxHop 2.6s ease-in-out infinite;
+    transform-origin:50% 90%;
+  }
+  @keyframes boxHop{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-4px);}
+  }
+  .wheel1, .wheel2{
+    transform-box:fill-box;
+    transform-origin:center;
+    animation:wheelSpin 2s linear infinite;
+  }
+  @keyframes wheelSpin{ to{transform:rotate(360deg);} }
+  .ring-outer, .ring-mid{
+    transform-box:fill-box;
+    transform-origin:center;
+    animation:ringPulse 2.4s ease-in-out infinite;
+  }
+  .ring-mid{animation-delay:.3s;}
+  @keyframes ringPulse{
+    0%,100%{opacity:1; transform:scale(1);}
+    50%{opacity:0.5; transform:scale(1.08);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .icon-box, .wheel1, .wheel2, .ring-outer, .ring-mid{animation:none;}
+  }
   h2{
     font-family:var(--font-display);
     font-size:26px;
@@ -207,6 +294,84 @@
 
   /* ABOUT */
   .about p{font-size:15.5px; color:var(--ink-text); max-width:680px;}
+
+  /* GLOBAL REACH CHART */
+  .reach{background:var(--ink); padding-bottom:56px;}
+  .reach-panel{
+    background:
+      radial-gradient(ellipse at 15% 0%, rgba(217,143,43,0.14), transparent 60%),
+      linear-gradient(160deg, var(--ink-soft) 0%, var(--ink) 100%),
+      repeating-linear-gradient(0deg, rgba(217,143,43,0.09) 0px, transparent 1px, transparent 32px),
+      repeating-linear-gradient(90deg, rgba(217,143,43,0.09) 0px, transparent 1px, transparent 32px);
+    border:1px solid var(--line-dark);
+    border-radius:10px;
+    padding:32px 28px;
+    max-width:640px;
+  }
+  .reach-chart{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+  .reach-row{
+    display:grid;
+    grid-template-columns:90px 1fr 48px;
+    align-items:center;
+    gap:14px;
+  }
+  .reach-label{
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--paper);
+  }
+  .reach-bar-track{
+    background:rgba(238,234,224,0.08);
+    border-radius:20px;
+    height:16px;
+    overflow:visible;
+    position:relative;
+  }
+  .reach-bar{
+    height:100%;
+    border-radius:20px;
+    width:0%;
+    position:relative;
+    transition:width 1.4s cubic-bezier(.16,.9,.3,1);
+  }
+  .reach-bar::after{
+    content:'';
+    position:absolute;
+    top:0; right:0; bottom:0;
+    width:14px;
+    border-radius:50%;
+    filter:blur(3px);
+    background:inherit;
+  }
+  .bar-cyan{background:linear-gradient(90deg, #0891B2, #22D3EE); box-shadow:0 0 14px 1px rgba(34,211,238,0.55);}
+  .bar-purple{background:linear-gradient(90deg, #7E22CE, #C084FC); box-shadow:0 0 14px 1px rgba(192,132,252,0.55);}
+  .bar-pink{background:linear-gradient(90deg, #BE185D, #F472B6); box-shadow:0 0 14px 1px rgba(244,114,182,0.55);}
+  .bar-blue{background:linear-gradient(90deg, #1D4ED8, #60A5FA); box-shadow:0 0 14px 1px rgba(96,165,250,0.55);}
+  .reach-bar.pulse{animation:barPulse 2.4s ease-in-out infinite;}
+  @keyframes barPulse{
+    0%,100%{filter:brightness(1);}
+    50%{filter:brightness(1.25);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reach-bar{transition:none;}
+    .reach-bar.pulse{animation:none;}
+  }
+  .reach-value{
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--paper);
+    font-weight:600;
+    text-align:right;
+  }
+  .reach-note{
+    font-size:14px;
+    color:var(--muted-on-ink);
+    margin:18px 0 0;
+  }
 
   /* SPECIALTIES */
   .cat-grid{
@@ -389,14 +554,17 @@
 
 <header>
   <div class="nav">
-    <span class="name">LeadGen Expert</span>
-    <div>
+    <div class="brand">
+      <span class="name">Leads Expert</span>
+    </div>
+    <div class="nav-right">
       <a href="#about">About</a>
       <a href="#specialties">Specialties</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#reviews">Reviews</a>
       <a href="#work">Track Record</a>
       <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta">Request Custom Leads</a>
     </div>
   </div>
 </header>
@@ -441,12 +609,44 @@
   </div>
 </section>
 
+<section class="reach">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--amber);">Global Reach</div>
+    <h2 style="color:var(--paper);">Where my clients are</h2>
+    <div class="reach-panel">
+      <div class="reach-chart">
+        <div class="reach-row">
+          <span class="reach-label">USA</span>
+          <div class="reach-bar-track"><div class="reach-bar bar-cyan" data-width="50"></div></div>
+          <span class="reach-value">50%</span>
+        </div>
+        <div class="reach-row">
+          <span class="reach-label">Germany</span>
+          <div class="reach-bar-track"><div class="reach-bar bar-purple" data-width="25"></div></div>
+          <span class="reach-value">25%</span>
+        </div>
+        <div class="reach-row">
+          <span class="reach-label">UK</span>
+          <div class="reach-bar-track"><div class="reach-bar bar-pink" data-width="20"></div></div>
+          <span class="reach-value">20%</span>
+        </div>
+        <div class="reach-row">
+          <span class="reach-label">Spain</span>
+          <div class="reach-bar-track"><div class="reach-bar bar-blue" data-width="5"></div></div>
+          <span class="reach-value">5%</span>
+        </div>
+      </div>
+    </div>
+    <p class="reach-note">Plus clients across France, Netherlands, Austria, Australia, and other markets worldwide.</p>
+  </div>
+</section>
+
 <section class="specialties" id="specialties" style="background:var(--paper-soft);">
   <div class="wrap">
     <div class="eyebrow">What I do</div>
     <h2>Specialties</h2>
     <div class="cat-grid">
-      <div class="cat">
+      <div class="cat reveal">
         <h3>Lead Generation</h3>
         <ul>
           <li>Amazon Seller Leads (Private Label, FBA/FBM, Vendor Central)</li>
@@ -457,7 +657,7 @@
           <li>Real Estate Leads</li>
         </ul>
       </div>
-      <div class="cat">
+      <div class="cat reveal">
         <h3>Research &amp; Data Collection</h3>
         <ul>
           <li>LinkedIn Research &amp; Scraping</li>
@@ -465,7 +665,7 @@
           <li>Email List Building &amp; Verification</li>
         </ul>
       </div>
-      <div class="cat">
+      <div class="cat reveal">
         <h3>Data &amp; File Services</h3>
         <ul>
           <li>Data Entry &amp; Data Enrichment</li>
@@ -482,9 +682,9 @@
     <div class="eyebrow">Portfolio</div>
     <h2>Recent work</h2>
     <div class="portfolio-grid">
-      <div class="portfolio-card">
+      <div class="portfolio-card reveal">
         <div class="portfolio-thumb thumb-amber">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <svg class="icon-box" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M32 6 L54 17.5 V46.5 L32 58 L10 46.5 V17.5 Z" stroke="#12161D" stroke-width="2" fill="none"/>
             <path d="M10 17.5 L32 29 L54 17.5" stroke="#12161D" stroke-width="2" fill="none"/>
             <path d="M32 29 V58" stroke="#12161D" stroke-width="2"/>
@@ -492,22 +692,22 @@
         </div>
         <h3>Amazon Leads</h3>
       </div>
-      <div class="portfolio-card">
+      <div class="portfolio-card reveal">
         <div class="portfolio-thumb thumb-verify">
           <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M16 22 H48 L44 46 H20 Z" stroke="#12161D" stroke-width="2" fill="none"/>
             <path d="M16 22 L12 12 H6" stroke="#12161D" stroke-width="2" fill="none"/>
-            <circle cx="24" cy="52" r="3.5" stroke="#12161D" stroke-width="2" fill="none"/>
-            <circle cx="40" cy="52" r="3.5" stroke="#12161D" stroke-width="2" fill="none"/>
+            <circle class="wheel1" cx="24" cy="52" r="3.5" stroke="#12161D" stroke-width="2" fill="none"/>
+            <circle class="wheel2" cx="40" cy="52" r="3.5" stroke="#12161D" stroke-width="2" fill="none"/>
           </svg>
         </div>
         <h3>Ecommerce Leads</h3>
       </div>
-      <div class="portfolio-card">
+      <div class="portfolio-card reveal">
         <div class="portfolio-thumb thumb-ink">
           <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="32" cy="32" r="20" stroke="#D98F2B" stroke-width="2" fill="none"/>
-            <circle cx="32" cy="32" r="11" stroke="#D98F2B" stroke-width="2" fill="none"/>
+            <circle class="ring-outer" cx="32" cy="32" r="20" stroke="#D98F2B" stroke-width="2" fill="none"/>
+            <circle class="ring-mid" cx="32" cy="32" r="11" stroke="#D98F2B" stroke-width="2" fill="none"/>
             <circle cx="32" cy="32" r="3" fill="#D98F2B"/>
           </svg>
         </div>
@@ -567,7 +767,7 @@
 
     <div class="testimonial-grid">
 
-      <div class="testimonial-card">
+      <div class="testimonial-card reveal">
         <div class="stars">★★★★★</div>
         <p class="quote">
           "Minju consistently delivers high-quality, well-researched lead lists. The data is accurate, reliable, and tailored to our specific requirements. His attention to detail and communication make him a valuable partner."
@@ -575,7 +775,7 @@
         <p class="client-name"><strong>Jonas Kelle</strong> — EQUALICE GmbH</p>
       </div>
 
-      <div class="testimonial-card">
+      <div class="testimonial-card reveal">
         <div class="stars">★★★★★</div>
         <p class="quote">
           "We've worked with Minju on multiple lead generation projects, and the quality has always been excellent. The leads are manually researched, verified, and delivered on time. Highly recommended."
@@ -583,7 +783,7 @@
         <p class="client-name"><strong>Peter Brobeck</strong> — Ninja Partners</p>
       </div>
 
-      <div class="testimonial-card">
+      <div class="testimonial-card reveal">
         <div class="stars">★★★★★</div>
         <p class="quote">
           "Professional, responsive, and committed to delivering quality work. The lead lists were customized to my requirements and helped save significant research time."
@@ -611,7 +811,9 @@
 </a>
     </div>
 
-    <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="7df4e95a-d03c-424e-8ab6-084da23f16b3">
+      <input type="checkbox" name="botcheck" style="display:none;">
       <div class="form-field">
         <label for="cname">Name</label>
         <input type="text" id="cname" name="name" required>
@@ -622,7 +824,7 @@
       </div>
       <div class="form-field">
         <label for="cdesc">Description</label>
-        <textarea id="cdesc" name="description" rows="5" placeholder="Tell me about your target market and requirements..." required></textarea>
+        <textarea id="cdesc" name="message" rows="5" placeholder="Tell me about your target market and requirements..." required></textarea>
       </div>
       <button type="submit" class="contact-btn">Send Message</button>
       <div id="contactSuccess" class="contact-success">Message sent — I'll get back to you shortly.</div>
@@ -636,6 +838,41 @@
 </footer>
 
 <script>
+  // Fade/slide in Specialties, Portfolio, and Reviews cards as they scroll into view
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle('in-view', entry.isIntersecting);
+    });
+  }, { threshold: 0.2 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // Animate the Global Reach bars from 0 to their target width every time
+  // the section scrolls into view (replays each time, not just once)
+  const reachBars = document.querySelectorAll('.reach-bar');
+  const reachObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const bar = entry.target;
+      const target = bar.getAttribute('data-width');
+      if (entry.isIntersecting) {
+        bar.classList.remove('pulse');
+        bar.style.transition = 'none';
+        bar.style.width = '0%';
+        void bar.offsetWidth; // force reflow so the reset actually applies
+        bar.style.transition = 'width 1.4s cubic-bezier(.16,.9,.3,1)';
+        bar.style.width = target + '%';
+        clearTimeout(bar._pulseTimeout);
+        bar._pulseTimeout = setTimeout(() => bar.classList.add('pulse'), 1400);
+      } else {
+        bar.classList.remove('pulse');
+        clearTimeout(bar._pulseTimeout);
+        bar.style.transition = 'none';
+        bar.style.width = '0%';
+      }
+    });
+  }, { threshold: 0.4 });
+  reachBars.forEach(bar => reachObserver.observe(bar));
+
   const contactForm = document.getElementById('contactForm');
   const contactSuccess = document.getElementById('contactSuccess');
   const contactError = document.getElementById('contactError');
