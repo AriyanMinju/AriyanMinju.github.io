@@ -431,7 +431,28 @@
     white-space:nowrap;
   }
 
-  /* TESTIMONIALS */
+  /* TESTIMONIALS — HIGHLIGHTED, MIDDLE-OF-PAGE SPOTLIGHT */
+  .testimonials-highlight{
+    background:var(--paper);
+    padding:72px 0;
+  }
+  .testimonials-panel{
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(217,143,43,0.16), transparent 65%),
+      linear-gradient(160deg, var(--ink-soft) 0%, var(--ink) 100%);
+    border:1px solid var(--line-dark);
+    border-radius:14px;
+    padding:48px 36px;
+  }
+  .testimonials-highlight .testimonial-card{
+    background:rgba(237,233,222,0.05);
+    border:1px solid var(--line-dark);
+    border-left:3px solid var(--amber);
+  }
+  .testimonials-highlight .testimonial-card .quote{color:var(--paper);}
+  .testimonials-highlight .testimonial-card .client-name{color:var(--muted-on-ink);}
+
+  /* TESTIMONIALS (legacy card styles, reused above) */
   .testimonial-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -462,6 +483,97 @@
     color:var(--muted);
     margin:0;
   }
+
+  /* CHAT DEMO — PHONE MOCKUP */
+  .chat-demo{background:var(--paper-soft);}
+  .chat-demo-sub{
+    color:var(--muted);
+    font-size:15px;
+    max-width:480px;
+    margin:0 auto 40px;
+  }
+  .phone-mockup{
+    width:320px;
+    margin:0 auto;
+    background:#DDE3EA;
+    border-radius:38px;
+    padding:14px 12px 20px;
+    box-shadow:0 30px 60px -20px rgba(27,32,41,0.35);
+  }
+  .phone-notch{
+    width:90px;
+    height:16px;
+    background:#C4CBD4;
+    border-radius:10px;
+    margin:0 auto 10px;
+  }
+  .phone-screen{
+    background:var(--paper);
+    border-radius:22px;
+    padding:22px 14px;
+    min-height:420px;
+    max-height:520px;
+    overflow-y:auto;
+  }
+  .phone-home-bar{
+    width:100px;
+    height:5px;
+    background:#C4CBD4;
+    border-radius:6px;
+    margin:14px auto 0;
+  }
+  .chat-bubbles{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .chat-bubble{
+    display:flex;
+    align-items:flex-end;
+    gap:8px;
+    max-width:88%;
+  }
+  .chat-bubble.client{align-self:flex-end; flex-direction:row-reverse;}
+  .chat-bubble.minju{align-self:flex-start;}
+  .avatar{
+    width:26px;
+    height:26px;
+    border-radius:50%;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--font-mono);
+    font-size:11px;
+    font-weight:600;
+    color:var(--paper);
+  }
+  .avatar-client{background:var(--amber-dim);}
+  .avatar-minju{background:var(--ink);}
+  .bubble-text{
+    font-size:13.5px;
+    line-height:1.4;
+    padding:10px 14px;
+    border-radius:16px;
+    text-align:left;
+  }
+  .chat-bubble.client .bubble-text{
+    background:var(--amber);
+    color:#12161D;
+    border-bottom-right-radius:4px;
+  }
+  .chat-bubble.minju .bubble-text{
+    background:var(--ink-soft);
+    color:var(--paper);
+    border-bottom-left-radius:4px;
+  }
+  .chat-bubbles .chat-bubble:nth-child(1){transition-delay:0s;}
+  .chat-bubbles .chat-bubble:nth-child(2){transition-delay:.25s;}
+  .chat-bubbles .chat-bubble:nth-child(3){transition-delay:.5s;}
+  .chat-bubbles .chat-bubble:nth-child(4){transition-delay:.75s;}
+  .chat-bubbles .chat-bubble:nth-child(5){transition-delay:1s;}
+  .chat-bubbles .chat-bubble:nth-child(6){transition-delay:1.25s;}
+  .chat-bubbles .chat-bubble:nth-child(7){transition-delay:1.5s;}
 
   /* CONTACT */
   .contact{background:var(--paper-soft);}
@@ -592,9 +704,9 @@
 <section class="stats">
   <div class="wrap">
     <div class="stats-grid">
-      <div class="stat"><div class="num">1,500+</div><div class="label">Orders Delivered</div></div>
-      <div class="stat"><div class="num">100%</div><div class="label">Job Success</div></div>
-      <div class="stat"><div class="num">8+</div><div class="label">Years Experience</div></div>
+      <div class="stat"><div class="num" data-count-to="1500" data-suffix="+">0</div><div class="label">Orders Delivered</div></div>
+      <div class="stat"><div class="num" data-count-to="100" data-suffix="%">0</div><div class="label">Job Success</div></div>
+      <div class="stat"><div class="num" data-count-to="8" data-suffix="+">0</div><div class="label">Years Experience</div></div>
       <div class="stat"><div class="num">Worldwide</div><div class="label">Client Base</div></div>
     </div>
   </div>
@@ -717,6 +829,43 @@
   </div>
 </section>
 
+<section class="testimonials-highlight" id="reviews">
+  <div class="wrap">
+    <div class="testimonials-panel">
+      <div class="eyebrow" style="color:var(--amber); text-align:center;">Reviews</div>
+      <h2 style="color:var(--paper); text-align:center;">What Clients Say</h2>
+
+      <div class="testimonial-grid">
+
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="quote">
+            "Minju consistently delivers high-quality, well-researched lead lists. The data is accurate, reliable, and tailored to our specific requirements. His attention to detail and communication make him a valuable partner."
+          </p>
+          <p class="client-name"><strong>Jonas</strong></p>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="quote">
+            "We've worked with Minju on multiple lead generation projects, and the quality has always been excellent. The leads are manually researched, verified, and delivered on time. Highly recommended."
+          </p>
+          <p class="client-name"><strong>Peter</strong></p>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="quote">
+            "Professional, responsive, and committed to delivering quality work. The lead lists were customized to my requirements and helped save significant research time."
+          </p>
+          <p class="client-name"><strong>Julia</strong></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="tools">
   <div class="wrap">
     <div class="eyebrow" style="color:var(--amber);">Tools</div>
@@ -760,40 +909,55 @@
   </div>
 </section>
 
-<section class="testimonials" id="reviews" style="background:var(--paper-soft);">
-  <div class="wrap">
-    <div class="eyebrow">Reviews</div>
-    <h2>What Clients Say</h2>
+<section class="chat-demo">
+  <div class="wrap" style="text-align:center;">
+    <div class="eyebrow">How a request comes together</div>
+    <h2>A real conversation, start to finish</h2>
+    <p class="chat-demo-sub">Here's what a typical lead request looks like from first message to a scoped order.</p>
 
-    <div class="testimonial-grid">
+    <div class="phone-mockup">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="chat-bubbles">
 
-      <div class="testimonial-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="quote">
-          "Minju consistently delivers high-quality, well-researched lead lists. The data is accurate, reliable, and tailored to our specific requirements. His attention to detail and communication make him a valuable partner."
-        </p>
-        <p class="client-name"><strong>Jonas</strong></p>
+          <div class="chat-bubble client reveal">
+            <div class="bubble-text">Hi Minju, I'm looking for Amazon seller leads — specifically private label sellers.</div>
+            <div class="avatar avatar-client">C</div>
+          </div>
+
+          <div class="chat-bubble minju reveal">
+            <div class="avatar avatar-minju">M</div>
+            <div class="bubble-text">Happy to help! What monthly revenue range are you targeting?</div>
+          </div>
+
+          <div class="chat-bubble client reveal">
+            <div class="bubble-text">We need sellers doing $50K+ in monthly revenue.</div>
+            <div class="avatar avatar-client">C</div>
+          </div>
+
+          <div class="chat-bubble minju reveal">
+            <div class="avatar avatar-minju">M</div>
+            <div class="bubble-text">Got it — private label, $50K+ monthly revenue. How many leads do you need, and in what batch size?</div>
+          </div>
+
+          <div class="chat-bubble client reveal">
+            <div class="bubble-text">5,000 leads per batch. We'll also need personal phone numbers included, not just business lines.</div>
+            <div class="avatar avatar-client">C</div>
+          </div>
+
+          <div class="chat-bubble minju reveal">
+            <div class="avatar avatar-minju">M</div>
+            <div class="bubble-text">Understood — 5,000 private label Amazon sellers, $50K+ monthly revenue, with personal phone numbers. I'll put together a free sample first so you can check quality before we run the full batch.</div>
+          </div>
+
+          <div class="chat-bubble client reveal">
+            <div class="bubble-text">Sounds great, let's do it.</div>
+            <div class="avatar avatar-client">C</div>
+          </div>
+
+        </div>
       </div>
-
-      <div class="testimonial-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="quote">
-          "We've worked with Minju on multiple lead generation projects, and the quality has always been excellent. The leads are manually researched, verified, and delivered on time. Highly recommended."
-        </p>
-        <p class="client-name"><strong>Peter</strong></p>
-      </div>
-
-      <div class="testimonial-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="quote">
-          "Professional, responsive, and committed to delivering quality work. The lead lists were customized to my requirements and helped save significant research time."
-        </p>
-        <p class="client-name"><strong>Julia</strong></p>
-      </div>
-
-    </div>
-  </div>
-</section>
+      <div class="phone-home-bar"></div>
     </div>
   </div>
 </section>
@@ -846,6 +1010,36 @@
     });
   }, { threshold: 0.2 });
   revealEls.forEach(el => revealObserver.observe(el));
+
+  // Count-up animation for the numeric stats (Orders Delivered, Job Success, Years Experience)
+  const countEls = document.querySelectorAll('.num[data-count-to]');
+  function animateCount(el){
+    const target = parseInt(el.getAttribute('data-count-to'), 10);
+    const suffix = el.getAttribute('data-suffix') || '';
+    const duration = 1600;
+    const start = performance.now();
+    function tick(now){
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      const current = Math.floor(eased * target);
+      el.textContent = current.toLocaleString('en-US') + suffix;
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        el.textContent = target.toLocaleString('en-US') + suffix;
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCount(entry.target);
+        countObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  countEls.forEach(el => countObserver.observe(el));
 
   // Animate the Global Reach bars from 0 to their target width every time
   // the section scrolls into view (replays each time, not just once)
