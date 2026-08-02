@@ -292,6 +292,52 @@
     margin:10px 0 30px;
   }
 
+  /* TRUSTED BY — SCROLLING MARQUEE */
+  .trusted-by{
+    background:var(--paper-soft);
+    padding:56px 0 48px;
+  }
+  .trusted-by h2{margin-top:6px;}
+  .marquee{
+    overflow:hidden;
+    margin-top:28px;
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee-track{
+    display:flex;
+    width:max-content;
+    gap:14px;
+    animation:marqueeScroll 38s linear infinite;
+  }
+  .marquee-item{
+    font-family:var(--font-mono);
+    font-size:13px;
+    font-weight:600;
+    white-space:nowrap;
+    letter-spacing:0.02em;
+    padding:9px 16px;
+    border-radius:20px;
+    text-decoration:none;
+    display:inline-block;
+  }
+  .marquee-item.c1{background:rgba(217,143,43,0.14); color:#B8791F; border:1px solid rgba(217,143,43,0.3);}
+  .marquee-item.c2{background:rgba(34,211,238,0.14); color:#0E7C8E; border:1px solid rgba(34,211,238,0.3);}
+  .marquee-item.c3{background:rgba(192,132,252,0.16); color:#7E22CE; border:1px solid rgba(192,132,252,0.35);}
+  .marquee-item.c4{background:rgba(244,114,182,0.14); color:#BE185D; border:1px solid rgba(244,114,182,0.32);}
+  .marquee-item.c5{background:rgba(96,165,250,0.15); color:#1D4ED8; border:1px solid rgba(96,165,250,0.32);}
+  .marquee-item.c6{background:rgba(63,143,98,0.15); color:#2C6B47; border:1px solid rgba(63,143,98,0.32);}
+  .marquee-item.c7{background:rgba(184,121,31,0.14); color:#8f5c17; border:1px solid rgba(184,121,31,0.3);}
+  a.marquee-item:hover{filter:brightness(0.92); cursor:pointer;}
+  @keyframes marqueeScroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  .marquee:hover .marquee-track{animation-play-state:paused;}
+  @media (prefers-reduced-motion:reduce){
+    .marquee-track{animation:none;}
+  }
+
   /* ABOUT */
   .about p{font-size:15.5px; color:var(--ink-text); max-width:680px;}
 
@@ -373,28 +419,96 @@
     margin:18px 0 0;
   }
 
-  /* SPECIALTIES */
-  .cat-grid{
+  /* SPECIALTIES — INTERACTIVE CLICK-TO-EXPAND */
+  .specialties-sub{
+    color:var(--muted);
+    font-size:15px;
+    margin:-10px 0 30px;
+  }
+  .grow-in{
+    opacity:0;
+    transform:scale(0.92);
+    transition:opacity .7s ease, transform .7s cubic-bezier(.16,.9,.3,1);
+  }
+  .grow-in.in-view{
+    opacity:1;
+    transform:scale(1);
+  }
+  @media (prefers-reduced-motion:reduce){
+    .grow-in{opacity:1; transform:none; transition:none;}
+  }
+  .specialties-interactive{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:2px;
-    background:var(--line-light);
-    border:1px solid var(--line-light);
-    border-radius:8px;
-    overflow:hidden;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:24px;
+    align-items:start;
   }
-  @media (max-width:760px){.cat-grid{grid-template-columns:1fr;}}
-  .cat{
-    background:var(--paper-soft);
-    padding:24px;
+  @media (max-width:800px){
+    .specialties-interactive{grid-template-columns:1fr;}
   }
-  .cat h3{
+  .specialty-tabs{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .specialty-tab{
+    text-align:left;
+    background:var(--paper);
+    border:1.5px solid var(--line-light);
+    border-radius:10px;
+    padding:16px 18px;
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    transition:border-color .2s ease, background .2s ease, transform .2s ease;
+  }
+  .specialty-tab:hover{transform:translateX(3px); border-color:var(--amber-dim);}
+  .specialty-tab.active{
+    background:linear-gradient(135deg, rgba(217,143,43,0.12), rgba(217,143,43,0.04));
+    border-color:var(--amber);
+  }
+  .spec-tab-title{
     font-family:var(--font-display);
     font-size:16px;
-    margin:0 0 12px;
+    font-weight:700;
+    color:var(--ink-text);
   }
-  .cat ul{margin:0; padding-left:18px; font-size:14px; color:var(--muted);}
-  .cat li{margin-bottom:5px;}
+  .spec-tab-sub{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--muted);
+  }
+  .specialty-panel{
+    background:var(--paper);
+    border:1px solid var(--line-light);
+    border-radius:12px;
+    padding:32px;
+    min-height:260px;
+  }
+  .specialty-panel-inner{
+    animation:specialtyPop .4s cubic-bezier(.2,.9,.3,1.2);
+  }
+  @keyframes specialtyPop{
+    from{opacity:0; transform:scale(0.94) translateY(6px);}
+    to{opacity:1; transform:scale(1) translateY(0);}
+  }
+  .specialty-panel h3{
+    font-family:var(--font-display);
+    font-size:21px;
+    color:var(--amber-dim);
+    margin:0 0 16px;
+  }
+  .specialty-panel ul{
+    margin:0;
+    padding-left:20px;
+    font-size:15px;
+    color:var(--ink-text);
+    line-height:1.9;
+  }
+  @media (prefers-reduced-motion:reduce){
+    .specialty-panel-inner{animation:none;}
+  }
 
   /* TOOLS */
   .tools{background:var(--ink); color:var(--paper);}
@@ -485,6 +599,31 @@
   }
 
   /* CHAT DEMO — PHONE MOCKUP */
+  .chat-tabs{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin:8px 0 32px;
+  }
+  .chat-tab{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--muted);
+    background:var(--paper);
+    border:1px solid var(--line-light);
+    padding:9px 16px;
+    border-radius:20px;
+    cursor:pointer;
+    transition:background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .chat-tab:hover{border-color:var(--amber-dim);}
+  .chat-tab.active{
+    background:var(--amber);
+    color:var(--ink);
+    border-color:var(--amber);
+  }
   .chat-demo{background:var(--paper-soft);}
   .chat-demo-sub{
     color:var(--muted);
@@ -567,13 +706,29 @@
     color:var(--paper);
     border-bottom-left-radius:4px;
   }
-  .chat-bubbles .chat-bubble:nth-child(1){transition-delay:0s;}
-  .chat-bubbles .chat-bubble:nth-child(2){transition-delay:.25s;}
-  .chat-bubbles .chat-bubble:nth-child(3){transition-delay:.5s;}
-  .chat-bubbles .chat-bubble:nth-child(4){transition-delay:.75s;}
-  .chat-bubbles .chat-bubble:nth-child(5){transition-delay:1s;}
-  .chat-bubbles .chat-bubble:nth-child(6){transition-delay:1.25s;}
-  .chat-bubbles .chat-bubble:nth-child(7){transition-delay:1.5s;}
+  .chat-bubble{
+    opacity:0;
+    transform:translateY(10px);
+    transition:opacity .45s ease, transform .45s ease;
+  }
+  .chat-bubble.shown{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion:reduce){
+    .chat-bubble{transition:none;}
+  }
+
+  /* CONTACT — FORM SLIDES IN FROM THE RIGHT */
+  .slide-in-right{
+    opacity:0;
+    transform:translateX(70px);
+    transition:opacity .7s ease, transform .7s cubic-bezier(.16,.9,.3,1);
+  }
+  .slide-in-right.in-view{
+    opacity:1;
+    transform:translateX(0);
+  }
+  @media (prefers-reduced-motion:reduce){
+    .slide-in-right{opacity:1; transform:none; transition:none;}
+  }
 
   /* CONTACT */
   .contact{background:var(--paper-soft);}
@@ -712,6 +867,50 @@
   </div>
 </section>
 
+<section class="trusted-by">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center;">Trusted By</div>
+    <h2 style="text-align:center;">Trusted by global enterprise leaders</h2>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="marquee-item c1">StartEngine</span>
+      <span class="marquee-item c2">SHEIN U.S.</span>
+      <span class="marquee-item c3">Tapstitch</span>
+      <span class="marquee-item c4">Ninja Partners</span>
+      <span class="marquee-item c5">Add More Colors</span>
+      <span class="marquee-item c6">EQUALICE GmbH</span>
+      <span class="marquee-item c7">amzvisuals.ai</span>
+      <span class="marquee-item c1">Julia Korn Executive &amp; Career Coaching</span>
+      <span class="marquee-item c2">H.P. Kaysser GmbH + Co. KG</span>
+      <span class="marquee-item c3">Seller Support Marketing</span>
+      <span class="marquee-item c4">PPC DOCTOR</span>
+      <span class="marquee-item c5">Novazon</span>
+      <span class="marquee-item c6">SINExByKUBS</span>
+      <span class="marquee-item c7">Amazon</span>
+      <span class="marquee-item c1">TikTok</span>
+      <a class="marquee-item c2" href="https://www.linkedin.com/company/79988567/" target="_blank" rel="noopener">Impact Wolves</a>
+      <!-- duplicated for a seamless infinite scroll loop -->
+      <span class="marquee-item c1">StartEngine</span>
+      <span class="marquee-item c2">SHEIN U.S.</span>
+      <span class="marquee-item c3">Tapstitch</span>
+      <span class="marquee-item c4">Ninja Partners</span>
+      <span class="marquee-item c5">Add More Colors</span>
+      <span class="marquee-item c6">EQUALICE GmbH</span>
+      <span class="marquee-item c7">amzvisuals.ai</span>
+      <span class="marquee-item c1">Julia Korn Executive &amp; Career Coaching</span>
+      <span class="marquee-item c2">H.P. Kaysser GmbH + Co. KG</span>
+      <span class="marquee-item c3">Seller Support Marketing</span>
+      <span class="marquee-item c4">PPC DOCTOR</span>
+      <span class="marquee-item c5">Novazon</span>
+      <span class="marquee-item c6">SINExByKUBS</span>
+      <span class="marquee-item c7">Amazon</span>
+      <span class="marquee-item c1">TikTok</span>
+      <a class="marquee-item c2" href="https://www.linkedin.com/company/79988567/" target="_blank" rel="noopener">Impact Wolves</a>
+    </div>
+  </div>
+</section>
+
 <section class="about" id="about">
   <div class="wrap">
     <div class="eyebrow">About</div>
@@ -757,34 +956,25 @@
   <div class="wrap">
     <div class="eyebrow">What I do</div>
     <h2>Specialties</h2>
-    <div class="cat-grid">
-      <div class="cat reveal">
-        <h3>Lead Generation</h3>
-        <ul>
-          <li>Amazon Seller Leads (Private Label, FBA/FBM, Vendor Central)</li>
-          <li>B2B Lead Generation &amp; Prospect Lists</li>
-          <li>Investor Leads</li>
-          <li>Solar Leads</li>
-          <li>Homeowner Leads / Skip Tracing</li>
-          <li>Real Estate Leads</li>
-        </ul>
+    <p class="specialties-sub">Pick an area below to see exactly what's included.</p>
+
+    <div class="specialties-interactive grow-in">
+      <div class="specialty-tabs">
+        <button class="specialty-tab active" data-spec="leadgen">
+          <span class="spec-tab-title">Lead Generation</span>
+          <span class="spec-tab-sub">Amazon, B2B, Investor, Solar &amp; more</span>
+        </button>
+        <button class="specialty-tab" data-spec="research">
+          <span class="spec-tab-title">Research &amp; Data Collection</span>
+          <span class="spec-tab-sub">LinkedIn, web research, email lists</span>
+        </button>
+        <button class="specialty-tab" data-spec="data">
+          <span class="spec-tab-title">Data &amp; File Services</span>
+          <span class="spec-tab-sub">Data entry, PDF conversion</span>
+        </button>
       </div>
-      <div class="cat reveal">
-        <h3>Research &amp; Data Collection</h3>
-        <ul>
-          <li>LinkedIn Research &amp; Scraping</li>
-          <li>Web Research &amp; Data Mining</li>
-          <li>Email List Building &amp; Verification</li>
-        </ul>
-      </div>
-      <div class="cat reveal">
-        <h3>Data &amp; File Services</h3>
-        <ul>
-          <li>Data Entry &amp; Data Enrichment</li>
-          <li>Excel to PDF Conversion</li>
-          <li>PDF Conversion &amp; Formatting</li>
-        </ul>
-      </div>
+
+      <div class="specialty-panel" id="specialtyPanel"></div>
     </div>
   </div>
 </section>
@@ -913,49 +1103,18 @@
   <div class="wrap" style="text-align:center;">
     <div class="eyebrow">How a request comes together</div>
     <h2>A real conversation, start to finish</h2>
-    <p class="chat-demo-sub">Here's what a typical lead request looks like from first message to a scoped order.</p>
+    <p class="chat-demo-sub">A few examples of what a real lead request looks like, from first message to a scoped order.</p>
+
+    <div class="chat-tabs">
+      <button class="chat-tab active" data-conv="amazon">Amazon Private Label</button>
+      <button class="chat-tab" data-conv="ecommerce">Ecommerce (Stripe / Gmail)</button>
+      <button class="chat-tab" data-conv="erg">Women's ERG Research</button>
+    </div>
 
     <div class="phone-mockup">
       <div class="phone-notch"></div>
       <div class="phone-screen">
-        <div class="chat-bubbles">
-
-          <div class="chat-bubble client reveal">
-            <div class="bubble-text">Hi Minju, I'm looking for Amazon seller leads — specifically private label sellers.</div>
-            <div class="avatar avatar-client">C</div>
-          </div>
-
-          <div class="chat-bubble minju reveal">
-            <div class="avatar avatar-minju">M</div>
-            <div class="bubble-text">Happy to help! What monthly revenue range are you targeting?</div>
-          </div>
-
-          <div class="chat-bubble client reveal">
-            <div class="bubble-text">We need sellers doing $50K+ in monthly revenue.</div>
-            <div class="avatar avatar-client">C</div>
-          </div>
-
-          <div class="chat-bubble minju reveal">
-            <div class="avatar avatar-minju">M</div>
-            <div class="bubble-text">Got it — private label, $50K+ monthly revenue. How many leads do you need, and in what batch size?</div>
-          </div>
-
-          <div class="chat-bubble client reveal">
-            <div class="bubble-text">5,000 leads per batch. We'll also need personal phone numbers included, not just business lines.</div>
-            <div class="avatar avatar-client">C</div>
-          </div>
-
-          <div class="chat-bubble minju reveal">
-            <div class="avatar avatar-minju">M</div>
-            <div class="bubble-text">Understood — 5,000 private label Amazon sellers, $50K+ monthly revenue, with personal phone numbers. I'll put together a free sample first so you can check quality before we run the full batch.</div>
-          </div>
-
-          <div class="chat-bubble client reveal">
-            <div class="bubble-text">Sounds great, let's do it.</div>
-            <div class="avatar avatar-client">C</div>
-          </div>
-
-        </div>
+        <div class="chat-bubbles" id="chatBubbles"></div>
       </div>
       <div class="phone-home-bar"></div>
     </div>
@@ -975,25 +1134,27 @@
 </a>
     </div>
 
-    <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="7df4e95a-d03c-424e-8ab6-084da23f16b3">
-      <input type="checkbox" name="botcheck" style="display:none;">
-      <div class="form-field">
-        <label for="cname">Name</label>
-        <input type="text" id="cname" name="name" required>
-      </div>
-      <div class="form-field">
-        <label for="cemail">Email</label>
-        <input type="email" id="cemail" name="email" required>
-      </div>
-      <div class="form-field">
-        <label for="cdesc">Description</label>
-        <textarea id="cdesc" name="message" rows="5" placeholder="Tell me about your target market and requirements..." required></textarea>
-      </div>
-      <button type="submit" class="contact-btn">Send Message</button>
-      <div id="contactSuccess" class="contact-success">Message sent — I'll get back to you shortly.</div>
-      <div id="contactError" class="contact-error">Something went wrong — please email me directly instead.</div>
-    </form>
+    <div class="slide-in-right">
+      <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="7df4e95a-d03c-424e-8ab6-084da23f16b3">
+        <input type="checkbox" name="botcheck" style="display:none;">
+        <div class="form-field">
+          <label for="cname">Name</label>
+          <input type="text" id="cname" name="name" required>
+        </div>
+        <div class="form-field">
+          <label for="cemail">Email</label>
+          <input type="email" id="cemail" name="email" required>
+        </div>
+        <div class="form-field">
+          <label for="cdesc">Description</label>
+          <textarea id="cdesc" name="message" rows="5" placeholder="Tell me about your target market and requirements..." required></textarea>
+        </div>
+        <button type="submit" class="contact-btn">Send Message</button>
+        <div id="contactSuccess" class="contact-success">Message sent — I'll get back to you shortly.</div>
+        <div id="contactError" class="contact-error">Something went wrong — please email me directly instead.</div>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -1010,6 +1171,87 @@
     });
   }, { threshold: 0.2 });
   revealEls.forEach(el => revealObserver.observe(el));
+
+  // Chat demo — switchable scripted conversation examples
+  const conversations = {
+    amazon: [
+      { side: "client", text: "Hi Minju, I'm looking for Amazon seller leads — specifically private label sellers." },
+      { side: "minju", text: "Happy to help! What monthly revenue range are you targeting?" },
+      { side: "client", text: "We need sellers doing $50K+ in monthly revenue." },
+      { side: "minju", text: "Got it — private label, $50K+ monthly revenue. How many leads do you need, and in what batch size?" },
+      { side: "client", text: "5,000 leads per batch. We'll also need personal phone numbers included, not just business lines." },
+      { side: "minju", text: "Understood — 5,000 private label Amazon sellers, $50K+ monthly revenue, with personal phone numbers. I'll put together a free sample first so you can check quality before we run the full batch." },
+      { side: "client", text: "Sounds great, let's do it." },
+    ],
+    ecommerce: [
+      { side: "client", text: "Hi Minju, we need custom Ecommerce leads — not Amazon specific." },
+      { side: "minju", text: "Sure! Any particular tech stack or setup I should filter by?" },
+      { side: "client", text: "Yes — we only want stores using Stripe for payments." },
+      { side: "minju", text: "Got it, Stripe-powered stores. Anything else on the tech side?" },
+      { side: "client", text: "They should also be sending email through Google's SMTP (smtp.google.com)." },
+      { side: "minju", text: "Understood — Ecommerce leads filtered by Stripe payment processing and Google SMTP email setup. I'll prepare a free sample first." },
+      { side: "client", text: "Perfect, let's move forward." },
+    ],
+    erg: [
+      { side: "client", text: "We need research on Women's Employee Resource Groups (ERGs) — USA only." },
+      { side: "minju", text: "Got it. Any exclusions I should apply?" },
+      { side: "client", text: "Please exclude veteran or military ERGs, and skip anything in Spanish." },
+      { side: "minju", text: "Understood. Should I include the source for each entry?" },
+      { side: "client", text: "Yes, always include the source. Also, only one contact per Women's ERG." },
+      { side: "minju", text: "Noted. One more check — I sometimes see general 'DEI' pages that are really about racial diversity, not women specifically. Skip those?" },
+      { side: "client", text: "Yes, skip those. Also skip universities and healthcare systems entirely." },
+      { side: "minju", text: "Got it — USA-only Women's ERGs, one contact each with source included, excluding veteran/military ERGs, Spanish-language pages, general DEI-only listings, universities, and healthcare systems. I'll get started and send a sample." },
+    ],
+  };
+
+  const chatBubblesEl = document.getElementById("chatBubbles");
+  const chatTabs = document.querySelectorAll(".chat-tab");
+  let chatRevealTimers = [];
+
+  function renderConversation(key) {
+    chatRevealTimers.forEach(t => clearTimeout(t));
+    chatRevealTimers = [];
+    chatBubblesEl.innerHTML = "";
+
+    conversations[key].forEach((msg) => {
+      const row = document.createElement("div");
+      row.className = `chat-bubble ${msg.side}`;
+
+      const avatar = document.createElement("div");
+      avatar.className = `avatar ${msg.side === "client" ? "avatar-client" : "avatar-minju"}`;
+      avatar.textContent = msg.side === "client" ? "C" : "M";
+
+      const bubbleText = document.createElement("div");
+      bubbleText.className = "bubble-text";
+      bubbleText.textContent = msg.text;
+
+      if (msg.side === "client") {
+        row.appendChild(bubbleText);
+        row.appendChild(avatar);
+      } else {
+        row.appendChild(avatar);
+        row.appendChild(bubbleText);
+      }
+
+      chatBubblesEl.appendChild(row);
+    });
+
+    const bubbles = chatBubblesEl.querySelectorAll(".chat-bubble");
+    bubbles.forEach((bubble, i) => {
+      const t = setTimeout(() => bubble.classList.add("shown"), i * 380);
+      chatRevealTimers.push(t);
+    });
+  }
+
+  chatTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      chatTabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      renderConversation(tab.getAttribute("data-conv"));
+    });
+  });
+
+  if (chatBubblesEl) renderConversation("amazon");
 
   // Count-up animation for the numeric stats (Orders Delivered, Job Success, Years Experience)
   const countEls = document.querySelectorAll('.num[data-count-to]');
@@ -1066,6 +1308,15 @@
     });
   }, { threshold: 0.4 });
   reachBars.forEach(bar => reachObserver.observe(bar));
+
+  // Contact form slides in from the right when scrolled into view
+  const slideInEls = document.querySelectorAll('.slide-in-right');
+  const slideInObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle('in-view', entry.isIntersecting);
+    });
+  }, { threshold: 0.25 });
+  slideInEls.forEach(el => slideInObserver.observe(el));
 
   const contactForm = document.getElementById('contactForm');
   const contactSuccess = document.getElementById('contactSuccess');
