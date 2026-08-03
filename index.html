@@ -562,9 +562,24 @@
     background:rgba(237,233,222,0.05);
     border:1px solid var(--line-dark);
     border-left:3px solid var(--amber);
+    cursor:pointer;
   }
   .testimonials-highlight .testimonial-card .quote{color:var(--paper);}
   .testimonials-highlight .testimonial-card .client-name{color:var(--muted-on-ink);}
+  .testimonial-card:hover{
+    animation:cardShakeGrow .45s ease forwards;
+  }
+  @keyframes cardShakeGrow{
+    0%{transform:scale(1) rotate(0deg);}
+    20%{transform:scale(1.02) rotate(-1deg);}
+    40%{transform:scale(1.035) rotate(1deg);}
+    60%{transform:scale(1.045) rotate(-1deg);}
+    80%{transform:scale(1.05) rotate(0.6deg);}
+    100%{transform:scale(1.06) rotate(0deg);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .testimonial-card:hover{animation:none;}
+  }
 
   /* TESTIMONIALS (legacy card styles, reused above) */
   .testimonial-grid{
@@ -869,7 +884,6 @@
 
 <section class="trusted-by">
   <div class="wrap">
-    <div class="eyebrow" style="text-align:center;">Trusted By</div>
     <h2 style="text-align:center;">Trusted by global enterprise leaders</h2>
   </div>
   <div class="marquee">
@@ -1109,6 +1123,15 @@
       <button class="chat-tab active" data-conv="amazon">Amazon Private Label</button>
       <button class="chat-tab" data-conv="ecommerce">Ecommerce (Stripe / Gmail)</button>
       <button class="chat-tab" data-conv="erg">Women's ERG Research</button>
+      <button class="chat-tab" data-conv="realestate">Real Estate Leads</button>
+      <button class="chat-tab" data-conv="shopify">Shopify Store Leads</button>
+      <button class="chat-tab" data-conv="otto">Otto Leads</button>
+      <button class="chat-tab" data-conv="kaufland">Kaufland Leads</button>
+      <button class="chat-tab" data-conv="etsy">Etsy Seller Leads</button>
+      <button class="chat-tab" data-conv="mailchimp">Shopify + Mailchimp Users</button>
+      <button class="chat-tab" data-conv="vc">Venture Capital Leads</button>
+      <button class="chat-tab" data-conv="investor">Investor Leads</button>
+      <button class="chat-tab" data-conv="techissue">SPF/DMARC/DKIM &amp; GA4/GTM Issue Leads</button>
     </div>
 
     <div class="phone-mockup">
@@ -1201,6 +1224,60 @@
       { side: "minju", text: "Noted. One more check — I sometimes see general 'DEI' pages that are really about racial diversity, not women specifically. Skip those?" },
       { side: "client", text: "Yes, skip those. Also skip universities and healthcare systems entirely." },
       { side: "minju", text: "Got it — USA-only Women's ERGs, one contact each with source included, excluding veteran/military ERGs, Spanish-language pages, general DEI-only listings, universities, and healthcare systems. I'll get started and send a sample." },
+    ],
+    realestate: [
+      { side: "client", text: "I need real estate leads — buyers and sellers in a specific market." },
+      { side: "minju", text: "Sure! Which market, and are you after buyers, sellers, or both?" },
+      { side: "client", text: "Both, focused on a mid-price range in that area." },
+      { side: "minju", text: "Understood — buyers and sellers, filtered by market and price band. I'll send a free sample first." },
+    ],
+    shopify: [
+      { side: "client", text: "We're looking for Ecommerce leads specifically on Shopify." },
+      { side: "minju", text: "Got it. Any filters — store size, niche, or region?" },
+      { side: "client", text: "Mid-size Shopify stores, US-based, any niche is fine." },
+      { side: "minju", text: "Understood — mid-size, US Shopify stores. I'll prepare a sample batch." },
+    ],
+    otto: [
+      { side: "client", text: "We need Otto marketplace seller leads for the German market." },
+      { side: "minju", text: "Sure! Any category or revenue range to filter by?" },
+      { side: "client", text: "No specific category, just active Otto sellers in Germany." },
+      { side: "minju", text: "Got it — active Otto sellers, Germany. I'll send a free sample first." },
+    ],
+    kaufland: [
+      { side: "client", text: "Can you source Kaufland marketplace seller leads?" },
+      { side: "minju", text: "Yes — any particular category or seller size?" },
+      { side: "client", text: "Mid-size sellers, general categories." },
+      { side: "minju", text: "Understood — mid-size Kaufland sellers across categories. I'll get a sample ready." },
+    ],
+    etsy: [
+      { side: "client", text: "We're looking for Etsy seller leads." },
+      { side: "minju", text: "Sure! Any niche or shop size you're targeting?" },
+      { side: "client", text: "Handmade goods shops with a decent sales history." },
+      { side: "minju", text: "Got it — established handmade-goods Etsy sellers. I'll send a free sample first." },
+    ],
+    mailchimp: [
+      { side: "client", text: "We need Shopify store leads, but specifically ones using Mailchimp for email marketing." },
+      { side: "minju", text: "Understood — Shopify stores with Mailchimp integration. Any region or store size preference?" },
+      { side: "client", text: "US-based, small to mid-size stores." },
+      { side: "minju", text: "Got it — US Shopify + Mailchimp stores, small to mid-size. I'll prepare a sample batch." },
+    ],
+    vc: [
+      { side: "client", text: "We need venture capital leads — partner-level contacts." },
+      { side: "minju", text: "Sure! Any specific investment focus or stage (seed, Series A, etc.)?" },
+      { side: "client", text: "Early-stage focused firms, any sector." },
+      { side: "minju", text: "Understood — early-stage VC partners, verified contacts. I'll send a free sample first." },
+    ],
+    investor: [
+      { side: "client", text: "Looking for investor leads — angels or private equity, not just VC." },
+      { side: "minju", text: "Got it. Any sector or check-size preference?" },
+      { side: "client", text: "Open to most sectors, mid-size check sizes." },
+      { side: "minju", text: "Understood — angel and private equity investors, mid-size checks, open sector. I'll prepare a sample." },
+    ],
+    techissue: [
+      { side: "client", text: "We help businesses fix email deliverability and analytics setup — can you find leads with SPF, DMARC, or DKIM issues?" },
+      { side: "minju", text: "Yes — should I also flag GA4 or GTM tracking issues while researching?" },
+      { side: "client", text: "Yes please, include those too if found." },
+      { side: "minju", text: "Understood — leads flagged for SPF/DMARC/DKIM email authentication issues and GA4/GTM tracking gaps. I'll send a free sample first." },
     ],
   };
 
@@ -1317,6 +1394,71 @@
     });
   }, { threshold: 0.25 });
   slideInEls.forEach(el => slideInObserver.observe(el));
+
+  // Specialties panel grows in on scroll
+  const growInEls = document.querySelectorAll('.grow-in');
+  const growInObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle('in-view', entry.isIntersecting);
+    });
+  }, { threshold: 0.25 });
+  growInEls.forEach(el => growInObserver.observe(el));
+
+  // Specialties — click-to-expand content panel
+  const specialtyData = {
+    leadgen: {
+      title: "Lead Generation",
+      items: [
+        "Amazon Seller Leads (Private Label, FBA/FBM, Vendor Central)",
+        "B2B Lead Generation &amp; Prospect Lists",
+        "Investor Leads",
+        "Solar Leads",
+        "Homeowner Leads / Skip Tracing",
+        "Real Estate Leads",
+      ],
+    },
+    research: {
+      title: "Research &amp; Data Collection",
+      items: [
+        "LinkedIn Research &amp; Scraping",
+        "Web Research &amp; Data Mining",
+        "Email List Building &amp; Verification",
+      ],
+    },
+    data: {
+      title: "Data &amp; File Services",
+      items: [
+        "Data Entry &amp; Data Enrichment",
+        "Excel to PDF Conversion",
+        "PDF Conversion &amp; Formatting",
+      ],
+    },
+  };
+
+  const specialtyPanel = document.getElementById('specialtyPanel');
+  const specialtyTabs = document.querySelectorAll('.specialty-tab');
+
+  function renderSpecialty(key) {
+    const data = specialtyData[key];
+    if (!data || !specialtyPanel) return;
+    const itemsHtml = data.items.map(i => `<li>${i}</li>`).join('');
+    specialtyPanel.innerHTML = `
+      <div class="specialty-panel-inner">
+        <h3>${data.title}</h3>
+        <ul>${itemsHtml}</ul>
+      </div>
+    `;
+  }
+
+  specialtyTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      specialtyTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      renderSpecialty(tab.getAttribute('data-spec'));
+    });
+  });
+
+  if (specialtyPanel) renderSpecialty('leadgen');
 
   const contactForm = document.getElementById('contactForm');
   const contactSuccess = document.getElementById('contactSuccess');
