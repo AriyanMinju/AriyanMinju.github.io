@@ -527,23 +527,72 @@
     color:var(--paper);
   }
 
-  /* WORK */
-  .work-item{
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-    padding:18px 0;
-    border-bottom:1px solid var(--line-light);
+  /* WORK — TRACK RECORD CARDS */
+  .work-sub{
+    color:var(--muted);
+    font-size:15px;
+    margin:-10px 0 30px;
   }
-  .work-item:last-child{border-bottom:none;}
-  .work-item .plat{font-weight:600;}
-  .work-item .desc{color:var(--muted); font-size:14px; margin-top:3px;}
-  .work-item .figure{
+  .work-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
+  @media (max-width:800px){
+    .work-grid{grid-template-columns:1fr;}
+  }
+  .work-card{
+    background:var(--paper);
+    border:1px solid var(--line-light);
+    border-radius:14px;
+    padding:28px;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .work-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 22px 44px -22px rgba(18,22,29,0.28);
+    border-color:var(--amber-dim);
+  }
+  .work-icon{
+    width:46px;
+    height:46px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:16px;
+  }
+  .icon-cyan{background:linear-gradient(135deg, #0891B2, #22D3EE);}
+  .icon-green{background:linear-gradient(135deg, #2C6B47, #3F8F62);}
+  .icon-amber{background:linear-gradient(135deg, #B8791F, #D98F2B);}
+  .work-card .plat{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:16.5px;
+    color:var(--ink-text);
+    margin-bottom:6px;
+  }
+  .work-card .desc{
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.5;
+    margin-bottom:18px;
+  }
+  .work-card .figure{
+    display:inline-block;
     font-family:var(--font-mono);
-    font-size:13px;
-    color:var(--verify);
+    font-size:12.5px;
+    font-weight:600;
+    padding:8px 14px;
+    border-radius:20px;
     white-space:nowrap;
   }
+  .figure-cyan{background:rgba(34,211,238,0.14); color:#0E7C8E;}
+  .figure-green{background:rgba(63,143,98,0.16); color:#2C6B47;}
+  .figure-amber{background:rgba(217,143,43,0.16); color:#B8791F;}
+  .work-grid .work-card:nth-child(1){transition-delay:0s;}
+  .work-grid .work-card:nth-child(2){transition-delay:.15s;}
+  .work-grid .work-card:nth-child(3){transition-delay:.3s;}
 
   /* TESTIMONIALS — HIGHLIGHTED, MIDDLE-OF-PAGE SPOTLIGHT */
   .testimonials-highlight{
@@ -1155,28 +1204,46 @@
 
 <section class="work" id="work">
   <div class="wrap">
-    <div class="eyebrow">Track record</div>
+    <div class="eyebrow">Track Record</div>
     <h2>Where I deliver</h2>
-    <div class="work-item">
-      <div>
+    <p class="work-sub">A steady track record across marketplaces and direct client work.</p>
+
+    <div class="work-grid">
+      <div class="work-card reveal">
+        <div class="work-icon icon-cyan">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="9" width="18" height="12" rx="2" stroke="#fff" stroke-width="1.8"/>
+            <path d="M9 9V6.5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2V9" stroke="#fff" stroke-width="1.8"/>
+          </svg>
+        </div>
         <div class="plat">Upwork</div>
         <div class="desc">Lead generation, LinkedIn research, Amazon seller leads</div>
+        <div class="figure figure-cyan">100% Job Success &middot; Top Rated</div>
       </div>
-      <div class="figure">100% Job Success · Top Rated</div>
-    </div>
-    <div class="work-item">
-      <div>
+
+      <div class="work-card reveal">
+        <div class="work-icon icon-green">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6 13 L11 18 L20 7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <div class="plat">Fiverr</div>
         <div class="desc">Amazon seller leads, ecommerce &amp; B2B lead lists</div>
+        <div class="figure figure-green">500+ orders &middot; $50K+ earned</div>
       </div>
-      <div class="figure">500+ orders · $50K+ earned</div>
-    </div>
-    <div class="work-item">
-      <div>
+
+      <div class="work-card reveal">
+        <div class="work-icon icon-amber">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="13" cy="13" r="9" stroke="#fff" stroke-width="1.8"/>
+            <path d="M13 4 C 9 8, 9 18, 13 22 C 17 18, 17 8, 13 4 Z" stroke="#fff" stroke-width="1.6"/>
+            <path d="M4 13 H22" stroke="#fff" stroke-width="1.6"/>
+          </svg>
+        </div>
         <div class="plat">Direct &amp; Off-Marketplace Clients</div>
         <div class="desc">Large-scale lead generation projects outside Upwork and Fiverr</div>
+        <div class="figure figure-amber">$70K+ earned</div>
       </div>
-      <div class="figure">$70K+ earned</div>
     </div>
   </div>
 </section>
