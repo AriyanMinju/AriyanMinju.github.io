@@ -1253,6 +1253,65 @@
   © 2026 Kamruzzaman Minju · Lead Generation Expert
 </footer>
 
+<div class="modal-overlay" id="leadModalOverlay">
+  <div class="modal-panel">
+    <button type="button" class="modal-close" id="closeLeadModalBtn" aria-label="Close">&times;</button>
+    <div class="eyebrow" style="color:var(--amber);">Request Custom Leads</div>
+    <h3 class="modal-title">Tell me what you need</h3>
+    <p class="modal-sub">Fill this in and I'll follow up with a free sample matched to your requirements.</p>
+
+    <form id="leadModalForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="7df4e95a-d03c-424e-8ab6-084da23f16b3">
+      <input type="hidden" name="subject" value="New Custom Lead Request">
+      <input type="checkbox" name="botcheck" style="display:none;">
+
+      <div class="form-field">
+        <label for="modalName">Name</label>
+        <input type="text" id="modalName" name="name" required>
+      </div>
+
+      <div class="form-field">
+        <label for="modalEmail">Email</label>
+        <input type="email" id="modalEmail" name="email" required>
+      </div>
+
+      <div class="form-field">
+        <label for="modalLeadType">What kind of leads do you need?</label>
+        <select id="modalLeadType" name="lead_type" required>
+          <option value="" disabled selected>Select an option</option>
+          <option>Amazon Private Label</option>
+          <option>Ecommerce (Stripe / Gmail)</option>
+          <option>Women's ERG Research</option>
+          <option>Real Estate Leads</option>
+          <option>Shopify Store Leads</option>
+          <option>Otto Leads</option>
+          <option>Kaufland Leads</option>
+          <option>Etsy Seller Leads</option>
+          <option>Shopify + Mailchimp Users</option>
+          <option>Venture Capital Leads</option>
+          <option>Investor Leads</option>
+          <option>SPF/DMARC/DKIM &amp; GA4/GTM Issue Leads</option>
+          <option value="other">Other (not listed)</option>
+        </select>
+      </div>
+
+      <div class="form-field" id="modalOtherWrap" style="display:none;">
+        <label for="modalOtherType">Please specify</label>
+        <input type="text" id="modalOtherType" name="other_lead_type" placeholder="Describe the lead type you need">
+      </div>
+
+      <div class="form-field">
+        <label for="modalDesc">Description</label>
+        <textarea id="modalDesc" name="message" rows="4" placeholder="Any specific requirements — region, volume, filters, etc." required></textarea>
+      </div>
+
+      <button type="submit" class="contact-btn">Send Request</button>
+      <div id="modalSuccess" class="contact-success">Request sent — I'll get back to you shortly.</div>
+      <div id="modalError" class="contact-error">Something went wrong — please email me directly instead.</div>
+    </form>
+  </div>
+</div>
+
 <script>
   // Fade/slide in Specialties, Portfolio, and Reviews cards as they scroll into view
   const revealEls = document.querySelectorAll('.reveal');
@@ -1614,65 +1673,6 @@
     }
   });
 </script>
-
-<div class="modal-overlay" id="leadModalOverlay">
-  <div class="modal-panel">
-    <button type="button" class="modal-close" id="closeLeadModalBtn" aria-label="Close">&times;</button>
-    <div class="eyebrow" style="color:var(--amber);">Request Custom Leads</div>
-    <h3 class="modal-title">Tell me what you need</h3>
-    <p class="modal-sub">Fill this in and I'll follow up with a free sample matched to your requirements.</p>
-
-    <form id="leadModalForm" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="7df4e95a-d03c-424e-8ab6-084da23f16b3">
-      <input type="hidden" name="subject" value="New Custom Lead Request">
-      <input type="checkbox" name="botcheck" style="display:none;">
-
-      <div class="form-field">
-        <label for="modalName">Name</label>
-        <input type="text" id="modalName" name="name" required>
-      </div>
-
-      <div class="form-field">
-        <label for="modalEmail">Email</label>
-        <input type="email" id="modalEmail" name="email" required>
-      </div>
-
-      <div class="form-field">
-        <label for="modalLeadType">What kind of leads do you need?</label>
-        <select id="modalLeadType" name="lead_type" required>
-          <option value="" disabled selected>Select an option</option>
-          <option>Amazon Private Label</option>
-          <option>Ecommerce (Stripe / Gmail)</option>
-          <option>Women's ERG Research</option>
-          <option>Real Estate Leads</option>
-          <option>Shopify Store Leads</option>
-          <option>Otto Leads</option>
-          <option>Kaufland Leads</option>
-          <option>Etsy Seller Leads</option>
-          <option>Shopify + Mailchimp Users</option>
-          <option>Venture Capital Leads</option>
-          <option>Investor Leads</option>
-          <option>SPF/DMARC/DKIM &amp; GA4/GTM Issue Leads</option>
-          <option value="other">Other (not listed)</option>
-        </select>
-      </div>
-
-      <div class="form-field" id="modalOtherWrap" style="display:none;">
-        <label for="modalOtherType">Please specify</label>
-        <input type="text" id="modalOtherType" name="other_lead_type" placeholder="Describe the lead type you need">
-      </div>
-
-      <div class="form-field">
-        <label for="modalDesc">Description</label>
-        <textarea id="modalDesc" name="message" rows="4" placeholder="Any specific requirements — region, volume, filters, etc." required></textarea>
-      </div>
-
-      <button type="submit" class="contact-btn">Send Request</button>
-      <div id="modalSuccess" class="contact-success">Request sent — I'll get back to you shortly.</div>
-      <div id="modalError" class="contact-error">Something went wrong — please email me directly instead.</div>
-    </form>
-  </div>
-</div>
 
 </body>
 </html>
