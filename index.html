@@ -118,7 +118,7 @@
   }
   @media (max-width:600px){.hero-grid{grid-template-columns:1fr; text-align:center;}}
 
-  /* PHOTO — swap the placeholder for your real photo, see comment below */
+  /* PHOTO */
   .photo-frame{
     width:180px;
     height:180px;
@@ -236,7 +236,7 @@
 
   section{padding:64px 0;}
 
-  /* SCROLL REVEAL — used by Specialties, Portfolio, Reviews cards */
+  /* SCROLL REVEAL */
   .reveal{
     opacity:0;
     transform:translateY(18px);
@@ -292,7 +292,7 @@
     margin:10px 0 30px;
   }
 
-  /* TRUSTED BY — SCROLLING MARQUEE */
+  /* TRUSTED BY */
   .trusted-by{
     background:var(--paper-soft);
     padding:56px 0 48px;
@@ -499,6 +499,8 @@
     border-radius:12px;
     padding:32px;
     min-height:260px;
+    max-height:520px;
+    overflow-y:auto;
   }
   .specialty-panel-inner{
     animation:specialtyPop .4s cubic-bezier(.2,.9,.3,1.2);
@@ -632,7 +634,7 @@
   .work-grid .work-card:nth-child(2){transition-delay:.15s;}
   .work-grid .work-card:nth-child(3){transition-delay:.3s;}
 
-  /* TESTIMONIALS — HIGHLIGHTED, MIDDLE-OF-PAGE SPOTLIGHT */
+  /* TESTIMONIALS — HIGHLIGHTED */
   .testimonials-highlight{
     background:var(--paper);
     padding:72px 0;
@@ -668,7 +670,6 @@
     .testimonial-card:hover{animation:none;}
   }
 
-  /* TESTIMONIALS (legacy card styles, reused above) */
   .testimonial-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -1071,6 +1072,12 @@
     font-family:var(--font-mono);
     font-size:11.5px;
   }
+  footer a{
+    color:var(--muted-on-ink);
+    text-decoration:none;
+    margin:0 10px;
+  }
+  footer a:hover{color:var(--amber);}
 </style>
 </head>
 <body>
@@ -1096,8 +1103,7 @@
   <div class="wrap hero-grid">
     <div class="photo-frame">
       <div class="photo-placeholder">
-        <!-- Swap this span for <img src="photo.jpg" alt="Kamruzzaman Minju"> once a real headshot is ready -->
-        <span>KM</span>
+        <img src="photo.jpg" alt="Kamruzzaman Minju">
       </div>
     </div>
     <div>
@@ -1490,8 +1496,8 @@
 <footer>
   © 2026 Kamruzzaman Minju · Lead Generation Expert
   <div style="margin-top:8px;">
-    <a href="#" style="color:var(--muted-on-ink); text-decoration:none; margin:0 10px;">Terms of Service</a>
-    <a href="">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Privacy Policy</a>
   </div>
 </footer>
 
@@ -1778,28 +1784,111 @@
     leadgen: {
       title: "Lead Generation",
       items: [
-        "Amazon Seller Leads (Private Label, FBA/FBM, Vendor Central)",
-        "B2B Lead Generation &amp; Prospect Lists",
-        "Investor Leads",
-        "Solar Leads",
-        "Homeowner Leads / Skip Tracing",
-        "Real Estate Leads",
+        "B2B Lead Generation",
+        "Amazon Seller Leads",
+        "B2C Lead Generation",
+        "LinkedIn Lead Generation",
+        "Email Lead Generation",
+        "Sales Prospecting",
+        "Prospect List Building",
+        "Contact List Building",
+        "Email List Building",
+        "Web Research",
+        "Market Research",
+        "Data Mining",
+        "Data Collection",
+        "Data Entry",
+        "CRM Data Management",
+        "CRM Data Cleaning",
+        "Lead Qualification",
+        "Cold Email Prospecting",
+        "LinkedIn Outreach",
+        "Influencer Research",
+        "Company Research",
+        "Decision Maker Research",
+        "Skip Tracing",
+        "Real Estate Lead Generation",
+        "E-commerce Lead Generation",
+        "Healthcare Lead Generation",
+        "SaaS Lead Generation",
+        "Financial Services Lead Generation",
+        "Recruitment Lead Generation",
+        "Local Business Lead Generation",
       ],
     },
     research: {
       title: "Research &amp; Data Collection",
       items: [
-        "LinkedIn Research &amp; Scraping",
-        "Web Research &amp; Data Mining",
-        "Email List Building &amp; Verification",
+        "Web Research",
+        "Market Research",
+        "Company Research",
+        "Competitor Research",
+        "Product Research",
+        "Internet Research",
+        "Business Research",
+        "Industry Research",
+        "Academic Research",
+        "Data Collection",
+        "Data Mining",
+        "Data Extraction",
+        "Data Scraping (where permitted by website terms and applicable laws)",
+        "Contact Research",
+        "Email Research",
+        "LinkedIn Research",
+        "Prospect Research",
+        "Lead Research",
+        "Survey Research",
+        "Keyword Research",
+        "Influencer Research",
+        "Real Estate Research",
+        "Supplier Research",
+        "Vendor Research",
+        "Customer Research",
+        "Pricing Research",
+        "Statistical Data Research",
+        "Public Records Research",
+        "Online Database Research",
+        "CRM Data Enrichment",
       ],
     },
     data: {
       title: "Data &amp; File Services",
       items: [
-        "Data Entry &amp; Data Enrichment",
-        "Excel to PDF Conversion",
-        "PDF Conversion &amp; Formatting",
+        "Data Entry",
+        "Data Processing",
+        "Data Cleaning",
+        "Data Formatting",
+        "Data Conversion",
+        "Data Collection",
+        "Data Extraction",
+        "Data Mining",
+        "PDF to Excel",
+        "PDF to Word",
+        "Image to Excel",
+        "Image to Word",
+        "Copy &amp; Paste Tasks",
+        "Spreadsheet Management",
+        "Microsoft Excel",
+        "Google Sheets",
+        "CSV File Management",
+        "File Conversion",
+        "File Organization",
+        "Document Formatting",
+        "OCR (Optical Character Recognition)",
+        "Database Management",
+        "CRM Data Entry",
+        "CRM Data Cleanup",
+        "Data Validation",
+        "Data Annotation",
+        "Data Labeling",
+        "Catalog Data Entry",
+        "Product Data Upload",
+        "File Merging &amp; Splitting",
+        "File Renaming",
+        "Duplicate Data Removal",
+        "Data Deduplication",
+        "Data Enrichment",
+        "Data Quality Assurance",
       ],
     },
   };
