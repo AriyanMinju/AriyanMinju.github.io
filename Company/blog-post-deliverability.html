@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPF, DKIM & DMARC Explained — Leads Expert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="index.html" style="text-decoration:none;"><div class="brand"><span class="name">Leads Expert</span></div></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="pricing.html" class="nav-link">Pricing</a>
+      <a href="blog.html" class="nav-link current">Blog</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="contact.html#request" class="nav-cta" id="openLeadModalBtn">Request Custom Leads</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="wrap blog-post">
+    <div class="eyebrow">Deliverability</div>
+    <h1>SPF, DKIM &amp; DMARC: why your cold emails bounce</h1>
+    <p class="blog-post-meta">By Leads Expert Team</p>
+  </div>
+</section>
+<section>
+  <div class="wrap blog-post blog-post-body">
+    <p>If your outreach emails aren't landing in inboxes, the problem is often invisible &mdash; your domain's email authentication setup, not your message.</p>
+    <h2>SPF (Sender Policy Framework)</h2>
+    <p>Tells receiving servers which mail servers are allowed to send on your domain's behalf. Without it, your emails look easier to spoof &mdash; and spam filters notice.</p>
+    <h2>DKIM (DomainKeys Identified Mail)</h2>
+    <p>Adds a digital signature to your emails, proving the content wasn't altered in transit and really came from your domain.</p>
+    <h2>DMARC (Domain-based Message Authentication)</h2>
+    <p>Builds on both of the above, telling receiving servers what to do if a message fails SPF or DKIM checks &mdash; and gives you visibility into who's sending mail as your domain.</p>
+    <p>Getting all three set up correctly is one of the highest-leverage, most overlooked fixes for cold email deliverability &mdash; often more impactful than rewriting the email itself.</p>
+  </div>
+</section>
+<footer>
+  &copy; 2026 Leads Expert &middot; Lead Generation Company
+  <div style="margin-top:8px;">
+    <a href="#">Terms of Service</a>
+    <a href="#">Privacy Policy</a>
+  </div>
+</footer>
+<div class="modal-overlay" id="leadModalOverlay">
+  <div class="modal-panel">
+    <button type="button" class="modal-close" id="closeLeadModalBtn" aria-label="Close">&times;</button>
+    <div class="eyebrow" style="color:var(--amber);">Request Custom Leads</div>
+    <h3 class="modal-title">Tell me what you need</h3>
+    <p class="modal-sub">Fill this in and we'll follow up with a free sample matched to your requirements.</p>
+
+    <form id="leadModalForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="7df4e95a-d03c-424e-8ab6-084da23f16b3">
+      <input type="hidden" name="subject" value="New Custom Lead Request">
+      <input type="checkbox" name="botcheck" style="display:none;">
+
+      <div class="form-field">
+        <label for="modalName">Name</label>
+        <input type="text" id="modalName" name="name" required>
+      </div>
+      <div class="form-field">
+        <label for="modalEmail">Email</label>
+        <input type="email" id="modalEmail" name="email" required>
+      </div>
+      <div class="form-field">
+        <label for="modalLeadType">What kind of leads do you need?</label>
+        <select id="modalLeadType" name="lead_type" required>
+          <option value="" disabled selected>Select an option</option>
+          <option>Amazon Private Label</option>
+          <option>Ecommerce (Stripe / Gmail)</option>
+          <option>Women's ERG Research</option>
+          <option>Real Estate Leads</option>
+          <option>Shopify Store Leads</option>
+          <option>Otto Leads</option>
+          <option>Kaufland Leads</option>
+          <option>Etsy Seller Leads</option>
+          <option>Shopify + Mailchimp Users</option>
+          <option>Venture Capital Leads</option>
+          <option>Investor Leads</option>
+          <option>SPF/DMARC/DKIM &amp; GA4/GTM Issue Leads</option>
+          <option value="other">Other (not listed)</option>
+        </select>
+      </div>
+      <div class="form-field" id="modalOtherWrap" style="display:none;">
+        <label for="modalOtherType">Please specify</label>
+        <input type="text" id="modalOtherType" name="other_lead_type" placeholder="Describe the lead type you need">
+      </div>
+      <div class="form-field">
+        <label for="modalDesc">Description</label>
+        <textarea id="modalDesc" name="message" rows="4" placeholder="Any specific requirements — region, volume, filters, etc." required></textarea>
+      </div>
+      <button type="submit" class="contact-btn">Send Request</button>
+      <div id="modalSuccess" class="contact-success">Request sent &mdash; we'll get back to you shortly.</div>
+      <div id="modalError" class="contact-error">Something went wrong &mdash; please email us directly instead.</div>
+    </form>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
