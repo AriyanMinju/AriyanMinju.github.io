@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Leads Expert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="index.html" style="text-decoration:none;"><div class="brand"><span class="name">Leads Expert</span></div></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="about.html" class="nav-link current">About</a>
+      <a href="pricing.html" class="nav-link">Pricing</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="contact.html#request" class="nav-cta" id="openLeadModalBtn">Request Custom Leads</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="wrap">
+    <div class="eyebrow">Our Story</div>
+    <h1>About Leads Expert</h1>
+    <p>Verified leads, sourced by hand &mdash; built on 8+ years of hands-on lead generation work.</p>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <div class="eyebrow">Who we are</div>
+    <h2>Verified leads, sourced by hand</h2>
+    <p>We help agencies, marketers, and businesses find their ideal clients through manually researched, verified leads &mdash; not scraped, mass-produced lists. Our work covers Amazon and ecommerce seller leads, B2B prospecting, and specialized niches like solar, investor, and homeowner leads, for clients across the USA, Germany, Spain, UK, France, Netherlands, Austria, Australia, and most other markets worldwide.</p>
+    <p>Every list we deliver goes through manual review before it reaches you, with verified emails to keep bounce rates low. We offer a free sample before any commitment, so you can check quality and format first.</p>
+  </div>
+</section>
+
+<section style="background:var(--paper-soft);">
+  <div class="wrap">
+    <div class="eyebrow">Our Values</div>
+    <h2>How we work</h2>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <h4>Manually verified</h4>
+        <p>Every lead is researched and checked by hand &mdash; never bulk-scraped or auto-generated.</p>
+      </div>
+      <div class="value-card reveal">
+        <h4>Sample before you commit</h4>
+        <p>We always send a free sample batch first, so you can judge quality before ordering.</p>
+      </div>
+      <div class="value-card reveal">
+        <h4>Built for agencies</h4>
+        <p>Our filters and formats are designed around what PPC agencies and account managers actually need.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Team</div>
+    <h2>Meet the team</h2>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-photo">
+          <div class="team-photo-placeholder"><img src="photo.jpg" alt="Kamruzzaman Minju" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+        </div>
+        <h3>Kamruzzaman Minju</h3>
+        <div class="team-role">Founder &amp; Lead Generation Expert</div>
+        <p class="team-bio">8+ years focused specifically on lead generation and data research, with 1,500+ orders delivered across marketplaces and direct clients worldwide.</p>
+      </div>
+    </div>
+    <p style="color:var(--muted); font-size:13.5px; margin-top:24px;">We're a small, focused team today &mdash; and growing as client volume increases. Interested in joining us? Check our <a href="careers.html" style="color:var(--amber-dim); font-weight:600;">Careers page</a>.</p>
+  </div>
+</section>
+<footer>
+  &copy; 2026 Leads Expert &middot; Lead Generation Company
+  <div style="margin-top:8px;">
+    <a href="#">Terms of Service</a>
+    <a href="#">Privacy Policy</a>
+  </div>
+</footer>
+<div class="modal-overlay" id="leadModalOverlay">
+  <div class="modal-panel">
+    <button type="button" class="modal-close" id="closeLeadModalBtn" aria-label="Close">&times;</button>
+    <div class="eyebrow" style="color:var(--amber);">Request Custom Leads</div>
+    <h3 class="modal-title">Tell me what you need</h3>
+    <p class="modal-sub">Fill this in and we'll follow up with a free sample matched to your requirements.</p>
+
+    <form id="leadModalForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="7df4e95a-d03c-424e-8ab6-084da23f16b3">
+      <input type="hidden" name="subject" value="New Custom Lead Request">
+      <input type="checkbox" name="botcheck" style="display:none;">
+
+      <div class="form-field">
+        <label for="modalName">Name</label>
+        <input type="text" id="modalName" name="name" required>
+      </div>
+      <div class="form-field">
+        <label for="modalEmail">Email</label>
+        <input type="email" id="modalEmail" name="email" required>
+      </div>
+      <div class="form-field">
+        <label for="modalLeadType">What kind of leads do you need?</label>
+        <select id="modalLeadType" name="lead_type" required>
+          <option value="" disabled selected>Select an option</option>
+          <option>Amazon Private Label</option>
+          <option>Ecommerce (Stripe / Gmail)</option>
+          <option>Women's ERG Research</option>
+          <option>Real Estate Leads</option>
+          <option>Shopify Store Leads</option>
+          <option>Otto Leads</option>
+          <option>Kaufland Leads</option>
+          <option>Etsy Seller Leads</option>
+          <option>Shopify + Mailchimp Users</option>
+          <option>Venture Capital Leads</option>
+          <option>Investor Leads</option>
+          <option>SPF/DMARC/DKIM &amp; GA4/GTM Issue Leads</option>
+          <option value="other">Other (not listed)</option>
+        </select>
+      </div>
+      <div class="form-field" id="modalOtherWrap" style="display:none;">
+        <label for="modalOtherType">Please specify</label>
+        <input type="text" id="modalOtherType" name="other_lead_type" placeholder="Describe the lead type you need">
+      </div>
+      <div class="form-field">
+        <label for="modalDesc">Description</label>
+        <textarea id="modalDesc" name="message" rows="4" placeholder="Any specific requirements — region, volume, filters, etc." required></textarea>
+      </div>
+      <button type="submit" class="contact-btn">Send Request</button>
+      <div id="modalSuccess" class="contact-success">Request sent &mdash; we'll get back to you shortly.</div>
+      <div id="modalError" class="contact-error">Something went wrong &mdash; please email us directly instead.</div>
+    </form>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Leads Expert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="index.html" style="text-decoration:none;"><div class="brand"><span class="name">Leads Expert</span></div></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="pricing.html" class="nav-link">Pricing</a>
+      <a href="blog.html" class="nav-link current">Blog</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="contact.html#request" class="nav-cta" id="openLeadModalBtn">Request Custom Leads</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="wrap">
+    <div class="eyebrow">Insights</div>
+    <h1>Blog</h1>
+    <p>Notes on lead generation, data quality, and what actually works when reaching out to prospects.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="blog-grid">
+      <a href="blog-post-verified-leads.html" class="blog-card reveal">
+        <div class="blog-thumb thumb-amber">
+          <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="20" stroke="#12161D" stroke-width="2" fill="none"/>
+            <path d="M24 32 L29 38 L41 25" stroke="#12161D" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-tag">Lead Quality</div>
+          <h3>Why "verified" leads actually convert better</h3>
+          <p class="blog-excerpt">The difference between a scraped list and a manually researched one shows up in your reply rate &mdash; here's why.</p>
+        </div>
+      </a>
+
+      <a href="blog-post-cold-email.html" class="blog-card reveal">
+        <div class="blog-thumb thumb-verify">
+          <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="12" y="18" width="40" height="28" rx="3" stroke="#12161D" stroke-width="2" fill="none"/>
+            <path d="M12 20 L32 36 L52 20" stroke="#12161D" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-tag">Outreach</div>
+          <h3>A simple 3-email sequence that gets replies</h3>
+          <p class="blog-excerpt">Most cold outreach fails after email one. Here's the follow-up structure that actually works.</p>
+        </div>
+      </a>
+
+      <a href="blog-post-deliverability.html" class="blog-card reveal">
+        <div class="blog-thumb thumb-ink">
+          <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M32 10 L52 20 V38 C52 48 43 54 32 58 C21 54 12 48 12 38 V20 Z" stroke="#D98F2B" stroke-width="2" fill="none"/>
+            <path d="M24 32 L30 38 L42 24" stroke="#D98F2B" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-tag">Deliverability</div>
+          <h3>SPF, DKIM &amp; DMARC: why your cold emails bounce</h3>
+          <p class="blog-excerpt">If your outreach isn't landing in inboxes, this is usually why &mdash; and how to fix it.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+<footer>
+  &copy; 2026 Leads Expert &middot; Lead Generation Company
+  <div style="margin-top:8px;">
+    <a href="#">Terms of Service</a>
+    <a href="#">Privacy Policy</a>
+  </div>
+</footer>
+<div class="modal-overlay" id="leadModalOverlay">
+  <div class="modal-panel">
+    <button type="button" class="modal-close" id="closeLeadModalBtn" aria-label="Close">&times;</button>
+    <div class="eyebrow" style="color:var(--amber);">Request Custom Leads</div>
+    <h3 class="modal-title">Tell me what you need</h3>
+    <p class="modal-sub">Fill this in and we'll follow up with a free sample matched to your requirements.</p>
+
+    <form id="leadModalForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="7df4e95a-d03c-424e-8ab6-084da23f16b3">
+      <input type="hidden" name="subject" value="New Custom Lead Request">
+      <input type="checkbox" name="botcheck" style="display:none;">
+
+      <div class="form-field">
+        <label for="modalName">Name</label>
+        <input type="text" id="modalName" name="name" required>
+      </div>
+      <div class="form-field">
+        <label for="modalEmail">Email</label>
+        <input type="email" id="modalEmail" name="email" required>
+      </div>
+      <div class="form-field">
+        <label for="modalLeadType">What kind of leads do you need?</label>
+        <select id="modalLeadType" name="lead_type" required>
+          <option value="" disabled selected>Select an option</option>
+          <option>Amazon Private Label</option>
+          <option>Ecommerce (Stripe / Gmail)</option>
+          <option>Women's ERG Research</option>
+          <option>Real Estate Leads</option>
+          <option>Shopify Store Leads</option>
+          <option>Otto Leads</option>
+          <option>Kaufland Leads</option>
+          <option>Etsy Seller Leads</option>
+          <option>Shopify + Mailchimp Users</option>
+          <option>Venture Capital Leads</option>
+          <option>Investor Leads</option>
+          <option>SPF/DMARC/DKIM &amp; GA4/GTM Issue Leads</option>
+          <option value="other">Other (not listed)</option>
+        </select>
+      </div>
+      <div class="form-field" id="modalOtherWrap" style="display:none;">
+        <label for="modalOtherType">Please specify</label>
+        <input type="text" id="modalOtherType" name="other_lead_type" placeholder="Describe the lead type you need">
+      </div>
+      <div class="form-field">
+        <label for="modalDesc">Description</label>
+        <textarea id="modalDesc" name="message" rows="4" placeholder="Any specific requirements — region, volume, filters, etc." required></textarea>
+      </div>
+      <button type="submit" class="contact-btn">Send Request</button>
+      <div id="modalSuccess" class="contact-success">Request sent &mdash; we'll get back to you shortly.</div>
+      <div id="modalError" class="contact-error">Something went wrong &mdash; please email us directly instead.</div>
+    </form>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers — Leads Expert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="index.html" style="text-decoration:none;"><div class="brand"><span class="name">Leads Expert</span></div></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="pricing.html" class="nav-link">Pricing</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="careers.html" class="nav-link current">Careers</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="contact.html#request" class="nav-cta" id="openLeadModalBtn">Request Custom Leads</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="wrap">
+    <div class="eyebrow">Join Us</div>
+    <h1>Careers</h1>
+    <p>We're a small, focused team built around careful, manual research &mdash; not mass automation.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="careers-intro">We're not actively hiring for a specific role right now, but we're always interested in hearing from skilled lead researchers, data specialists, and outreach professionals who care about quality over volume.</p>
+
+    <div class="no-openings">
+      No open positions at the moment &mdash; check back soon, or reach out below and we'll keep your details on file for when we do.
+    </div>
+
+    <div style="text-align:center; margin-top:28px;">
+      <a href="contact.html#request" class="nav-cta" style="font-size:14px; padding:12px 22px;">Get in touch</a>
+    </div>
+  </div>
+</section>
+<footer>
+  &copy; 2026 Leads Expert &middot; Lead Generation Company
+  <div style="margin-top:8px;">
+    <a href="#">Terms of Service</a>
+    <a href="#">Privacy Policy</a>
+  </div>
+</footer>
+<div class="modal-overlay" id="leadModalOverlay">
+  <div class="modal-panel">
+    <button type="button" class="modal-close" id="closeLeadModalBtn" aria-label="Close">&times;</button>
+    <div class="eyebrow" style="color:var(--amber);">Request Custom Leads</div>
+    <h3 class="modal-title">Tell me what you need</h3>
+    <p class="modal-sub">Fill this in and we'll follow up with a free sample matched to your requirements.</p>
+
+    <form id="leadModalForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="7df4e95a-d03c-424e-8ab6-084da23f16b3">
+      <input type="hidden" name="subject" value="New Custom Lead Request">
+      <input type="checkbox" name="botcheck" style="display:none;">
+
+      <div class="form-field">
+        <label for="modalName">Name</label>
+        <input type="text" id="modalName" name="name" required>
+      </div>
+      <div class="form-field">
+        <label for="modalEmail">Email</label>
+        <input type="email" id="modalEmail" name="email" required>
+      </div>
+      <div class="form-field">
+        <label for="modalLeadType">What kind of leads do you need?</label>
+        <select id="modalLeadType" name="lead_type" required>
+          <option value="" disabled selected>Select an option</option>
+          <option>Amazon Private Label</option>
+          <option>Ecommerce (Stripe / Gmail)</option>
+          <option>Women's ERG Research</option>
+          <option>Real Estate Leads</option>
+          <option>Shopify Store Leads</option>
+          <option>Otto Leads</option>
+          <option>Kaufland Leads</option>
+          <option>Etsy Seller Leads</option>
+          <option>Shopify + Mailchimp Users</option>
+          <option>Venture Capital Leads</option>
+          <option>Investor Leads</option>
+          <option>SPF/DMARC/DKIM &amp; GA4/GTM Issue Leads</option>
+          <option value="other">Other (not listed)</option>
+        </select>
+      </div>
+      <div class="form-field" id="modalOtherWrap" style="display:none;">
+        <label for="modalOtherType">Please specify</label>
+        <input type="text" id="modalOtherType" name="other_lead_type" placeholder="Describe the lead type you need">
+      </div>
+      <div class="form-field">
+        <label for="modalDesc">Description</label>
+        <textarea id="modalDesc" name="message" rows="4" placeholder="Any specific requirements — region, volume, filters, etc." required></textarea>
+      </div>
+      <button type="submit" class="contact-btn">Send Request</button>
+      <div id="modalSuccess" class="contact-success">Request sent &mdash; we'll get back to you shortly.</div>
+      <div id="modalError" class="contact-error">Something went wrong &mdash; please email us directly instead.</div>
+    </form>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Leads Expert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="index.html" style="text-decoration:none;"><div class="brand"><span class="name">Leads Expert</span></div></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="pricing.html" class="nav-link">Pricing</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+      <a href="contact.html" class="nav-link current">Contact</a>
+      <a href="contact.html#request" class="nav-cta" id="openLeadModalBtn">Request Custom Leads</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h1>Let's work together</h1>
+    <p>Message us with your target market and requirements &mdash; we'll send a free sample so you can see the quality before committing.</p>
+  </div>
+</section>
+
+<section class="chat-demo">
+  <div class="wrap" style="text-align:center;">
+    <div class="eyebrow">How a request comes together</div>
+    <h2>A real conversation, start to finish</h2>
+    <p class="chat-demo-sub">A few examples of what a real lead request looks like, from first message to a scoped order.</p>
+    <p class="chat-demo-note" style="font-family:var(--font-mono); font-size:11.5px; color:var(--muted); margin-top:-8px;">Illustrative examples based on typical client requests &mdash; not literal message logs.</p>
+
+    <div class="chat-tabs">
+      <button class="chat-tab active" data-conv="amazon">Amazon Private Label</button>
+      <button class="chat-tab" data-conv="ecommerce">Ecommerce (Stripe / Gmail)</button>
+      <button class="chat-tab" data-conv="erg">Women's ERG Research</button>
+      <button class="chat-tab" data-conv="realestate">Real Estate Leads</button>
+      <button class="chat-tab" data-conv="shopify">Shopify Store Leads</button>
+      <button class="chat-tab" data-conv="otto">Otto Leads</button>
+      <button class="chat-tab" data-conv="kaufland">Kaufland Leads</button>
+      <button class="chat-tab" data-conv="etsy">Etsy Seller Leads</button>
+      <button class="chat-tab" data-conv="mailchimp">Shopify + Mailchimp Users</button>
+      <button class="chat-tab" data-conv="vc">Venture Capital Leads</button>
+      <button class="chat-tab" data-conv="investor">Investor Leads</button>
+      <button class="chat-tab" data-conv="techissue">SPF/DMARC/DKIM &amp; GA4/GTM Issue Leads</button>
+    </div>
+
+    <div class="phone-mockup">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="chat-bubbles" id="chatBubbles"></div>
+      </div>
+      <div class="phone-home-bar"></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="request">
+  <div class="wrap">
+    <div class="contact-row">
+      <a class="contact-btn" href="mailto:kamruzzamanmju@gmail.com">Email Us</a>
+      <a class="contact-btn secondary" href="https://www.linkedin.com/in/kamruzzaman-minju-0296b6320/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+
+    <div class="slide-in-right">
+      <div class="contact-panel">
+        <div class="contact-panel-side">
+          <h3>What happens next</h3>
+          <div class="contact-step">
+            <div class="step-icon">1</div>
+            <div>
+              <div class="step-title">You send your requirements</div>
+              <div class="step-desc">Target market, region, and volume needed</div>
+            </div>
+          </div>
+          <div class="contact-step">
+            <div class="step-icon">2</div>
+            <div>
+              <div class="step-title">We send a free sample</div>
+              <div class="step-desc">Usually within 2&ndash;3 business days</div>
+            </div>
+          </div>
+          <div class="contact-step">
+            <div class="step-icon">3</div>
+            <div>
+              <div class="step-title">We scope the full order</div>
+              <div class="step-desc">Once you're happy with the quality</div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="7df4e95a-d03c-424e-8ab6-084da23f16b3">
+          <input type="checkbox" name="botcheck" style="display:none;">
+
+          <div class="form-field icon-field">
+            <label for="cname">Name</label>
+            <div class="input-with-icon">
+              <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="8.5" cy="5.5" r="3" stroke="currentColor" stroke-width="1.4"/><path d="M2.5 15c0-3 2.7-5 6-5s6 2 6 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              <input type="text" id="cname" name="name" required>
+            </div>
+          </div>
+
+          <div class="form-field icon-field">
+            <label for="cemail">Email</label>
+            <div class="input-with-icon">
+              <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="4" width="13" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2.5 4.5 8.5 9 14.5 4.5" stroke="currentColor" stroke-width="1.4"/></svg>
+              <input type="email" id="cemail" name="email" required>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="cdesc">Description</label>
+            <textarea id="cdesc" name="message" rows="4" placeholder="Tell us about your target market and requirements..." required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn-glow">
+            <span>Send Message</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1.5 8 14.5 1.5 10 8l4.5 6.5L1.5 8Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          </button>
+          <div id="contactSuccess" class="contact-success">Message sent &mdash; we'll get back to you shortly.</div>
+          <div id="contactError" class="contact-error">Something went wrong &mdash; please email us directly instead.</div>
+          <p style="font-family:var(--font-mono); font-size:11px; color:var(--muted); margin:0;">Your details are only used to respond to this request &mdash; never shared or sold.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  &copy; 2026 Leads Expert &middot; Lead Generation Company
+  <div style="margin-top:8px;">
+    <a href="#">Terms of Service</a>
+    <a href="#">Privacy Policy</a>
+  </div>
+</footer>
+<div class="modal-overlay" id="leadModalOverlay">
+  <div class="modal-panel">
+    <button type="button" class="modal-close" id="closeLeadModalBtn" aria-label="Close">&times;</button>
+    <div class="eyebrow" style="color:var(--amber);">Request Custom Leads</div>
+    <h3 class="modal-title">Tell me what you need</h3>
+    <p class="modal-sub">Fill this in and we'll follow up with a free sample matched to your requirements.</p>
+
+    <form id="leadModalForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="7df4e95a-d03c-424e-8ab6-084da23f16b3">
+      <input type="hidden" name="subject" value="New Custom Lead Request">
+      <input type="checkbox" name="botcheck" style="display:none;">
+
+      <div class="form-field">
+        <label for="modalName">Name</label>
+        <input type="text" id="modalName" name="name" required>
+      </div>
+      <div class="form-field">
+        <label for="modalEmail">Email</label>
+        <input type="email" id="modalEmail" name="email" required>
+      </div>
+      <div class="form-field">
+        <label for="modalLeadType">What kind of leads do you need?</label>
+        <select id="modalLeadType" name="lead_type" required>
+          <option value="" disabled selected>Select an option</option>
+          <option>Amazon Private Label</option>
+          <option>Ecommerce (Stripe / Gmail)</option>
+          <option>Women's ERG Research</option>
+          <option>Real Estate Leads</option>
+          <option>Shopify Store Leads</option>
+          <option>Otto Leads</option>
+          <option>Kaufland Leads</option>
+          <option>Etsy Seller Leads</option>
+          <option>Shopify + Mailchimp Users</option>
+          <option>Venture Capital Leads</option>
+          <option>Investor Leads</option>
+          <option>SPF/DMARC/DKIM &amp; GA4/GTM Issue Leads</option>
+          <option value="other">Other (not listed)</option>
+        </select>
+      </div>
+      <div class="form-field" id="modalOtherWrap" style="display:none;">
+        <label for="modalOtherType">Please specify</label>
+        <input type="text" id="modalOtherType" name="other_lead_type" placeholder="Describe the lead type you need">
+      </div>
+      <div class="form-field">
+        <label for="modalDesc">Description</label>
+        <textarea id="modalDesc" name="message" rows="4" placeholder="Any specific requirements — region, volume, filters, etc." required></textarea>
+      </div>
+      <button type="submit" class="contact-btn">Send Request</button>
+      <div id="modalSuccess" class="contact-success">Request sent &mdash; we'll get back to you shortly.</div>
+      <div id="modalError" class="contact-error">Something went wrong &mdash; please email us directly instead.</div>
+    </form>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home — Leads Expert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="index.html" style="text-decoration:none;"><div class="brand"><span class="name">Leads Expert</span></div></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link current">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="pricing.html" class="nav-link">Pricing</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="contact.html#request" class="nav-cta" id="openLeadModalBtn">Request Custom Leads</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="photo-frame">
+      <div class="photo-placeholder">
+        <img src="photo.jpg" alt="Kamruzzaman Minju">
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow">Lead Generation Company</div>
+      <h1>Leads Expert</h1>
+      <p class="role">Amazon Seller Leads &middot; B2B Lead Generation &middot; LinkedIn Research &amp; Verified Data</p>
+      <div class="hero-meta">
+        <span>8+ years experience</span>
+        <span>1,500+ orders delivered</span>
+        <span>Worldwide</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat"><div class="num" data-count-to="1500" data-suffix="+">0</div><div class="label">Orders Delivered</div></div>
+      <div class="stat"><div class="num" data-count-to="100" data-suffix="%">0</div><div class="label">Job Success</div></div>
+      <div class="stat"><div class="num" data-count-to="8" data-suffix="+">0</div><div class="label">Years Experience</div></div>
+      <div class="stat"><div class="num">Worldwide</div><div class="label">Client Base</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="trusted-by">
+  <div class="wrap">
+    <h2 style="text-align:center;">Trusted by global enterprise leaders</h2>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="marquee-item c1">StartEngine</span>
+      <span class="marquee-item c2">SHEIN U.S.</span>
+      <span class="marquee-item c3">Tapstitch</span>
+      <span class="marquee-item c4">Ninja Partners</span>
+      <span class="marquee-item c5">Add More Colors</span>
+      <span class="marquee-item c6">EQUALICE GmbH</span>
+      <span class="marquee-item c7">amzvisuals.ai</span>
+      <span class="marquee-item c1">Julia Korn Executive &amp; Career Coaching</span>
+      <span class="marquee-item c2">H.P. Kaysser GmbH + Co. KG</span>
+      <span class="marquee-item c3">Seller Support Marketing</span>
+      <span class="marquee-item c4">PPC DOCTOR</span>
+      <span class="marquee-item c5">Novazon</span>
+      <span class="marquee-item c6">SINExByKUBS</span>
+      <span class="marquee-item c7">Amazon</span>
+      <span class="marquee-item c1">TikTok</span>
+      <a class="marquee-item c2" href="https://www.linkedin.com/company/79988567/" target="_blank" rel="noopener">Impact Wolves</a>
+      <span class="marquee-item c1">StartEngine</span>
+      <span class="marquee-item c2">SHEIN U.S.</span>
+      <span class="marquee-item c3">Tapstitch</span>
+      <span class="marquee-item c4">Ninja Partners</span>
+      <span class="marquee-item c5">Add More Colors</span>
+      <span class="marquee-item c6">EQUALICE GmbH</span>
+      <span class="marquee-item c7">amzvisuals.ai</span>
+      <span class="marquee-item c1">Julia Korn Executive &amp; Career Coaching</span>
+      <span class="marquee-item c2">H.P. Kaysser GmbH + Co. KG</span>
+      <span class="marquee-item c3">Seller Support Marketing</span>
+      <span class="marquee-item c4">PPC DOCTOR</span>
+      <span class="marquee-item c5">Novazon</span>
+      <span class="marquee-item c6">SINExByKUBS</span>
+      <span class="marquee-item c7">Amazon</span>
+      <span class="marquee-item c1">TikTok</span>
+      <a class="marquee-item c2" href="https://www.linkedin.com/company/79988567/" target="_blank" rel="noopener">Impact Wolves</a>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <div class="eyebrow">About Us</div>
+    <h2>Verified leads, sourced by hand</h2>
+    <p style="max-width:680px; font-size:15.5px;">We help agencies, marketers, and businesses find their ideal clients through manually researched, verified leads — not scraped, mass-produced lists. Our work covers Amazon and ecommerce seller leads, B2B prospecting, and specialized niches like solar, investor, and homeowner leads, for clients across the USA, Germany, Spain, UK, France, Netherlands, Austria, Australia, and most other markets worldwide.</p>
+    <p style="max-width:680px; font-size:15.5px;"><a href="about.html" style="color:var(--amber-dim); font-weight:600;">Read more about our story &amp; team &rarr;</a></p>
+  </div>
+</section>
+
+<section class="reach">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--amber);">Global Reach</div>
+    <h2 style="color:var(--paper);">Where our clients are</h2>
+    <div class="reach-panel">
+      <div class="reach-chart">
+        <div class="reach-row">
+          <span class="reach-label">USA</span>
+          <div class="reach-bar-track"><div class="reach-bar bar-cyan" data-width="50"></div></div>
+          <span class="reach-value">50%</span>
+        </div>
+        <div class="reach-row">
+          <span class="reach-label">Germany</span>
+          <div class="reach-bar-track"><div class="reach-bar bar-purple" data-width="25"></div></div>
+          <span class="reach-value">25%</span>
+        </div>
+        <div class="reach-row">
+          <span class="reach-label">UK</span>
+          <div class="reach-bar-track"><div class="reach-bar bar-pink" data-width="20"></div></div>
+          <span class="reach-value">20%</span>
+        </div>
+        <div class="reach-row">
+          <span class="reach-label">Spain</span>
+          <div class="reach-bar-track"><div class="reach-bar bar-blue" data-width="5"></div></div>
+          <span class="reach-value">5%</span>
+        </div>
+      </div>
+    </div>
+    <p class="reach-note">Plus clients across France, Netherlands, Austria, Australia, and other markets worldwide.</p>
+  </div>
+</section>
+
+<section class="portfolio">
+  <div class="wrap">
+    <div class="eyebrow">Portfolio</div>
+    <h2>Recent work</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-card reveal">
+        <div class="portfolio-thumb thumb-amber">
+          <svg class="icon-box" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M32 6 L54 17.5 V46.5 L32 58 L10 46.5 V17.5 Z" stroke="#12161D" stroke-width="2" fill="none"/>
+            <path d="M10 17.5 L32 29 L54 17.5" stroke="#12161D" stroke-width="2" fill="none"/>
+            <path d="M32 29 V58" stroke="#12161D" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Amazon Leads</h3>
+      </div>
+      <div class="portfolio-card reveal">
+        <div class="portfolio-thumb thumb-verify">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M16 22 H48 L44 46 H20 Z" stroke="#12161D" stroke-width="2" fill="none"/>
+            <path d="M16 22 L12 12 H6" stroke="#12161D" stroke-width="2" fill="none"/>
+            <circle class="wheel1" cx="24" cy="52" r="3.5" stroke="#12161D" stroke-width="2" fill="none"/>
+            <circle class="wheel2" cx="40" cy="52" r="3.5" stroke="#12161D" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+        <h3>Ecommerce Leads</h3>
+      </div>
+      <div class="portfolio-card reveal">
+        <div class="portfolio-thumb thumb-ink">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle class="ring-outer" cx="32" cy="32" r="20" stroke="#D98F2B" stroke-width="2" fill="none"/>
+            <circle class="ring-mid" cx="32" cy="32" r="11" stroke="#D98F2B" stroke-width="2" fill="none"/>
+            <circle cx="32" cy="32" r="3" fill="#D98F2B"/>
+          </svg>
+        </div>
+        <h3>Custom Leads</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials-highlight" id="reviews">
+  <div class="wrap">
+    <div class="testimonials-panel">
+      <div class="eyebrow" style="color:var(--amber); text-align:center;">Reviews</div>
+      <h2 style="color:var(--paper); text-align:center;">What Clients Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card reveal">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="quote">"Minju consistently delivers high-quality, well-researched lead lists. The data is accurate, reliable, and tailored to our specific requirements. His attention to detail and communication make him a valuable partner."</p>
+          <p class="client-name"><strong>Jonas</strong></p>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="quote">"We've worked with this team on multiple lead generation projects, and the quality has always been excellent. The leads are manually researched, verified, and delivered on time. Highly recommended."</p>
+          <p class="client-name"><strong>Peter</strong></p>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="quote">"Professional, responsive, and committed to delivering quality work. The lead lists were customized to my requirements and helped save significant research time."</p>
+          <p class="client-name"><strong>Julia</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work">
+  <div class="wrap">
+    <div class="eyebrow">Track Record</div>
+    <h2>Where we deliver</h2>
+    <p class="work-sub">A steady track record across marketplaces and direct client work.</p>
+    <div class="work-grid">
+      <div class="work-card reveal">
+        <div class="work-icon icon-cyan">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="9" width="18" height="12" rx="2" stroke="#fff" stroke-width="1.8"/>
+            <path d="M9 9V6.5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2V9" stroke="#fff" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <div class="plat">Upwork</div>
+        <div class="desc">Lead generation, LinkedIn research, Amazon seller leads</div>
+        <div class="figure figure-cyan">100% Job Success &middot; Top Rated</div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-icon icon-green">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6 13 L11 18 L20 7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="plat">Fiverr</div>
+        <div class="desc">Amazon seller leads, ecommerce &amp; B2B lead lists</div>
+        <div class="figure figure-green">500+ orders &middot; $50K+ earned</div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-icon icon-amber">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="13" cy="13" r="9" stroke="#fff" stroke-width="1.8"/>
+            <path d="M13 4 C 9 8, 9 18, 13 22 C 17 18, 17 8, 13 4 Z" stroke="#fff" stroke-width="1.6"/>
+            <path d="M4 13 H22" stroke="#fff" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <div class="plat">Direct &amp; Off-Marketplace Clients</div>
+        <div class="desc">Large-scale lead generation projects outside Upwork and Fiverr</div>
+        <div class="figure figure-amber">$70K+ earned</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tools">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--amber);">Tools</div>
+    <h2>What we work with</h2>
+    <div class="tool-row">
+      <span class="tool-chip t1">LinkedIn Sales Navigator</span>
+      <span class="tool-chip t2">SalesQL</span>
+      <span class="tool-chip t3">Apollo</span>
+      <span class="tool-chip t4">Clearbit</span>
+      <span class="tool-chip t5">Hunter</span>
+      <span class="tool-chip t6">Name2Email</span>
+      <span class="tool-chip t7">Helium 10</span>
+      <span class="tool-chip t8">SmartScout</span>
+    </div>
+  </div>
+</section>
+<footer>
+  &copy; 2026 Leads Expert &middot; Lead Generation Company
+  <div style="margin-top:8px;">
+    <a href="#">Terms of Service</a>
+    <a href="#">Privacy Policy</a>
+  </div>
+</footer>
+<div class="modal-overlay" id="leadModalOverlay">
+  <div class="modal-panel">
+    <button type="button" class="modal-close" id="closeLeadModalBtn" aria-label="Close">&times;</button>
+    <div class="eyebrow" style="color:var(--amber);">Request Custom Leads</div>
+    <h3 class="modal-title">Tell me what you need</h3>
+    <p class="modal-sub">Fill this in and we'll follow up with a free sample matched to your requirements.</p>
+
+    <form id="leadModalForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="7df4e95a-d03c-424e-8ab6-084da23f16b3">
+      <input type="hidden" name="subject" value="New Custom Lead Request">
+      <input type="checkbox" name="botcheck" style="display:none;">
+
+      <div class="form-field">
+        <label for="modalName">Name</label>
+        <input type="text" id="modalName" name="name" required>
+      </div>
+      <div class="form-field">
+        <label for="modalEmail">Email</label>
+        <input type="email" id="modalEmail" name="email" required>
+      </div>
+      <div class="form-field">
+        <label for="modalLeadType">What kind of leads do you need?</label>
+        <select id="modalLeadType" name="lead_type" required>
+          <option value="" disabled selected>Select an option</option>
+          <option>Amazon Private Label</option>
+          <option>Ecommerce (Stripe / Gmail)</option>
+          <option>Women's ERG Research</option>
+          <option>Real Estate Leads</option>
+          <option>Shopify Store Leads</option>
+          <option>Otto Leads</option>
+          <option>Kaufland Leads</option>
+          <option>Etsy Seller Leads</option>
+          <option>Shopify + Mailchimp Users</option>
+          <option>Venture Capital Leads</option>
+          <option>Investor Leads</option>
+          <option>SPF/DMARC/DKIM &amp; GA4/GTM Issue Leads</option>
+          <option value="other">Other (not listed)</option>
+        </select>
+      </div>
+      <div class="form-field" id="modalOtherWrap" style="display:none;">
+        <label for="modalOtherType">Please specify</label>
+        <input type="text" id="modalOtherType" name="other_lead_type" placeholder="Describe the lead type you need">
+      </div>
+      <div class="form-field">
+        <label for="modalDesc">Description</label>
+        <textarea id="modalDesc" name="message" rows="4" placeholder="Any specific requirements — region, volume, filters, etc." required></textarea>
+      </div>
+      <button type="submit" class="contact-btn">Send Request</button>
+      <div id="modalSuccess" class="contact-success">Request sent &mdash; we'll get back to you shortly.</div>
+      <div id="modalError" class="contact-error">Something went wrong &mdash; please email us directly instead.</div>
+    </form>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Leads Expert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="index.html" style="text-decoration:none;"><div class="brand"><span class="name">Leads Expert</span></div></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="pricing.html" class="nav-link current">Pricing</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="contact.html#request" class="nav-cta" id="openLeadModalBtn">Request Custom Leads</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="wrap">
+    <div class="eyebrow">Pricing</div>
+    <h1>Simple, sample-first pricing</h1>
+    <p>Every package starts with a free sample, so you know exactly what you're paying for before committing.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <h3>Sample Batch</h3>
+        <p class="pricing-tagline">Try before you buy</p>
+        <div class="price-tag">Free</div>
+        <div class="price-note">10&ndash;20 sample leads</div>
+        <ul>
+          <li>Matched to your target criteria</li>
+          <li>Manually researched &amp; verified</li>
+          <li>Delivered in 2&ndash;3 business days</li>
+          <li>No commitment required</li>
+        </ul>
+        <a href="contact.html#request" class="pricing-cta">Request a sample</a>
+      </div>
+
+      <div class="pricing-card featured reveal">
+        <div class="pricing-badge">Most Popular</div>
+        <h3>Standard Package</h3>
+        <p class="pricing-tagline">For ongoing lead volume</p>
+        <div class="price-tag">$XX <span style="font-size:14px; color:var(--muted);">/ 100 leads</span></div>
+        <div class="price-note">Placeholder &mdash; confirm your rate</div>
+        <ul>
+          <li>Full field set (email, LinkedIn, phone, etc.)</li>
+          <li>Custom filters (revenue, region, category)</li>
+          <li>Verified, low-bounce emails</li>
+          <li>Revisions on request</li>
+        </ul>
+        <a href="contact.html#request" class="pricing-cta">Get started</a>
+      </div>
+
+      <div class="pricing-card reveal">
+        <h3>Enterprise / Custom</h3>
+        <p class="pricing-tagline">High-volume &amp; recurring orders</p>
+        <div class="price-tag">Custom</div>
+        <div class="price-note">Volume-based quote</div>
+        <ul>
+          <li>5,000+ leads per batch</li>
+          <li>Dedicated recurring delivery schedule</li>
+          <li>Priority turnaround</li>
+          <li>Custom data fields on request</li>
+        </ul>
+        <a href="contact.html#request" class="pricing-cta">Request a quote</a>
+      </div>
+    </div>
+
+    <div class="pricing-note-block">
+      <strong>Note:</strong> the "$XX" placeholder in the Standard Package is intentional &mdash; actual per-lead or per-batch pricing depends on data fields, verification depth, and volume. Replace it with your real rate before publishing, or keep pricing quote-only if you'd rather not list numbers publicly.
+    </div>
+  </div>
+</section>
+<footer>
+  &copy; 2026 Leads Expert &middot; Lead Generation Company
+  <div style="margin-top:8px;">
+    <a href="#">Terms of Service</a>
+    <a href="#">Privacy Policy</a>
+  </div>
+</footer>
+<div class="modal-overlay" id="leadModalOverlay">
+  <div class="modal-panel">
+    <button type="button" class="modal-close" id="closeLeadModalBtn" aria-label="Close">&times;</button>
+    <div class="eyebrow" style="color:var(--amber);">Request Custom Leads</div>
+    <h3 class="modal-title">Tell me what you need</h3>
+    <p class="modal-sub">Fill this in and we'll follow up with a free sample matched to your requirements.</p>
+
+    <form id="leadModalForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="7df4e95a-d03c-424e-8ab6-084da23f16b3">
+      <input type="hidden" name="subject" value="New Custom Lead Request">
+      <input type="checkbox" name="botcheck" style="display:none;">
+
+      <div class="form-field">
+        <label for="modalName">Name</label>
+        <input type="text" id="modalName" name="name" required>
+      </div>
+      <div class="form-field">
+        <label for="modalEmail">Email</label>
+        <input type="email" id="modalEmail" name="email" required>
+      </div>
+      <div class="form-field">
+        <label for="modalLeadType">What kind of leads do you need?</label>
+        <select id="modalLeadType" name="lead_type" required>
+          <option value="" disabled selected>Select an option</option>
+          <option>Amazon Private Label</option>
+          <option>Ecommerce (Stripe / Gmail)</option>
+          <option>Women's ERG Research</option>
+          <option>Real Estate Leads</option>
+          <option>Shopify Store Leads</option>
+          <option>Otto Leads</option>
+          <option>Kaufland Leads</option>
+          <option>Etsy Seller Leads</option>
+          <option>Shopify + Mailchimp Users</option>
+          <option>Venture Capital Leads</option>
+          <option>Investor Leads</option>
+          <option>SPF/DMARC/DKIM &amp; GA4/GTM Issue Leads</option>
+          <option value="other">Other (not listed)</option>
+        </select>
+      </div>
+      <div class="form-field" id="modalOtherWrap" style="display:none;">
+        <label for="modalOtherType">Please specify</label>
+        <input type="text" id="modalOtherType" name="other_lead_type" placeholder="Describe the lead type you need">
+      </div>
+      <div class="form-field">
+        <label for="modalDesc">Description</label>
+        <textarea id="modalDesc" name="message" rows="4" placeholder="Any specific requirements — region, volume, filters, etc." required></textarea>
+      </div>
+      <button type="submit" class="contact-btn">Send Request</button>
+      <div id="modalSuccess" class="contact-success">Request sent &mdash; we'll get back to you shortly.</div>
+      <div id="modalError" class="contact-error">Something went wrong &mdash; please email us directly instead.</div>
+    </form>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Leads Expert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="index.html" style="text-decoration:none;"><div class="brand"><span class="name">Leads Expert</span></div></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link current">Services</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="pricing.html" class="nav-link">Pricing</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="contact.html#request" class="nav-cta" id="openLeadModalBtn">Request Custom Leads</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="wrap">
+    <div class="eyebrow">What We Do</div>
+    <h1>Services</h1>
+    <p>Verified, manually researched leads and data services &mdash; pick an area below to see exactly what's included.</p>
+  </div>
+</section>
+
+<section class="specialties" style="background:var(--paper-soft);">
+  <div class="wrap">
+    <div class="specialties-interactive grow-in">
+      <div class="specialty-tabs">
+        <button class="specialty-tab active" data-spec="leadgen">
+          <span class="spec-tab-title">Lead Generation</span>
+          <span class="spec-tab-sub">Amazon, B2B, Investor, Solar &amp; more</span>
+        </button>
+        <button class="specialty-tab" data-spec="research">
+          <span class="spec-tab-title">Research &amp; Data Collection</span>
+          <span class="spec-tab-sub">LinkedIn, web research, email lists</span>
+        </button>
+        <button class="specialty-tab" data-spec="data">
+          <span class="spec-tab-title">Data &amp; File Services</span>
+          <span class="spec-tab-sub">Data entry, PDF conversion</span>
+        </button>
+      </div>
+      <div class="specialty-panel" id="specialtyPanel"></div>
+    </div>
+  </div>
+</section>
+
+<section class="tools">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--amber);">Tools</div>
+    <h2>What we work with</h2>
+    <div class="tool-row">
+      <span class="tool-chip t1">LinkedIn Sales Navigator</span>
+      <span class="tool-chip t2">SalesQL</span>
+      <span class="tool-chip t3">Apollo</span>
+      <span class="tool-chip t4">Clearbit</span>
+      <span class="tool-chip t5">Hunter</span>
+      <span class="tool-chip t6">Name2Email</span>
+      <span class="tool-chip t7">Helium 10</span>
+      <span class="tool-chip t8">SmartScout</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="text-align:center;">
+    <h2>Not sure which service fits?</h2>
+    <p style="color:var(--muted); max-width:520px; margin:0 auto 24px;">Tell us what you need and we'll point you to the right service &mdash; or build a custom package.</p>
+    <a href="contact.html#request" class="nav-cta" style="font-size:14px; padding:12px 22px;" id="openLeadModalBtn2">Request Custom Leads</a>
+  </div>
+</section>
+<footer>
+  &copy; 2026 Leads Expert &middot; Lead Generation Company
+  <div style="margin-top:8px;">
+    <a href="#">Terms of Service</a>
+    <a href="#">Privacy Policy</a>
+  </div>
+</footer>
+<div class="modal-overlay" id="leadModalOverlay">
+  <div class="modal-panel">
+    <button type="button" class="modal-close" id="closeLeadModalBtn" aria-label="Close">&times;</button>
+    <div class="eyebrow" style="color:var(--amber);">Request Custom Leads</div>
+    <h3 class="modal-title">Tell me what you need</h3>
+    <p class="modal-sub">Fill this in and we'll follow up with a free sample matched to your requirements.</p>
+
+    <form id="leadModalForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="7df4e95a-d03c-424e-8ab6-084da23f16b3">
+      <input type="hidden" name="subject" value="New Custom Lead Request">
+      <input type="checkbox" name="botcheck" style="display:none;">
+
+      <div class="form-field">
+        <label for="modalName">Name</label>
+        <input type="text" id="modalName" name="name" required>
+      </div>
+      <div class="form-field">
+        <label for="modalEmail">Email</label>
+        <input type="email" id="modalEmail" name="email" required>
+      </div>
+      <div class="form-field">
+        <label for="modalLeadType">What kind of leads do you need?</label>
+        <select id="modalLeadType" name="lead_type" required>
+          <option value="" disabled selected>Select an option</option>
+          <option>Amazon Private Label</option>
+          <option>Ecommerce (Stripe / Gmail)</option>
+          <option>Women's ERG Research</option>
+          <option>Real Estate Leads</option>
+          <option>Shopify Store Leads</option>
+          <option>Otto Leads</option>
+          <option>Kaufland Leads</option>
+          <option>Etsy Seller Leads</option>
+          <option>Shopify + Mailchimp Users</option>
+          <option>Venture Capital Leads</option>
+          <option>Investor Leads</option>
+          <option>SPF/DMARC/DKIM &amp; GA4/GTM Issue Leads</option>
+          <option value="other">Other (not listed)</option>
+        </select>
+      </div>
+      <div class="form-field" id="modalOtherWrap" style="display:none;">
+        <label for="modalOtherType">Please specify</label>
+        <input type="text" id="modalOtherType" name="other_lead_type" placeholder="Describe the lead type you need">
+      </div>
+      <div class="form-field">
+        <label for="modalDesc">Description</label>
+        <textarea id="modalDesc" name="message" rows="4" placeholder="Any specific requirements — region, volume, filters, etc." required></textarea>
+      </div>
+      <button type="submit" class="contact-btn">Send Request</button>
+      <div id="modalSuccess" class="contact-success">Request sent &mdash; we'll get back to you shortly.</div>
+      <div id="modalError" class="contact-error">Something went wrong &mdash; please email us directly instead.</div>
+    </form>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
