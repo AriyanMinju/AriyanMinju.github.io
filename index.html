@@ -330,6 +330,73 @@
   .marquee-item.c6{background:rgba(63,143,98,0.15); color:#2C6B47; border:1px solid rgba(63,143,98,0.32);}
   .marquee-item.c7{background:rgba(184,121,31,0.14); color:#8f5c17; border:1px solid rgba(184,121,31,0.3);}
   a.marquee-item:hover{filter:brightness(0.92); cursor:pointer;}
+
+  /* TRUSTED BY — hover/tap growth tooltip */
+  .marquee-item{position:relative; cursor:default;}
+  .growth-tip{
+    position:absolute;
+    bottom:calc(100% + 12px);
+    left:50%;
+    transform:translateX(-50%) translateY(6px);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .2s ease, transform .2s ease;
+    background:var(--ink);
+    border:1px solid var(--line-dark);
+    border-radius:10px;
+    padding:12px 14px;
+    width:160px;
+    z-index:30;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    white-space:normal;
+  }
+  .growth-tip::after{
+    content:'';
+    position:absolute;
+    top:100%;
+    left:50%;
+    transform:translateX(-50%);
+    border:6px solid transparent;
+    border-top-color:var(--ink);
+  }
+  .marquee-item:hover .growth-tip,
+  .marquee-item:focus .growth-tip,
+  .marquee-item:focus-within .growth-tip{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+    pointer-events:auto;
+  }
+  .growth-tip .g-value{
+    font-family:var(--font-display);
+    font-size:20px;
+    font-weight:700;
+    color:var(--amber);
+  }
+  .growth-tip .g-label{
+    font-family:var(--font-mono);
+    font-size:9.5px;
+    color:var(--muted-on-ink);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+  .growth-tip .g-bar-track{
+    height:6px;
+    background:rgba(255,255,255,0.14);
+    border-radius:4px;
+    overflow:hidden;
+  }
+  .growth-tip .g-bar-fill{
+    display:block;
+    height:100%;
+    background:linear-gradient(90deg, #22D3EE, #1DBF73);
+    border-radius:4px;
+  }
+  @media (max-width:700px){
+    .growth-tip{width:130px; font-size:11px;}
+  }
   @keyframes marqueeScroll{
     from{transform:translateX(0);}
     to{transform:translateX(-50%);}
@@ -1148,41 +1215,42 @@
   </div>
   <div class="marquee">
     <div class="marquee-track">
-      <span class="marquee-item c1">StartEngine</span>
-      <span class="marquee-item c2">SHEIN U.S.</span>
-      <span class="marquee-item c3">Tapstitch</span>
-      <span class="marquee-item c4">Ninja Partners</span>
-      <span class="marquee-item c5">Add More Colors</span>
-      <span class="marquee-item c6">EQUALICE GmbH</span>
-      <span class="marquee-item c7">amzvisuals.ai</span>
-      <span class="marquee-item c1">Julia Korn Executive &amp; Career Coaching</span>
-      <span class="marquee-item c2">H.P. Kaysser GmbH + Co. KG</span>
-      <span class="marquee-item c3">Seller Support Marketing</span>
-      <span class="marquee-item c4">PPC DOCTOR</span>
-      <span class="marquee-item c5">Novazon</span>
-      <span class="marquee-item c6">SINExByKUBS</span>
-      <span class="marquee-item c7">Amazon</span>
-      <span class="marquee-item c1">TikTok</span>
-      <a class="marquee-item c2" href="https://www.linkedin.com/company/79988567/" target="_blank" rel="noopener">Impact Wolves</a>
+      <span class="marquee-item c1" tabindex="0">StartEngine<span class="growth-tip"><span class="g-value">+34%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:34%;"></span></span></span></span>
+      <span class="marquee-item c2" tabindex="0">SHEIN U.S.<span class="growth-tip"><span class="g-value">+62%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:62%;"></span></span></span></span>
+      <span class="marquee-item c3" tabindex="0">Tapstitch<span class="growth-tip"><span class="g-value">+45%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:45%;"></span></span></span></span>
+      <span class="marquee-item c4" tabindex="0">Ninja Partners<span class="growth-tip"><span class="g-value">+78%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:78%;"></span></span></span></span>
+      <span class="marquee-item c5" tabindex="0">Add More Colors<span class="growth-tip"><span class="g-value">+51%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:51%;"></span></span></span></span>
+      <span class="marquee-item c6" tabindex="0">EQUALICE GmbH<span class="growth-tip"><span class="g-value">+90%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:90%;"></span></span></span></span>
+      <span class="marquee-item c7" tabindex="0">amzvisuals.ai<span class="growth-tip"><span class="g-value">+40%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:40%;"></span></span></span></span>
+      <span class="marquee-item c1" tabindex="0">Julia Korn Executive &amp; Career Coaching<span class="growth-tip"><span class="g-value">+28%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:28%;"></span></span></span></span>
+      <span class="marquee-item c2" tabindex="0">H.P. Kaysser GmbH + Co. KG<span class="growth-tip"><span class="g-value">+66%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:66%;"></span></span></span></span>
+      <span class="marquee-item c3" tabindex="0">Seller Support Marketing<span class="growth-tip"><span class="g-value">+55%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:55%;"></span></span></span></span>
+      <span class="marquee-item c4" tabindex="0">PPC DOCTOR<span class="growth-tip"><span class="g-value">+82%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:82%;"></span></span></span></span>
+      <span class="marquee-item c5" tabindex="0">Novazon<span class="growth-tip"><span class="g-value">+70%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:70%;"></span></span></span></span>
+      <span class="marquee-item c6" tabindex="0">SINExByKUBS<span class="growth-tip"><span class="g-value">+38%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:38%;"></span></span></span></span>
+      <span class="marquee-item c7" tabindex="0">Amazon<span class="growth-tip"><span class="g-value">+20%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:20%;"></span></span></span></span>
+      <span class="marquee-item c1" tabindex="0">TikTok<span class="growth-tip"><span class="g-value">+60%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:60%;"></span></span></span></span>
+      <a class="marquee-item c2" href="https://www.linkedin.com/company/79988567/" target="_blank" rel="noopener">Impact Wolves<span class="growth-tip"><span class="g-value">+95%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:95%;"></span></span></span></a>
       <!-- duplicated for a seamless infinite scroll loop -->
-      <span class="marquee-item c1">StartEngine</span>
-      <span class="marquee-item c2">SHEIN U.S.</span>
-      <span class="marquee-item c3">Tapstitch</span>
-      <span class="marquee-item c4">Ninja Partners</span>
-      <span class="marquee-item c5">Add More Colors</span>
-      <span class="marquee-item c6">EQUALICE GmbH</span>
-      <span class="marquee-item c7">amzvisuals.ai</span>
-      <span class="marquee-item c1">Julia Korn Executive &amp; Career Coaching</span>
-      <span class="marquee-item c2">H.P. Kaysser GmbH + Co. KG</span>
-      <span class="marquee-item c3">Seller Support Marketing</span>
-      <span class="marquee-item c4">PPC DOCTOR</span>
-      <span class="marquee-item c5">Novazon</span>
-      <span class="marquee-item c6">SINExByKUBS</span>
-      <span class="marquee-item c7">Amazon</span>
-      <span class="marquee-item c1">TikTok</span>
-      <a class="marquee-item c2" href="https://www.linkedin.com/company/79988567/" target="_blank" rel="noopener">Impact Wolves</a>
+      <span class="marquee-item c1" tabindex="0">StartEngine<span class="growth-tip"><span class="g-value">+34%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:34%;"></span></span></span></span>
+      <span class="marquee-item c2" tabindex="0">SHEIN U.S.<span class="growth-tip"><span class="g-value">+62%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:62%;"></span></span></span></span>
+      <span class="marquee-item c3" tabindex="0">Tapstitch<span class="growth-tip"><span class="g-value">+45%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:45%;"></span></span></span></span>
+      <span class="marquee-item c4" tabindex="0">Ninja Partners<span class="growth-tip"><span class="g-value">+78%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:78%;"></span></span></span></span>
+      <span class="marquee-item c5" tabindex="0">Add More Colors<span class="growth-tip"><span class="g-value">+51%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:51%;"></span></span></span></span>
+      <span class="marquee-item c6" tabindex="0">EQUALICE GmbH<span class="growth-tip"><span class="g-value">+90%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:90%;"></span></span></span></span>
+      <span class="marquee-item c7" tabindex="0">amzvisuals.ai<span class="growth-tip"><span class="g-value">+40%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:40%;"></span></span></span></span>
+      <span class="marquee-item c1" tabindex="0">Julia Korn Executive &amp; Career Coaching<span class="growth-tip"><span class="g-value">+28%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:28%;"></span></span></span></span>
+      <span class="marquee-item c2" tabindex="0">H.P. Kaysser GmbH + Co. KG<span class="growth-tip"><span class="g-value">+66%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:66%;"></span></span></span></span>
+      <span class="marquee-item c3" tabindex="0">Seller Support Marketing<span class="growth-tip"><span class="g-value">+55%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:55%;"></span></span></span></span>
+      <span class="marquee-item c4" tabindex="0">PPC DOCTOR<span class="growth-tip"><span class="g-value">+82%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:82%;"></span></span></span></span>
+      <span class="marquee-item c5" tabindex="0">Novazon<span class="growth-tip"><span class="g-value">+70%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:70%;"></span></span></span></span>
+      <span class="marquee-item c6" tabindex="0">SINExByKUBS<span class="growth-tip"><span class="g-value">+38%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:38%;"></span></span></span></span>
+      <span class="marquee-item c7" tabindex="0">Amazon<span class="growth-tip"><span class="g-value">+20%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:20%;"></span></span></span></span>
+      <span class="marquee-item c1" tabindex="0">TikTok<span class="growth-tip"><span class="g-value">+60%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:60%;"></span></span></span></span>
+      <a class="marquee-item c2" href="https://www.linkedin.com/company/79988567/" target="_blank" rel="noopener">Impact Wolves<span class="growth-tip"><span class="g-value">+95%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:95%;"></span></span></span></a>
     </div>
   </div>
+  <p style="font-family:var(--font-mono); font-size:11px; color:var(--muted); text-align:center; margin-top:10px;">*Illustrative example figures &mdash; hover or tap a name to preview.</p>
 </section>
 
 <section class="about" id="about">
