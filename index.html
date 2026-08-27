@@ -263,29 +263,6 @@
   .portfolio-thumb img{width:100%; height:100%; object-fit:cover; transition:transform .35s cubic-bezier(.2,.8,.3,1.1);}
   .portfolio-card:hover .portfolio-thumb img{transform:scale(1.12);}
 
-  #faqBotLauncher{position:fixed; bottom:24px; right:24px; width:58px; height:58px; border-radius:50%; background:linear-gradient(135deg, #F0B454, #D98F2B, #F472B6); background-size:180% 180%; border:none; cursor:pointer; box-shadow:0 10px 26px -8px rgba(217,143,43,0.55); display:flex; align-items:center; justify-content:center; z-index:500; transition:transform .2s ease, box-shadow .2s ease;}
-  #faqBotLauncher:hover{transform:translateY(-2px) scale(1.05);}
-  #faqBotLauncher svg{width:26px; height:26px;}
-  #faqBotWindow{position:fixed; bottom:96px; right:24px; width:340px; max-width:calc(100vw - 32px); height:460px; max-height:calc(100vh - 140px); background:#EDE9DE; border-radius:16px; box-shadow:0 30px 70px -20px rgba(0,0,0,0.45); display:none; flex-direction:column; overflow:hidden; z-index:500; font-family:'Inter', sans-serif; border:1px solid rgba(27,32,41,0.14);}
-  #faqBotWindow.open{display:flex;}
-  #faqBotHeader{background:#12161D; color:#EDE9DE; padding:14px 16px; display:flex; align-items:center; justify-content:space-between;}
-  #faqBotHeader .title{font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:14px; color:#D98F2B;}
-  #faqBotHeader .sub{font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:#8A93A3; margin-top:2px;}
-  #faqBotClose{background:none; border:none; color:#8A93A3; font-size:20px; cursor:pointer; line-height:1;}
-  #faqBotClose:hover{color:#EDE9DE;}
-  #faqBotMessages{flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px;}
-  .faqBotMsg{max-width:85%; font-size:13px; line-height:1.45; padding:9px 12px; border-radius:14px;}
-  .faqBotMsg.bot{background:#FFFFFF; color:#1B2029; align-self:flex-start; border-bottom-left-radius:4px;}
-  .faqBotMsg.user{background:#D98F2B; color:#12161D; align-self:flex-end; border-bottom-right-radius:4px;}
-  #faqBotQuickReplies{display:flex; flex-wrap:wrap; gap:6px; padding:0 16px 12px;}
-  .faqBotQuick{font-family:'IBM Plex Mono', monospace; font-size:11px; background:#FFFFFF; border:1px solid rgba(27,32,41,0.14); color:#1B2029; padding:7px 11px; border-radius:20px; cursor:pointer; transition:border-color .15s ease, background .15s ease;}
-  .faqBotQuick:hover{border-color:#D98F2B; background:#F3E4CE;}
-  #faqBotInputRow{display:flex; gap:8px; padding:12px; border-top:1px solid rgba(27,32,41,0.14); background:#E4DFD1;}
-  #faqBotInput{flex:1; font-family:'Inter', sans-serif; font-size:13px; padding:10px 12px; border:1.5px solid rgba(27,32,41,0.14); border-radius:20px; background:#FFFFFF; outline:none;}
-  #faqBotInput:focus{border-color:#D98F2B;}
-  #faqBotSend{background:#12161D; color:#EDE9DE; border:none; border-radius:50%; width:38px; height:38px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
-  #faqBotSend:hover{background:#D98F2B; color:#12161D;}
-  @media (max-width:480px){ #faqBotWindow{right:16px; bottom:88px; width:calc(100vw - 32px);} #faqBotLauncher{right:16px; bottom:16px;} }
 </style>
 </head>
 <body>
@@ -666,32 +643,6 @@
   </div>
 </div>
 
-<button id="faqBotLauncher" aria-label="Open chat assistant">
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M4 4h16v12H7l-3 3V4Z" stroke="#12161D" stroke-width="1.8" stroke-linejoin="round"/>
-    <circle cx="9" cy="10" r="1" fill="#12161D"/>
-    <circle cx="12" cy="10" r="1" fill="#12161D"/>
-    <circle cx="15" cy="10" r="1" fill="#12161D"/>
-  </svg>
-</button>
-
-<div id="faqBotWindow">
-  <div id="faqBotHeader">
-    <div>
-      <div class="title">Ask a quick question</div>
-      <div class="sub">Usually replies instantly</div>
-    </div>
-    <button id="faqBotClose" aria-label="Close chat">&times;</button>
-  </div>
-  <div id="faqBotMessages"></div>
-  <div id="faqBotQuickReplies"></div>
-  <div id="faqBotInputRow">
-    <input type="text" id="faqBotInput" placeholder="Type a question..." autocomplete="off">
-    <button id="faqBotSend" aria-label="Send">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 8 14.5 1.5 10 8l4.5 6.5L1.5 8Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
-    </button>
-  </div>
-</div>
 
 <script>
   const revealEls = document.querySelectorAll('.reveal');
@@ -991,68 +942,169 @@
     } catch (err) { contactError.style.display = 'block'; }
   });
 
-  (function(){
-    const faqData = [
-      { keywords: ["lead", "leads", "what do you", "what type", "kind of lead"], question: "What kind of leads do you provide?", answer: "I provide manually researched, verified leads — Amazon seller leads (private label, FBA/FBM), ecommerce leads, and custom B2B leads filtered by marketplace, category, revenue, or niche. No scraped or outdated databases." },
-      { keywords: ["verify", "verified", "accurate", "quality", "how do you check"], question: "How do you verify leads?", answer: "Every lead goes through manual review — I check the contact's real name, title, and company match, then verify email deliverability before it ever reaches you. No automated-only scraping." },
-      { keywords: ["sample", "free sample", "trial", "try before"], question: "Can I get a free sample first?", answer: "Yes — I always offer a free sample before any commitment, so you can check the quality and format yourself. Just message me with your target market and requirements." },
-      { keywords: ["price", "pricing", "cost", "how much", "budget"], question: "How much does it cost?", answer: "Pricing depends on batch size, filters, and how specific your target market is. Send me your requirements and budget and I'll work out a quote that fits — feel free to use the contact form below." },
-      { keywords: ["how long", "delivery", "turnaround", "time", "days"], question: "How long does delivery take?", answer: "A free sample is usually ready within 2-3 business days. Full order timelines depend on batch size and how specific the filters are — I'll give you an estimate once I know your requirements." },
-      { keywords: ["tool", "tools", "software", "use", "sales navigator"], question: "What tools do you use?", answer: "LinkedIn Sales Navigator, SalesQL, Apollo, Clearbit, Hunter, Name2Email, Helium 10, and SmartScout, combined with manual verification on every lead." },
-      { keywords: ["german", "germany", "spain", "uk", "europe", "country", "market"], question: "Do you cover markets outside the US?", answer: "Yes — I work with clients across the USA, Germany, Spain, UK, France, Netherlands, Austria, Australia, and other markets worldwide." },
-      { keywords: ["contact", "reach", "email", "get started", "start"], question: "How do I get started?", answer: "Just use the contact form on this page, or email me directly, with your target market and requirements — I'll follow up with a free sample." },
-    ];
-    const fallbackAnswer = "I don't have a canned answer for that yet — please use the contact form below and I'll get back to you directly.";
-    const launcher = document.getElementById('faqBotLauncher');
-    const win = document.getElementById('faqBotWindow');
-    const closeBtn = document.getElementById('faqBotClose');
-    const messagesEl = document.getElementById('faqBotMessages');
-    const quickRepliesEl = document.getElementById('faqBotQuickReplies');
-    const inputEl = document.getElementById('faqBotInput');
-    const sendBtn = document.getElementById('faqBotSend');
-    let opened = false;
-    function addMessage(text, sender){
-      const div = document.createElement('div');
-      div.className = 'faqBotMsg ' + sender;
-      div.textContent = text;
-      messagesEl.appendChild(div);
-      messagesEl.scrollTop = messagesEl.scrollHeight;
-    }
-    function renderQuickReplies(){
-      quickRepliesEl.innerHTML = '';
-      faqData.slice(0, 4).forEach(item => {
-        const btn = document.createElement('button');
-        btn.className = 'faqBotQuick';
-        btn.textContent = item.question;
-        btn.addEventListener('click', () => handleUserMessage(item.question));
-        quickRepliesEl.appendChild(btn);
+</script>
+
+<!-- ============================================================
+     REAL AI CHATBOT WIDGET
+     Replaces the old FAQ bot's <style>, HTML, and <script> sections
+     in your index.html. Same visual design, but now calls a real AI
+     through your Cloudflare Worker instead of canned keyword answers.
+
+     BEFORE USING: set WORKER_URL below to your actual Cloudflare
+     Worker URL (see cloudflare_worker.js setup instructions).
+     ============================================================ -->
+<style>
+  #faqBotLauncher{position:fixed; bottom:24px; right:24px; width:58px; height:58px; border-radius:50%; background:linear-gradient(135deg, #F0B454, #D98F2B, #F472B6); background-size:180% 180%; border:none; cursor:pointer; box-shadow:0 10px 26px -8px rgba(217,143,43,0.55); display:flex; align-items:center; justify-content:center; z-index:500; transition:transform .2s ease, box-shadow .2s ease;}
+  #faqBotLauncher:hover{transform:translateY(-2px) scale(1.05);}
+  #faqBotLauncher svg{width:26px; height:26px;}
+  #faqBotWindow{position:fixed; bottom:96px; right:24px; width:340px; max-width:calc(100vw - 32px); height:460px; max-height:calc(100vh - 140px); background:#EDE9DE; border-radius:16px; box-shadow:0 30px 70px -20px rgba(0,0,0,0.45); display:none; flex-direction:column; overflow:hidden; z-index:500; font-family:'Inter', sans-serif; border:1px solid rgba(27,32,41,0.14);}
+  #faqBotWindow.open{display:flex;}
+  #faqBotHeader{background:#12161D; color:#EDE9DE; padding:14px 16px; display:flex; align-items:center; justify-content:space-between;}
+  #faqBotHeader .title{font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:14px; color:#D98F2B;}
+  #faqBotHeader .sub{font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:#8A93A3; margin-top:2px;}
+  #faqBotClose{background:none; border:none; color:#8A93A3; font-size:20px; cursor:pointer; line-height:1;}
+  #faqBotClose:hover{color:#EDE9DE;}
+  #faqBotMessages{flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px;}
+  .faqBotMsg{max-width:85%; font-size:13px; line-height:1.45; padding:9px 12px; border-radius:14px;}
+  .faqBotMsg.bot{background:#FFFFFF; color:#1B2029; align-self:flex-start; border-bottom-left-radius:4px;}
+  .faqBotMsg.user{background:#D98F2B; color:#12161D; align-self:flex-end; border-bottom-right-radius:4px;}
+  .faqBotMsg.typing{background:#FFFFFF; color:#8A93A3; align-self:flex-start; border-bottom-left-radius:4px; font-style:italic;}
+  #faqBotQuickReplies{display:flex; flex-wrap:wrap; gap:6px; padding:0 16px 12px;}
+  .faqBotQuick{font-family:'IBM Plex Mono', monospace; font-size:11px; background:#FFFFFF; border:1px solid rgba(27,32,41,0.14); color:#1B2029; padding:7px 11px; border-radius:20px; cursor:pointer; transition:border-color .15s ease, background .15s ease;}
+  .faqBotQuick:hover{border-color:#D98F2B; background:#F3E4CE;}
+  #faqBotInputRow{display:flex; gap:8px; padding:12px; border-top:1px solid rgba(27,32,41,0.14); background:#E4DFD1;}
+  #faqBotInput{flex:1; font-family:'Inter', sans-serif; font-size:13px; padding:10px 12px; border:1.5px solid rgba(27,32,41,0.14); border-radius:20px; background:#FFFFFF; outline:none;}
+  #faqBotInput:focus{border-color:#D98F2B;}
+  #faqBotSend{background:#12161D; color:#EDE9DE; border:none; border-radius:50%; width:38px; height:38px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  #faqBotSend:hover{background:#D98F2B; color:#12161D;}
+  #faqBotSend:disabled{opacity:0.5; cursor:default;}
+  @media (max-width:480px){ #faqBotWindow{right:16px; bottom:88px; width:calc(100vw - 32px);} #faqBotLauncher{right:16px; bottom:16px;} }
+</style>
+
+<button id="faqBotLauncher" aria-label="Open chat assistant">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 4h16v12H7l-3 3V4Z" stroke="#12161D" stroke-width="1.8" stroke-linejoin="round"/>
+    <circle cx="9" cy="10" r="1" fill="#12161D"/>
+    <circle cx="12" cy="10" r="1" fill="#12161D"/>
+    <circle cx="15" cy="10" r="1" fill="#12161D"/>
+  </svg>
+</button>
+
+<div id="faqBotWindow">
+  <div id="faqBotHeader">
+    <div>
+      <div class="title">Ask a quick question</div>
+      <div class="sub">AI-powered · usually replies in seconds</div>
+    </div>
+    <button id="faqBotClose" aria-label="Close chat">&times;</button>
+  </div>
+  <div id="faqBotMessages"></div>
+  <div id="faqBotQuickReplies">
+    <button class="faqBotQuick" data-q="What kind of leads do you provide?">What kind of leads do you provide?</button>
+    <button class="faqBotQuick" data-q="Can I get a free sample first?">Can I get a free sample first?</button>
+    <button class="faqBotQuick" data-q="How much does it cost?">How much does it cost?</button>
+    <button class="faqBotQuick" data-q="How long does delivery take?">How long does delivery take?</button>
+  </div>
+  <div id="faqBotInputRow">
+    <input type="text" id="faqBotInput" placeholder="Type a question..." autocomplete="off">
+    <button id="faqBotSend" aria-label="Send">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 8 14.5 1.5 10 8l4.5 6.5L1.5 8Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ---- SET THIS to your actual Cloudflare Worker URL ----
+  const WORKER_URL = "https://minju-chatbot.kamruzzamanmju.workers.dev";
+
+  const launcher = document.getElementById('faqBotLauncher');
+  const win = document.getElementById('faqBotWindow');
+  const closeBtn = document.getElementById('faqBotClose');
+  const messagesEl = document.getElementById('faqBotMessages');
+  const quickRepliesEl = document.getElementById('faqBotQuickReplies');
+  const inputEl = document.getElementById('faqBotInput');
+  const sendBtn = document.getElementById('faqBotSend');
+
+  let conversationHistory = []; // { role: "user"|"assistant", content: "..." }
+  let isWaiting = false;
+
+  function addMessage(text, sender){
+    const div = document.createElement('div');
+    div.className = 'faqBotMsg ' + sender;
+    div.textContent = text;
+    messagesEl.appendChild(div);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    return div;
+  }
+
+  function showTyping(){
+    const div = document.createElement('div');
+    div.className = 'faqBotMsg typing';
+    div.textContent = 'Typing...';
+    div.id = 'faqBotTypingIndicator';
+    messagesEl.appendChild(div);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function removeTyping(){
+    const el = document.getElementById('faqBotTypingIndicator');
+    if (el) el.remove();
+  }
+
+  async function handleUserMessage(text){
+    if (!text.trim() || isWaiting) return;
+
+    addMessage(text, 'user');
+    conversationHistory.push({ role: 'user', content: text });
+    inputEl.value = '';
+    isWaiting = true;
+    sendBtn.disabled = true;
+    showTyping();
+
+    // Hide quick replies after first real question, keeps the chat focused
+    quickRepliesEl.style.display = 'none';
+
+    try {
+      const resp = await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text, history: conversationHistory }),
       });
-    }
-    function findAnswer(userText){
-      const lower = userText.toLowerCase();
-      for (const item of faqData) {
-        if (item.keywords.some(k => lower.includes(k))) { return item.answer; }
+      const data = await resp.json();
+      removeTyping();
+
+      if (data.reply) {
+        addMessage(data.reply, 'bot');
+        conversationHistory.push({ role: 'assistant', content: data.reply });
+      } else {
+        addMessage("Sorry, something went wrong. Please use the contact form below.", 'bot');
       }
-      return fallbackAnswer;
+    } catch (err) {
+      removeTyping();
+      addMessage("Sorry, I couldn't connect right now. Please use the contact form below.", 'bot');
     }
-    function handleUserMessage(text){
-      if (!text.trim()) return;
-      addMessage(text, 'user');
-      inputEl.value = '';
-      setTimeout(() => { addMessage(findAnswer(text), 'bot'); }, 400);
-    }
-    launcher.addEventListener('click', () => {
-      win.classList.add('open');
-      if (!opened) {
-        opened = true;
-        addMessage("Hi! I'm an automated assistant — ask me about leads, pricing, samples, or turnaround time. For anything else, use the contact form below.", 'bot');
-        renderQuickReplies();
-      }
-    });
-    closeBtn.addEventListener('click', () => win.classList.remove('open'));
-    sendBtn.addEventListener('click', () => handleUserMessage(inputEl.value));
-    inputEl.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleUserMessage(inputEl.value); });
-  })();
+
+    isWaiting = false;
+    sendBtn.disabled = false;
+  }
+
+  launcher.addEventListener('click', () => {
+    win.classList.add('open');
+    // No greeting message — bot stays silent until the visitor actually asks something
+  });
+
+  closeBtn.addEventListener('click', () => win.classList.remove('open'));
+
+  sendBtn.addEventListener('click', () => handleUserMessage(inputEl.value));
+  inputEl.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') handleUserMessage(inputEl.value);
+  });
+
+  quickRepliesEl.querySelectorAll('.faqBotQuick').forEach(btn => {
+    btn.addEventListener('click', () => handleUserMessage(btn.dataset.q));
+  });
+})();
 </script>
 
 </body>
