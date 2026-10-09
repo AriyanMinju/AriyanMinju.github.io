@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Kamruzzaman Minju - manually researched, verified B2B, Amazon seller and ecommerce lead lists. Free sample before you commit.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kamruzzaman Minju - Lead Generation Expert">
+<meta property="og:description" content="Manually researched, verified B2B, Amazon seller and ecommerce lead lists. Free sample before you commit.">
+<meta property="og:url" content="https://ariyanminju.github.io/">
+<meta property="og:image" content="https://ariyanminju.github.io/photo.jpg">
+<meta name="twitter:card" content="summary">
 <title>Kamruzzaman Minju — Lead Generation Expert</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -278,6 +285,23 @@
   .portfolio-thumb img{width:100%; height:100%; object-fit:cover; transition:transform .35s cubic-bezier(.2,.8,.3,1.1);}
   .portfolio-card:hover .portfolio-thumb img{transform:scale(1.12);}
 
+  .portfolio-thumb img{cursor:zoom-in;}
+  .lightbox{display:none; position:fixed; inset:0; background:rgba(18,22,29,0.9); z-index:300; align-items:center; justify-content:center; padding:20px; cursor:zoom-out;}
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:96vw; max-height:88vh; border-radius:8px; background:#fff; box-shadow:0 30px 70px -20px rgba(0,0,0,0.6);}
+  .lightbox-close{position:absolute; top:14px; right:20px; background:none; border:none; color:#EDE9DE; font-size:34px; line-height:1; cursor:pointer;}
+  .lightbox-caption{position:absolute; bottom:16px; left:0; right:0; text-align:center; font-family:var(--font-mono); font-size:12.5px; color:#EDE9DE;}
+  @media (max-width:700px){
+    .portfolio-marquee, .reviews-marquee{overflow-x:auto; -webkit-overflow-scrolling:touch; scroll-snap-type:x proximity; -webkit-mask-image:none; mask-image:none;}
+    .portfolio-marquee-track, .reviews-marquee-track{animation:none; padding:0 4px 14px;}
+    .portfolio-card.dup, .testimonial-card.dup{display:none;}
+    .portfolio-card, .testimonial-card{scroll-snap-align:start;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .portfolio-marquee, .reviews-marquee{overflow-x:auto;}
+    .portfolio-card.dup, .testimonial-card.dup{display:none;}
+  }
+
 </style>
 </head>
 <body>
@@ -327,44 +351,43 @@
 </section>
 
 <section class="trusted-by">
-  <div class="wrap"><h2 style="text-align:center;">Trusted by global enterprise leaders</h2></div>
+  <div class="wrap"><h2 style="text-align:center;">Clients I've worked with</h2></div>
   <div class="marquee">
     <div class="marquee-track">
-      <span class="marquee-item c1" tabindex="0">StartEngine<span class="growth-tip"><span class="g-value">+34%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:34%;"></span></span></span></span>
-      <span class="marquee-item c2" tabindex="0">SHEIN U.S.<span class="growth-tip"><span class="g-value">+62%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:62%;"></span></span></span></span>
-      <span class="marquee-item c3" tabindex="0">Tapstitch<span class="growth-tip"><span class="g-value">+45%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:45%;"></span></span></span></span>
-      <span class="marquee-item c4" tabindex="0">Ninja Partners<span class="growth-tip"><span class="g-value">+78%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:78%;"></span></span></span></span>
-      <span class="marquee-item c5" tabindex="0">Add More Colors<span class="growth-tip"><span class="g-value">+51%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:51%;"></span></span></span></span>
-      <span class="marquee-item c6" tabindex="0">EQUALICE GmbH<span class="growth-tip"><span class="g-value">+90%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:90%;"></span></span></span></span>
-      <span class="marquee-item c7" tabindex="0">amzvisuals.ai<span class="growth-tip"><span class="g-value">+40%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:40%;"></span></span></span></span>
-      <span class="marquee-item c1" tabindex="0">Julia Korn Executive &amp; Career Coaching<span class="growth-tip"><span class="g-value">+28%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:28%;"></span></span></span></span>
-      <span class="marquee-item c2" tabindex="0">H.P. Kaysser GmbH + Co. KG<span class="growth-tip"><span class="g-value">+66%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:66%;"></span></span></span></span>
-      <span class="marquee-item c3" tabindex="0">Seller Support Marketing<span class="growth-tip"><span class="g-value">+55%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:55%;"></span></span></span></span>
-      <span class="marquee-item c4" tabindex="0">PPC DOCTOR<span class="growth-tip"><span class="g-value">+82%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:82%;"></span></span></span></span>
-      <span class="marquee-item c5" tabindex="0">Novazon<span class="growth-tip"><span class="g-value">+70%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:70%;"></span></span></span></span>
-      <span class="marquee-item c6" tabindex="0">SINExByKUBS<span class="growth-tip"><span class="g-value">+38%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:38%;"></span></span></span></span>
-      <span class="marquee-item c7" tabindex="0">Amazon<span class="growth-tip"><span class="g-value">+20%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:20%;"></span></span></span></span>
-      <span class="marquee-item c1" tabindex="0">TikTok<span class="growth-tip"><span class="g-value">+60%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:60%;"></span></span></span></span>
-      <a class="marquee-item c2" href="https://www.linkedin.com/company/79988567/" target="_blank" rel="noopener">Impact Wolves<span class="growth-tip"><span class="g-value">+95%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:95%;"></span></span></span></a>
-      <span class="marquee-item c1" tabindex="0">StartEngine<span class="growth-tip"><span class="g-value">+34%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:34%;"></span></span></span></span>
-      <span class="marquee-item c2" tabindex="0">SHEIN U.S.<span class="growth-tip"><span class="g-value">+62%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:62%;"></span></span></span></span>
-      <span class="marquee-item c3" tabindex="0">Tapstitch<span class="growth-tip"><span class="g-value">+45%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:45%;"></span></span></span></span>
-      <span class="marquee-item c4" tabindex="0">Ninja Partners<span class="growth-tip"><span class="g-value">+78%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:78%;"></span></span></span></span>
-      <span class="marquee-item c5" tabindex="0">Add More Colors<span class="growth-tip"><span class="g-value">+51%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:51%;"></span></span></span></span>
-      <span class="marquee-item c6" tabindex="0">EQUALICE GmbH<span class="growth-tip"><span class="g-value">+90%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:90%;"></span></span></span></span>
-      <span class="marquee-item c7" tabindex="0">amzvisuals.ai<span class="growth-tip"><span class="g-value">+40%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:40%;"></span></span></span></span>
-      <span class="marquee-item c1" tabindex="0">Julia Korn Executive &amp; Career Coaching<span class="growth-tip"><span class="g-value">+28%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:28%;"></span></span></span></span>
-      <span class="marquee-item c2" tabindex="0">H.P. Kaysser GmbH + Co. KG<span class="growth-tip"><span class="g-value">+66%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:66%;"></span></span></span></span>
-      <span class="marquee-item c3" tabindex="0">Seller Support Marketing<span class="growth-tip"><span class="g-value">+55%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:55%;"></span></span></span></span>
-      <span class="marquee-item c4" tabindex="0">PPC DOCTOR<span class="growth-tip"><span class="g-value">+82%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:82%;"></span></span></span></span>
-      <span class="marquee-item c5" tabindex="0">Novazon<span class="growth-tip"><span class="g-value">+70%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:70%;"></span></span></span></span>
-      <span class="marquee-item c6" tabindex="0">SINExByKUBS<span class="growth-tip"><span class="g-value">+38%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:38%;"></span></span></span></span>
-      <span class="marquee-item c7" tabindex="0">Amazon<span class="growth-tip"><span class="g-value">+20%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:20%;"></span></span></span></span>
-      <span class="marquee-item c1" tabindex="0">TikTok<span class="growth-tip"><span class="g-value">+60%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:60%;"></span></span></span></span>
-      <a class="marquee-item c2" href="https://www.linkedin.com/company/79988567/" target="_blank" rel="noopener">Impact Wolves<span class="growth-tip"><span class="g-value">+95%</span><span class="g-label">Est. Lead-Driven Growth*</span><span class="g-bar-track"><span class="g-bar-fill" style="width:95%;"></span></span></span></a>
+      <span class="marquee-item c1">StartEngine</span>
+      <span class="marquee-item c2">SHEIN U.S.</span>
+      <span class="marquee-item c3">Tapstitch</span>
+      <span class="marquee-item c4">Ninja Partners</span>
+      <span class="marquee-item c5">Add More Colors</span>
+      <span class="marquee-item c6">EQUALICE GmbH</span>
+      <span class="marquee-item c7">amzvisuals.ai</span>
+      <span class="marquee-item c1">Julia Korn Executive &amp; Career Coaching</span>
+      <span class="marquee-item c2">H.P. Kaysser GmbH + Co. KG</span>
+      <span class="marquee-item c3">Seller Support Marketing</span>
+      <span class="marquee-item c4">PPC DOCTOR</span>
+      <span class="marquee-item c5">Novazon</span>
+      <span class="marquee-item c6">SINExByKUBS</span>
+      <span class="marquee-item c7">Amazon</span>
+      <span class="marquee-item c1">TikTok</span>
+      <a class="marquee-item c2" href="https://www.linkedin.com/company/79988567/" target="_blank" rel="noopener">Impact Wolves</a>
+      <span class="marquee-item c1">StartEngine</span>
+      <span class="marquee-item c2">SHEIN U.S.</span>
+      <span class="marquee-item c3">Tapstitch</span>
+      <span class="marquee-item c4">Ninja Partners</span>
+      <span class="marquee-item c5">Add More Colors</span>
+      <span class="marquee-item c6">EQUALICE GmbH</span>
+      <span class="marquee-item c7">amzvisuals.ai</span>
+      <span class="marquee-item c1">Julia Korn Executive &amp; Career Coaching</span>
+      <span class="marquee-item c2">H.P. Kaysser GmbH + Co. KG</span>
+      <span class="marquee-item c3">Seller Support Marketing</span>
+      <span class="marquee-item c4">PPC DOCTOR</span>
+      <span class="marquee-item c5">Novazon</span>
+      <span class="marquee-item c6">SINExByKUBS</span>
+      <span class="marquee-item c7">Amazon</span>
+      <span class="marquee-item c1">TikTok</span>
+      <a class="marquee-item c2" href="https://www.linkedin.com/company/79988567/" target="_blank" rel="noopener">Impact Wolves</a>
     </div>
   </div>
-  <p style="font-family:var(--font-mono); font-size:11px; color:var(--muted); text-align:center; margin-top:10px;">*Illustrative example figures &mdash; hover or tap a name to preview.</p>
 </section>
 
 <section class="about" id="about">
@@ -414,16 +437,15 @@
     <h2>Recent work</h2>
     <div class="portfolio-marquee">
   <div class="portfolio-marquee-track">
-    <!-- FIRST SET: your 9 existing portfolio-card divs go here, unchanged -->
-    <div class="portfolio-card reveal">
+    <div class="portfolio-card">
       <div class="portfolio-thumb thumb-amber"><img src="For_Amazon_Seller.png" alt="Sample of Amazon US seller leads spreadsheet"></div>
       <h3>Amazon Leads</h3>
     </div>
-    <div class="portfolio-card reveal">
+    <div class="portfolio-card">
       <div class="portfolio-thumb thumb-verify"><img src="ecommerce_Leads.png" alt="Sample of ecommerce leads spreadsheet"></div>
       <h3>Ecommerce Leads</h3>
     </div>
-    <div class="portfolio-card reveal">
+    <div class="portfolio-card">
       <div class="portfolio-thumb thumb-ink">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <circle class="ring-outer" cx="32" cy="32" r="20" stroke="#D98F2B" stroke-width="2" fill="none"/>
@@ -433,11 +455,11 @@
       </div>
       <h3>Custom Leads</h3>
     </div>
-    <div class="portfolio-card reveal">
+    <div class="portfolio-card">
       <div class="portfolio-thumb thumb-amber"><img src="Event_Leads.png" alt="Sample of event leads spreadsheet"></div>
       <h3>Event Leads</h3>
     </div>
-    <div class="portfolio-card reveal">
+    <div class="portfolio-card">
       <div class="portfolio-thumb thumb-verify">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M32 12 L52 28 V50 H12 V28 Z" stroke="#12161D" stroke-width="2" fill="none" stroke-linejoin="round"/>
@@ -446,15 +468,15 @@
       </div>
       <h3>Real Estate Leads</h3>
     </div>
-    <div class="portfolio-card reveal">
+    <div class="portfolio-card">
       <div class="portfolio-thumb thumb-ink"><img src="Etsy_Leads.png" alt="Sample of Etsy seller leads spreadsheet"></div>
       <h3>Etsy Leads</h3>
     </div>
-    <div class="portfolio-card reveal">
+    <div class="portfolio-card">
       <div class="portfolio-thumb thumb-amber"><img src="Venture_Capital_Leads.png" alt="Sample of venture capital leads spreadsheet"></div>
       <h3>Venture Capital Leads</h3>
     </div>
-    <div class="portfolio-card reveal">
+    <div class="portfolio-card">
       <div class="portfolio-thumb thumb-verify">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M32 10 C 42 16, 46 28, 40 42 L 24 42 C 18 28, 22 16, 32 10 Z" stroke="#12161D" stroke-width="2" fill="none" stroke-linejoin="round"/>
@@ -465,7 +487,7 @@
       </div>
       <h3>Kickstarter Leads</h3>
     </div>
-    <div class="portfolio-card reveal">
+    <div class="portfolio-card">
       <div class="portfolio-thumb thumb-ink">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <rect x="22" y="10" width="20" height="44" rx="4" stroke="#D98F2B" stroke-width="2" fill="none"/>
@@ -474,17 +496,15 @@
       </div>
       <h3>Personal Phone Numbers</h3>
     </div>
-
-    <!-- SECOND SET: exact duplicate of the 9 cards above, for seamless looping -->
-    <div class="portfolio-card">
+    <div class="portfolio-card dup" aria-hidden="true">
       <div class="portfolio-thumb thumb-amber"><img src="For_Amazon_Seller.png" alt="Sample of Amazon US seller leads spreadsheet"></div>
       <h3>Amazon Leads</h3>
     </div>
-    <div class="portfolio-card">
+    <div class="portfolio-card dup" aria-hidden="true">
       <div class="portfolio-thumb thumb-verify"><img src="ecommerce_Leads.png" alt="Sample of ecommerce leads spreadsheet"></div>
       <h3>Ecommerce Leads</h3>
     </div>
-    <div class="portfolio-card">
+    <div class="portfolio-card dup" aria-hidden="true">
       <div class="portfolio-thumb thumb-ink">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <circle class="ring-outer" cx="32" cy="32" r="20" stroke="#D98F2B" stroke-width="2" fill="none"/>
@@ -494,11 +514,11 @@
       </div>
       <h3>Custom Leads</h3>
     </div>
-    <div class="portfolio-card">
+    <div class="portfolio-card dup" aria-hidden="true">
       <div class="portfolio-thumb thumb-amber"><img src="Event_Leads.png" alt="Sample of event leads spreadsheet"></div>
       <h3>Event Leads</h3>
     </div>
-    <div class="portfolio-card">
+    <div class="portfolio-card dup" aria-hidden="true">
       <div class="portfolio-thumb thumb-verify">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M32 12 L52 28 V50 H12 V28 Z" stroke="#12161D" stroke-width="2" fill="none" stroke-linejoin="round"/>
@@ -507,15 +527,15 @@
       </div>
       <h3>Real Estate Leads</h3>
     </div>
-    <div class="portfolio-card">
+    <div class="portfolio-card dup" aria-hidden="true">
       <div class="portfolio-thumb thumb-ink"><img src="Etsy_Leads.png" alt="Sample of Etsy seller leads spreadsheet"></div>
       <h3>Etsy Leads</h3>
     </div>
-    <div class="portfolio-card">
+    <div class="portfolio-card dup" aria-hidden="true">
       <div class="portfolio-thumb thumb-amber"><img src="Venture_Capital_Leads.png" alt="Sample of venture capital leads spreadsheet"></div>
       <h3>Venture Capital Leads</h3>
     </div>
-    <div class="portfolio-card">
+    <div class="portfolio-card dup" aria-hidden="true">
       <div class="portfolio-thumb thumb-verify">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M32 10 C 42 16, 46 28, 40 42 L 24 42 C 18 28, 22 16, 32 10 Z" stroke="#12161D" stroke-width="2" fill="none" stroke-linejoin="round"/>
@@ -526,7 +546,7 @@
       </div>
       <h3>Kickstarter Leads</h3>
     </div>
-    <div class="portfolio-card">
+    <div class="portfolio-card dup" aria-hidden="true">
       <div class="portfolio-thumb thumb-ink">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <rect x="22" y="10" width="20" height="44" rx="4" stroke="#D98F2B" stroke-width="2" fill="none"/>
@@ -547,7 +567,6 @@
       <h2 style="color:var(--paper); text-align:center;">What Clients Say</h2>
       <div class="reviews-marquee">
   <div class="reviews-marquee-track">
-    <!-- FIRST SET -->
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
       <p class="quote">"Minju consistently delivers high-quality, well-researched lead lists. The data is accurate, reliable, and tailored to our specific requirements. His attention to detail and communication make him a valuable partner."</p>
@@ -570,7 +589,7 @@
     </div>
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
-      <p class="quote">"This is not our first order from Minju — we've been regularly purchasing data for almost a year now, and we're absolutely satisfied every single time. Communication, quality, and reliability are consistently excellent. Definitely recommended — 5 stars without hesitation! Top service!"</p>
+      <p class="quote">"This is not our first order from MINJU — we’ve been regularly purchasing data for almost a year now, and we’re absolutely satisfied every single time. Communication, quality, and reliability are consistently excellent. Definitely recommended — 5 stars without hesitation! TOP service!"</p>
       <p class="client-name"><strong>Nadia</strong></p>
     </div>
     <div class="testimonial-card">
@@ -585,99 +604,97 @@
     </div>
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
-      <p class="quote">"Minju truly exceeded my expectations in the sales domain, delivering top-notch work with remarkable professionalism and attention to detail. Collaborating was a breeze — highly responsive and consistently went above and beyond in delivering on time. Highly recommended!"</p>
+      <p class="quote">"Minju truly EXCEEDED my expectations in the sales domain, delivering top-notch work with remarkable professionalism and ATTENTION to detail. 😊 Collaborating with her was a breeze, as she was highly responsive and consistently went above and beyond in delivering on time. Highly recommended!"</p>
       <p class="client-name"><strong>Will</strong></p>
     </div>
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
-      <p class="quote">"Prompt communication. Followed instructions as described. Executed tasks with professionalism and fast work. I'm eternally grateful for the experience. My thanks."</p>
+      <p class="quote">"Prompt communication. Followed instructions as described to them. Executed tasks with professionalism and fast work. I'm eternally grateful for the experience. My thanks"</p>
       <p class="client-name"><strong>Andrel</strong></p>
     </div>
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
-      <p class="quote">"Brilliant freelancer! Very quick communication, went above and beyond and did everything that I asked, easy 5/5."</p>
+      <p class="quote">"Brilliant freelancer! Very quick communication, went above and beyond and did everything that I asked, easy 5/5"</p>
       <p class="client-name"><strong>Josh</strong></p>
     </div>
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
-      <p class="quote">"Minju truly impressed with exceptional data interpretation and presentation skills, making the delivery flawless and insightful. Working together was a breeze — consistently went above and beyond expectations. Anyone looking for a top-notch sales freelancer won't be disappointed!"</p>
+      <p class="quote">"Minju truly IMPRESSED with her exceptional data interpretation and presentation skills, making the delivery flawless and insightful. Working with her was a breeze, as she consistently went above and beyond expectations. Anyone looking for a top-notch sales freelancer won't be disappointed!"</p>
       <p class="client-name"><strong>Patel</strong></p>
     </div>
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
-      <p class="quote">"Professional and gets the job done. Communicated well when a pivot was needed and delivered in flying colors. Got me emails and phone numbers, along with the location of the businesses."</p>
+      <p class="quote">"Professional and gets the job done. Communicated well when a pivot was needed and delivered in flying colors. Got me emails and phone numbers. Along with the location of the businesses"</p>
       <p class="client-name"><strong>Matt</strong></p>
     </div>
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
-      <p class="quote">"Highly impressed with Minju's work in the sales domain! The professionalism and meticulous attention to detail truly exceeded my expectations. Working together was a breeze thanks to quick responsiveness and a willingness to go above and beyond."</p>
+      <p class="quote">"Highly impressed with Minju's work in the sales domain! The professionalism and meticulous attention to detail truly EXCEEDED my expectations. Working with Minju was a breeze due to their quick responsiveness and willingness to go above and beyond."</p>
       <p class="client-name"><strong>Jasmine</strong></p>
     </div>
-
-    <!-- SECOND SET (duplicate, for seamless loop) -->
-    <div class="testimonial-card">
+    <div class="testimonial-card dup" aria-hidden="true">
       <div class="stars">★★★★★</div>
       <p class="quote">"Minju consistently delivers high-quality, well-researched lead lists. The data is accurate, reliable, and tailored to our specific requirements. His attention to detail and communication make him a valuable partner."</p>
       <p class="client-name"><strong>Jonas</strong></p>
     </div>
-    <div class="testimonial-card">
+    <div class="testimonial-card dup" aria-hidden="true">
       <div class="stars">★★★★★</div>
       <p class="quote">"We've worked with Minju on multiple lead generation projects, and the quality has always been excellent. The leads are manually researched, verified, and delivered on time. Highly recommended."</p>
       <p class="client-name"><strong>Peter</strong></p>
     </div>
-    <div class="testimonial-card">
+    <div class="testimonial-card dup" aria-hidden="true">
       <div class="stars">★★★★★</div>
       <p class="quote">"Professional, responsive, and committed to delivering quality work. The lead lists were customized to my requirements and helped save significant research time."</p>
       <p class="client-name"><strong>Julia</strong></p>
     </div>
-    <div class="testimonial-card">
+    <div class="testimonial-card dup" aria-hidden="true">
       <div class="stars">★★★★★</div>
       <p class="quote">"A complete delight to work with. I have been working with him for a couple of years now for my data needs."</p>
       <p class="client-name"><strong>Abdullah</strong></p>
     </div>
-    <div class="testimonial-card">
+    <div class="testimonial-card dup" aria-hidden="true">
       <div class="stars">★★★★★</div>
-      <p class="quote">"This is not our first order from Minju — we've been regularly purchasing data for almost a year now, and we're absolutely satisfied every single time. Communication, quality, and reliability are consistently excellent. Definitely recommended — 5 stars without hesitation! Top service!"</p>
+      <p class="quote">"This is not our first order from MINJU — we’ve been regularly purchasing data for almost a year now, and we’re absolutely satisfied every single time. Communication, quality, and reliability are consistently excellent. Definitely recommended — 5 stars without hesitation! TOP service!"</p>
       <p class="client-name"><strong>Nadia</strong></p>
     </div>
-    <div class="testimonial-card">
+    <div class="testimonial-card dup" aria-hidden="true">
       <div class="stars">★★★★★</div>
       <p class="quote">"Extremely quick and responsive! Delivered high-quality work and paid close attention to my instructions. Communicated clearly throughout the process and made sure everything was done exactly as requested. Highly recommend!"</p>
       <p class="client-name"><strong>Joece</strong></p>
     </div>
-    <div class="testimonial-card">
+    <div class="testimonial-card dup" aria-hidden="true">
       <div class="stars">★★★★★</div>
       <p class="quote">"Minju was friendly, polite, and easy to work with. He verified he understood the requested information and delivered a complete, detailed report in a timely manner. If all goes well, I hope to work with him again soon!"</p>
       <p class="client-name"><strong>Stacy</strong></p>
     </div>
-    <div class="testimonial-card">
+    <div class="testimonial-card dup" aria-hidden="true">
       <div class="stars">★★★★★</div>
-      <p class="quote">"Minju truly exceeded my expectations in the sales domain, delivering top-notch work with remarkable professionalism and attention to detail. Collaborating was a breeze — highly responsive and consistently went above and beyond in delivering on time. Highly recommended!"</p>
+      <p class="quote">"Minju truly EXCEEDED my expectations in the sales domain, delivering top-notch work with remarkable professionalism and ATTENTION to detail. 😊 Collaborating with her was a breeze, as she was highly responsive and consistently went above and beyond in delivering on time. Highly recommended!"</p>
       <p class="client-name"><strong>Will</strong></p>
     </div>
-    <div class="testimonial-card">
+    <div class="testimonial-card dup" aria-hidden="true">
       <div class="stars">★★★★★</div>
-      <p class="quote">"Prompt communication. Followed instructions as described. Executed tasks with professionalism and fast work. I'm eternally grateful for the experience. My thanks."</p>
+      <p class="quote">"Prompt communication. Followed instructions as described to them. Executed tasks with professionalism and fast work. I'm eternally grateful for the experience. My thanks"</p>
       <p class="client-name"><strong>Andrel</strong></p>
     </div>
-    <div class="testimonial-card">
+    <div class="testimonial-card dup" aria-hidden="true">
       <div class="stars">★★★★★</div>
-      <p class="quote">"Brilliant freelancer! Very quick communication, went above and beyond and did everything that I asked, easy 5/5."</p>
+      <p class="quote">"Brilliant freelancer! Very quick communication, went above and beyond and did everything that I asked, easy 5/5"</p>
       <p class="client-name"><strong>Josh</strong></p>
     </div>
-    <div class="testimonial-card">
+    <div class="testimonial-card dup" aria-hidden="true">
       <div class="stars">★★★★★</div>
-      <p class="quote">"Minju truly impressed with exceptional data interpretation and presentation skills, making the delivery flawless and insightful. Working together was a breeze — consistently went above and beyond expectations. Anyone looking for a top-notch sales freelancer won't be disappointed!"</p>
+      <p class="quote">"Minju truly IMPRESSED with her exceptional data interpretation and presentation skills, making the delivery flawless and insightful. Working with her was a breeze, as she consistently went above and beyond expectations. Anyone looking for a top-notch sales freelancer won't be disappointed!"</p>
       <p class="client-name"><strong>Patel</strong></p>
     </div>
-    <div class="testimonial-card">
+    <div class="testimonial-card dup" aria-hidden="true">
       <div class="stars">★★★★★</div>
-      <p class="quote">"Professional and gets the job done. Communicated well when a pivot was needed and delivered in flying colors. Got me emails and phone numbers, along with the location of the businesses."</p>
+      <p class="quote">"Professional and gets the job done. Communicated well when a pivot was needed and delivered in flying colors. Got me emails and phone numbers. Along with the location of the businesses"</p>
       <p class="client-name"><strong>Matt</strong></p>
     </div>
-    <div class="testimonial-card">
+    <div class="testimonial-card dup" aria-hidden="true">
       <div class="stars">★★★★★</div>
-      <p class="quote">"Highly impressed with Minju's work in the sales domain! The professionalism and meticulous attention to detail truly exceeded my expectations. Working together was a breeze thanks to quick responsiveness and a willingness to go above and beyond."</p>
+      <p class="quote">"Highly impressed with Minju's work in the sales domain! The professionalism and meticulous attention to detail truly EXCEEDED my expectations. Working with Minju was a breeze due to their quick responsiveness and willingness to go above and beyond."</p>
       <p class="client-name"><strong>Jasmine</strong></p>
     </div>
   </div>
@@ -716,7 +733,7 @@
             <path d="M9 9V6.5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2V9" stroke="#fff" stroke-width="1.8"/>
           </svg>
         </div>
-        <div class="plat"><a href="https://www.upwork.com/freelancers/~yourprofile" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">Upwork ↗</a></div>
+        <div class="plat">Upwork</div>
         <div class="desc">Lead generation, LinkedIn research, Amazon seller leads</div>
         <div class="figure figure-cyan">100% Job Success &middot; Top Rated</div>
       </div>
@@ -726,7 +743,7 @@
             <path d="M6 13 L11 18 L20 7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <div class="plat"><a href="https://www.fiverr.com/yourprofile" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">Fiverr ↗</a></div>
+        <div class="plat">Fiverr</div>
         <div class="desc">Amazon seller leads, ecommerce &amp; B2B lead lists</div>
         <div class="figure figure-green">500+ orders &middot; $50K+ earned</div>
       </div>
@@ -749,7 +766,7 @@
 <section class="chat-demo">
   <div class="wrap" style="text-align:center;">
     <div class="eyebrow">How a request comes together</div>
-    <h2>A real conversation, start to finish</h2>
+    <h2>How a request works</h2>
     <p class="chat-demo-sub">A few examples of what a real lead request looks like, from first message to a scoped order.</p>
     <p class="chat-demo-note" style="font-family:var(--font-mono); font-size:11.5px; color:var(--muted); margin-top:-8px;">Illustrative examples based on typical client requests — not literal message logs.</p>
     <div class="chat-tabs">
@@ -827,8 +844,15 @@
 
 <footer>
   © 2026 Kamruzzaman Minju · Lead Generation Expert
-  <div style="margin-top:8px;"><a href="#">Terms of Service</a><a href="#">Privacy Policy</a></div>
+  <div style="margin-top:8px;"><a href="privacy.html">Privacy Policy</a></div>
 </footer>
+
+
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Sample preview">
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close preview">&times;</button>
+  <img id="lightboxImg" alt="">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
 
 <div class="modal-overlay" id="leadModalOverlay">
   <div class="modal-panel">
@@ -1068,7 +1092,7 @@
 
   const specialtyData = {
     leadgen: { title: "Lead Generation", items: ["B2B Lead Generation","Amazon Seller Leads","B2C Lead Generation","LinkedIn Lead Generation","Email Lead Generation","Sales Prospecting","Prospect List Building","Contact List Building","Email List Building","Web Research","Market Research","Data Mining","Data Collection","Data Entry","CRM Data Management","CRM Data Cleaning","Lead Qualification","Cold Email Prospecting","LinkedIn Outreach","Influencer Research","Company Research","Decision Maker Research","Skip Tracing","Real Estate Lead Generation","E-commerce Lead Generation","Healthcare Lead Generation","SaaS Lead Generation","Financial Services Lead Generation","Recruitment Lead Generation","Local Business Lead Generation"] },
-    research: { title: "Research &amp; Data Collection", items: ["Web Research","Market Research","Company Research","Competitor Research","Product Research","Internet Research","Business Research","Industry Research","Academic Research","Data Collection","Data Mining","Data Extraction","Data Scraping (where permitted by website terms and applicable laws)","Contact Research","Email Research","LinkedIn Research","Prospect Research","Lead Research","Survey Research","Keyword Research","Influencer Research","Real Estate Research","Supplier Research","Vendor Research","Customer Research","Pricing Research","Statistical Data Research","Public Records Research","Online Database Research","CRM Data Enrichment"] },
+    research: { title: "Research &amp; Data Collection", items: ["Web Research","Market Research","Company Research","Competitor Research","Product Research","Internet Research","Business Research","Industry Research","Academic Research","Data Collection","Data Mining","Data Extraction","Contact Research","Email Research","LinkedIn Research","Prospect Research","Lead Research","Survey Research","Keyword Research","Influencer Research","Real Estate Research","Supplier Research","Vendor Research","Customer Research","Pricing Research","Statistical Data Research","Public Records Research","Online Database Research","CRM Data Enrichment"] },
     data: { title: "Data &amp; File Services", items: ["Data Entry","Data Processing","Data Cleaning","Data Formatting","Data Conversion","Data Collection","Data Extraction","Data Mining","PDF to Excel","PDF to Word","Image to Excel","Image to Word","Copy &amp; Paste Tasks","Spreadsheet Management","Microsoft Excel","Google Sheets","CSV File Management","File Conversion","File Organization","Document Formatting","OCR (Optical Character Recognition)","Database Management","CRM Data Entry","CRM Data Cleanup","Data Validation","Data Annotation","Data Labeling","Catalog Data Entry","Product Data Upload","File Merging &amp; Splitting","File Renaming","Duplicate Data Removal","Data Deduplication","Data Enrichment","Data Quality Assurance"] },
   };
 
@@ -1125,6 +1149,19 @@
   }, { threshold: 0.4 });
   if (typewriterEls.length) typewriterObserver.observe(typewriterEls[0]);
 
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  function openLightbox(src, alt){ lightboxImg.src = src; lightboxImg.alt = alt || ''; lightboxCaption.textContent = alt || ''; lightbox.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeLightbox(){ lightbox.classList.remove('open'); lightboxImg.src = ''; document.body.style.overflow = ''; }
+  document.addEventListener('click', (e) => {
+    const img = e.target.closest('.portfolio-thumb img');
+    if (img) { openLightbox(img.getAttribute('src'), img.getAttribute('alt')); }
+  });
+  lightbox.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
+
   const leadModalOverlay = document.getElementById('leadModalOverlay');
   const openLeadModalBtn = document.getElementById('openLeadModalBtn');
   const closeLeadModalBtn = document.getElementById('closeLeadModalBtn');
@@ -1177,15 +1214,6 @@
 
 </script>
 
-<!-- ============================================================
-     REAL AI CHATBOT WIDGET
-     Replaces the old FAQ bot's <style>, HTML, and <script> sections
-     in your index.html. Same visual design, but now calls a real AI
-     through your Cloudflare Worker instead of canned keyword answers.
-
-     BEFORE USING: set WORKER_URL below to your actual Cloudflare
-     Worker URL (see cloudflare_worker.js setup instructions).
-     ============================================================ -->
 <style>
   #faqBotLauncher{position:fixed; bottom:24px; right:24px; width:58px; height:58px; border-radius:50%; background:linear-gradient(135deg, #F0B454, #D98F2B, #F472B6); background-size:180% 180%; border:none; cursor:pointer; box-shadow:0 10px 26px -8px rgba(217,143,43,0.55); display:flex; align-items:center; justify-content:center; z-index:500; transition:transform .2s ease, box-shadow .2s ease;}
   #faqBotLauncher:hover{transform:translateY(-2px) scale(1.05);}
