@@ -285,6 +285,69 @@
   .portfolio-thumb img{width:100%; height:100%; object-fit:cover; transition:transform .35s cubic-bezier(.2,.8,.3,1.1);}
   .portfolio-card:hover .portfolio-thumb img{transform:scale(1.12);}
 
+
+  .pricing{background:var(--paper-soft);}
+  .pricing-sub{color:var(--muted); font-size:15px; margin:-10px 0 30px; max-width:620px;}
+  .pricing-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media (max-width:800px){ .pricing-grid{grid-template-columns:1fr;} }
+  .price-card{background:var(--paper); border:1px solid var(--line-light); border-radius:14px; padding:28px; display:flex; flex-direction:column; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;}
+  .price-card:hover{transform:translateY(-6px); box-shadow:0 22px 44px -22px rgba(18,22,29,0.28); border-color:var(--amber-dim);}
+  .price-region{font-family:var(--font-mono); font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--amber-dim); margin-bottom:10px;}
+  .price-amount{font-family:var(--font-display); font-size:44px; font-weight:700; color:var(--ink-text); line-height:1;}
+  .price-unit{font-family:var(--font-mono); font-size:12.5px; color:var(--muted); margin:6px 0 20px;}
+  .price-card ul{list-style:none; margin:0 0 24px; padding:0; font-size:14.5px; color:var(--ink-text); flex:1;}
+  .price-card li{padding-left:24px; position:relative; margin-bottom:10px; line-height:1.45;}
+  .price-card li::before{content:'\2713'; position:absolute; left:0; top:0; color:var(--verify); font-weight:700;}
+  .price-btn{align-self:flex-start; font-family:var(--font-mono); font-size:13px; font-weight:600; background:var(--ink); color:var(--paper); padding:11px 18px; border-radius:4px; border:none; cursor:pointer; text-decoration:none; display:inline-block;}
+  .price-btn:hover{background:var(--amber-dim); color:var(--ink);}
+  .price-btn.secondary{background:transparent; color:var(--ink-text); border:1px solid var(--line-light);}
+  .price-bulk{margin-top:20px; background:radial-gradient(ellipse at 15% 0%, rgba(217,143,43,0.14), transparent 60%), linear-gradient(160deg, var(--ink-soft) 0%, var(--ink) 100%); color:var(--paper); border-radius:14px; padding:28px 32px; display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between;}
+  .price-bulk h3{font-family:var(--font-display); font-size:20px; color:var(--amber); margin:0 0 6px;}
+  .price-bulk p{margin:0; font-size:14.5px; color:var(--muted-on-ink); max-width:520px;}
+  .price-bulk-actions{display:flex; flex-wrap:wrap; gap:12px;}
+  .price-bulk .price-btn{background:var(--amber); color:var(--ink);}
+  .price-bulk .price-btn:hover{background:var(--paper);}
+  .price-bulk .price-btn.secondary{background:transparent; color:var(--paper); border:1px solid var(--line-dark);}
+  .price-bulk .price-btn.secondary:hover{border-color:var(--amber); color:var(--amber);}
+
+  .price-row-title{font-family:var(--font-display); font-size:20px; font-weight:700; color:var(--ink-text); margin:40px 0 14px;}
+  .price-row-title:first-of-type{margin-top:0;}
+  .price-wide{background:var(--paper); border:1px solid var(--line-light); border-radius:14px; padding:24px 28px; display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between;}
+  .price-wide p{margin:0; font-size:14.5px; color:var(--muted); max-width:560px;}
+  .price-tag{font-family:var(--font-mono); font-size:12.5px; font-weight:600; padding:6px 12px; border-radius:20px; background:rgba(217,143,43,0.16); color:#B8791F; display:inline-block; margin-bottom:8px;}
+  .calc{margin-top:24px; display:grid; grid-template-columns:1.15fr 0.85fr; border:1px solid var(--line-light); border-radius:16px; overflow:hidden; background:var(--paper); box-shadow:0 26px 60px -30px rgba(18,22,29,0.28);}
+  @media (max-width:860px){ .calc{grid-template-columns:1fr;} }
+  .calc-form{padding:28px;}
+  .calc-title{font-family:var(--font-display); font-size:18px; color:var(--ink-text); margin:0 0 20px;}
+  .calc-grid{display:grid; grid-template-columns:1fr 1fr; gap:0 16px;}
+  .calc-grid .wide{grid-column:1 / -1;}
+  @media (max-width:560px){ .calc-grid{grid-template-columns:1fr;} }
+  .calc-field{display:flex; flex-direction:column; margin-bottom:18px;}
+  .calc-field > label, .calc-label{font-family:var(--font-mono); font-size:11.5px; letter-spacing:0.05em; text-transform:uppercase; color:var(--muted); margin-bottom:6px;}
+  .calc select, .calc input[type=number]{font-family:var(--font-body); font-size:14.5px; padding:12px 14px; border:1.5px solid var(--line-light); border-radius:8px; background:var(--paper-soft); color:var(--ink-text); width:100%;}
+  .calc select:focus, .calc input[type=number]:focus{outline:none; border-color:var(--amber); box-shadow:0 0 0 3px rgba(217,143,43,0.16);}
+  .calc-checks{display:flex; flex-wrap:wrap; gap:10px;}
+  .calc-checks label, .calc-phone{display:inline-flex; align-items:center; gap:8px; padding:9px 14px; border:1.5px solid var(--line-light); border-radius:20px; background:var(--paper-soft); font-family:var(--font-body); font-size:14px; color:var(--ink-text); cursor:pointer; text-transform:none; letter-spacing:0; margin:0;}
+  .calc-checks label:has(input:checked), .calc-phone:has(input:checked){border-color:var(--amber); background:rgba(217,143,43,0.12);}
+  .calc-phone span{font-family:var(--font-mono); font-size:12px; color:var(--amber-dim); font-weight:600;}
+  .calc small{font-size:12.5px; color:var(--muted); margin-top:6px;}
+  .calc-qty-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;}
+  .qty-chip{font-family:var(--font-mono); font-size:12.5px; font-weight:600; color:var(--muted); background:var(--paper); border:1px solid var(--line-light); padding:7px 14px; border-radius:20px; cursor:pointer;}
+  .qty-chip:hover{border-color:var(--amber-dim);}
+  .qty-chip.active{background:var(--amber); color:var(--ink); border-color:var(--amber);}
+  .calc-note{font-size:13.5px; color:var(--muted); margin:0;}
+  .calc-summary{background:radial-gradient(ellipse at 20% 0%, rgba(217,143,43,0.14), transparent 60%), linear-gradient(160deg, var(--ink-soft) 0%, var(--ink) 100%); color:var(--paper); padding:28px; display:flex; flex-direction:column;}
+  .calc-summary-title{font-family:var(--font-display); font-size:17px; color:var(--amber); margin-bottom:12px;}
+  .calc-row{display:flex; justify-content:space-between; gap:12px; font-size:14px; padding:9px 0; border-bottom:1px solid var(--line-dark);}
+  .calc-row.discount{color:#7FD1A0;}
+  .calc-total-label{font-family:var(--font-mono); font-size:11.5px; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted-on-ink); margin-top:18px;}
+  .calc-total{font-family:var(--font-display); font-size:42px; font-weight:700; color:var(--amber); line-height:1.1;}
+  .calc-per{font-size:13px; color:var(--muted-on-ink); margin-top:4px; min-height:1.4em;}
+  .calc-hint{font-size:13.5px; color:#7FD1A0; margin-top:10px; min-height:1.4em;}
+  .calc-summary .price-btn{background:var(--amber); color:var(--ink); width:100%; text-align:center; margin-top:14px;}
+  .calc-summary .price-btn:hover{background:var(--paper);}
+  .calc-summary .price-btn:disabled{opacity:0.45; cursor:not-allowed;}
+  .calc-fine{font-size:12px; color:var(--muted-on-ink); margin:12px 0 0;}
   .portfolio-thumb img{cursor:zoom-in;}
   .lightbox{display:none; position:fixed; inset:0; background:rgba(18,22,29,0.9); z-index:300; align-items:center; justify-content:center; padding:20px; cursor:zoom-out;}
   .lightbox.open{display:flex;}
@@ -314,6 +377,7 @@
       <a href="#specialties">Specialties</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#reviews">Reviews</a>
+      <a href="#pricing">Pricing</a>
       <a href="#work">Track Record</a>
       <a href="#contact">Contact</a>
       <a href="#contact" class="nav-cta" id="openLeadModalBtn">Request Custom Leads</a>
@@ -703,6 +767,170 @@
   </div>
 </section>
 
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="eyebrow">Pricing</div>
+    <h2>Pricing</h2>
+    <p class="pricing-sub">Amazon seller prices are per 1,000 leads. Use the calculator to build your own order.</p>
+
+    <h3 class="price-row-title">Amazon seller leads</h3>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <div class="price-region">USA</div>
+        <div class="price-amount">$280</div>
+        <div class="price-unit">per 1,000 leads</div>
+        <ul>
+          <li>Amazon sellers filtered by your target monthly revenue range</li>
+          <li>Manually researched and verified</li>
+          <li>Free sample before you commit</li>
+        </ul>
+        <button type="button" class="price-btn" data-open-lead data-lead-type="Amazon Seller Leads (by revenue range)" data-prefill="Amazon seller leads - Country: USA">Request a free sample</button>
+      </div>
+      <div class="price-card reveal">
+        <div class="price-region">Germany</div>
+        <div class="price-amount">$280</div>
+        <div class="price-unit">per 1,000 leads</div>
+        <ul>
+          <li>Amazon sellers filtered by your target monthly revenue range</li>
+          <li>Manually researched and verified</li>
+          <li>Free sample before you commit</li>
+        </ul>
+        <button type="button" class="price-btn" data-open-lead data-lead-type="Amazon Seller Leads (by revenue range)" data-prefill="Amazon seller leads - Country: Germany">Request a free sample</button>
+      </div>
+      <div class="price-card reveal">
+        <div class="price-region">United Kingdom</div>
+        <div class="price-amount">$320</div>
+        <div class="price-unit">per 1,000 leads</div>
+        <ul>
+          <li>Amazon sellers filtered by your target monthly revenue range</li>
+          <li>Manually researched and verified</li>
+          <li>Free sample before you commit</li>
+        </ul>
+        <button type="button" class="price-btn" data-open-lead data-lead-type="Amazon Seller Leads (by revenue range)" data-prefill="Amazon seller leads - Country: United Kingdom">Request a free sample</button>
+      </div>
+    </div>
+
+    <div class="calc reveal" id="calc">
+      <div class="calc-form">
+        <h4 class="calc-title">Build your Amazon seller order</h4>
+        <div class="calc-grid">
+          <div class="calc-field">
+            <label for="calcCountry">Country</label>
+            <select id="calcCountry">
+              <option value="USA">USA</option>
+              <option value="Germany">Germany</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="Other">Other country (custom quote)</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="calcRevenue">Monthly revenue range</label>
+            <select id="calcRevenue">
+              <option>Any range</option>
+              <option>Under $10K</option>
+              <option>$10K - $25K</option>
+              <option>$25K - $50K</option>
+              <option>$50K - $100K</option>
+              <option>$100K+</option>
+            </select>
+          </div>
+          <div class="calc-field wide">
+            <label for="calcCategory">Category</label>
+            <select id="calcCategory">
+              <option>Any category</option>
+              <option>Home &amp; Kitchen</option>
+              <option>Beauty &amp; Personal Care</option>
+              <option>Health &amp; Household</option>
+              <option>Sports &amp; Outdoors</option>
+              <option>Toys &amp; Games</option>
+              <option>Pet Supplies</option>
+              <option>Electronics</option>
+              <option>Clothing, Shoes &amp; Jewelry</option>
+              <option>Grocery &amp; Gourmet Food</option>
+              <option>Baby</option>
+              <option>Tools &amp; Home Improvement</option>
+              <option>Patio, Lawn &amp; Garden</option>
+              <option>Automotive</option>
+              <option>Office Products</option>
+              <option>Arts, Crafts &amp; Sewing</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <span class="calc-label">Seller type</span>
+          <div class="calc-checks">
+            <label><input type="checkbox" name="calcType" value="Private label"> Private label</label>
+            <label><input type="checkbox" name="calcType" value="FBA"> FBA</label>
+            <label><input type="checkbox" name="calcType" value="FBM"> FBM</label>
+            <label><input type="checkbox" name="calcType" value="Reseller"> Reseller</label>
+          </div>
+          <small>Leave all unchecked for any seller type.</small>
+        </div>
+
+        <div class="calc-field">
+          <span class="calc-label">Contact details</span>
+          <div class="calc-checks">
+            <label class="calc-phone"><input type="checkbox" id="calcPhone"> Include personal phone numbers <span>+$0.10 per lead</span></label>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label for="calcQty">Number of leads</label>
+          <input type="number" id="calcQty" min="1000" step="500" value="1000" inputmode="numeric">
+          <div class="calc-qty-row">
+            <button type="button" class="qty-chip" data-qty="1000">1,000</button>
+            <button type="button" class="qty-chip" data-qty="2500">2,500</button>
+            <button type="button" class="qty-chip" data-qty="5000">5,000</button>
+            <button type="button" class="qty-chip" data-qty="10000">10,000</button>
+          </div>
+        </div>
+        <p class="calc-note">Bulk discount is applied automatically: 15% off at 5,000+ leads and 20% off at 10,000+ leads. Minimum order is 1,000 leads.</p>
+      </div>
+
+      <div class="calc-summary" aria-live="polite">
+        <div class="calc-summary-title">Your estimate</div>
+        <div id="calcRows"></div>
+        <div class="calc-total-label">Estimated total</div>
+        <div class="calc-total" id="calcTotal">$0.00</div>
+        <div class="calc-per" id="calcPer"></div>
+        <div class="calc-hint" id="calcHint"></div>
+        <button type="button" class="price-btn" id="calcRequest">Request this order</button>
+        <p class="calc-fine">This is an estimate. I'll confirm the details with you before starting.</p>
+      </div>
+    </div>
+
+    <h3 class="price-row-title">Real estate leads</h3>
+    <div class="price-wide reveal">
+      <div>
+        <span class="price-tag">Custom pricing</span>
+        <p>Buyer and seller contacts for the market you choose. Tell me the area, price range and volume and I'll quote it.</p>
+      </div>
+      <button type="button" class="price-btn" data-open-lead data-lead-type="Real Estate Leads">Request a quote</button>
+    </div>
+    <h3 class="price-row-title">Event leads</h3>
+    <div class="price-wide reveal">
+      <div>
+        <span class="price-tag">Custom pricing</span>
+        <p>Attendees and decision-makers from the industry events you choose. Tell me the events and volume and I'll quote it.</p>
+      </div>
+      <button type="button" class="price-btn" data-open-lead data-lead-type="Event Leads">Request a quote</button>
+    </div>
+
+    <div class="price-bulk">
+      <div>
+        <h3>Need a larger order?</h3>
+        <p>Amazon seller orders of 5,000+ leads get a discount automatically. For bigger volumes or a custom mix of lead types, contact me for a bulk quote.</p>
+      </div>
+      <div class="price-bulk-actions">
+        <button type="button" class="price-btn" data-open-lead>Get a bulk quote</button>
+        <a class="price-btn secondary" href="mailto:kamruzzamanmju@gmail.com">Email me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="tools">
   <div class="wrap">
     <div class="eyebrow" style="color:var(--amber);">Tools</div>
@@ -870,10 +1098,12 @@
         <label for="modalLeadType">What kind of leads do you need?</label>
         <select id="modalLeadType" name="lead_type" required>
           <option value="" disabled selected>Select an option</option>
+          <option>Amazon Seller Leads (by revenue range)</option>
           <option>Amazon Private Label</option>
           <option>Ecommerce (Stripe / Gmail)</option>
           <option>Women's ERG Research</option>
           <option>Real Estate Leads</option>
+          <option>Event Leads</option>
           <option>Shopify Store Leads</option>
           <option>Otto Leads</option>
           <option>Kaufland Leads</option>
@@ -1175,6 +1405,130 @@
   function closeLeadModal(){ leadModalOverlay.classList.remove('open'); document.body.style.overflow = ''; }
 
   if (openLeadModalBtn) openLeadModalBtn.addEventListener('click', openLeadModal);
+
+  function applyPrefill(type, text){
+    if (type) {
+      modalLeadType.value = type;
+      modalOtherWrap.style.display = 'none';
+      document.getElementById('modalOtherType').required = false;
+    }
+    if (text) { document.getElementById('modalDesc').value = text; }
+  }
+  document.querySelectorAll('[data-open-lead]').forEach(b => b.addEventListener('click', (e) => {
+    openLeadModal(e);
+    applyPrefill(b.dataset.leadType, b.dataset.prefill);
+  }));
+
+  // ---------------- Amazon seller price calculator ----------------
+  // Edit the numbers below to change prices, phone add-on or discounts.
+  const PRICING = {
+    ratePer1000: { 'USA': 280, 'Germany': 280, 'United Kingdom': 320 },
+    phoneCentsPerLead: 10,
+    minLeads: 1000,
+    tiers: [ { min: 10000, pct: 20 }, { min: 5000, pct: 15 } ]
+  };
+
+  // PRICING-LOGIC-START
+  function discountFor(qty){
+    for (const t of PRICING.tiers) { if (qty >= t.min) return t.pct; }
+    return 0;
+  }
+  function priceOrder(qty, country, phone){
+    const rate = PRICING.ratePer1000[country];
+    if (rate === undefined || !(qty >= PRICING.minLeads)) return null;
+    const leadsCents = qty * rate / 10;
+    const phoneCents = phone ? qty * PRICING.phoneCentsPerLead : 0;
+    const subtotalCents = leadsCents + phoneCents;
+    const pct = discountFor(qty);
+    const discountCents = Math.round(subtotalCents * pct / 100);
+    return { rate, leadsCents, phoneCents, subtotalCents, pct, discountCents, totalCents: subtotalCents - discountCents };
+  }
+  // PRICING-LOGIC-END
+
+  (function(){
+    const $ = (id) => document.getElementById(id);
+    const money = (c) => (c / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+    const num = (n) => n.toLocaleString('en-US');
+    const rowsEl = $('calcRows'), totalEl = $('calcTotal'), perEl = $('calcPer'), hintEl = $('calcHint'), reqBtn = $('calcRequest');
+    const qtyEl = $('calcQty');
+    let lastSummary = '';
+
+    function addRow(label, value, cls){
+      const r = document.createElement('div');
+      r.className = 'calc-row' + (cls ? ' ' + cls : '');
+      const a = document.createElement('span'); a.textContent = label;
+      const b = document.createElement('span'); b.textContent = value;
+      r.appendChild(a); r.appendChild(b); rowsEl.appendChild(r);
+    }
+
+    function selectedTypes(){
+      return Array.from(document.querySelectorAll('input[name="calcType"]:checked')).map(i => i.value);
+    }
+
+    function render(){
+      const qty = parseInt(qtyEl.value, 10);
+      const country = $('calcCountry').value;
+      const phone = $('calcPhone').checked;
+      rowsEl.innerHTML = '';
+      hintEl.textContent = '';
+      document.querySelectorAll('.qty-chip').forEach(c => c.classList.toggle('active', parseInt(c.dataset.qty, 10) === qty));
+
+      const types = selectedTypes();
+      const base = [
+        'Estimated order - Amazon seller leads',
+        'Country: ' + country,
+        'Monthly revenue: ' + $('calcRevenue').value,
+        'Category: ' + $('calcCategory').value,
+        'Seller type: ' + (types.length ? types.join(', ') : 'Any'),
+        'Personal phone numbers: ' + (phone ? 'Yes' : 'No')
+      ];
+
+      if (country === 'Other') {
+        totalEl.textContent = 'Custom quote';
+        perEl.textContent = 'Tell me the country and volume and I will price it.';
+        reqBtn.disabled = false; reqBtn.textContent = 'Request a quote';
+        lastSummary = base.concat(['Quantity: ' + (qty ? num(qty) : 'not set')]).join('\n');
+        return;
+      }
+      reqBtn.textContent = 'Request this order';
+
+      const p = priceOrder(qty, country, phone);
+      if (!p) {
+        totalEl.textContent = '$0.00';
+        perEl.textContent = 'Minimum order is ' + num(PRICING.minLeads) + ' leads.';
+        reqBtn.disabled = true; lastSummary = '';
+        return;
+      }
+      reqBtn.disabled = false;
+      addRow(num(qty) + ' leads x ' + money(p.rate * 10) + ' each', money(p.leadsCents));
+      if (phone) addRow('Personal phones (' + num(qty) + ' x ' + money(PRICING.phoneCentsPerLead) + ')', money(p.phoneCents));
+      if (p.pct) {
+        addRow('Subtotal', money(p.subtotalCents));
+        addRow('Bulk discount (' + p.pct + '%)', '-' + money(p.discountCents), 'discount');
+      }
+      totalEl.textContent = money(p.totalCents);
+      perEl.textContent = 'About ' + (p.totalCents / qty / 100).toFixed(3) + ' USD per lead';
+
+      const next = PRICING.tiers.slice().reverse().find(t => qty < t.min);
+      if (p.pct) hintEl.textContent = p.pct + '% bulk discount applied.';
+      else if (next) hintEl.textContent = 'Add ' + num(next.min - qty) + ' more leads to unlock ' + next.pct + '% off.';
+
+      lastSummary = base.concat([
+        'Quantity: ' + num(qty),
+        'Estimated total: ' + money(p.totalCents) + (p.pct ? ' (' + p.pct + '% bulk discount applied)' : '')
+      ]).join('\n');
+    }
+
+    document.querySelectorAll('.qty-chip').forEach(c => c.addEventListener('click', () => { qtyEl.value = c.dataset.qty; render(); }));
+    ['calcCountry','calcRevenue','calcCategory','calcPhone','calcQty'].forEach(id => { $(id).addEventListener('input', render); $(id).addEventListener('change', render); });
+    document.querySelectorAll('input[name="calcType"]').forEach(i => i.addEventListener('change', render));
+    reqBtn.addEventListener('click', (e) => {
+      openLeadModal(e);
+      applyPrefill('Amazon Seller Leads (by revenue range)', lastSummary);
+    });
+    render();
+  })();
+
   if (closeLeadModalBtn) closeLeadModalBtn.addEventListener('click', closeLeadModal);
   if (leadModalOverlay) { leadModalOverlay.addEventListener('click', (e) => { if (e.target === leadModalOverlay) closeLeadModal(); }); }
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && leadModalOverlay.classList.contains('open')) closeLeadModal(); });
