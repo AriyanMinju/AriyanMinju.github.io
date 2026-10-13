@@ -349,6 +349,22 @@
   .calc-summary .price-btn:hover{background:var(--paper);}
   .calc-summary .price-btn:disabled{opacity:0.45; cursor:not-allowed;}
   .calc-fine{font-size:12px; color:var(--muted-on-ink); margin:12px 0 0;}
+
+  #calc{scroll-margin-top:90px;}
+  .promo-overlay{display:none; position:fixed; inset:0; background:rgba(18,22,29,0.6); z-index:250; align-items:center; justify-content:center; padding:20px;}
+  .promo-overlay.open{display:flex;}
+  .promo-panel{position:relative; background:var(--paper); border-radius:16px; padding:38px 32px 30px; max-width:440px; width:100%; text-align:center; box-shadow:0 30px 70px -20px rgba(0,0,0,0.45); animation:promoPop .35s cubic-bezier(.2,.9,.3,1.1);}
+  @keyframes promoPop{from{opacity:0; transform:scale(0.94) translateY(10px);} to{opacity:1; transform:none;}}
+  @media (prefers-reduced-motion:reduce){ .promo-panel{animation:none;} }
+  .promo-close{position:absolute; top:12px; right:16px; background:none; border:none; font-size:26px; line-height:1; color:var(--muted); cursor:pointer;}
+  .promo-close:hover{color:var(--ink-text);}
+  .promo-badge{display:inline-block; font-family:var(--font-display); font-weight:700; font-size:30px; color:var(--ink); background:linear-gradient(135deg, #F0B454, #D98F2B); padding:10px 24px; border-radius:40px; margin-bottom:16px;}
+  .promo-panel h3{font-family:var(--font-display); font-size:22px; color:var(--ink-text); margin:0 0 10px;}
+  .promo-panel p{font-size:14.5px; color:var(--muted); margin:0 0 22px;}
+  .promo-actions{display:flex; flex-wrap:wrap; gap:12px; justify-content:center;}
+  .promo-panel .price-btn{align-self:auto;}
+  .promo-panel .price-btn:not(.secondary){background:var(--amber); color:var(--ink);}
+  .promo-panel .price-btn:not(.secondary):hover{background:var(--ink); color:var(--paper);}
   .portfolio-thumb img{cursor:zoom-in;}
   .lightbox{display:none; position:fixed; inset:0; background:rgba(18,22,29,0.9); z-index:300; align-items:center; justify-content:center; padding:20px; cursor:zoom-out;}
   .lightbox.open{display:flex;}
@@ -818,9 +834,22 @@
             <label for="calcLeadCat">Leads category</label>
             <select id="calcLeadCat">
               <option value="Amazon Leads">Amazon Leads</option>
+              <option value="Amazon Private Label">Amazon Private Label</option>
               <option value="Lead Generation">Lead Generation</option>
               <option value="Event Leads">Event Leads</option>
+              <option value="Real Estate Leads">Real Estate Leads</option>
+              <option value="Ecommerce (Stripe / Gmail)">Ecommerce (Stripe / Gmail)</option>
+              <option value="Shopify Store Leads">Shopify Store Leads</option>
+              <option value="Shopify + Mailchimp Users">Shopify + Mailchimp Users</option>
+              <option value="Etsy Seller Leads">Etsy Seller Leads</option>
+              <option value="Otto Leads">Otto Leads</option>
+              <option value="Kaufland Leads">Kaufland Leads</option>
+              <option value="Venture Capital Leads">Venture Capital Leads</option>
+              <option value="Investor Leads">Investor Leads</option>
+              <option value="Women&#x27;s ERG Research">Women's ERG Research</option>
+              <option value="SPF/DMARC/DKIM &amp; GA4/GTM Issue Leads">SPF/DMARC/DKIM &amp; GA4/GTM Issue Leads</option>
               <option value="All Leads Categories You Want">All Leads Categories You Want</option>
+              <option value="Other (not listed)">Other (not listed)</option>
             </select>
           </div>
           <div class="calc-field">
@@ -1085,6 +1114,19 @@
   <div style="margin-top:8px;"><a href="privacy.html">Privacy Policy</a></div>
 </footer>
 
+
+<div class="promo-overlay" id="promoOverlay" role="dialog" aria-modal="true" aria-labelledby="promoTitle" aria-hidden="true">
+  <div class="promo-panel">
+    <button type="button" class="promo-close" id="promoClose" aria-label="Close">&times;</button>
+    <div class="promo-badge"><span class="promo-pct">15%</span> OFF</div>
+    <h3 id="promoTitle"><span class="promo-pct">15%</span> off orders of <span class="promo-min">5,000</span>+ leads</h3>
+    <p>The discount is applied automatically when you order <span class="promo-min">5,000</span> or more leads. Build your order to see your price.</p>
+    <div class="promo-actions">
+      <button type="button" class="price-btn" id="promoCta">Build my order</button>
+      <button type="button" class="price-btn secondary" id="promoLater">Maybe later</button>
+    </div>
+  </div>
+</div>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-label="Sample preview">
   <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close preview">&times;</button>
@@ -1418,11 +1460,13 @@
 
   if (openLeadModalBtn) openLeadModalBtn.addEventListener('click', openLeadModal);
 
-  function applyPrefill(type, text){
+  function applyPrefill(type, text, otherText){
     if (type) {
+      const isOther = type === 'other';
       modalLeadType.value = type;
-      modalOtherWrap.style.display = 'none';
-      document.getElementById('modalOtherType').required = false;
+      modalOtherWrap.style.display = isOther ? 'block' : 'none';
+      document.getElementById('modalOtherType').required = isOther;
+      if (isOther) document.getElementById('modalOtherType').value = otherText || '';
     }
     if (text) { document.getElementById('modalDesc').value = text; }
   }
@@ -1469,11 +1513,13 @@
     const $ = (id) => document.getElementById(id);
     const money = (c) => (c / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
     const num = (n) => n.toLocaleString('en-US');
+    // Categories that show the Amazon fields (revenue range, category, seller type)
+    const AMAZON_CATS = ['Amazon Leads', 'Amazon Private Label'];
+    // Names that differ from the request form. Every other category uses the same name as the form.
     const MODAL_TYPE = {
       'Amazon Leads': 'Amazon Seller Leads (by revenue range)',
-      'Lead Generation': 'Lead Generation',
-      'Event Leads': 'Event Leads',
-      'All Leads Categories You Want': 'All Lead Categories'
+      'All Leads Categories You Want': 'All Lead Categories',
+      'Other (not listed)': 'other'
     };
     const rowsEl = $('calcRows'), totalEl = $('calcTotal'), perEl = $('calcPer'), hintEl = $('calcHint'), reqBtn = $('calcRequest');
     const qtyEl = $('calcQty');
@@ -1506,7 +1552,7 @@
 
     function render(){
       const leadCat = $('calcLeadCat').value;
-      const isAmazon = leadCat === 'Amazon Leads';
+      const isAmazon = AMAZON_CATS.indexOf(leadCat) !== -1;
       const country = $('calcCountry').value;
       const phone = $('calcPhone').checked;
       const qty = parseInt(qtyEl.value, 10);
@@ -1581,9 +1627,47 @@
     document.querySelectorAll('input[name="calcType"]').forEach(i => i.addEventListener('change', render));
     reqBtn.addEventListener('click', (e) => {
       openLeadModal(e);
-      applyPrefill(MODAL_TYPE[$('calcLeadCat').value], lastSummary);
+      const cat = $('calcLeadCat').value;
+      applyPrefill(MODAL_TYPE[cat] || cat, lastSummary, $('calcCategoryText').value.trim());
     });
     render();
+  })();
+
+  // ---------------- Entry promo popup (shown once per visit) ----------------
+  (function(){
+    const overlay = document.getElementById('promoOverlay');
+    if (!overlay) return;
+    const lowest = PRICING.tiers[PRICING.tiers.length - 1];
+    if (lowest) {
+      document.querySelectorAll('.promo-pct').forEach(el => { el.textContent = lowest.pct + '%'; });
+      document.querySelectorAll('.promo-min').forEach(el => { el.textContent = lowest.min.toLocaleString('en-US'); });
+    }
+    const KEY = 'promoSeen';
+    let seen = false;
+    try { seen = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
+
+    function openPromo(){
+      overlay.classList.add('open'); overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+      document.getElementById('promoCta').focus();
+    }
+    function closePromo(){
+      overlay.classList.remove('open'); overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('promoClose').addEventListener('click', closePromo);
+    document.getElementById('promoLater').addEventListener('click', closePromo);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) closePromo(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('open')) closePromo(); });
+    document.getElementById('promoCta').addEventListener('click', () => {
+      closePromo();
+      const q = document.getElementById('calcQty');
+      if (q && lowest) { q.value = lowest.min; q.dispatchEvent(new Event('input', { bubbles: true })); }
+      const calc = document.getElementById('calc');
+      if (calc) calc.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    });
+    if (!seen) setTimeout(openPromo, 900);
   })();
 
   if (closeLeadModalBtn) closeLeadModalBtn.addEventListener('click', closeLeadModal);
