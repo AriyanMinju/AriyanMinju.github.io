@@ -569,6 +569,75 @@
   .price-btn{border-radius:10px;}
   .price-amount{font-weight:800; letter-spacing:-0.02em;}
 
+  /* ================= Hero motion ================= */
+  .hero-bg{overflow:hidden;}
+  .hero-bg::after{background-size:24px 24px; animation:gridDrift 18s linear infinite;}
+  @keyframes gridDrift{to{background-position:240px 120px;}}
+  .hero-orb{position:absolute; border-radius:50%; filter:blur(70px); opacity:0.55; will-change:transform;}
+  .orb-1{width:420px; height:420px; right:6%; top:8%; background:#1261FF; animation:orbFloat1 16s ease-in-out infinite;}
+  .orb-2{width:300px; height:300px; left:-4%; bottom:-10%; background:#7C3AED; opacity:0.30; animation:orbFloat2 20s ease-in-out infinite;}
+  .orb-3{width:260px; height:260px; left:30%; top:-12%; background:#22D3EE; opacity:0.18; animation:orbFloat3 18s ease-in-out infinite;}
+  @keyframes orbFloat1{0%,100%{transform:translate(0,0) scale(1);} 50%{transform:translate(-70px,50px) scale(1.12);}}
+  @keyframes orbFloat2{0%,100%{transform:translate(0,0);} 50%{transform:translate(90px,-50px);}}
+  @keyframes orbFloat3{0%,100%{transform:translate(0,0);} 50%{transform:translate(-60px,60px) scale(0.9);}}
+  /* Data "beams" streaking across, like light running through circuits */
+  .hero-beam{position:absolute; height:1px; left:0; right:0; background:linear-gradient(90deg, transparent, rgba(34,211,238,0.9), rgba(18,97,255,0.6), transparent); background-size:30% 100%; background-repeat:no-repeat; opacity:0.55; animation:beamRun 7s linear infinite;}
+  .beam-1{top:22%; animation-duration:6s;}
+  .beam-2{top:48%; animation-duration:9s; animation-delay:-3s; opacity:0.35;}
+  .beam-3{top:71%; animation-duration:7.5s; animation-delay:-5s;}
+  .beam-4{top:88%; animation-duration:11s; animation-delay:-1s; opacity:0.3;}
+  @keyframes beamRun{from{background-position:-40% 0;} to{background-position:140% 0;}}
+  .hero-particle{position:absolute; left:var(--x); bottom:-10px; width:3px; height:3px; border-radius:50%; background:#22D3EE; box-shadow:0 0 8px 2px rgba(34,211,238,0.7); opacity:0; animation:particleRise var(--d) linear var(--w) infinite;}
+  @keyframes particleRise{0%{transform:translateY(0); opacity:0;} 10%{opacity:0.9;} 80%{opacity:0.6;} 100%{transform:translateY(-640px); opacity:0;}}
+
+  /* Typing line */
+  .hero-typer{font-size:18px; color:#B4C2D8; min-height:1.6em;}
+  .typed-word{color:#FFFFFF; font-weight:600;}
+  .typer-caret{display:inline-block; width:2px; height:1.05em; margin-left:3px; vertical-align:-0.15em; background:#22D3EE; box-shadow:0 0 8px #22D3EE; animation:caretBlink .9s steps(1) infinite;}
+  @keyframes caretBlink{50%{opacity:0;}}
+
+  /* Button shine sweep */
+  .hero-btn.primary{position:relative; overflow:hidden;}
+  .hero-btn.primary::after{content:''; position:absolute; top:0; bottom:0; left:-60%; width:40%; transform:skewX(-20deg); background:linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent); animation:btnShine 3.6s ease-in-out infinite;}
+  @keyframes btnShine{0%,55%{left:-60%;} 100%{left:130%;}}
+
+  /* Spinning light ring + orbiting dots around the photo */
+  .photo-ring{position:absolute; left:50%; top:-4px; width:278px; height:278px; margin-left:-139px; border-radius:50%;
+    background:conic-gradient(from 0deg, transparent 0deg, #22D3EE 70deg, #1261FF 140deg, transparent 200deg, transparent 360deg);
+    -webkit-mask:radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px)); mask:radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+    filter:drop-shadow(0 0 6px rgba(34,211,238,0.8)); animation:spin 5s linear infinite;}
+  .photo-orbit{position:absolute; left:50%; top:135px; width:0; height:0;}
+  .photo-orbit span{position:absolute; width:10px; height:10px; margin:-5px; border-radius:50%; background:#22D3EE; box-shadow:0 0 12px 3px rgba(34,211,238,0.8);}
+  .orbit-a{animation:spin 9s linear infinite;}
+  .orbit-a span{transform:translateX(160px);}
+  .orbit-b{animation:spin 14s linear infinite reverse;}
+  .orbit-b span{transform:translateX(-178px); width:7px; height:7px; margin:-3.5px; background:#5B8CFF; box-shadow:0 0 10px 2px rgba(91,140,255,0.8);}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* Pedestal pulse + floating card */
+  .hero-platform{animation:platformPulse 3.2s ease-in-out infinite;}
+  @keyframes platformPulse{0%,100%{box-shadow:0 0 0 12px rgba(18,97,255,0.10), 0 0 60px 6px rgba(18,97,255,0.55), inset 0 0 40px rgba(34,211,238,0.30);}
+    50%{box-shadow:0 0 0 18px rgba(18,97,255,0.16), 0 0 95px 16px rgba(34,211,238,0.55), inset 0 0 70px rgba(34,211,238,0.5);}}
+  .hero-glass{animation:cardFloat 6s ease-in-out infinite;}
+  @keyframes cardFloat{0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);}}
+  .glass-live{display:flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:#7FE6F5; margin-bottom:12px;}
+  .live-dot{width:8px; height:8px; border-radius:50%; background:#22C55E; box-shadow:0 0 0 0 rgba(34,197,94,0.7); animation:livePulse 1.8s ease-out infinite;}
+  @keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,0.7);} 100%{box-shadow:0 0 0 10px rgba(34,197,94,0);}}
+
+  @media (max-width:480px){
+    .photo-ring{width:236px; height:236px; margin-left:-118px;}
+    .photo-orbit{top:115px;}
+    .orbit-a span{transform:translateX(134px);}
+    .orbit-b span{transform:translateX(-148px);}
+    .glass-live{display:none;}
+    .orb-1{width:260px; height:260px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero-bg::after, .hero-orb, .hero-beam, .hero-particle, .typer-caret, .hero-btn.primary::after,
+    .photo-ring, .photo-orbit, .hero-platform, .hero-glass, .live-dot{animation:none !important;}
+    .hero-particle{display:none;}
+  }
+
 </style>
 </head>
 <body>
@@ -590,12 +659,19 @@
 </header>
 
 <section class="hero">
-  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-bg" aria-hidden="true">
+    <span class="hero-orb orb-1"></span><span class="hero-orb orb-2"></span><span class="hero-orb orb-3"></span>
+    <span class="hero-beam beam-1"></span><span class="hero-beam beam-2"></span><span class="hero-beam beam-3"></span><span class="hero-beam beam-4"></span>
+    <span class="hero-particle" style="--x:8%;--d:11s;--w:-2s"></span><span class="hero-particle" style="--x:22%;--d:14s;--w:-7s"></span>
+    <span class="hero-particle" style="--x:38%;--d:12s;--w:-4s"></span><span class="hero-particle" style="--x:55%;--d:16s;--w:-10s"></span>
+    <span class="hero-particle" style="--x:66%;--d:10s;--w:-1s"></span><span class="hero-particle" style="--x:74%;--d:13s;--w:-6s"></span>
+    <span class="hero-particle" style="--x:83%;--d:15s;--w:-9s"></span><span class="hero-particle" style="--x:93%;--d:12s;--w:-3s"></span>
+  </div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <div class="eyebrow hero-eyebrow">Lead Generation Expert</div>
       <h1>Kamruzzaman <span class="h1-accent">Minju</span></h1>
-      <p class="role">Amazon Seller Leads · B2B Lead Generation · LinkedIn Research &amp; Verified Data</p>
+      <p class="role hero-typer">Verified <span id="heroTyped" class="typed-word">Amazon seller leads</span><span class="typer-caret" aria-hidden="true"></span></p>
       <p class="hero-value">Manually researched, verified lead lists for agencies and sellers worldwide. See the quality first with a free sample, before you pay anything.</p>
       <div class="hero-actions">
         <button type="button" class="hero-btn primary" data-open-lead>Request a Free Sample</button>
@@ -607,10 +683,14 @@
     </div>
     <div class="hero-visual">
       <div class="hero-platform" aria-hidden="true"></div>
+      <div class="photo-ring" aria-hidden="true"></div>
+      <div class="photo-orbit orbit-a" aria-hidden="true"><span></span></div>
+      <div class="photo-orbit orbit-b" aria-hidden="true"><span></span></div>
       <div class="photo-frame">
         <div class="photo-placeholder"><img src="photo.jpg" alt="Kamruzzaman Minju"></div>
       </div>
       <div class="hero-glass">
+        <div class="glass-live"><span class="live-dot"></span>Taking new orders</div>
         <div class="glass-stat"><div class="num" data-count-to="1500" data-suffix="+">0</div><div class="glass-label">Orders delivered</div></div>
         <div class="glass-line"></div>
         <div class="glass-stat"><div class="num" data-count-to="100" data-suffix="%">0</div><div class="glass-label">Job Success</div></div>
@@ -1894,6 +1974,30 @@
       applyPrefill(MODAL_TYPE[cat] || cat, lastSummary, $('calcCategoryText').value.trim());
     });
     render();
+  })();
+
+
+  // ---------------- Hero typing line ----------------
+  (function(){
+    const el = document.getElementById('heroTyped');
+    if (!el) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const words = ['Amazon seller leads', 'B2B decision-maker leads', 'Ecommerce store leads', 'LinkedIn prospect lists', 'Investor & VC contacts'];
+    let w = 0, i = words[0].length, deleting = true;
+    function tick(){
+      const word = words[w];
+      if (deleting) {
+        i--; el.textContent = word.slice(0, i);
+        if (i <= 0) { deleting = false; w = (w + 1) % words.length; }
+        setTimeout(tick, 35);
+      } else {
+        const next = words[w];
+        i++; el.textContent = next.slice(0, i);
+        if (i >= next.length) { deleting = true; setTimeout(tick, 1800); }
+        else setTimeout(tick, 65);
+      }
+    }
+    setTimeout(tick, 2200);
   })();
 
   // ---------------- Entry promo popup (shown once per visit) ----------------
