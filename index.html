@@ -48,12 +48,12 @@
       5px 5px 0 #5e3d11,
       6px 6px 12px rgba(0,0,0,0.5);}
   .brand{display:flex; align-items:center; gap:8px;}
-  .nav a{color:var(--muted-on-ink); text-decoration:none; font-size:14px; font-weight:700; margin-left:22px;}
+  .nav a{color:var(--muted-on-ink); text-decoration:none; font-size:16.5px; font-weight:700; margin-left:24px; transition:color .2s ease;}
   .nav a:hover{color:var(--amber);}
   .nav-right{display:flex; align-items:center; flex-wrap:wrap;}
-  .nav-cta{background:var(--amber); color:var(--ink) !important; font-family:var(--font-mono); font-size:12.5px !important; font-weight:600; padding:8px 14px; border-radius:4px; margin-left:22px;}
+  .nav-cta{background:var(--amber); color:var(--ink) !important; font-family:var(--font-mono); font-size:14px !important; font-weight:600; padding:10px 16px; border-radius:4px; margin-left:22px;}
   .nav-cta:hover{background:var(--amber-dim); color:var(--ink) !important;}
-  @media (max-width:760px){ .nav{flex-direction:column; align-items:flex-start; gap:10px;} .nav-right{gap:10px 16px;} .nav-right a{margin-left:0;} .nav .name{font-size:22px;} }
+  @media (max-width:760px){ .nav{flex-direction:column; align-items:flex-start; gap:10px;} .nav-right{gap:10px 16px;} .nav-right a{margin-left:0; font-size:15.5px;} .nav .name{font-size:22px;} }
   .hero{background:var(--ink); color:var(--paper); padding:64px 0 80px;}
   .hero-grid{display:grid; grid-template-columns:180px 1fr; gap:40px; align-items:center;}
   @media (max-width:600px){.hero-grid{grid-template-columns:1fr; text-align:center;}}
@@ -321,22 +321,6 @@
   .price-bulk .price-btn.secondary{background:transparent; color:var(--paper); border:1px solid var(--line-dark);}
   .price-bulk .price-btn.secondary:hover{border-color:var(--amber); color:var(--amber);}
 
-  /* Marketplace coverage (country lists for Amazon seller + private label leads) */
-  .coverage{margin-top:28px; display:grid; grid-template-columns:1.55fr 1fr; gap:20px; align-items:start;}
-  @media (max-width:860px){ .coverage{grid-template-columns:1fr;} }
-  .coverage-col{background:var(--paper); border:1px solid var(--line-light); border-radius:14px; padding:24px;}
-  .coverage-head{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px 12px; margin-bottom:16px;}
-  .coverage-head h4{font-family:var(--font-display); font-size:17px; color:var(--ink-text); margin:0;}
-  .coverage-count{font-family:var(--font-mono); font-size:11.5px; font-weight:600; color:var(--amber-dim); background:rgba(217,143,43,0.14); padding:4px 10px; border-radius:20px; white-space:nowrap;}
-  .coverage-region{margin-bottom:14px;}
-  .coverage-region:last-child{margin-bottom:0;}
-  .coverage-label{display:block; font-family:var(--font-mono); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); margin-bottom:7px;}
-  .coverage-chips{display:flex; flex-wrap:wrap; gap:6px;}
-  .coverage-chip{font-size:13px; line-height:1.3; padding:5px 11px; border-radius:16px; background:var(--paper-soft); border:1px solid var(--line-light); color:var(--ink-text);}
-  .coverage-chip.priced{border-color:var(--amber); background:rgba(217,143,43,0.13); font-weight:600;}
-  .coverage-note{grid-column:1 / -1; font-size:13.5px; color:var(--muted); margin:0;}
-  .coverage-note .key{display:inline-block; width:11px; height:11px; border-radius:50%; background:rgba(217,143,43,0.25); border:1px solid var(--amber); vertical-align:-1px; margin-right:4px;}
-
   .price-row-title{font-family:var(--font-display); font-size:20px; font-weight:700; color:var(--ink-text); margin:40px 0 14px;}
   .price-row-title:first-of-type{margin-top:0;}
   .calc{margin-top:24px; display:grid; grid-template-columns:1.15fr 0.85fr; border:1px solid var(--line-light); border-radius:16px; overflow:hidden; background:var(--paper); box-shadow:0 26px 60px -30px rgba(18,22,29,0.28);}
@@ -360,6 +344,7 @@
   .calc-checks label:has(input:checked), .calc-phone:has(input:checked){border-color:var(--amber); background:rgba(217,143,43,0.12);}
   .calc-phone span{font-family:var(--font-mono); font-size:12px; color:var(--amber-dim); font-weight:600;}
   .calc small{font-size:12.5px; color:var(--muted); margin-top:6px;}
+  .calc-optional{text-transform:none; letter-spacing:0; color:var(--muted); opacity:0.8;}
   .calc-qty-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;}
   .qty-chip{font-family:var(--font-mono); font-size:12.5px; font-weight:600; color:var(--muted); background:var(--paper); border:1px solid var(--line-light); padding:7px 14px; border-radius:20px; cursor:pointer;}
   .qty-chip:hover{border-color:var(--amber-dim);}
@@ -413,7 +398,7 @@
     .wrap{padding:0 18px;}
     .nav{padding:16px 18px;}
     .testimonials-panel{padding:36px 18px;}
-    .coverage-col, .calc-form, .calc-summary{padding:20px;}
+    .calc-form, .calc-summary{padding:20px;}
   }
 
 </style>
@@ -860,19 +845,6 @@
       </div>
     </div>
 
-    <!-- Marketplace coverage: filled in from the AMAZON_MARKETS / PRIVATE_LABEL_MARKETS lists in the script -->
-    <div class="coverage reveal" id="coverage">
-      <div class="coverage-col">
-        <div class="coverage-head"><h4>Amazon Seller Leads</h4><span class="coverage-count" id="coverageAmazonCount"></span></div>
-        <div id="coverageAmazon"></div>
-      </div>
-      <div class="coverage-col">
-        <div class="coverage-head"><h4>Amazon Private Label Seller Leads</h4><span class="coverage-count" id="coveragePLCount"></span></div>
-        <div id="coveragePL"></div>
-      </div>
-      <p class="coverage-note"><span class="key"></span>Highlighted markets are priced instantly in the calculator below. Every other marketplace gets a custom quote.</p>
-    </div>
-
     <div class="calc reveal" id="calc">
       <div class="calc-form">
         <h4 class="calc-title">Build Your Leads Order</h4>
@@ -900,7 +872,7 @@
             </select>
           </div>
           <div class="calc-field">
-            <label for="calcCountry" id="calcCountryLabel">Amazon marketplace</label>
+            <label for="calcCountry">Country</label>
             <select id="calcCountry"></select>
             <small id="calcCountryHint"></small>
           </div>
@@ -954,6 +926,11 @@
           <div class="calc-field wide" data-for="other" hidden>
             <label for="calcCategoryText">Category</label>
             <input type="text" id="calcCategoryText" maxlength="80" placeholder="e.g. Real estate, SaaS, Healthcare">
+          </div>
+          <div class="calc-field wide" data-for="other" hidden>
+            <label for="calcZip">ZIP / Postal codes <span class="calc-optional">(optional)</span></label>
+            <input type="text" id="calcZip" maxlength="400" placeholder="e.g. 10001, 90210, 33101">
+            <small>Target leads by ZIP or postal code (US, UK, AUS, Germany and more). Separate with commas, or leave blank for the whole country.</small>
           </div>
         </div>
 
@@ -1531,98 +1508,41 @@
     tiers: [ { min: 10000, pct: 20 }, { min: 5000, pct: 15 } ]
   };
 
-  // ---------------- Country / marketplace lists ----------------
-  // Each entry: [value used for pricing, display name, Amazon domain]
-  // Amazon Seller Leads: every Amazon marketplace worldwide, grouped by region.
-  const AMAZON_MARKETS = [
-    { region: 'North America', list: [
-      ['USA', 'United States', 'amazon.com'],
-      ['Canada', 'Canada', 'amazon.ca'],
-      ['Mexico', 'Mexico', 'amazon.com.mx']
-    ]},
-    { region: 'South America', list: [
-      ['Brazil', 'Brazil', 'amazon.com.br']
-    ]},
-    { region: 'Europe', list: [
-      ['United Kingdom', 'United Kingdom', 'amazon.co.uk'],
-      ['Germany', 'Germany', 'amazon.de'],
-      ['France', 'France', 'amazon.fr'],
-      ['Italy', 'Italy', 'amazon.it'],
-      ['Spain', 'Spain', 'amazon.es'],
-      ['Netherlands', 'Netherlands', 'amazon.nl'],
-      ['Sweden', 'Sweden', 'amazon.se'],
-      ['Poland', 'Poland', 'amazon.pl'],
-      ['Belgium', 'Belgium', 'amazon.com.be'],
-      ['Ireland', 'Ireland', 'amazon.ie']
-    ]},
-    { region: 'Middle East & Africa', list: [
-      ['Turkey', 'Türkiye', 'amazon.com.tr'],
-      ['UAE', 'United Arab Emirates', 'amazon.ae'],
-      ['Saudi Arabia', 'Saudi Arabia', 'amazon.sa'],
-      ['Egypt', 'Egypt', 'amazon.eg'],
-      ['South Africa', 'South Africa', 'amazon.co.za']
-    ]},
-    { region: 'Asia-Pacific', list: [
-      ['India', 'India', 'amazon.in'],
-      ['Japan', 'Japan', 'amazon.co.jp'],
-      ['Singapore', 'Singapore', 'amazon.sg'],
-      ['Australia', 'Australia', 'amazon.com.au']
-    ]}
-  ];
-  // Amazon Private Label Seller Leads: these 7 countries only.
-  const PRIVATE_LABEL_MARKETS = [
-    { region: 'Available countries', list: [
-      ['USA', 'United States (US)', 'amazon.com'],
-      ['United Kingdom', 'United Kingdom (UK)', 'amazon.co.uk'],
-      ['Germany', 'Germany', 'amazon.de'],
-      ['Spain', 'Spain', 'amazon.es'],
-      ['Australia', 'Australia (AUS)', 'amazon.com.au'],
-      ['France', 'France', 'amazon.fr'],
-      ['Mexico', 'Mexico', 'amazon.com.mx']
-    ]}
-  ];
-  // All other lead categories
-  const GENERAL_MARKETS = [
+  // ---------------- Country lists ----------------
+  // An entry is either 'Name' or ['value used for pricing', 'Label shown'].
+  // Amazon Leads + Amazon Private Label: these 7 countries only.
+  const AMAZON_COUNTRIES = [
     { region: '', list: [
-      ['USA', 'USA', ''],
-      ['Germany', 'Germany', ''],
-      ['United Kingdom', 'United Kingdom', ''],
-      ['Other', 'Other country (custom quote)', '']
+      ['USA', 'United States (US)'],
+      ['United Kingdom', 'United Kingdom (UK)'],
+      'Germany',
+      'Spain',
+      ['Australia', 'Australia (AUS)'],
+      'France',
+      'Mexico'
     ]}
   ];
-  const countMarkets = (groups) => groups.reduce((n, g) => n + g.list.length, 0);
-
-  // Fill the "marketplace coverage" chips in the pricing section
-  (function(){
-    function fill(targetId, countId, groups, showRegion){
-      const box = document.getElementById(targetId);
-      if (!box) return;
-      groups.forEach(g => {
-        const wrap = document.createElement('div');
-        wrap.className = 'coverage-region';
-        if (showRegion) {
-          const lab = document.createElement('span');
-          lab.className = 'coverage-label'; lab.textContent = g.region;
-          wrap.appendChild(lab);
-        }
-        const chips = document.createElement('div');
-        chips.className = 'coverage-chips';
-        g.list.forEach(([value, name, domain]) => {
-          const c = document.createElement('span');
-          c.className = 'coverage-chip' + (PRICING.ratePer1000[value] !== undefined ? ' priced' : '');
-          c.textContent = name;
-          if (domain) c.title = domain;
-          chips.appendChild(c);
-        });
-        wrap.appendChild(chips);
-        box.appendChild(wrap);
-      });
-      const n = countMarkets(groups);
-      document.getElementById(countId).textContent = n + (showRegion ? ' marketplaces' : ' countries');
-    }
-    fill('coverageAmazon', 'coverageAmazonCount', AMAZON_MARKETS, true);
-    fill('coveragePL', 'coveragePLCount', PRIVATE_LABEL_MARKETS, false);
-  })();
+  // Every other lead category: all countries worldwide, grouped by region.
+  const WORLD_COUNTRIES = [
+    { region: 'Most requested', list: [['USA', 'United States (US)'], ['United Kingdom', 'United Kingdom (UK)'], 'Germany', ['Australia', 'Australia (AUS)'], 'Canada'] },
+    { region: 'Europe', list: ['Albania','Andorra','Austria','Belarus','Belgium','Bosnia and Herzegovina','Bulgaria','Croatia','Cyprus','Czech Republic','Denmark','Estonia','Finland','France','Greece','Hungary','Iceland','Ireland','Italy','Kosovo','Latvia','Liechtenstein','Lithuania','Luxembourg','Malta','Moldova','Monaco','Montenegro','Netherlands','North Macedonia','Norway','Poland','Portugal','Romania','Russia','San Marino','Serbia','Slovakia','Slovenia','Spain','Sweden','Switzerland','Ukraine'] },
+    { region: 'North America & Caribbean', list: ['Antigua and Barbuda','Bahamas','Barbados','Belize','Costa Rica','Cuba','Dominica','Dominican Republic','El Salvador','Grenada','Guatemala','Haiti','Honduras','Jamaica','Mexico','Nicaragua','Panama','Puerto Rico','Saint Kitts and Nevis','Saint Lucia','Saint Vincent and the Grenadines','Trinidad and Tobago'] },
+    { region: 'South America', list: ['Argentina','Bolivia','Brazil','Chile','Colombia','Ecuador','Guyana','Paraguay','Peru','Suriname','Uruguay','Venezuela'] },
+    { region: 'Middle East', list: ['Bahrain','Iran','Iraq','Israel','Jordan','Kuwait','Lebanon','Oman','Palestine','Qatar','Saudi Arabia','Syria','Türkiye','United Arab Emirates','Yemen'] },
+    { region: 'Africa', list: ['Algeria','Angola','Benin','Botswana','Burkina Faso','Burundi','Cabo Verde','Cameroon','Central African Republic','Chad','Comoros','Congo','DR Congo',"Côte d'Ivoire",'Djibouti','Egypt','Equatorial Guinea','Eritrea','Eswatini','Ethiopia','Gabon','Gambia','Ghana','Guinea','Guinea-Bissau','Kenya','Lesotho','Liberia','Libya','Madagascar','Malawi','Mali','Mauritania','Mauritius','Morocco','Mozambique','Namibia','Niger','Nigeria','Rwanda','São Tomé and Príncipe','Senegal','Seychelles','Sierra Leone','Somalia','South Africa','South Sudan','Sudan','Tanzania','Togo','Tunisia','Uganda','Zambia','Zimbabwe'] },
+    { region: 'Asia', list: ['Afghanistan','Armenia','Azerbaijan','Bangladesh','Bhutan','Brunei','Cambodia','China','Georgia','Hong Kong','India','Indonesia','Japan','Kazakhstan','Kyrgyzstan','Laos','Macau','Malaysia','Maldives','Mongolia','Myanmar','Nepal','Pakistan','Philippines','Singapore','South Korea','Sri Lanka','Taiwan','Tajikistan','Thailand','Timor-Leste','Turkmenistan','Uzbekistan','Vietnam'] },
+    { region: 'Oceania', list: ['Fiji','Kiribati','Marshall Islands','Micronesia','Nauru','New Zealand','Palau','Papua New Guinea','Samoa','Solomon Islands','Tonga','Tuvalu','Vanuatu'] },
+    { region: 'Other', list: [['Other', 'Multiple countries / worldwide (custom quote)']] }
+  ];
+  // Example ZIP / postal codes shown in the ZIP field for the main markets
+  const ZIP_EXAMPLES = {
+    'USA': 'e.g. 10001, 90210, 33101',
+    'United Kingdom': 'e.g. SW1A, M1, EH1',
+    'Australia': 'e.g. 2000, 3000, 4000',
+    'Germany': 'e.g. 10115, 80331, 20095'
+  };
+  const entry = (e) => typeof e === 'string' ? [e, e] : e;
+  const countMarkets = (groups) => groups.reduce((n, g) => n + g.list.filter(e => entry(e)[0] !== 'Other').length, 0);
 
   // PRICING-LOGIC-START
   function discountFor(qty){
@@ -1664,37 +1584,30 @@
     let lastSummary = '';
     let countryListFor = null;
 
-    function marketsFor(leadCat){
-      if (leadCat === 'Amazon Leads') return { groups: AMAZON_MARKETS, label: 'Amazon marketplace', grouped: true };
-      if (leadCat === 'Amazon Private Label') return { groups: PRIVATE_LABEL_MARKETS, label: 'Country', grouped: false };
-      return { groups: GENERAL_MARKETS, label: 'Country', grouped: false };
-    }
-
-    // Rebuild the country dropdown when the lead category changes, keeping the current choice if it is still offered.
+    // Rebuild the country dropdown when switching between Amazon and other categories,
+    // keeping the current choice if it is still offered.
     function buildCountryOptions(leadCat){
-      const key = leadCat === 'Amazon Leads' || leadCat === 'Amazon Private Label' ? leadCat : 'general';
+      const key = AMAZON_CATS.indexOf(leadCat) !== -1 ? 'amazon' : 'world';
       if (countryListFor === key) return;
       countryListFor = key;
       const prev = countryEl.value;
-      const m = marketsFor(leadCat);
+      const groups = key === 'amazon' ? AMAZON_COUNTRIES : WORLD_COUNTRIES;
       countryEl.innerHTML = '';
-      m.groups.forEach(g => {
-        const parent = m.grouped ? document.createElement('optgroup') : countryEl;
-        if (m.grouped) parent.label = g.region;
-        g.list.forEach(([value, name, domain]) => {
+      groups.forEach(g => {
+        const parent = g.region ? document.createElement('optgroup') : countryEl;
+        if (g.region) parent.label = g.region;
+        g.list.forEach(e => {
+          const [value, label] = entry(e);
           const o = document.createElement('option');
-          o.value = value;
-          o.textContent = domain ? name + ' · ' + domain : name;
+          o.value = value; o.textContent = label;
           parent.appendChild(o);
         });
-        if (m.grouped) countryEl.appendChild(parent);
+        if (g.region) countryEl.appendChild(parent);
       });
       if (Array.from(countryEl.options).some(o => o.value === prev)) countryEl.value = prev;
-      $('calcCountryLabel').textContent = m.label;
-      const n = countMarkets(m.groups);
-      $('calcCountryHint').textContent = key === 'general'
-        ? 'Instant price for USA, Germany and UK.'
-        : n + ' available. Instant price for USA, Germany and UK; others get a custom quote.';
+      $('calcCountryHint').textContent = key === 'amazon'
+        ? 'Instant price: US, UK, Germany. Others: custom quote.'
+        : countMarkets(groups) + ' countries. Instant price: US, UK, Germany.';
     }
 
     function addRow(label, value, cls){
@@ -1744,7 +1657,8 @@
       hintEl.textContent = '';
       document.querySelectorAll('.qty-chip').forEach(c => c.classList.toggle('active', parseInt(c.dataset.qty, 10) === qty));
 
-      const lines = ['Estimated order - ' + leadCat, (isAmazon && leadCat === 'Amazon Leads' ? 'Marketplace: ' : 'Country: ') + countryText];
+      $('calcZip').placeholder = ZIP_EXAMPLES[country] || 'e.g. ZIP or postal codes, comma separated';
+      const lines = ['Estimated order - ' + leadCat, 'Country: ' + countryText];
       if (isAmazon) {
         const types = selectedTypes();
         lines.push('Monthly revenue: ' + (rev.text || 'Not set'));
@@ -1753,6 +1667,7 @@
       } else {
         lines.push('Category: ' + ($('calcCategoryText').value.trim() || 'Not specified'));
         lines.push('City / Location: ' + ($('calcCity').value.trim() || 'Not specified'));
+        lines.push('ZIP / Postal codes: ' + ($('calcZip').value.trim() || 'Whole country'));
       }
       lines.push('Personal phone numbers: ' + (phone ? 'Yes (+$0.10 per lead)' : 'No'));
 
@@ -1761,7 +1676,7 @@
         totalEl.textContent = 'Custom quote';
         perEl.textContent = country === 'Other'
           ? 'Tell me the country and volume and I will price it.'
-          : 'Send the request and I will price ' + countryText.split(' · ')[0] + ' for you.';
+          : 'Send the request and I will price ' + countryText.replace(/ \(.*\)$/, '') + ' for you.';
         reqBtn.textContent = 'Request a quote';
         reqBtn.disabled = !rev.ok;
         lastSummary = lines.concat(['Quantity: ' + (qty ? num(qty) : 'Not set')]).join('\n');
@@ -1797,7 +1712,7 @@
     }
 
     document.querySelectorAll('.qty-chip').forEach(c => c.addEventListener('click', () => { qtyEl.value = c.dataset.qty; render(); }));
-    ['calcLeadCat','calcCountry','calcRevenue','calcCategory','calcCategoryText','calcCity','calcRevMin','calcRevMax','calcPhone','calcQty'].forEach(id => {
+    ['calcLeadCat','calcCountry','calcRevenue','calcCategory','calcCategoryText','calcCity','calcZip','calcRevMin','calcRevMax','calcPhone','calcQty'].forEach(id => {
       $(id).addEventListener('input', render);
       $(id).addEventListener('change', render);
     });
