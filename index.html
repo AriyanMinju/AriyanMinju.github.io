@@ -37,21 +37,33 @@
   .eyebrow{font-family:var(--font-mono); font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--amber-dim);}
   header{background:var(--ink); border-bottom:1px solid var(--line-dark); position:sticky; top:0; z-index:100;}
   .nav{display:flex; justify-content:space-between; align-items:center; padding:18px 28px; max-width:980px; margin:0 auto;}
-  .nav .name{font-family:var(--font-display); font-weight:700; color:var(--amber); font-size:17px; letter-spacing:0.02em; text-shadow:1px 1px 0 var(--amber-dim), 2px 2px 0 #96611a, 3px 3px 0 #7a4f16, 4px 4px 6px rgba(0,0,0,0.35);}
+  /* "Leads Expert" brand: larger, bolder, layered 3D depth with a top highlight */
+  .nav .name{font-family:var(--font-display); font-weight:700; color:#F0B454; font-size:25px; line-height:1.1; letter-spacing:0.03em; padding:0 6px 6px 0; white-space:nowrap;
+    text-shadow:
+      0 -1px 0 rgba(255,236,200,0.6),
+      1px 1px 0 #D98F2B,
+      2px 2px 0 #B8791F,
+      3px 3px 0 #96611a,
+      4px 4px 0 #7a4f16,
+      5px 5px 0 #5e3d11,
+      6px 6px 12px rgba(0,0,0,0.5);}
   .brand{display:flex; align-items:center; gap:8px;}
   .nav a{color:var(--muted-on-ink); text-decoration:none; font-size:14px; font-weight:700; margin-left:22px;}
   .nav a:hover{color:var(--amber);}
   .nav-right{display:flex; align-items:center; flex-wrap:wrap;}
   .nav-cta{background:var(--amber); color:var(--ink) !important; font-family:var(--font-mono); font-size:12.5px !important; font-weight:600; padding:8px 14px; border-radius:4px; margin-left:22px;}
   .nav-cta:hover{background:var(--amber-dim); color:var(--ink) !important;}
-  @media (max-width:760px){ .nav{flex-direction:column; align-items:flex-start; gap:10px;} .nav-right{gap:10px 16px;} .nav-right a{margin-left:0;} }
+  @media (max-width:760px){ .nav{flex-direction:column; align-items:flex-start; gap:10px;} .nav-right{gap:10px 16px;} .nav-right a{margin-left:0;} .nav .name{font-size:22px;} }
   .hero{background:var(--ink); color:var(--paper); padding:64px 0 80px;}
   .hero-grid{display:grid; grid-template-columns:180px 1fr; gap:40px; align-items:center;}
   @media (max-width:600px){.hero-grid{grid-template-columns:1fr; text-align:center;}}
   .photo-frame{width:180px; height:180px; border-radius:50%; border:2px solid var(--amber); padding:6px; margin:0 auto;}
   .photo-placeholder{width:100%; height:100%; border-radius:50%; background:var(--ink-soft, #1B212B); border:1px dashed var(--line-dark); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:42px; color:var(--amber); overflow:hidden;}
   .photo-placeholder img{width:100%; height:100%; object-fit:cover; border-radius:50%;}
-  h1{font-family:var(--font-display); font-size:clamp(28px,4vw,42px); font-weight:700; color:var(--amber); margin:10px 0 6px;}
+  /* Main heading: bigger, warm gold-to-rose gradient that stands out on the dark hero */
+  h1{font-family:var(--font-display); font-size:clamp(34px,5.6vw,58px); line-height:1.08; letter-spacing:-0.01em; font-weight:700; margin:10px 0 10px; color:#F5C46E;
+     background:linear-gradient(100deg, #FFE6B0 0%, #F5C46E 40%, #F28C5B 75%, #F472B6 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+     filter:drop-shadow(0 4px 22px rgba(240,180,84,0.22));}
   .role{font-size:17px; color:var(--muted-on-ink); margin:0 0 14px;}
   .hero-meta{display:flex; flex-wrap:wrap; gap:16px; font-family:var(--font-mono); font-size:12.5px; color:var(--muted-on-ink);}
   @media (max-width:600px){.hero-meta{justify-content:center;}}
@@ -87,7 +99,7 @@
   .ring-mid{animation-delay:.3s;}
   @keyframes ringPulse{0%,100%{opacity:1; transform:scale(1);} 50%{opacity:0.5; transform:scale(1.08);}}
   @media (prefers-reduced-motion:reduce){ .wheel1, .wheel2, .ring-outer, .ring-mid{animation:none;} }
-  h2{font-family:var(--font-display); font-size:26px; font-weight:700; color:var(--amber-dim); margin:10px 0 30px;}
+  h2{font-family:var(--font-display); font-size:clamp(26px,3.4vw,32px); line-height:1.2; font-weight:700; color:var(--amber-dim); margin:10px 0 30px;}
   .trusted-by{background:var(--paper-soft); padding:56px 0 48px;}
   .trusted-by h2{margin-top:6px;}
   .marquee{overflow:hidden; margin-top:28px; -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);}
@@ -220,7 +232,7 @@
   .chat-tab.active{background:var(--amber); color:var(--ink); border-color:var(--amber);}
   .chat-demo{background:var(--paper-soft);}
   .chat-demo-sub{color:var(--muted); font-size:15px; max-width:480px; margin:0 auto 40px;}
-  .phone-mockup{width:320px; margin:0 auto; background:#DDE3EA; border-radius:38px; padding:14px 12px 20px; box-shadow:0 30px 60px -20px rgba(27,32,41,0.35);}
+  .phone-mockup{width:320px; max-width:100%; margin:0 auto; background:#DDE3EA; border-radius:38px; padding:14px 12px 20px; box-shadow:0 30px 60px -20px rgba(27,32,41,0.35);}
   .phone-notch{width:90px; height:16px; background:#C4CBD4; border-radius:10px; margin:0 auto 10px;}
   .phone-screen{background:var(--paper); border-radius:22px; padding:22px 14px; min-height:420px; max-height:520px; overflow-y:auto;}
   .phone-home-bar{width:100px; height:5px; background:#C4CBD4; border-radius:6px; margin:14px auto 0;}
@@ -251,7 +263,7 @@
   .slide-in-right{opacity:0; transform:translateX(70px); transition:opacity .7s ease, transform .7s cubic-bezier(.16,.9,.3,1);}
   .slide-in-right.in-view{opacity:1; transform:translateX(0);}
   @media (prefers-reduced-motion:reduce){ .slide-in-right{opacity:1; transform:none; transition:none;} }
-  .contact{background:var(--paper-soft);}
+  .contact{background:var(--paper-soft); overflow-x:hidden;}
   .contact-row{display:flex; flex-wrap:wrap; gap:14px;}
   .contact-btn{font-family:var(--font-mono); font-size:13.5px; background:var(--ink); color:var(--paper); padding:12px 20px; border-radius:4px; text-decoration:none;}
   .contact-btn:hover{background:var(--amber-dim); color:var(--ink);}
@@ -309,6 +321,22 @@
   .price-bulk .price-btn.secondary{background:transparent; color:var(--paper); border:1px solid var(--line-dark);}
   .price-bulk .price-btn.secondary:hover{border-color:var(--amber); color:var(--amber);}
 
+  /* Marketplace coverage (country lists for Amazon seller + private label leads) */
+  .coverage{margin-top:28px; display:grid; grid-template-columns:1.55fr 1fr; gap:20px; align-items:start;}
+  @media (max-width:860px){ .coverage{grid-template-columns:1fr;} }
+  .coverage-col{background:var(--paper); border:1px solid var(--line-light); border-radius:14px; padding:24px;}
+  .coverage-head{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px 12px; margin-bottom:16px;}
+  .coverage-head h4{font-family:var(--font-display); font-size:17px; color:var(--ink-text); margin:0;}
+  .coverage-count{font-family:var(--font-mono); font-size:11.5px; font-weight:600; color:var(--amber-dim); background:rgba(217,143,43,0.14); padding:4px 10px; border-radius:20px; white-space:nowrap;}
+  .coverage-region{margin-bottom:14px;}
+  .coverage-region:last-child{margin-bottom:0;}
+  .coverage-label{display:block; font-family:var(--font-mono); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); margin-bottom:7px;}
+  .coverage-chips{display:flex; flex-wrap:wrap; gap:6px;}
+  .coverage-chip{font-size:13px; line-height:1.3; padding:5px 11px; border-radius:16px; background:var(--paper-soft); border:1px solid var(--line-light); color:var(--ink-text);}
+  .coverage-chip.priced{border-color:var(--amber); background:rgba(217,143,43,0.13); font-weight:600;}
+  .coverage-note{grid-column:1 / -1; font-size:13.5px; color:var(--muted); margin:0;}
+  .coverage-note .key{display:inline-block; width:11px; height:11px; border-radius:50%; background:rgba(217,143,43,0.25); border:1px solid var(--amber); vertical-align:-1px; margin-right:4px;}
+
   .price-row-title{font-family:var(--font-display); font-size:20px; font-weight:700; color:var(--ink-text); margin:40px 0 14px;}
   .price-row-title:first-of-type{margin-top:0;}
   .calc{margin-top:24px; display:grid; grid-template-columns:1.15fr 0.85fr; border:1px solid var(--line-light); border-radius:16px; overflow:hidden; background:var(--paper); box-shadow:0 26px 60px -30px rgba(18,22,29,0.28);}
@@ -323,7 +351,7 @@
   @media (max-width:560px){ .calc-range{flex-direction:column; align-items:stretch;} }
   #calcRevError.bad{color:#B5443C;}
   @media (max-width:560px){ .calc-grid{grid-template-columns:1fr;} }
-  .calc-field{display:flex; flex-direction:column; margin-bottom:18px;}
+  .calc-field{display:flex; flex-direction:column; margin-bottom:18px; min-width:0;}
   .calc-field > label, .calc-label{font-family:var(--font-mono); font-size:11.5px; letter-spacing:0.05em; text-transform:uppercase; color:var(--muted); margin-bottom:6px;}
   .calc select, .calc input[type=number], .calc input[type=text]{font-family:var(--font-body); font-size:14.5px; padding:12px 14px; border:1.5px solid var(--line-light); border-radius:8px; background:var(--paper-soft); color:var(--ink-text); width:100%;}
   .calc select:focus, .calc input[type=number]:focus, .calc input[type=text]:focus{outline:none; border-color:var(--amber); box-shadow:0 0 0 3px rgba(217,143,43,0.16);}
@@ -380,6 +408,12 @@
   @media (prefers-reduced-motion:reduce){
     .portfolio-marquee, .reviews-marquee{overflow-x:auto;}
     .portfolio-card.dup, .testimonial-card.dup{display:none;}
+  }
+  @media (max-width:480px){
+    .wrap{padding:0 18px;}
+    .nav{padding:16px 18px;}
+    .testimonials-panel{padding:36px 18px;}
+    .coverage-col, .calc-form, .calc-summary{padding:20px;}
   }
 
 </style>
@@ -826,6 +860,19 @@
       </div>
     </div>
 
+    <!-- Marketplace coverage: filled in from the AMAZON_MARKETS / PRIVATE_LABEL_MARKETS lists in the script -->
+    <div class="coverage reveal" id="coverage">
+      <div class="coverage-col">
+        <div class="coverage-head"><h4>Amazon Seller Leads</h4><span class="coverage-count" id="coverageAmazonCount"></span></div>
+        <div id="coverageAmazon"></div>
+      </div>
+      <div class="coverage-col">
+        <div class="coverage-head"><h4>Amazon Private Label Seller Leads</h4><span class="coverage-count" id="coveragePLCount"></span></div>
+        <div id="coveragePL"></div>
+      </div>
+      <p class="coverage-note"><span class="key"></span>Highlighted markets are priced instantly in the calculator below. Every other marketplace gets a custom quote.</p>
+    </div>
+
     <div class="calc reveal" id="calc">
       <div class="calc-form">
         <h4 class="calc-title">Build Your Leads Order</h4>
@@ -853,13 +900,9 @@
             </select>
           </div>
           <div class="calc-field">
-            <label for="calcCountry">Country</label>
-            <select id="calcCountry">
-              <option value="USA">USA</option>
-              <option value="Germany">Germany</option>
-              <option value="United Kingdom">United Kingdom</option>
-              <option value="Other">Other country (custom quote)</option>
-            </select>
+            <label for="calcCountry" id="calcCountryLabel">Amazon marketplace</label>
+            <select id="calcCountry"></select>
+            <small id="calcCountryHint"></small>
           </div>
           <div class="calc-field" data-for="amazon">
             <label for="calcRevenue">Monthly revenue range</label>
@@ -1477,6 +1520,7 @@
 
   // ---------------- Leads order calculator ----------------
   // Edit the numbers below to change prices, the phone add-on or the discounts.
+  // Any country without a price here shows "Custom quote" in the calculator.
   const PRICING = {
     ratePer1000: { 'USA': 280, 'Germany': 280, 'United Kingdom': 320 },
     // Optional: a different per-1,000 price for one lead category, for example:
@@ -1486,6 +1530,99 @@
     minLeads: 1000,
     tiers: [ { min: 10000, pct: 20 }, { min: 5000, pct: 15 } ]
   };
+
+  // ---------------- Country / marketplace lists ----------------
+  // Each entry: [value used for pricing, display name, Amazon domain]
+  // Amazon Seller Leads: every Amazon marketplace worldwide, grouped by region.
+  const AMAZON_MARKETS = [
+    { region: 'North America', list: [
+      ['USA', 'United States', 'amazon.com'],
+      ['Canada', 'Canada', 'amazon.ca'],
+      ['Mexico', 'Mexico', 'amazon.com.mx']
+    ]},
+    { region: 'South America', list: [
+      ['Brazil', 'Brazil', 'amazon.com.br']
+    ]},
+    { region: 'Europe', list: [
+      ['United Kingdom', 'United Kingdom', 'amazon.co.uk'],
+      ['Germany', 'Germany', 'amazon.de'],
+      ['France', 'France', 'amazon.fr'],
+      ['Italy', 'Italy', 'amazon.it'],
+      ['Spain', 'Spain', 'amazon.es'],
+      ['Netherlands', 'Netherlands', 'amazon.nl'],
+      ['Sweden', 'Sweden', 'amazon.se'],
+      ['Poland', 'Poland', 'amazon.pl'],
+      ['Belgium', 'Belgium', 'amazon.com.be'],
+      ['Ireland', 'Ireland', 'amazon.ie']
+    ]},
+    { region: 'Middle East & Africa', list: [
+      ['Turkey', 'Türkiye', 'amazon.com.tr'],
+      ['UAE', 'United Arab Emirates', 'amazon.ae'],
+      ['Saudi Arabia', 'Saudi Arabia', 'amazon.sa'],
+      ['Egypt', 'Egypt', 'amazon.eg'],
+      ['South Africa', 'South Africa', 'amazon.co.za']
+    ]},
+    { region: 'Asia-Pacific', list: [
+      ['India', 'India', 'amazon.in'],
+      ['Japan', 'Japan', 'amazon.co.jp'],
+      ['Singapore', 'Singapore', 'amazon.sg'],
+      ['Australia', 'Australia', 'amazon.com.au']
+    ]}
+  ];
+  // Amazon Private Label Seller Leads: these 7 countries only.
+  const PRIVATE_LABEL_MARKETS = [
+    { region: 'Available countries', list: [
+      ['USA', 'United States (US)', 'amazon.com'],
+      ['United Kingdom', 'United Kingdom (UK)', 'amazon.co.uk'],
+      ['Germany', 'Germany', 'amazon.de'],
+      ['Spain', 'Spain', 'amazon.es'],
+      ['Australia', 'Australia (AUS)', 'amazon.com.au'],
+      ['France', 'France', 'amazon.fr'],
+      ['Mexico', 'Mexico', 'amazon.com.mx']
+    ]}
+  ];
+  // All other lead categories
+  const GENERAL_MARKETS = [
+    { region: '', list: [
+      ['USA', 'USA', ''],
+      ['Germany', 'Germany', ''],
+      ['United Kingdom', 'United Kingdom', ''],
+      ['Other', 'Other country (custom quote)', '']
+    ]}
+  ];
+  const countMarkets = (groups) => groups.reduce((n, g) => n + g.list.length, 0);
+
+  // Fill the "marketplace coverage" chips in the pricing section
+  (function(){
+    function fill(targetId, countId, groups, showRegion){
+      const box = document.getElementById(targetId);
+      if (!box) return;
+      groups.forEach(g => {
+        const wrap = document.createElement('div');
+        wrap.className = 'coverage-region';
+        if (showRegion) {
+          const lab = document.createElement('span');
+          lab.className = 'coverage-label'; lab.textContent = g.region;
+          wrap.appendChild(lab);
+        }
+        const chips = document.createElement('div');
+        chips.className = 'coverage-chips';
+        g.list.forEach(([value, name, domain]) => {
+          const c = document.createElement('span');
+          c.className = 'coverage-chip' + (PRICING.ratePer1000[value] !== undefined ? ' priced' : '');
+          c.textContent = name;
+          if (domain) c.title = domain;
+          chips.appendChild(c);
+        });
+        wrap.appendChild(chips);
+        box.appendChild(wrap);
+      });
+      const n = countMarkets(groups);
+      document.getElementById(countId).textContent = n + (showRegion ? ' marketplaces' : ' countries');
+    }
+    fill('coverageAmazon', 'coverageAmazonCount', AMAZON_MARKETS, true);
+    fill('coveragePL', 'coveragePLCount', PRIVATE_LABEL_MARKETS, false);
+  })();
 
   // PRICING-LOGIC-START
   function discountFor(qty){
@@ -1523,7 +1660,42 @@
     };
     const rowsEl = $('calcRows'), totalEl = $('calcTotal'), perEl = $('calcPer'), hintEl = $('calcHint'), reqBtn = $('calcRequest');
     const qtyEl = $('calcQty');
+    const countryEl = $('calcCountry');
     let lastSummary = '';
+    let countryListFor = null;
+
+    function marketsFor(leadCat){
+      if (leadCat === 'Amazon Leads') return { groups: AMAZON_MARKETS, label: 'Amazon marketplace', grouped: true };
+      if (leadCat === 'Amazon Private Label') return { groups: PRIVATE_LABEL_MARKETS, label: 'Country', grouped: false };
+      return { groups: GENERAL_MARKETS, label: 'Country', grouped: false };
+    }
+
+    // Rebuild the country dropdown when the lead category changes, keeping the current choice if it is still offered.
+    function buildCountryOptions(leadCat){
+      const key = leadCat === 'Amazon Leads' || leadCat === 'Amazon Private Label' ? leadCat : 'general';
+      if (countryListFor === key) return;
+      countryListFor = key;
+      const prev = countryEl.value;
+      const m = marketsFor(leadCat);
+      countryEl.innerHTML = '';
+      m.groups.forEach(g => {
+        const parent = m.grouped ? document.createElement('optgroup') : countryEl;
+        if (m.grouped) parent.label = g.region;
+        g.list.forEach(([value, name, domain]) => {
+          const o = document.createElement('option');
+          o.value = value;
+          o.textContent = domain ? name + ' · ' + domain : name;
+          parent.appendChild(o);
+        });
+        if (m.grouped) countryEl.appendChild(parent);
+      });
+      if (Array.from(countryEl.options).some(o => o.value === prev)) countryEl.value = prev;
+      $('calcCountryLabel').textContent = m.label;
+      const n = countMarkets(m.groups);
+      $('calcCountryHint').textContent = key === 'general'
+        ? 'Instant price for USA, Germany and UK.'
+        : n + ' available. Instant price for USA, Germany and UK; others get a custom quote.';
+    }
 
     function addRow(label, value, cls){
       const r = document.createElement('div');
@@ -1552,8 +1724,10 @@
 
     function render(){
       const leadCat = $('calcLeadCat').value;
+      buildCountryOptions(leadCat);
       const isAmazon = AMAZON_CATS.indexOf(leadCat) !== -1;
-      const country = $('calcCountry').value;
+      const country = countryEl.value;
+      const countryText = countryEl.selectedOptions[0] ? countryEl.selectedOptions[0].textContent : country;
       const phone = $('calcPhone').checked;
       const qty = parseInt(qtyEl.value, 10);
 
@@ -1570,7 +1744,7 @@
       hintEl.textContent = '';
       document.querySelectorAll('.qty-chip').forEach(c => c.classList.toggle('active', parseInt(c.dataset.qty, 10) === qty));
 
-      const lines = ['Estimated order - ' + leadCat, 'Country: ' + country];
+      const lines = ['Estimated order - ' + leadCat, (isAmazon && leadCat === 'Amazon Leads' ? 'Marketplace: ' : 'Country: ') + countryText];
       if (isAmazon) {
         const types = selectedTypes();
         lines.push('Monthly revenue: ' + (rev.text || 'Not set'));
@@ -1582,9 +1756,12 @@
       }
       lines.push('Personal phone numbers: ' + (phone ? 'Yes (+$0.10 per lead)' : 'No'));
 
-      if (country === 'Other') {
+      // No listed price for this country/marketplace -> custom quote
+      if (rateFor(leadCat, country) === undefined) {
         totalEl.textContent = 'Custom quote';
-        perEl.textContent = 'Tell me the country and volume and I will price it.';
+        perEl.textContent = country === 'Other'
+          ? 'Tell me the country and volume and I will price it.'
+          : 'Send the request and I will price ' + countryText.split(' · ')[0] + ' for you.';
         reqBtn.textContent = 'Request a quote';
         reqBtn.disabled = !rev.ok;
         lastSummary = lines.concat(['Quantity: ' + (qty ? num(qty) : 'Not set')]).join('\n');
