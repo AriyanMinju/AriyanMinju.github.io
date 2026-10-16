@@ -1,5 +1,5 @@
 /* =========================================================
-   Leads Expert — shared site script
+   Oxima — shared site script
    ========================================================= */
 (function(){
   'use strict';
@@ -238,7 +238,7 @@
       timers.forEach(clearTimeout); timers = []; box.innerHTML = '';
       (conversations[key] || []).forEach((m, i) => {
         const row = document.createElement('div'); row.className = 'bubble ' + m.side;
-        const av = document.createElement('div'); av.className = 'av'; av.textContent = m.side === 'client' ? 'C' : 'LE';
+        const av = document.createElement('div'); av.className = 'av'; av.textContent = m.side === 'client' ? 'C' : 'OX';
         const tx = document.createElement('div'); tx.className = 'tx'; tx.textContent = m.text;
         row.appendChild(av); row.appendChild(tx); box.appendChild(row);
         timers.push(setTimeout(() => row.classList.add('shown'), reduceMotion ? 0 : i * 380));
@@ -274,7 +274,7 @@
     const dl = $('#sampleDownload');
     if (dl) dl.addEventListener('click', () => {
       const q = (v) => '"' + String(v).replace(/"/g, '""') + '"';
-      const csv = '﻿' + [COLS].concat(ROWS).map((r) => r.map(q).join(',')).join('\r\n') + '\r\n\r\n' + q('Fictional sample data for format preview only - Leads Expert') + '\r\n';
+      const csv = '﻿' + [COLS].concat(ROWS).map((r) => r.map(q).join(',')).join('\r\n') + '\r\n\r\n' + q('Fictional sample data for format preview only - Oxima') + '\r\n';
       const a = document.createElement('a');
       a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
       a.download = 'leads-expert-sample.csv';
