@@ -682,6 +682,100 @@
   .pin-core{fill:var(--accent); stroke:#FFFFFF; stroke-width:1.2; vector-effect:non-scaling-stroke;}
   @media (prefers-reduced-motion:reduce){ .calc-map-frame::after, .map-arc, .pin-pulse, .map-home-ring, .calc.cat-flash .calc-summary{animation:none;} .map-runner{display:none;} }
 
+  /* ================= Company Search ================= */
+  @media (max-width:960px){ .work-grid{grid-template-columns:1fr;} }
+  .work-card{min-width:0;} .work-card .figure{white-space:normal;}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;}
+  .nav a{margin-left:22px; font-size:15.5px;}
+  @media (max-width:1440px){ .nav a{margin-left:16px; font-size:15px;} .nav .name{font-size:22px;} .nav-cta{padding:9px 14px;} }
+  @media (max-width:1240px){ .nav{flex-direction:column; align-items:flex-start; gap:12px;} .nav-right{flex-wrap:wrap; gap:10px 20px;} .nav-right a{margin-left:0;} }
+  .company-search{position:relative; overflow:hidden; background:radial-gradient(ellipse 60% 80% at 50% 0%, rgba(18,97,255,0.30), transparent 70%), #0A1222; color:#E2E8F0; padding:80px 0 88px;}
+  .company-search h2{color:#FFFFFF; text-align:center; margin-bottom:12px;}
+  .cs-eyebrow{color:var(--cyan); text-align:center; letter-spacing:0.3em;}
+  .cs-sub{text-align:center; color:#9AA8BF; max-width:620px; margin:0 auto 30px; font-size:16px;}
+  .cs-form{position:relative; display:flex; align-items:center; gap:10px; max-width:720px; margin:0 auto; padding:8px; border-radius:16px; background:#0F1A30; border:1.5px solid rgba(34,211,238,0.35); box-shadow:0 0 0 6px rgba(18,97,255,0.08), 0 20px 50px -20px rgba(18,97,255,0.6); transition:border-color .2s ease, box-shadow .2s ease;}
+  .cs-form:focus-within{border-color:#22D3EE; box-shadow:0 0 0 6px rgba(34,211,238,0.14), 0 20px 50px -18px rgba(34,211,238,0.6);}
+  .cs-icon{flex-shrink:0; color:#22D3EE; margin-left:10px;}
+  #csInput{flex:1; min-width:0; background:transparent; border:none; outline:none; color:#FFFFFF; font-family:var(--font-body); font-size:16.5px; padding:12px 4px;}
+  #csInput::placeholder{color:#5E6D86;}
+  #csInput::-webkit-search-cancel-button{filter:invert(1) opacity(.5);}
+  .cs-btn{flex-shrink:0; border:none; cursor:pointer; border-radius:11px; padding:13px 26px; font-family:var(--font-body); font-size:15px; font-weight:700; color:#FFFFFF; background:linear-gradient(135deg, #1261FF, #22D3EE); transition:transform .15s ease, opacity .15s ease;}
+  .cs-btn:hover{transform:translateY(-1px);}
+  .cs-btn:disabled{opacity:.6; cursor:wait; transform:none;}
+  .cs-hint{text-align:center; font-size:13px; color:#6B7A93; margin:14px 0 0;}
+  .cs-hint code{font-family:var(--font-mono); color:#9AA8BF; background:rgba(148,197,255,0.08); padding:1px 6px; border-radius:4px;}
+  .cs-status{text-align:center; margin:22px auto 0; max-width:640px; font-size:14.5px; color:#9AA8BF; min-height:1px;}
+  .cs-status.error{color:#FCA5A5;}
+  .cs-status .price-btn{margin-top:12px;}
+  .cs-results{display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; max-width:900px; margin:22px auto 0;}
+  @media (max-width:760px){ .cs-results{grid-template-columns:1fr;} }
+  .cs-card{display:flex; gap:14px; align-items:flex-start; text-align:left; width:100%; cursor:pointer; padding:18px; border-radius:14px; background:rgba(148,197,255,0.05); border:1px solid rgba(148,197,255,0.14); color:inherit; font:inherit; transition:border-color .2s ease, transform .2s ease, background .2s ease; animation:csIn .35s ease both;}
+  .cs-card:hover, .cs-card:focus-visible{border-color:#22D3EE; background:rgba(34,211,238,0.07); transform:translateY(-2px); outline:none;}
+  @keyframes csIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:none;}}
+  .cs-logo{flex-shrink:0; width:44px; height:44px; border-radius:11px; background:linear-gradient(135deg, #1261FF, #22D3EE); color:#FFFFFF; font-family:var(--font-display); font-weight:800; font-size:18px; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative;}
+  .cs-logo img{position:absolute; inset:0; width:100%; height:100%; object-fit:contain; background:#FFFFFF; padding:6px;}
+  .cs-card-body{min-width:0; flex:1;}
+  .cs-card-name{font-family:var(--font-display); font-weight:700; font-size:16.5px; color:#FFFFFF;}
+  .cs-card-domain{font-family:var(--font-mono); font-size:12.5px; color:#22D3EE; margin-top:2px; word-break:break-all;}
+  .cs-card-desc{font-size:13.5px; color:#9AA8BF; margin-top:6px; line-height:1.45; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
+  .cs-card-go{flex-shrink:0; align-self:center; font-size:13px; font-weight:600; color:#22D3EE; white-space:nowrap;}
+  .cs-skel{height:84px; border-radius:14px; background:linear-gradient(90deg, rgba(148,197,255,0.05), rgba(148,197,255,0.12), rgba(148,197,255,0.05)); background-size:200% 100%; animation:csShimmer 1.2s linear infinite;}
+  @keyframes csShimmer{to{background-position:-200% 0;}}
+
+  /* Profile panel */
+  .cs-overlay{display:none; position:fixed; inset:0; z-index:400; background:rgba(5,9,18,0.72); -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px); align-items:flex-start; justify-content:center; padding:5vh 16px; overflow-y:auto;}
+  .cs-overlay.open{display:flex;}
+  .cs-panel{position:relative; width:100%; max-width:780px; background:#0E1626; color:#E2E8F0; border:1px solid rgba(148,197,255,0.16); border-radius:20px; padding:30px; box-shadow:0 40px 90px -30px rgba(0,0,0,0.8); animation:csPop .3s cubic-bezier(.2,.9,.3,1.1);}
+  @keyframes csPop{from{opacity:0; transform:translateY(14px) scale(.98);} to{opacity:1; transform:none;}}
+  .cs-close{position:absolute; top:14px; right:16px; width:38px; height:38px; border-radius:50%; border:1px solid rgba(148,197,255,0.2); background:transparent; color:#9AA8BF; font-size:24px; line-height:1; cursor:pointer;}
+  .cs-close:hover{color:#FFFFFF; border-color:#22D3EE;}
+  .csp-head{display:flex; gap:16px; align-items:center; padding-right:44px;}
+  .csp-head .cs-logo{width:60px; height:60px; border-radius:14px; font-size:24px;}
+  .csp-name{font-family:var(--font-display); font-weight:800; font-size:clamp(22px,3vw,28px); color:#FFFFFF; margin:0; line-height:1.15;}
+  .csp-links{display:flex; flex-wrap:wrap; gap:8px 14px; margin-top:6px; font-size:13.5px;}
+  .csp-links a{color:#22D3EE; text-decoration:none; font-weight:600;}
+  .csp-links a:hover{text-decoration:underline;}
+  .csp-desc{color:#B4C2D8; font-size:14.5px; line-height:1.55; margin:18px 0 0;}
+  .csp-facts{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;}
+  .csp-fact{font-size:12.5px; color:#DCE4F0; background:rgba(148,197,255,0.07); border:1px solid rgba(148,197,255,0.14); border-radius:20px; padding:5px 12px;}
+  .csp-fact b{color:#8C9AB3; font-weight:500; margin-right:4px;}
+  .csp-section{margin-top:26px;}
+  .csp-section-head{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px;}
+  .csp-section h4{font-family:var(--font-display); font-size:17px; color:#FFFFFF; margin:0;}
+  .csp-unlock-all{border:none; cursor:pointer; border-radius:10px; padding:9px 16px; font-family:var(--font-body); font-size:13.5px; font-weight:700; color:#0B1220; background:linear-gradient(135deg, #22D3EE, #67E8F9);}
+  .csp-unlock-all:hover{filter:brightness(1.08);}
+  .csp-people{display:grid; grid-template-columns:repeat(2, 1fr); gap:12px;}
+  @media (max-width:640px){ .csp-people{grid-template-columns:1fr;} .cs-panel{padding:24px 18px;} }
+  .csp-person{padding:16px; border-radius:14px; background:rgba(148,197,255,0.05); border:1px solid rgba(148,197,255,0.12);}
+  .csp-person-top{display:flex; gap:12px; align-items:center;}
+  .csp-avatar{flex-shrink:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; color:#FFFFFF; background:linear-gradient(135deg, #1261FF, #7C3AED);}
+  .csp-person.is-lead .csp-avatar{background:linear-gradient(135deg, #22D3EE, #1261FF);}
+  .csp-pname{font-weight:700; color:#FFFFFF; font-size:15px;}
+  .csp-ptitle{font-size:13px; color:#9AA8BF; margin-top:1px;}
+  .csp-badge{display:inline-block; font-family:var(--font-mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:#22D3EE; border:1px solid rgba(34,211,238,0.4); border-radius:12px; padding:1px 7px; margin-left:6px; vertical-align:2px;}
+  .csp-contact{margin-top:12px; display:flex; flex-direction:column; gap:7px;}
+  .csp-row{display:flex; align-items:center; justify-content:space-between; gap:10px; font-size:13px; color:#8C9AB3;}
+  .csp-row span:last-child{color:#DCE4F0;}
+  .csp-locked{display:inline-flex; align-items:center; gap:6px; color:#FBBF24 !important; font-weight:600;}
+  .csp-person-actions{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;}
+  .csp-mini{font-size:12.5px; font-weight:600; border-radius:8px; padding:7px 12px; text-decoration:none; cursor:pointer; font-family:var(--font-body);}
+  .csp-mini.li{color:#DCE4F0; border:1px solid rgba(148,197,255,0.2); background:transparent;}
+  .csp-mini.li:hover{border-color:#22D3EE; color:#22D3EE;}
+  .csp-mini.unlock{color:#0B1220; background:#FBBF24; border:none;}
+  .csp-mini.unlock:hover{filter:brightness(1.08);}
+  .csp-empty{font-size:14px; color:#9AA8BF; padding:16px; border-radius:12px; border:1px dashed rgba(148,197,255,0.2);}
+  .csp-amazon{display:flex; flex-direction:column; gap:10px;}
+  .csp-amz{display:flex; align-items:center; gap:12px; padding:14px 16px; border-radius:12px; text-decoration:none; color:#E2E8F0; background:rgba(255,153,0,0.07); border:1px solid rgba(255,153,0,0.35); transition:background .2s ease;}
+  .csp-amz:hover{background:rgba(255,153,0,0.14);}
+  .csp-amz-icon{flex-shrink:0; width:34px; height:34px; border-radius:9px; background:#FF9900; color:#0B1220; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:17px; font-family:var(--font-display);}
+  .csp-amz-type{font-weight:700; font-size:14px; color:#FFFFFF;}
+  .csp-amz-url{font-family:var(--font-mono); font-size:11.5px; color:#FDBA74; word-break:break-all;}
+  .csp-amz-search{font-size:13.5px; color:#FDBA74;}
+  .csp-note{font-size:12px; color:#6B7A93; margin:24px 0 0; line-height:1.5;}
+  .csp-loading{padding:50px 0; text-align:center; color:#9AA8BF;}
+  .csp-spinner{width:38px; height:38px; margin:0 auto 14px; border-radius:50%; border:3px solid rgba(34,211,238,0.18); border-top-color:#22D3EE; animation:spin .9s linear infinite;}
+  @media (prefers-reduced-motion:reduce){ .cs-card, .cs-panel, .cs-skel, .csp-spinner{animation:none;} }
+
 </style>
 </head>
 <body>
@@ -696,6 +790,7 @@
       <a href="#reviews">Reviews</a>
       <a href="#pricing">Pricing</a>
       <a href="#work">Track Record</a>
+      <a href="#company-search">Company Search</a>
       <a href="#contact">Contact</a>
       <a href="#contact" class="nav-cta" id="openLeadModalBtn">Request Custom Leads</a>
     </div>
@@ -735,7 +830,7 @@
       </div>
       <div class="hero-glass">
         <div class="glass-live"><span class="live-dot"></span>Taking new orders</div>
-        <div class="glass-stat"><div class="num" data-count-to="5000" data-suffix="+">0</div><div class="glass-label">Orders delivered</div></div>
+        <div class="glass-stat"><div class="num" data-count-to="1500" data-suffix="+">0</div><div class="glass-label">Orders delivered</div></div>
         <div class="glass-line"></div>
         <div class="glass-stat"><div class="num" data-count-to="100" data-suffix="%">0</div><div class="glass-label">Job Success</div></div>
         <div class="glass-line"></div>
@@ -784,6 +879,30 @@
     </div>
   </div>
 </section>
+
+<section class="company-search" id="company-search">
+  <div class="wrap">
+    <div class="eyebrow cs-eyebrow">Company Search</div>
+    <h2>Find any company and its decision-makers</h2>
+    <p class="cs-sub">Search by company name or website. See the company's website, its CEO and key people, and its Amazon store or seller profile. Results come live from Google.</p>
+    <form class="cs-form" id="csForm" role="search" autocomplete="off">
+      <label for="csInput" class="sr-only">Company name or website URL</label>
+      <svg class="cs-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6.2" stroke="currentColor" stroke-width="1.8"/><path d="m13.6 13.6 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <input type="search" id="csInput" maxlength="120" placeholder="Company name or website, e.g. Unit8 or astrafy.io" aria-describedby="csHint">
+      <button type="submit" class="cs-btn" id="csBtn">Search</button>
+    </form>
+    <p class="cs-hint" id="csHint">Tip: a website (like <code>brand.com</code>) gives the most exact match.</p>
+    <div class="cs-status" id="csStatus" aria-live="polite"></div>
+    <div class="cs-results" id="csResults"></div>
+  </div>
+</section>
+
+<div class="cs-overlay" id="csOverlay" aria-hidden="true">
+  <div class="cs-panel" role="dialog" aria-modal="true" aria-labelledby="csProfileName">
+    <button type="button" class="cs-close" id="csClose" aria-label="Close company profile">&times;</button>
+    <div id="csProfile"></div>
+  </div>
+</div>
 
 <section class="about" id="about">
   <div class="wrap">
@@ -1487,6 +1606,7 @@
           <option>Venture Capital Leads</option>
           <option>Investor Leads</option>
           <option>SPF/DMARC/DKIM &amp; GA4/GTM Issue Leads</option>
+          <option>Company Contact Details (unlock)</option>
           <option value="other">Other (not listed)</option>
         </select>
       </div>
@@ -2212,6 +2332,158 @@
       if (calc) calc.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
     });
     if (!seen) setTimeout(openPromo, 900);
+  })();
+
+
+  // ---------------- Company Search ----------------
+  // Paste your Company Search Worker URL here after deploying company-search-worker.js
+  // (see COMPANY-SEARCH-SETUP.md). Leave it empty and the search asks visitors to send a request instead.
+  const COMPANY_SEARCH_URL = "https://minju-company-search.minju1ariyan.workers.dev";
+
+  (function(){
+    const form = document.getElementById('csForm');
+    if (!form) return;
+    const input = document.getElementById('csInput'), btn = document.getElementById('csBtn');
+    const statusEl = document.getElementById('csStatus'), resultsEl = document.getElementById('csResults');
+    const overlay = document.getElementById('csOverlay'), profileEl = document.getElementById('csProfile');
+    const esc = (t) => String(t == null ? '' : t).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const safeUrl = (u) => /^https:\/\//i.test(u || '') ? u : '';
+    const initials = (n) => String(n || '?').split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+    const logoHtml = (name, domain) => '<div class="cs-logo">' + esc(initials(name)) +
+      (domain ? '<img src="https://www.google.com/s2/favicons?domain=' + encodeURIComponent(domain) + '&sz=128" alt="" loading="lazy" onerror="this.remove()">' : '') + '</div>';
+    let lastFocus = null;
+
+    function requestResearch(company, extra){
+      if (typeof openLeadModal !== 'function') return;
+      openLeadModal();
+      applyPrefill('Company Contact Details (unlock)', extra || ('Please research this company for me: ' + company));
+    }
+
+    async function api(path, params){
+      const url = COMPANY_SEARCH_URL.replace(/\/+$/, '') + path + '?' + new URLSearchParams(params).toString();
+      const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
+      let data = {};
+      try { data = await res.json(); } catch (e) {}
+      if (!res.ok) throw new Error(data.error || 'Search failed. Please try again.');
+      return data;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const q = input.value.trim();
+      statusEl.className = 'cs-status';
+      if (q.length < 2) { statusEl.textContent = 'Type a company name or website.'; return; }
+      resultsEl.innerHTML = '';
+      if (!COMPANY_SEARCH_URL) {
+        statusEl.innerHTML = 'Live company search is being set up. Send me the company and I\'ll research its key people and Amazon presence for you.<br><button type="button" class="price-btn" id="csFallback">Research "' + esc(q.slice(0, 40)) + '" for me</button>';
+        document.getElementById('csFallback').addEventListener('click', () => requestResearch(q));
+        return;
+      }
+      btn.disabled = true; btn.textContent = 'Searching…';
+      statusEl.textContent = '';
+      resultsEl.innerHTML = '<div class="cs-skel"></div><div class="cs-skel"></div><div class="cs-skel"></div><div class="cs-skel"></div>';
+      try {
+        const data = await api('/search', { q });
+        resultsEl.innerHTML = '';
+        if (!data.results || !data.results.length) {
+          statusEl.innerHTML = 'No company websites found for "' + esc(q) + '". Try the full company name or its website.<br><button type="button" class="price-btn" id="csFallback">Ask me to research it</button>';
+          document.getElementById('csFallback').addEventListener('click', () => requestResearch(q));
+          return;
+        }
+        statusEl.textContent = data.results.length + ' result' + (data.results.length > 1 ? 's' : '') + ' for "' + q + '". Click a company to see its people.';
+        data.results.forEach((r, i) => {
+          const b = document.createElement('button');
+          b.type = 'button'; b.className = 'cs-card'; b.style.animationDelay = (i * 0.05) + 's';
+          b.innerHTML = logoHtml(r.name, r.domain) +
+            '<div class="cs-card-body"><div class="cs-card-name">' + esc(r.name) + '</div><div class="cs-card-domain">' + esc(r.domain) + '</div>' +
+            (r.description ? '<div class="cs-card-desc">' + esc(r.description) + '</div>' : '') + '</div><span class="cs-card-go">View profile &rarr;</span>';
+          b.addEventListener('click', () => openProfile(r));
+          resultsEl.appendChild(b);
+        });
+      } catch (err) {
+        resultsEl.innerHTML = '';
+        statusEl.className = 'cs-status error';
+        statusEl.textContent = err.message;
+      } finally {
+        btn.disabled = false; btn.textContent = 'Search';
+      }
+    });
+
+    function openOverlay(){
+      lastFocus = document.activeElement;
+      overlay.classList.add('open'); overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('csClose').focus();
+    }
+    function closeOverlay(){
+      overlay.classList.remove('open'); overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocus) lastFocus.focus();
+    }
+    document.getElementById('csClose').addEventListener('click', closeOverlay);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeOverlay(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('open')) closeOverlay(); });
+
+    async function openProfile(r){
+      profileEl.innerHTML = '<div class="csp-loading"><div class="csp-spinner"></div>Looking up ' + esc(r.name) + '\'s team and Amazon presence…</div>';
+      openOverlay();
+      try {
+        const p = await api('/profile', { name: r.name, domain: r.domain });
+        renderProfile(p, r);
+      } catch (err) {
+        profileEl.innerHTML = '<div class="csp-loading">' + esc(err.message) + '</div>';
+      }
+    }
+
+    function renderProfile(p, r){
+      const name = p.name || r.name, domain = p.domain || r.domain, site = safeUrl(p.website) || (domain ? 'https://' + domain : '');
+      const facts = p.facts || {};
+      const factHtml = [['Industry', facts.industry], ['HQ', facts.headquarters], ['Founded', facts.founded], ['Employees', facts.employees]]
+        .filter((f) => f[1]).map((f) => '<span class="csp-fact"><b>' + f[0] + '</b>' + esc(f[1]) + '</span>').join('');
+      const staff = p.staff || [];
+      const peopleHtml = staff.length ? '<div class="csp-people">' + staff.map((s, i) => {
+        const lead = /\b(ceo|chief executive|founder|owner|managing director)\b/i.test(s.title);
+        const li = safeUrl(s.linkedin);
+        return '<div class="csp-person' + (lead ? ' is-lead' : '') + '">' +
+          '<div class="csp-person-top"><div class="csp-avatar">' + esc(initials(s.name)) + '</div><div>' +
+          '<div class="csp-pname">' + esc(s.name) + (lead ? '<span class="csp-badge">Decision-maker</span>' : '') + '</div>' +
+          '<div class="csp-ptitle">' + esc(s.title) + (s.location ? ' · ' + esc(s.location) : '') + '</div></div></div>' +
+          '<div class="csp-contact">' +
+            '<div class="csp-row"><span>Work email</span><span class="csp-locked">&#128274; Locked</span></div>' +
+            '<div class="csp-row"><span>Direct phone</span><span class="csp-locked">&#128274; Locked</span></div>' +
+          '</div><div class="csp-person-actions">' +
+            '<button type="button" class="csp-mini unlock" data-unlock="' + i + '">Unlock contacts</button>' +
+            (li ? '<a class="csp-mini li" href="' + esc(li) + '" target="_blank" rel="noopener noreferrer">LinkedIn</a>' : '') +
+          '</div></div>';
+      }).join('') + '</div>' : '<div class="csp-empty">No public staff profiles found on Google for this company. I can research the team for you by hand.</div>';
+
+      const amz = p.amazon || [];
+      const amzHtml = amz.length ? '<div class="csp-amazon">' + amz.map((a) => safeUrl(a.url) ?
+          '<a class="csp-amz" href="' + esc(a.url) + '" target="_blank" rel="noopener noreferrer"><span class="csp-amz-icon">a</span><span><div class="csp-amz-type">' + esc(a.type) + ' · ' + esc(a.marketplace) + '</div><div class="csp-amz-url">' + esc(a.url.replace(/^https:\/\/(www\.)?/, '').slice(0, 70)) + '</div></span></a>' : '').join('') + '</div>'
+        : '<div class="csp-empty">No Amazon brand store or seller profile found on Google.' +
+          (safeUrl(p.amazonSearch) ? ' <a class="csp-amz-search" href="' + esc(p.amazonSearch) + '" target="_blank" rel="noopener noreferrer">Search Amazon for "' + esc(name) + '" &rarr;</a>' : '') + '</div>';
+
+      profileEl.innerHTML =
+        '<div class="csp-head">' + logoHtml(name, domain) + '<div><h3 class="csp-name" id="csProfileName">' + esc(name) + '</h3><div class="csp-links">' +
+          (site ? '<a href="' + esc(site) + '" target="_blank" rel="noopener noreferrer">' + esc(domain || site) + ' &#8599;</a>' : '') +
+          (safeUrl(p.linkedinCompany) ? '<a href="' + esc(p.linkedinCompany) + '" target="_blank" rel="noopener noreferrer">LinkedIn page &#8599;</a>' : '') +
+        '</div></div></div>' +
+        (p.description ? '<p class="csp-desc">' + esc(p.description) + '</p>' : '') +
+        (factHtml ? '<div class="csp-facts">' + factHtml + '</div>' : '') +
+        '<div class="csp-section"><div class="csp-section-head"><h4>Key people (' + staff.length + ')</h4>' +
+          (staff.length ? '<button type="button" class="csp-unlock-all" data-unlock="all">Unlock all verified contacts</button>' : '<button type="button" class="csp-unlock-all" data-unlock="all">Research this team for me</button>') + '</div>' + peopleHtml + '</div>' +
+        '<div class="csp-section"><div class="csp-section-head"><h4>Amazon seller / brand</h4></div>' + amzHtml + '</div>' +
+        '<p class="csp-note">Company details, names and job titles come from public Google search results and may be incomplete or out of date. Verified emails and direct phone numbers are researched by hand and sent on request.</p>';
+
+      profileEl.querySelectorAll('[data-unlock]').forEach((b) => b.addEventListener('click', () => {
+        const who = b.dataset.unlock === 'all' ? staff : [staff[+b.dataset.unlock]];
+        const lines = ['Unlock contact details request', 'Company: ' + name + (domain ? ' (' + domain + ')' : '')];
+        if (who.length) { lines.push('People:'); who.forEach((s) => lines.push('- ' + s.name + ', ' + s.title + (s.linkedin ? ' ' + s.linkedin : ''))); }
+        else lines.push('Please research the key people at this company.');
+        closeOverlay();
+        requestResearch(name, lines.join('\n'));
+      }));
+    }
   })();
 
   if (closeLeadModalBtn) closeLeadModalBtn.addEventListener('click', closeLeadModal);
