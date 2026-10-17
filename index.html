@@ -950,6 +950,49 @@
   .spec-more{margin-top:14px; font-family:var(--font-mono); font-size:12.5px; font-weight:600; color:var(--amber); background:transparent; border:1px dashed var(--amber); border-radius:20px; padding:8px 16px; cursor:pointer;}
   .spec-more:hover{background:rgba(18,97,255,0.06);}
 
+  /* ================= Why clients choose me (replaces the chat demo) ================= */
+  .why-compare{background:var(--paper-soft); padding:84px 0;}
+  .wc-head{text-align:center; max-width:680px; margin:0 auto 40px;}
+  .wc-head h2{margin:10px 0 12px;}
+  .wc-sub{color:var(--muted); font-size:16px; margin:0;}
+  .wc-grid{display:grid; grid-template-columns:1fr auto 1.08fr; gap:18px; align-items:center; max-width:1000px; margin:0 auto;}
+  .wc-card{border-radius:18px; padding:28px 26px;}
+  .wc-card ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px;}
+  .wc-card li{display:flex; gap:12px; align-items:flex-start; font-size:15px; line-height:1.45;}
+  .wc-card.reveal li{opacity:0; transform:translateX(-10px); transition:opacity .45s ease, transform .45s ease; transition-delay:calc(var(--i) * 90ms + 150ms);}
+  .wc-good.reveal li{transform:translateX(10px);}
+  .wc-card.reveal.in-view li{opacity:1; transform:none;}
+  .wc-ico{flex-shrink:0; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-top:-1px;}
+  .wc-ico.no{color:#B91C1C; background:#FDECEC;}
+  .wc-ico.yes{color:#fff; background:linear-gradient(135deg, #22D3EE, #1261FF); box-shadow:0 4px 10px -4px rgba(18,97,255,0.6);}
+  .wc-label{display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:11.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:20px; padding:6px 12px; border-radius:20px;}
+  .wc-dot{width:8px; height:8px; border-radius:50%;}
+  .wc-bad{background:#fff; border:1px solid var(--line-light); color:var(--muted);}
+  .wc-bad .wc-label{color:#8A93A3; background:#F1F3F7;} .wc-bad .wc-dot{background:#C2C8D2;}
+  .wc-bad li{color:#6B7486;}
+  .wc-good{position:relative; color:#E2E8F0; background:radial-gradient(ellipse 80% 60% at 100% 0%, rgba(34,211,238,0.18), transparent 60%), linear-gradient(160deg, #13203A, #0B1220); box-shadow:0 30px 60px -28px rgba(18,97,255,0.55);}
+  .wc-good::before{content:''; position:absolute; inset:-1.5px; border-radius:19.5px; padding:1.5px; background:conic-gradient(from var(--wc-angle, 0deg), #22D3EE, #1261FF, #A78BFA, #22D3EE);
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; animation:wcSpin 6s linear infinite; pointer-events:none;}
+  @property --wc-angle{syntax:'<angle>'; initial-value:0deg; inherits:false;}
+  @keyframes wcSpin{to{--wc-angle:360deg;}}
+  .wc-good .wc-label{color:#7FE6F5; background:rgba(34,211,238,0.10); border:1px solid rgba(34,211,238,0.3);}
+  .wc-good .wc-dot{background:#22C55E; box-shadow:0 0 0 0 rgba(34,197,94,0.7); animation:livePulse 1.8s ease-out infinite;}
+  .wc-good li{color:#F1F5F9; font-weight:500;}
+  .wc-vs{width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:800; font-size:14px; color:#fff; background:linear-gradient(135deg, #1261FF, #22D3EE); box-shadow:0 10px 24px -10px rgba(18,97,255,0.7);}
+  .wc-stats{display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin-top:24px; padding-top:20px; border-top:1px solid rgba(148,197,255,0.15);}
+  .wc-stats b{display:block; font-family:var(--font-display); font-size:22px; color:#fff;}
+  .wc-stats span{font-size:12px; color:#9AA8BF;}
+  .wc-cta{display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:center; margin-top:36px;}
+  .wc-link{font-weight:600; color:#1261FF; text-decoration:none;}
+  .wc-link:hover{text-decoration:underline;}
+  @media (max-width:820px){
+    .wc-grid{grid-template-columns:1fr; gap:14px;}
+    .wc-vs{margin:0 auto;}
+    .why-compare{padding:60px 0;}
+  }
+  @media (max-width:480px){ .wc-card{padding:22px 18px;} .wc-stats b{font-size:19px;} }
+  @media (prefers-reduced-motion:reduce){ .wc-card.reveal li{opacity:1; transform:none; transition:none;} .wc-good::before, .wc-good .wc-dot{animation:none;} }
+
 </style>
 </head>
 <body>
@@ -1744,31 +1787,32 @@
   </div>
 </section>
 
-<section class="chat-demo">
-  <div class="wrap" style="text-align:center;">
-    <div class="eyebrow">How a request comes together</div>
-    <h2>How a request works</h2>
-    <p class="chat-demo-sub">A few examples of what a real lead request looks like, from first message to a scoped order.</p>
-    <p class="chat-demo-note" style="font-family:var(--font-mono); font-size:11.5px; color:var(--muted); margin-top:-8px;">Illustrative examples based on typical client requests — not literal message logs.</p>
-    <div class="chat-tabs">
-      <button class="chat-tab active" data-conv="amazon">Amazon Private Label</button>
-      <button class="chat-tab" data-conv="ecommerce">Ecommerce (Stripe / Gmail)</button>
-      <button class="chat-tab" data-conv="erg">Women's ERG Research</button>
-      <button class="chat-tab" data-conv="realestate">Real Estate Leads</button>
-      <button class="chat-tab" data-conv="shopify">Shopify Store Leads</button>
-      <button class="chat-tab chat-tab-more" data-conv="otto" hidden>Otto Leads</button>
-      <button class="chat-tab chat-tab-more" data-conv="kaufland" hidden>Kaufland Leads</button>
-      <button class="chat-tab chat-tab-more" data-conv="etsy" hidden>Etsy Seller Leads</button>
-      <button class="chat-tab chat-tab-more" data-conv="mailchimp" hidden>Shopify + Mailchimp Users</button>
-      <button class="chat-tab chat-tab-more" data-conv="vc" hidden>Venture Capital Leads</button>
-      <button class="chat-tab chat-tab-more" data-conv="investor" hidden>Investor Leads</button>
-      <button class="chat-tab chat-tab-more" data-conv="techissue" hidden>SPF/DMARC/DKIM &amp; GA4/GTM Issue Leads</button>
-      <button type="button" class="chat-tab chat-more-btn" id="chatMoreBtn">+7 more examples</button>
+<section class="why-compare" id="why">
+  <div class="wrap">
+    <div class="wc-head">
+      <div class="eyebrow">Why clients choose me</div>
+      <h2>Not another scraped list</h2>
+      <p class="wc-sub">Most lead lists are pulled in bulk by software. Every list I deliver is researched and checked by a real person, so you reach the right people the first time.</p>
     </div>
-    <div class="phone-mockup">
-      <div class="phone-notch"></div>
-      <div class="phone-screen"><div class="chat-bubbles" id="chatBubbles"></div></div>
-      <div class="phone-home-bar"></div>
+    <div class="wc-grid">
+      <div class="wc-card wc-bad reveal">
+        <div class="wc-label"><span class="wc-dot"></span>Typical scraped list</div>
+        <ul><li style="--i:0"><span class="wc-ico no"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>Pulled in bulk by scraping software</li><li style="--i:1"><span class="wc-ico no"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>Often months or years out of date</li><li style="--i:2"><span class="wc-ico no"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>Generic inboxes like info@ and sales@</li><li style="--i:3"><span class="wc-ico no"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>High bounce rates that hurt your domain</li><li style="--i:4"><span class="wc-ico no"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>One-size-fits-all filters</li><li style="--i:5"><span class="wc-ico no"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>Pay first and hope it’s good</li></ul>
+      </div>
+      <div class="wc-vs" aria-hidden="true">VS</div>
+      <div class="wc-card wc-good reveal">
+        <div class="wc-label"><span class="wc-dot"></span>Leads researched by Minju</div>
+        <ul><li style="--i:0"><span class="wc-ico yes"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Researched by hand, record by record</li><li style="--i:1"><span class="wc-ico yes"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Checked that each person still holds the role</li><li style="--i:2"><span class="wc-ico yes"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Decision-makers’ work emails, verified</li><li style="--i:3"><span class="wc-ico yes"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Verified emails that keep bounce rates low</li><li style="--i:4"><span class="wc-ico yes"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Built around your exact filters: country, ZIP, revenue, job title</li><li style="--i:5"><span class="wc-ico yes"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Free sample first, pay only when you’re happy</li></ul>
+        <div class="wc-stats">
+          <div><b>5,000+</b><span>orders delivered</span></div>
+          <div><b>100%</b><span>Job Success</span></div>
+          <div><b>8+</b><span>years experience</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="wc-cta">
+      <button type="button" class="hero-btn primary" data-open-lead>Get a free sample</button>
+      <a href="#sample" class="wc-link">See what a lead file looks like &rarr;</a>
     </div>
   </div>
 </section>
@@ -1826,7 +1870,7 @@
 
 <footer>
   © 2026 Kamruzzaman Minju · Lead Generation Expert
-  <div style="margin-top:8px;"><a href="privacy.html">Privacy Policy</a></div>
+  <div style="margin-top:8px;"><a href="privacy.html">Privacy Policy</a> · <a href="mailto:kamruzzamanmju@gmail.com">kamruzzamanmju@gmail.com</a></div>
 </footer>
 
 
@@ -2158,6 +2202,15 @@
   }, { threshold: 0.4 });
   if (typewriterEls.length) typewriterObserver.observe(typewriterEls[0]);
 
+
+  // Portfolio pictures: if an image file isn't uploaded, show a clean spreadsheet icon instead of an empty box
+  (function(){
+    const ICON = '<svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="12" y="14" width="40" height="36" rx="5" stroke="#1261FF" stroke-width="2"/><path d="M12 24h40M12 34h40M25 14v36M39 14v36" stroke="#1261FF" stroke-width="2"/><circle cx="46" cy="46" r="9" fill="#22D3EE"/><path d="m42 46 3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    document.querySelectorAll('.portfolio-thumb img').forEach((img) => {
+      const fail = () => { const box = img.parentElement; if (box) box.innerHTML = ICON; };
+      if (img.complete && img.naturalWidth === 0) fail(); else img.addEventListener('error', fail);
+    });
+  })();
 
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
