@@ -333,37 +333,120 @@
 
 
 
-  /* ---------- Chat assistant (bottom-right) ---------- */
+  /* ---------- Chat assistant (bottom-right) ----------
+     1. Asks for name + email before chatting (sent to your inbox via Web3Forms)
+     2. "Talk to a human" / WhatsApp requests open a WhatsApp chat with you      */
   (function(){
     if (!CHAT_WORKER_URL) return;
+    const WHATSAPP_NUMBER = '8801775698633';   // international format, digits only (no + or spaces)
+    const HUMAN_RE = /\b(human|real person|live (agent|person|chat)|agent|representative|operator|someone real|talk to (someone|a person|you|minju|the team|support)|speak (to|with)|whats\s?app|call me|phone call|customer care)\b/i;
+    const WA_ICON = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.5c0 3.6 2.9 6.5 6.5 6.5l1-1.6-2-1-1 .9a4.6 4.6 0 0 1-2.8-2.8l.9-1-1-2-1.6 1Z" fill="currentColor"/></svg>';
+    const store = {
+      get(){ try { return JSON.parse(sessionStorage.getItem('oxChatContact') || 'null'); } catch (e) { return null; } },
+      set(v){ try { sessionStorage.setItem('oxChatContact', JSON.stringify(v)); } catch (e) {} }
+    };
+    let contact = store.get();
+
     const wrap = document.createElement('div');
     wrap.innerHTML =
       '<button id="faqBotLauncher" type="button" aria-label="Open chat assistant"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16v12H7l-3 3V4Z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/><circle cx="9" cy="10" r="1" fill="#fff"/><circle cx="12" cy="10" r="1" fill="#fff"/><circle cx="15" cy="10" r="1" fill="#fff"/></svg></button>' +
-      '<div id="faqBotWindow" role="dialog" aria-label="Chat assistant"><div class="fb-head"><div><b>Ask a quick question</b><small>AI-powered · usually replies in seconds</small></div><button type="button" class="fb-close" aria-label="Close chat">&times;</button></div>' +
-      '<div class="fb-msgs" aria-live="polite"></div>' +
-      '<div class="fb-quick"><button type="button">What kind of leads do you provide?</button><button type="button">Can I get a free sample first?</button><button type="button">How much does it cost?</button><button type="button">How long does delivery take?</button></div>' +
-      '<div class="fb-input"><input type="text" placeholder="Type a question..." aria-label="Your question" autocomplete="off"><button type="button" aria-label="Send"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8 14.5 1.5 10 8l4.5 6.5L1.5 8Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></button></div></div>';
+      '<div id="faqBotWindow" role="dialog" aria-label="Chat assistant">' +
+        '<div class="fb-head"><div><b>Chat with Oxima</b><small>AI assistant · a human is one tap away</small></div>' +
+          '<div class="fb-head-actions"><a class="fb-wa-head" href="#" target="_blank" rel="noopener noreferrer" aria-label="Chat with a human on WhatsApp" title="Chat with a human on WhatsApp">' + WA_ICON + '</a>' +
+          '<button type="button" class="fb-close" aria-label="Close chat">&times;</button></div></div>' +
+        '<div class="fb-msgs" aria-live="polite"></div>' +
+        '<form class="fb-gate" novalidate>' +
+          '<label class="sr-only" for="fbName">Your name</label><input id="fbName" type="text" placeholder="Your name" autocomplete="name" required>' +
+          '<label class="sr-only" for="fbEmail">Your email</label><input id="fbEmail" type="email" placeholder="Your email" autocomplete="email" required>' +
+          '<p class="fb-gate-err" role="alert"></p>' +
+          '<button type="submit" class="fb-gate-btn">Start chat</button>' +
+          '<p class="fb-gate-note">We only use these details to reply to you. <a href="privacy.html">Privacy</a></p>' +
+        '</form>' +
+        '<div class="fb-quick" hidden><button type="button">What kind of leads do you provide?</button><button type="button">Can I get a free sample first?</button><button type="button">How much does it cost?</button><button type="button" class="fb-human">Talk to a human</button></div>' +
+        '<div class="fb-input" hidden><input type="text" placeholder="Type a question..." aria-label="Your question" autocomplete="off"><button type="button" aria-label="Send"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 8 14.5 1.5 10 8l4.5 6.5L1.5 8Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></button></div>' +
+      '</div>';
     document.body.appendChild(wrap);
-    const launcher = $('#faqBotLauncher'), win = $('#faqBotWindow'), msgs = $('.fb-msgs', win), quick = $('.fb-quick', win), input = $('.fb-input input', win), send = $('.fb-input button', win);
-    const history = []; let waiting = false;
+
+    const launcher = $('#faqBotLauncher'), win = $('#faqBotWindow'), msgs = $('.fb-msgs', win), quick = $('.fb-quick', win),
+          bar = $('.fb-input', win), input = $('.fb-input input', win), send = $('.fb-input button', win),
+          gate = $('.fb-gate', win), gateErr = $('.fb-gate-err', win), waHead = $('.fb-wa-head', win);
+    const history = []; let waiting = false, greeted = false, lastQuestion = '';
+
+    function waLink(extra){
+      let text = 'Hi Oxima, I would like to talk to a human.';
+      if (contact) text = 'Hi Oxima, I\'m ' + contact.name + ' (' + contact.email + '). I would like to talk to a human.';
+      if (extra) text += ' My question: ' + extra;
+      return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text);
+    }
+    function refreshHeadLink(){ waHead.href = waLink(lastQuestion); }
     function add(text, who){ const d = document.createElement('div'); d.className = 'fb-msg ' + who; d.textContent = text; msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight; return d; }
+    function addWhatsApp(question){
+      const d = document.createElement('div'); d.className = 'fb-msg bot';
+      d.innerHTML = 'Of course! You can chat with our team directly on WhatsApp:';
+      const a = document.createElement('a'); a.className = 'fb-wa-btn'; a.href = waLink(question); a.target = '_blank'; a.rel = 'noopener noreferrer';
+      a.innerHTML = WA_ICON + '<span>Chat on WhatsApp</span>';
+      d.appendChild(a); msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight;
+    }
+    function showChat(){
+      gate.hidden = true; quick.hidden = false; bar.hidden = false;
+      if (!greeted) { add('Thanks, ' + contact.name + '! How can I help you today? You can also tap "Talk to a human" any time.', 'bot'); greeted = true; }
+      refreshHeadLink();
+      setTimeout(() => input.focus(), 50);
+    }
+    function showGate(){
+      if (!msgs.children.length) add('Hi! Before we start, may I have your name and email? That way our team can follow up with you.', 'bot');
+      gate.hidden = false; quick.hidden = true; bar.hidden = true;
+      setTimeout(() => $('#fbName').focus(), 50);
+    }
+    async function notifyInbox(c){
+      try {
+        await fetch('https://api.web3forms.com/submit', {
+          method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ access_key: WEB3FORMS_KEY, subject: 'New chat started on the Oxima website', name: c.name, email: c.email,
+            message: c.name + ' (' + c.email + ') started a chat on ' + location.href })
+        });
+      } catch (e) { /* the chat still works if this fails */ }
+    }
+    gate.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = $('#fbName').value.trim(), email = $('#fbEmail').value.trim();
+      if (name.length < 2) { gateErr.textContent = 'Please enter your name.'; $('#fbName').focus(); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { gateErr.textContent = 'Please enter a valid email address.'; $('#fbEmail').focus(); return; }
+      gateErr.textContent = '';
+      contact = { name: name.slice(0, 80), email: email.slice(0, 120) };
+      store.set(contact);
+      add(contact.name + ' · ' + contact.email, 'user');
+      notifyInbox(contact);
+      showChat();
+    });
+
     async function ask(text){
-      if (!text.trim() || waiting) return;
-      add(text, 'user'); history.push({ role: 'user', content: text }); input.value = '';
-      waiting = true; send.disabled = true; quick.style.display = 'none';
+      text = (text || '').trim();
+      if (!text || waiting || !contact) return;
+      add(text, 'user'); input.value = ''; quick.hidden = true;
+      if (HUMAN_RE.test(text)) { addWhatsApp(lastQuestion); return; }
+      lastQuestion = text; refreshHeadLink();
+      history.push({ role: 'user', content: text });
+      waiting = true; send.disabled = true;
       const typing = add('Typing...', 'typing');
       try {
-        const res = await fetch(CHAT_WORKER_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: text, history: history }) });
+        const res = await fetch(CHAT_WORKER_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: text, history: history, visitor: { name: contact.name, email: contact.email } }) });
         const data = await res.json(); typing.remove();
         if (data.reply) { add(data.reply, 'bot'); history.push({ role: 'assistant', content: data.reply }); }
-        else add('Sorry, something went wrong. Please use the contact form instead.', 'bot');
-      } catch (x) { typing.remove(); add("Sorry, I couldn't connect right now. Please use the contact form instead.", 'bot'); }
+        else { add('Sorry, something went wrong on my side.', 'bot'); addWhatsApp(text); }
+      } catch (x) { typing.remove(); add("Sorry, I couldn't connect right now.", 'bot'); addWhatsApp(text); }
       waiting = false; send.disabled = false;
     }
-    launcher.addEventListener('click', () => { win.classList.toggle('open'); if (win.classList.contains('open')) input.focus(); });
+
+    launcher.addEventListener('click', () => {
+      win.classList.toggle('open');
+      if (win.classList.contains('open')) { contact ? showChat() : showGate(); }
+    });
     $('.fb-close', win).addEventListener('click', () => win.classList.remove('open'));
     send.addEventListener('click', () => ask(input.value));
     input.addEventListener('keydown', (e) => { if (e.key === 'Enter') ask(input.value); });
-    $$('button', quick).forEach((b) => b.addEventListener('click', () => ask(b.textContent)));
+    $$('button', quick).forEach((b) => b.addEventListener('click', () => b.classList.contains('fb-human') ? (add('Talk to a human', 'user'), quick.hidden = true, addWhatsApp(lastQuestion)) : ask(b.textContent)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') win.classList.remove('open'); });
   })();
 })();
