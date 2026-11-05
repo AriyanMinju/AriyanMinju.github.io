@@ -1130,6 +1130,65 @@
   @media (max-width:480px){ .brand-logo, .brand-logo svg{width:34px; height:34px;} }
   @media (max-width:1440px) and (min-width:761px){ .nav-right a{margin-left:13px; font-size:14.5px;} .nav .name{font-size:20px;} }
   @media (max-width:1180px) and (min-width:761px){ .nav{flex-wrap:wrap; row-gap:10px;} .nav-right{flex-wrap:wrap; justify-content:flex-end; row-gap:8px;} }
+  /* ================= WOW layer: progress bar, hero network, tilt, spotlight, command menu ================= */
+  .fx-progress{position:fixed; top:0; left:0; right:0; height:3px; z-index:2000; pointer-events:none; transform-origin:0 50%; transform:scaleX(0);
+    background:linear-gradient(90deg,#22D3EE,#1261FF 50%,#A78BFA); box-shadow:0 0 12px rgba(34,211,238,0.7);}
+  .fx-net{position:absolute; inset:0; width:100%; height:100%; display:block; opacity:0; transition:opacity 1.2s ease;}
+  .fx-net.on{opacity:1;}
+  /* first-load entrance for the hero copy */
+  .hero-copy > *{animation:fxRise .9s cubic-bezier(.16,.9,.3,1) both;}
+  .hero-copy > *:nth-child(1){animation-delay:.05s;} .hero-copy > *:nth-child(2){animation-delay:.15s;} .hero-copy > *:nth-child(3){animation-delay:.27s;}
+  .hero-copy > *:nth-child(4){animation-delay:.39s;} .hero-copy > *:nth-child(5){animation-delay:.5s;} .hero-copy > *:nth-child(6){animation-delay:.6s;} .hero-copy > *:nth-child(7){animation-delay:.7s;}
+  @keyframes fxRise{from{opacity:0; transform:translateY(22px); filter:blur(8px);} to{opacity:1; transform:none; filter:none;}}
+  /* local time chip */
+  .fx-clock{display:inline-flex; align-items:center; gap:8px; margin-top:18px; font-family:var(--font-mono); font-size:12.5px; color:#9AA8BF;
+    padding:7px 12px; border-radius:30px; background:rgba(148,197,255,0.06); border:1px solid rgba(148,197,255,0.14);}
+  .fx-clock b{color:#E2E8F0; font-weight:600;}
+  .fx-clock .fx-dot{width:7px; height:7px; border-radius:50%; background:#4ADE80; box-shadow:0 0 0 0 rgba(74,222,128,0.6); animation:fxPing 2s infinite;}
+  .fx-clock.off .fx-dot{background:#FBBF24; animation:none;}
+  @keyframes fxPing{0%{box-shadow:0 0 0 0 rgba(74,222,128,0.6);} 80%,100%{box-shadow:0 0 0 8px rgba(74,222,128,0);}}
+  /* decoding headings */
+  .fx-scramble{font-variant-ligatures:none;}
+  .fx-scramble .fx-ch{color:#22D3EE; opacity:.85;}
+  /* 3D tilt + spotlight cards */
+  .fx-tilt{transform-style:preserve-3d; will-change:transform;}
+  .fx-tilt.fx-active{transition:transform .08s linear !important;}
+  .fx-tilt.fx-leave{transition:transform .6s cubic-bezier(.16,.9,.3,1) !important;}
+  .fx-shine{position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:3; opacity:0; transition:opacity .3s ease;
+    background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.12), rgba(34,211,238,0.06) 35%, transparent 60%);}
+  .fx-tilt:hover .fx-shine{opacity:1;}
+  .fx-mag{will-change:transform; transition:transform .35s cubic-bezier(.16,.9,.3,1);}
+  /* command menu */
+  .fx-kbd-hint{position:fixed; left:20px; bottom:20px; z-index:900; display:flex; align-items:center; gap:8px; padding:9px 14px; border-radius:12px; cursor:pointer;
+    font:600 13px var(--font-body, Inter, sans-serif); color:#D7E0EE; background:rgba(10,18,34,0.82); border:1px solid rgba(148,197,255,0.18);
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); box-shadow:0 14px 34px -16px rgba(0,0,0,0.7);
+    opacity:0; transform:translateY(12px); transition:opacity .4s ease, transform .4s ease;}
+  .fx-kbd-hint.show{opacity:1; transform:none;}
+  .fx-kbd-hint kbd, .fx-cmd kbd{font:600 11px var(--font-mono, monospace); color:#fff; padding:3px 7px; border-radius:6px; background:rgba(148,197,255,0.12); border:1px solid rgba(148,197,255,0.25); border-bottom-width:2px;}
+  @media (hover:none), (max-width:760px){ .fx-kbd-hint{display:none;} }
+  .fx-cmd-overlay{position:fixed; inset:0; z-index:3000; display:flex; align-items:flex-start; justify-content:center; padding:12vh 16px 16px;
+    background:rgba(3,7,16,0.62); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); opacity:0; pointer-events:none; transition:opacity .2s ease;}
+  .fx-cmd-overlay.open{opacity:1; pointer-events:auto;}
+  .fx-cmd{width:100%; max-width:620px; border-radius:16px; overflow:hidden; background:linear-gradient(170deg,#101B33,#0A1222); border:1px solid rgba(148,197,255,0.2);
+    box-shadow:0 40px 100px -30px rgba(0,0,0,0.9), 0 0 0 1px rgba(34,211,238,0.08) inset; transform:translateY(-10px) scale(.98); transition:transform .25s cubic-bezier(.16,.9,.3,1);}
+  .fx-cmd-overlay.open .fx-cmd{transform:none;}
+  .fx-cmd-top{display:flex; align-items:center; gap:10px; padding:14px 16px; border-bottom:1px solid rgba(148,197,255,0.12); color:#7C8BA5;}
+  .fx-cmd-top input{flex:1; background:transparent; border:0; outline:none; color:#fff; font:16px var(--font-body, Inter, sans-serif); min-width:0;}
+  .fx-cmd-top input::placeholder{color:#64748B;}
+  .fx-cmd-list{max-height:min(52vh, 420px); overflow-y:auto; padding:8px;}
+  .fx-cmd-group{font:600 10.5px var(--font-mono, monospace); letter-spacing:.16em; text-transform:uppercase; color:#64748B; padding:10px 10px 6px;}
+  .fx-cmd-item{display:flex; align-items:center; gap:12px; width:100%; text-align:left; padding:10px 10px; border-radius:10px; border:0; background:transparent; cursor:pointer; color:#D7E0EE; font:500 14.5px var(--font-body, Inter, sans-serif);}
+  .fx-cmd-item .ic{width:30px; height:30px; flex:none; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:14px; background:rgba(148,197,255,0.08); color:#93C5FD;}
+  .fx-cmd-item .sub{margin-left:auto; color:#64748B; font-size:12.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:45%;}
+  .fx-cmd-item.sel{background:linear-gradient(90deg, rgba(18,97,255,0.28), rgba(124,58,237,0.16)); color:#fff;}
+  .fx-cmd-item.sel .ic{background:#1261FF; color:#fff;}
+  .fx-cmd-item.ai .ic{background:linear-gradient(135deg,#22D3EE,#7C3AED); color:#fff;}
+  .fx-cmd-foot{display:flex; gap:14px; flex-wrap:wrap; padding:10px 16px; border-top:1px solid rgba(148,197,255,0.10); color:#64748B; font-size:12px;}
+  .fx-cmd-empty{padding:18px 12px; color:#7C8BA5; font-size:14px;}
+  @media (prefers-reduced-motion:reduce){
+    .hero-copy > *{animation:none;} .fx-net{display:none;} .fx-progress{display:none;} .fx-clock .fx-dot{animation:none;}
+  }
+
 </style>
 </head>
 <body>
@@ -3674,6 +3733,221 @@
   quickRepliesEl.querySelectorAll('.faqBotQuick').forEach(btn => {
     btn.addEventListener('click', () => handleUserMessage(btn.dataset.q));
   });
+})();
+</script>
+
+
+<script>
+/* ================= WOW layer ================= */
+(function(){
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+
+  // ---------- 1. Scroll progress bar ----------
+  const bar = document.createElement('div'); bar.className = 'fx-progress'; bar.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(bar);
+  let ticking = false;
+  function onScroll(){
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(() => {
+      const h = document.documentElement.scrollHeight - innerHeight;
+      bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, scrollY / h) : 0) + ')';
+      ticking = false;
+    });
+  }
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // ---------- 2. Live "lead network" in the hero ----------
+  (function(){
+    const host = document.querySelector('.hero-bg'); const hero = document.querySelector('.hero');
+    if (!host || !hero || reduce) return;
+    const cv = document.createElement('canvas'); cv.className = 'fx-net'; host.appendChild(cv);
+    const ctx = cv.getContext('2d'); if (!ctx) return;
+    let W = 0, H = 0, dpr = 1, nodes = [], packets = [], running = true, mouse = { x: -999, y: -999 };
+    const COLORS = ['#22D3EE', '#60A5FA', '#A78BFA', '#34D399'];
+    function size(){
+      const r = hero.getBoundingClientRect(); dpr = Math.min(2, devicePixelRatio || 1);
+      W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const n = Math.round(Math.min(90, Math.max(28, W * H / 16000)));
+      nodes = Array.from({ length: n }, (_, i) => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35,
+        r: Math.random() < .12 ? 2.6 : 1.4 + Math.random(), c: COLORS[i % COLORS.length], hub: Math.random() < .12 }));
+    }
+    function link(a, b, d, max){ ctx.strokeStyle = 'rgba(96,165,250,' + (0.20 * (1 - d / max)).toFixed(3) + ')'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+    function frame(){
+      if (!running) return;
+      ctx.clearRect(0, 0, W, H);
+      const max = Math.min(150, Math.max(105, W / 11));
+      for (const p of nodes) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < -20) p.x = W + 20; if (p.x > W + 20) p.x = -20; if (p.y < -20) p.y = H + 20; if (p.y > H + 20) p.y = -20;
+        const dx = mouse.x - p.x, dy = mouse.y - p.y, dm = Math.hypot(dx, dy);
+        if (dm < 160 && dm > 1) { p.x += dx / dm * .35; p.y += dy / dm * .35; }
+      }
+      for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) {
+        const a = nodes[i], b = nodes[j], d = Math.hypot(a.x - b.x, a.y - b.y);
+        if (d < max) {
+          link(a, b, d, max);
+          if (packets.length < 14 && Math.random() < 0.0009) packets.push({ a, b, t: 0, c: a.c });
+        }
+      }
+      // lines to the cursor
+      for (const p of nodes) { const d = Math.hypot(mouse.x - p.x, mouse.y - p.y); if (d < 170) { ctx.strokeStyle = 'rgba(34,211,238,' + (0.35 * (1 - d / 170)).toFixed(3) + ')'; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke(); } }
+      for (const p of nodes) {
+        ctx.fillStyle = p.c; ctx.globalAlpha = p.hub ? .95 : .6; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
+        if (p.hub) { ctx.globalAlpha = .18; ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 4, 0, Math.PI * 2); ctx.fill(); }
+      }
+      ctx.globalAlpha = 1;
+      // data packets travelling along links
+      packets = packets.filter(k => k.t <= 1);
+      for (const k of packets) {
+        k.t += 0.012; const x = k.a.x + (k.b.x - k.a.x) * k.t, y = k.a.y + (k.b.y - k.a.y) * k.t;
+        const g = ctx.createRadialGradient(x, y, 0, x, y, 7); g.addColorStop(0, k.c); g.addColorStop(1, 'transparent');
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, 7, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(x, y, 1.4, 0, Math.PI * 2); ctx.fill();
+      }
+      requestAnimationFrame(frame);
+    }
+    size(); addEventListener('resize', () => { clearTimeout(size.t); size.t = setTimeout(size, 200); });
+    hero.addEventListener('pointermove', e => { const r = hero.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+    hero.addEventListener('pointerleave', () => { mouse.x = mouse.y = -999; });
+    new IntersectionObserver(es => { const vis = es[0].isIntersecting; if (vis && !running) { running = true; requestAnimationFrame(frame); } else if (!vis) running = false; }).observe(hero);
+    requestAnimationFrame(frame); setTimeout(() => cv.classList.add('on'), 150);
+  })();
+
+  // ---------- 3. Local time in Dhaka ----------
+  (function(){
+    const actions = document.querySelector('.hero-actions'); if (!actions) return;
+    const chip = document.createElement('div'); chip.className = 'fx-clock';
+    chip.innerHTML = '<span class="fx-dot" aria-hidden="true"></span><span>My time in Dhaka: <b></b> (GMT+6)</span>';
+    actions.insertAdjacentElement('afterend', chip);
+    function tick(){
+      const now = new Date();
+      let t; try { t = now.toLocaleTimeString('en-US', { timeZone: 'Asia/Dhaka', hour: 'numeric', minute: '2-digit' }); } catch (e) { t = ''; }
+      let h = 12; try { h = parseInt(now.toLocaleString('en-US', { timeZone: 'Asia/Dhaka', hour: 'numeric', hour12: false }), 10); } catch (e) {}
+      chip.querySelector('b').textContent = t; chip.classList.toggle('off', h < 9 || h >= 23);
+    }
+    tick(); setInterval(tick, 30000);
+  })();
+
+  // ---------- 4. "Decoding data" headings ----------
+  (function(){
+    if (reduce || !('IntersectionObserver' in window)) return;
+    const GLYPHS = '01<>/{}[]#@$%&*+=?ABCDEFXYZ';
+    const heads = Array.from(document.querySelectorAll('section h2')).filter(h => h.children.length === 0 && !h.dataset.text && h.textContent.trim().length < 60);
+    heads.forEach(h => { h.dataset.final = h.textContent; h.setAttribute('aria-label', h.textContent.trim()); h.classList.add('fx-scramble'); });
+    function run(h){
+      const final = h.dataset.final, len = final.length, start = performance.now(), dur = 900;
+      (function step(now){
+        const p = Math.min(1, (now - start) / dur), done = Math.floor(p * len);
+        let out = '';
+        for (let i = 0; i < len; i++) {
+          const ch = final[i];
+          if (i < done || ch === ' ') out += ch.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+          else out += '<span class="fx-ch" aria-hidden="true">' + GLYPHS[(Math.random() * GLYPHS.length) | 0].replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])) + '</span>';
+        }
+        h.innerHTML = out;
+        if (p < 1) requestAnimationFrame(step); else h.textContent = final;
+      })(start);
+    }
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { io.unobserve(e.target); run(e.target); } }), { threshold: 0.6 });
+    heads.forEach(h => io.observe(h));
+  })();
+
+  // ---------- 5. 3D tilt + spotlight cards, magnetic buttons (mouse only) ----------
+  if (finePointer && !reduce) {
+    document.querySelectorAll('.price-card, .tr-card, .wc-card, .tw-tile, .cs-card').forEach(card => {
+      if (getComputedStyle(card).position === 'static') card.style.position = 'relative';
+      const shine = document.createElement('span'); shine.className = 'fx-shine'; card.appendChild(shine);
+      card.classList.add('fx-tilt');
+      const strength = card.classList.contains('tw-tile') ? 14 : 7;
+      card.addEventListener('pointermove', e => {
+        const r = card.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        card.classList.add('fx-active'); card.classList.remove('fx-leave');
+        card.style.transform = 'perspective(900px) rotateX(' + ((.5 - y) * strength).toFixed(2) + 'deg) rotateY(' + ((x - .5) * strength).toFixed(2) + 'deg) translateY(-4px)';
+        card.style.setProperty('--mx', (x * 100).toFixed(1) + '%'); card.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+      });
+      card.addEventListener('pointerleave', () => { card.classList.remove('fx-active'); card.classList.add('fx-leave'); card.style.transform = ''; });
+    });
+    document.querySelectorAll('.hero-btn.primary, .nav-cta, .aip-go, .tw-btn, #calcRequest, .cs-btn').forEach(btn => {
+      btn.classList.add('fx-mag');
+      btn.addEventListener('pointermove', e => {
+        const r = btn.getBoundingClientRect(), x = e.clientX - r.left - r.width / 2, y = e.clientY - r.top - r.height / 2;
+        btn.style.transform = 'translate(' + (x * .18).toFixed(1) + 'px,' + (y * .3).toFixed(1) + 'px)';
+      });
+      btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+    });
+  }
+
+  // ---------- 6. Command menu (Ctrl+K / Cmd+K) ----------
+  (function(){
+    const go = (sel) => { const el = document.querySelector(sel); if (el) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); };
+    const click = (sel) => { const el = document.querySelector(sel); if (el) el.click(); };
+    const SECTIONS = [
+      ['About me', '#about', '&#128100;'], ['Specialties', '#specialties', '&#9881;'], ['Recent work', '#portfolio', '&#128193;'], ['Client reviews', '#reviews', '&#11088;'],
+      ['AI Lead Planner', '#ai-planner', '&#10022;'], ['Pricing & order calculator', '#pricing', '&#128176;'], ['Tools I use', '#tools', '&#128295;'],
+      ['Track record', '#work', '&#128200;'], ['Company Search', '#company-search', '&#128269;'], ['Contact', '#contact', '&#9993;']
+    ].filter(s => document.querySelector(s[1]));
+    const ACTIONS = [
+      { label: 'Request custom leads', sub: 'Opens the request form', ic: '&#10148;', run: () => click('#openLeadModalBtn') },
+      { label: 'Email Minju', sub: 'kamruzzamanmju@gmail.com', ic: '&#64;', run: () => { location.href = 'mailto:kamruzzamanmju@gmail.com'; } },
+      { label: 'Chat with the assistant', sub: 'Quick answers', ic: '&#128172;', run: () => click('#faqBotLauncher') }
+    ];
+    const ov = document.createElement('div'); ov.className = 'fx-cmd-overlay'; ov.setAttribute('aria-hidden', 'true');
+    ov.innerHTML = '<div class="fx-cmd" role="dialog" aria-modal="true" aria-label="Command menu"><div class="fx-cmd-top">' +
+      '<svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6.2" stroke="currentColor" stroke-width="1.8"/><path d="m13.6 13.6 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>' +
+      '<input type="text" id="fxCmdInput" placeholder="Jump anywhere, or describe the leads you need&hellip;" autocomplete="off" aria-label="Search the website or describe leads"><kbd>Esc</kbd></div>' +
+      '<div class="fx-cmd-list" id="fxCmdList" role="listbox"></div>' +
+      '<div class="fx-cmd-foot"><span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> to move</span><span><kbd>Enter</kbd> to open</span><span>Type a request, e.g. &ldquo;2,000 roofers in Florida&rdquo;</span></div></div>';
+    document.body.appendChild(ov);
+    const input = ov.querySelector('#fxCmdInput'), list = ov.querySelector('#fxCmdList');
+    let items = [], sel = 0, lastFocus = null;
+    const esc = (s) => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    function build(){
+      const q = input.value.trim(), ql = q.toLowerCase();
+      items = []; let html = '';
+      if (q.length > 2) {
+        items.push({ label: 'Plan this order with AI', sub: q, ic: '&#10022;', ai: true, run: () => { go('#ai-planner'); const t = document.querySelector('.aip-tab[data-mode="order"]'); if (t) t.click(); const i = document.getElementById('aipInput'); if (i) { i.value = q; setTimeout(() => { const f = document.getElementById('aipForm'); f.requestSubmit ? f.requestSubmit() : f.dispatchEvent(new Event('submit')); }, 450); } } });
+        if (document.getElementById('csInput')) items.push({ label: 'Search companies for', sub: q, ic: '&#128269;', run: () => { go('#company-search'); const i = document.getElementById('csInput'); i.value = q; setTimeout(() => { const f = document.getElementById('csForm'); f.requestSubmit ? f.requestSubmit() : f.dispatchEvent(new Event('submit')); }, 450); } });
+      }
+      const secs = SECTIONS.filter(s => !ql || s[0].toLowerCase().indexOf(ql) !== -1).map(s => ({ label: s[0], sub: 'Go to section', ic: s[2], run: () => go(s[1]) }));
+      const acts = ACTIONS.filter(a => !ql || (a.label + ' ' + a.sub).toLowerCase().indexOf(ql) !== -1);
+      const groups = [['AI', items.slice()], ['Actions', acts], ['Jump to', secs]];
+      items = [];
+      groups.forEach(([name, arr]) => {
+        if (!arr.length) return;
+        html += '<div class="fx-cmd-group">' + name + '</div>';
+        arr.forEach(it => { html += '<button type="button" role="option" class="fx-cmd-item' + (it.ai ? ' ai' : '') + '" data-i="' + items.length + '"><span class="ic" aria-hidden="true">' + it.ic + '</span><span>' + esc(it.label) + '</span><span class="sub">' + esc(it.sub) + '</span></button>'; items.push(it); });
+      });
+      list.innerHTML = html || '<div class="fx-cmd-empty">Nothing found. Press Enter to ask the AI Lead Planner.</div>';
+      sel = 0; mark();
+      list.querySelectorAll('.fx-cmd-item').forEach(b => { b.addEventListener('click', () => choose(+b.dataset.i)); b.addEventListener('pointermove', () => { if (sel !== +b.dataset.i) { sel = +b.dataset.i; mark(); } }); });
+    }
+    function mark(){ list.querySelectorAll('.fx-cmd-item').forEach((b, i) => { b.classList.toggle('sel', i === sel); b.setAttribute('aria-selected', i === sel); if (i === sel) b.scrollIntoView({ block: 'nearest' }); }); }
+    function choose(i){ const it = items[i]; close(); if (it) setTimeout(it.run, 60); }
+    function open(){ lastFocus = document.activeElement; ov.classList.add('open'); ov.setAttribute('aria-hidden', 'false'); input.value = ''; build(); setTimeout(() => input.focus(), 30); hint.classList.remove('show'); }
+    function close(){ ov.classList.remove('open'); ov.setAttribute('aria-hidden', 'true'); if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+    input.addEventListener('input', build);
+    input.addEventListener('keydown', e => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); sel = Math.min(items.length - 1, sel + 1); mark(); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); sel = Math.max(0, sel - 1); mark(); }
+      else if (e.key === 'Enter') { e.preventDefault(); choose(sel); }
+    });
+    ov.addEventListener('click', e => { if (e.target === ov) close(); });
+    addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); ov.classList.contains('open') ? close() : open(); }
+      else if (e.key === 'Escape' && ov.classList.contains('open')) close();
+    });
+    // a small hint, shown once per visit after a few seconds (desktop only)
+    const hint = document.createElement('button'); hint.type = 'button'; hint.className = 'fx-kbd-hint';
+    hint.innerHTML = '<kbd>' + (isMac ? '&#8984;' : 'Ctrl') + '</kbd><kbd>K</kbd> Jump anywhere or ask AI';
+    hint.addEventListener('click', open); document.body.appendChild(hint);
+    if (finePointer) {
+      let seen = false; try { seen = sessionStorage.getItem('fxHint') === '1'; } catch (e) {}
+      setTimeout(() => { hint.classList.add('show'); }, seen ? 800 : 6000);
+      try { sessionStorage.setItem('fxHint', '1'); } catch (e) {}
+    }
+  })();
 })();
 </script>
 
