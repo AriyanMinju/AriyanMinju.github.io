@@ -1165,7 +1165,9 @@
     opacity:0; transform:translateY(12px); transition:opacity .4s ease, transform .4s ease;}
   .fx-kbd-hint.show{opacity:1; transform:none;}
   .fx-kbd-hint kbd, .fx-cmd kbd{font:600 11px var(--font-mono, monospace); color:#fff; padding:3px 7px; border-radius:6px; background:rgba(148,197,255,0.12); border:1px solid rgba(148,197,255,0.25); border-bottom-width:2px;}
-  @media (hover:none), (max-width:760px){ .fx-kbd-hint{display:none;} }
+  .fx-kbd-hint .fx-touch{display:none;}
+  @media (max-width:560px){ .fx-cmd-top kbd, .fx-cmd-foot span:nth-child(-n+2), .fx-cmd-item .sub{display:none;} .fx-cmd-overlay{padding-top:8vh;} }
+  @media (hover:none), (max-width:760px){ .fx-kbd-hint{left:14px; bottom:16px; padding:10px 14px; border-radius:30px;} .fx-kbd-hint kbd{display:none;} .fx-kbd-hint .fx-desk{display:none;} .fx-kbd-hint .fx-touch{display:inline;} }
   .fx-cmd-overlay{position:fixed; inset:0; z-index:3000; display:flex; align-items:flex-start; justify-content:center; padding:12vh 16px 16px;
     background:rgba(3,7,16,0.62); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); opacity:0; pointer-events:none; transition:opacity .2s ease;}
   .fx-cmd-overlay.open{opacity:1; pointer-events:auto;}
@@ -1188,6 +1190,89 @@
   @media (prefers-reduced-motion:reduce){
     .hero-copy > *{animation:none;} .fx-net{display:none;} .fx-progress{display:none;} .fx-clock .fx-dot{animation:none;}
   }
+
+  /* ================= Specialties explorer ================= */
+  .specialties-sub{margin-bottom:26px !important;}
+  .sx{--sx-line:#DCE3EE;}
+  .sx-top{display:flex; gap:14px; align-items:stretch; flex-wrap:wrap; margin-bottom:18px;}
+  .sx-cats{display:flex; gap:8px; padding:6px; border-radius:14px; background:#fff; border:1px solid var(--sx-line); flex:1 1 560px; overflow-x:auto; scrollbar-width:none;}
+  .sx-cats::-webkit-scrollbar{display:none;}
+  .sx-cat{flex:1 0 auto; text-align:left; border:0; cursor:pointer; padding:11px 16px; border-radius:10px; background:transparent; display:flex; flex-direction:column; gap:2px; transition:background .2s, color .2s;}
+  .sx-cat-name{font:700 15px var(--font-display); color:#0F172A;}
+  .sx-cat-meta{font:500 11.5px var(--font-mono); color:#64748B;}
+  .sx-cat:hover{background:#F1F5FB;}
+  .sx-cat.active{background:linear-gradient(135deg,#1261FF,#4F46E5); box-shadow:0 10px 24px -12px rgba(18,97,255,0.8);}
+  .sx-cat.active .sx-cat-name{color:#fff;} .sx-cat.active .sx-cat-meta{color:#C7D7FE;}
+  .sx-search{position:relative; flex:0 1 340px; min-width:240px;}
+  .sx-search svg{position:absolute; left:14px; top:50%; transform:translateY(-50%); color:#94A3B8; pointer-events:none;}
+  .sx-search input{width:100%; height:100%; min-height:52px; box-sizing:border-box; padding:0 14px 0 42px; border-radius:14px; border:1px solid var(--sx-line); background:#fff; font:15px var(--font-body, inherit); color:#0F172A; outline:none;}
+  .sx-search input:focus{border-color:#1261FF; box-shadow:0 0 0 4px rgba(18,97,255,0.12);}
+  .sx-body{display:grid; grid-template-columns:330px 1fr; gap:18px; align-items:start;}
+  .sx-body[hidden], .sx-results[hidden]{display:none;}
+  .sx-list{display:flex; flex-direction:column; gap:6px; padding:8px; border-radius:16px; background:#fff; border:1px solid var(--sx-line); position:sticky; top:96px;}
+  .sx-sub{display:flex; align-items:center; gap:12px; width:100%; text-align:left; border:1px solid transparent; background:transparent; padding:9px 10px; border-radius:11px; cursor:pointer; transition:background .2s, border-color .2s, transform .2s;}
+  .sx-sub:hover{background:#F5F8FD; transform:translateX(2px);}
+  .sx-sub.active{background:color-mix(in srgb, var(--c) 10%, #fff); border-color:color-mix(in srgb, var(--c) 45%, transparent);}
+  .sx-ic{width:36px; height:36px; flex:none; border-radius:10px; display:flex; align-items:center; justify-content:center; font:800 12px var(--font-display); color:#fff; background:var(--c, #1261FF); letter-spacing:-0.02em; box-shadow:0 6px 14px -8px var(--c, #1261FF);}
+  .sx-ic.big{width:54px; height:54px; border-radius:14px; font-size:16px;}
+  .sx-sub-txt{display:flex; flex-direction:column; min-width:0;}
+  .sx-sub-txt b{font-size:14.5px; color:#0F172A; font-weight:600; line-height:1.25;}
+  .sx-sub-txt small{font:500 11.5px var(--font-mono); color:#64748B; margin-top:2px;}
+  .sx-arrow{margin-left:auto; font-size:20px; color:#CBD5E1; transition:transform .2s, color .2s;}
+  .sx-sub.active .sx-arrow{color:var(--c); transform:translateX(2px);}
+  .sx-detail{position:relative; overflow:hidden; padding:26px 28px 24px; border-radius:18px; background:#fff; border:1px solid var(--sx-line); box-shadow:0 24px 50px -36px rgba(15,23,42,0.35); scroll-margin-top:90px;}
+  .sx-detail::before{content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg, var(--c), color-mix(in srgb, var(--c) 30%, #fff));}
+  .sx-detail::after{content:''; position:absolute; right:-80px; top:-80px; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle, color-mix(in srgb, var(--c) 16%, transparent), transparent 70%); pointer-events:none;}
+  .sx-pop > *{animation:sxIn .45s cubic-bezier(.16,.9,.3,1) both;}
+  .sx-pop > *:nth-child(2){animation-delay:.04s;} .sx-pop > *:nth-child(3){animation-delay:.08s;} .sx-pop > *:nth-child(4){animation-delay:.12s;} .sx-pop > *:nth-child(n+5){animation-delay:.16s;}
+  @keyframes sxIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:none;}}
+  .sx-crumb{font:500 12px var(--font-mono); color:#64748B; margin-bottom:14px;}
+  .sx-crumb span{color:#CBD5E1; margin:0 4px;} .sx-crumb b{color:var(--c); font-weight:600; filter:brightness(.8);}
+  .sx-head{display:flex; gap:16px; align-items:flex-start; margin-bottom:20px; position:relative; z-index:1;}
+  .sx-head h3{margin:2px 0 6px; font:800 24px var(--font-display); color:#0F172A; letter-spacing:-0.01em;}
+  .sx-head p{margin:0; color:#475569; font-size:15.5px; line-height:1.55;}
+  .sx-detail h4{display:flex; align-items:center; gap:8px; margin:0 0 10px; font:600 11.5px var(--font-mono); letter-spacing:.14em; text-transform:uppercase; color:#64748B; position:relative; z-index:1;}
+  .sx-detail h4 span{font-size:11px; color:#fff; background:var(--c); padding:2px 8px; border-radius:20px; letter-spacing:0;}
+  .sx-types{display:grid; grid-template-columns:repeat(auto-fill, minmax(210px, 1fr)); gap:8px; margin-bottom:22px; position:relative; z-index:1;}
+  .sx-type{display:flex; align-items:center; gap:9px; text-align:left; padding:10px 12px; border-radius:10px; cursor:pointer; font:500 14px var(--font-body, inherit); color:#1E293B;
+    background:#F8FAFC; border:1px solid #E2E8F0; transition:border-color .2s, background .2s, transform .2s;}
+  .sx-type:hover{border-color:var(--c); background:color-mix(in srgb, var(--c) 7%, #fff); transform:translateY(-1px);}
+  .sx-check{width:20px; height:20px; flex:none; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; color:#fff; background:var(--c);}
+  .sx-type.hit{border-color:var(--c); background:color-mix(in srgb, var(--c) 14%, #fff); box-shadow:0 0 0 3px color-mix(in srgb, var(--c) 25%, transparent); animation:sxHit 1.2s ease 2;}
+  @keyframes sxHit{50%{box-shadow:0 0 0 7px color-mix(in srgb, var(--c) 12%, transparent);}}
+  .sx-fields{list-style:none; margin:0 0 22px; padding:0; display:flex; flex-wrap:wrap; gap:8px;}
+  .sx-fields li{font-size:13.5px; font-weight:500; color:#334155; padding:6px 11px 6px 26px; border-radius:20px; background:#F1F5F9; position:relative;}
+  .sx-fields li::before{content:''; position:absolute; left:11px; top:50%; width:7px; height:7px; margin-top:-3.5px; border-radius:50%; background:var(--c);}
+  .sx-cta{display:flex; gap:10px; flex-wrap:wrap;}
+  .sx-btn{display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:11px; border:0; cursor:pointer; font:700 14.5px var(--font-body, inherit); color:#fff; text-decoration:none;
+    background:#0B1220; transition:background .2s, transform .2s;}
+  .sx-btn:hover{background:#1261FF; transform:translateY(-1px);}
+  .sx-btn.ghost{background:transparent; color:#0F172A; border:1px solid #CBD5E1;}
+  .sx-btn.ghost:hover{border-color:#1261FF; color:#1261FF; background:transparent;}
+  .sx-tip{margin:12px 0 0; font-size:12.5px; color:#94A3B8;}
+  .sx-results{padding:10px; border-radius:16px; background:#fff; border:1px solid var(--sx-line); display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:6px;}
+  .sx-res-head{grid-column:1/-1; font:600 11.5px var(--font-mono); letter-spacing:.12em; text-transform:uppercase; color:#64748B; padding:6px 8px;}
+  .sx-res{display:flex; align-items:center; gap:12px; text-align:left; padding:10px; border-radius:11px; border:1px solid transparent; background:transparent; cursor:pointer;}
+  .sx-res:hover{background:#F5F8FD; border-color:#E2E8F0;}
+  .sx-res b{display:block; font-size:14.5px; color:#0F172A; font-weight:600;}
+  .sx-res small{font-size:12px; color:#64748B;}
+  .sx-none{grid-column:1/-1; margin:0; padding:14px; color:#475569;}
+  .sx-link{background:none; border:0; padding:0; color:#1261FF; font:600 15px var(--font-body, inherit); cursor:pointer; text-decoration:underline;}
+  @media (max-width:860px){
+    .sx-body{grid-template-columns:1fr;}
+    .sx-list{position:static; flex-direction:row; overflow-x:auto; scrollbar-width:none; padding:6px; gap:6px; scroll-snap-type:x proximity;}
+    .sx-list::-webkit-scrollbar{display:none;}
+    .sx-sub{flex:0 0 auto; width:auto; scroll-snap-align:start; padding:8px 12px 8px 8px; border-color:#E2E8F0;}
+    .sx-sub:hover{transform:none;} .sx-arrow{display:none;}
+    .sx-ic{width:32px; height:32px; font-size:11px;}
+    .sx-sub-txt b{white-space:nowrap; font-size:14px;}
+    .sx-search{flex:1 1 100%;}
+    .sx-detail{padding:22px 18px 20px;}
+    .sx-cat{flex:1 0 auto;}
+  }
+  @media (max-width:600px){ .sx-cats{display:grid; grid-template-columns:repeat(3,1fr); gap:4px; padding:4px;} .sx-cat{padding:9px 8px; align-items:center; text-align:center;} .sx-cat-name{font-size:12.5px; line-height:1.2;} .sx-cat-meta{font-size:10.5px;} .sx-cat-meta .sx-m-full{display:none;} }
+  @media (max-width:480px){ .sx-types{grid-template-columns:1fr;} .sx-head h3{font-size:21px;} .sx-cta .sx-btn{flex:1 1 100%;} .sx-cat{padding:10px 12px;} .sx-cat-name{font-size:14px;} }
+  @media (prefers-reduced-motion:reduce){ .sx-pop > *, .sx-type.hit{animation:none;} }
 
 </style>
 </head>
@@ -1385,14 +1470,20 @@
   <div class="wrap">
     <div class="eyebrow">What I do</div>
     <h2>Specialties</h2>
-    <p class="specialties-sub">Pick an area below to see exactly what's included.</p>
-    <div class="specialties-interactive grow-in">
-      <div class="specialty-tabs">
-        <button class="specialty-tab active" data-spec="leadgen"><span class="spec-tab-title">Lead Generation</span><span class="spec-tab-sub">Amazon, B2B, Investor, Solar &amp; more</span></button>
-        <button class="specialty-tab" data-spec="research"><span class="spec-tab-title">Research &amp; Data Collection</span><span class="spec-tab-sub">LinkedIn, web research, email lists</span></button>
-        <button class="specialty-tab" data-spec="data"><span class="spec-tab-title">Data &amp; File Services</span><span class="spec-tab-sub">Data entry, PDF conversion</span></button>
+    <p class="specialties-sub">Pick an area, then a category, to see every type of lead and data I deliver.</p>
+    <div class="sx" id="specExplorer">
+      <div class="sx-top">
+        <div class="sx-cats" role="tablist" aria-label="Service areas"></div>
+        <label class="sx-search"><span class="sr-only">Search all services</span>
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6.2" stroke="currentColor" stroke-width="1.8"/><path d="m13.6 13.6 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <input type="search" id="sxSearch" autocomplete="off" placeholder="Search all services">
+        </label>
       </div>
-      <div class="specialty-panel" id="specialtyPanel"></div>
+      <div class="sx-results" hidden></div>
+      <div class="sx-body">
+        <div class="sx-list" aria-label="Categories"></div>
+        <div class="sx-detail" aria-live="polite"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -2327,40 +2418,168 @@
   }, { threshold: 0.25 });
   growInEls.forEach(el => growInObserver.observe(el));
 
-  const specialtyData = {
-    leadgen: { title: "Lead Generation", items: ["B2B Lead Generation","Amazon Seller Leads","B2C Lead Generation","LinkedIn Lead Generation","Email Lead Generation","Sales Prospecting","Prospect List Building","Contact List Building","Email List Building","Web Research","Market Research","Data Mining","Data Collection","Data Entry","CRM Data Management","CRM Data Cleaning","Lead Qualification","Cold Email Prospecting","LinkedIn Outreach","Influencer Research","Company Research","Decision Maker Research","Skip Tracing","Real Estate Lead Generation","E-commerce Lead Generation","Healthcare Lead Generation","SaaS Lead Generation","Financial Services Lead Generation","Recruitment Lead Generation","Local Business Lead Generation"] },
-    research: { title: "Research &amp; Data Collection", items: ["Web Research","Market Research","Company Research","Competitor Research","Product Research","Internet Research","Business Research","Industry Research","Academic Research","Data Collection","Data Mining","Data Extraction","Contact Research","Email Research","LinkedIn Research","Prospect Research","Lead Research","Survey Research","Keyword Research","Influencer Research","Real Estate Research","Supplier Research","Vendor Research","Customer Research","Pricing Research","Statistical Data Research","Public Records Research","Online Database Research","CRM Data Enrichment"] },
-    data: { title: "Data &amp; File Services", items: ["Data Entry","Data Processing","Data Cleaning","Data Formatting","Data Conversion","Data Collection","Data Extraction","Data Mining","PDF to Excel","PDF to Word","Image to Excel","Image to Word","Copy &amp; Paste Tasks","Spreadsheet Management","Microsoft Excel","Google Sheets","CSV File Management","File Conversion","File Organization","Document Formatting","OCR (Optical Character Recognition)","Database Management","CRM Data Entry","CRM Data Cleanup","Data Validation","Data Annotation","Data Labeling","Catalog Data Entry","Product Data Upload","File Merging &amp; Splitting","File Renaming","Duplicate Data Removal","Data Deduplication","Data Enrichment","Data Quality Assurance"] },
-  };
 
-  const specialtyPanel = document.getElementById('specialtyPanel');
-  const specialtyTabs = document.querySelectorAll('.specialty-tab');
+  // ================= Specialties explorer: category -> sub-category -> every type =================
+  const SPEC_TREE = [
+    { id: 'leadgen', name: 'Lead Generation', short: 'Verified leads for sales and outreach', subs: [
+      { id: 'amazon', name: 'Amazon Seller Leads', ic: 'AZ', c: '#FF9F1C', modal: 'Amazon Seller Leads (by revenue range)',
+        blurb: 'Amazon sellers and brand owners with direct contact details, filtered exactly how you need.',
+        types: ['Amazon USA sellers', 'Amazon UK sellers', 'Amazon Germany sellers', 'Amazon Spain sellers', 'Amazon Australia sellers', 'Amazon France sellers', 'Amazon Mexico sellers', 'Private label sellers', 'FBA sellers', 'FBM sellers', 'Wholesale & reseller sellers', 'By monthly revenue range', 'By product category', 'Brand-registered sellers', 'New & growing sellers', 'Top sellers in a niche'],
+        fields: ['Store & brand name', 'Store link', 'Owner / decision-maker name', 'Verified email', 'Phone (personal on request)', 'Est. monthly revenue', 'Category'] },
+      { id: 'b2b', name: 'B2B Decision-Maker Leads', ic: 'B2B', c: '#22D3EE', modal: 'Lead Generation',
+        blurb: 'The people who sign the deal, at the companies that fit your offer.',
+        types: ['CEOs & founders', 'Owners & managing directors', 'C-level executives (CFO, CTO, CMO, COO)', 'VPs & directors', 'Marketing leaders', 'Sales leaders', 'HR & talent leaders', 'IT & tech leaders', 'Operations & procurement', 'By industry', 'By company size', 'By revenue', 'By job title', 'By country, state or city', 'B2C consumer lists'],
+        fields: ['Full name', 'Job title', 'Company & website', 'Verified work email', 'LinkedIn profile', 'Phone (on request)', 'Location', 'Industry & size'] },
+      { id: 'linkedin', name: 'LinkedIn Leads', ic: 'in', c: '#1261FF', modal: 'Lead Generation',
+        blurb: 'Targeted prospect lists built with LinkedIn Sales Navigator and checked by hand.',
+        types: ['Sales Navigator lead lists', 'LinkedIn profile research', 'Company lists from LinkedIn', 'Emails for LinkedIn profiles', 'Companies that are hiring', 'Job-change & new-role leads', 'LinkedIn group & event members', 'Outreach-ready prospect lists'],
+        fields: ['Name & title', 'LinkedIn URL', 'Company', 'Verified email', 'Location', 'Company size'] },
+      { id: 'ecom', name: 'Ecommerce Store Leads', ic: 'EC', c: '#95BF47', modal: 'Shopify Store Leads',
+        blurb: 'Online store owners on every major platform and marketplace.',
+        types: ['Shopify store owners', 'Shopify + Mailchimp / Klaviyo users', 'WooCommerce stores', 'Stripe-powered stores', 'Gmail-based store owners', 'Etsy sellers', 'eBay sellers', 'Otto sellers', 'Kaufland sellers', 'Walmart sellers', 'DTC brands', 'By niche & country'],
+        fields: ['Store name & URL', 'Owner name', 'Verified email', 'Phone', 'Platform & apps used', 'Social links', 'Country'] },
+      { id: 'investor', name: 'Investor Leads', ic: 'VC', c: '#60A5FA', modal: 'Investor Leads',
+        blurb: 'Investors that match your stage, industry and region, ready for fundraising outreach.',
+        types: ['Venture capital firms', 'VC partners & principals', 'Angel investors', 'Family offices', 'Private equity firms', 'Real estate investors', 'Accelerators & incubators', 'By stage (pre-seed to growth)', 'By industry focus'],
+        fields: ['Investor / firm name', 'Partner name', 'Verified email', 'LinkedIn', 'Investment stage', 'Focus industries', 'Location'] },
+      { id: 'realestate', name: 'Real Estate Leads', ic: 'RE', c: '#34D399', modal: 'Real Estate Leads',
+        blurb: 'Agents, brokers and property businesses in any city or ZIP code.',
+        types: ['Realtors & agents', 'Brokerages & brokers', 'Property managers', 'Mortgage brokers & lenders', 'Real estate investors', 'Commercial real estate', 'Home builders & developers', 'Skip tracing', 'By city or ZIP code'],
+        fields: ['Name', 'Agency / brokerage', 'Verified email', 'Phone', 'Office address', 'Website & socials'] },
+      { id: 'local', name: 'Local Business Leads', ic: 'LB', c: '#F472B6', modal: 'Lead Generation',
+        blurb: 'Owners of local service businesses, targeted by city, state or ZIP code.',
+        types: ['Dentists & dental clinics', 'Doctors & medical practices', 'Med spas & clinics', 'Chiropractors', 'Lawyers & law firms', 'Restaurants & cafes', 'Contractors & roofers', 'HVAC & plumbers', 'Salons & spas', 'Gyms & fitness studios', 'Auto dealers & repair shops', 'Accountants & CPAs', 'Solar companies', 'By ZIP code'],
+        fields: ['Business name', 'Owner name', 'Verified email', 'Phone', 'Address', 'Website', 'Google rating (on request)'] },
+      { id: 'startup', name: 'Startup & SaaS Leads', ic: 'SU', c: '#A78BFA', modal: 'Lead Generation',
+        blurb: 'Fast-growing startups and software companies, including recently funded ones.',
+        types: ['Recently funded startups', 'Seed & Series A companies', 'Accelerator companies', 'SaaS companies', 'Startup founders & CEOs', 'Tech companies by stack', 'Companies hiring fast'],
+        fields: ['Company & website', 'Founder / CEO', 'Verified email', 'Funding stage', 'Team size', 'LinkedIn'] },
+      { id: 'event', name: 'Event & Conference Leads', ic: 'EV', c: '#FACC15', modal: 'Event Leads',
+        blurb: 'Exhibitors, sponsors and speakers from the events your buyers attend.',
+        types: ['Trade show exhibitors', 'Conference sponsors', 'Event speakers', 'Attending companies', 'Industry association members'],
+        fields: ['Company', 'Contact name & title', 'Verified email', 'Phone', 'Event name', 'Booth / role'] },
+      { id: 'niche', name: 'Niche & Technical Leads', ic: 'NT', c: '#38BDF8', modal: 'SPF/DMARC/DKIM & GA4/GTM Issue Leads',
+        blurb: 'Specialised lists that need careful research, such as technical audits or diversity programs.',
+        types: ['SPF / DMARC / DKIM issue leads', 'GA4 / GTM tracking issue leads', "Women's ERG research", 'Healthcare leads', 'Financial services leads', 'Recruitment agency leads', 'Influencer research', 'Custom niche on request'],
+        fields: ['Company & website', 'Issue / signal found', 'Decision-maker', 'Verified email', 'Notes'] }
+    ]},
+    { id: 'research', name: 'Research & Data Collection', short: 'Accurate answers from careful research', subs: [
+      { id: 'market', name: 'Web & Market Research', ic: 'MR', c: '#22D3EE', modal: 'other',
+        blurb: 'Clear, sourced research on markets, industries and competitors.',
+        types: ['Web research', 'Internet research', 'Market research', 'Industry research', 'Competitor research', 'Product research', 'Pricing research', 'Business research', 'Customer research', 'Statistical data research', 'Survey research', 'Keyword research', 'Academic research'],
+        fields: ['Organised spreadsheet', 'Source links', 'Summary of findings'] },
+      { id: 'people', name: 'Company & People Research', ic: 'CP', c: '#A78BFA', modal: 'Lead Generation',
+        blurb: 'Find the right company, the right person and the right way to reach them.',
+        types: ['Company research', 'Decision-maker research', 'Contact research', 'Email research', 'Prospect research', 'Lead research', 'LinkedIn research', 'Influencer research'],
+        fields: ['Company details', 'Contact name & title', 'Verified email', 'LinkedIn', 'Source links'] },
+      { id: 'supplier', name: 'Supplier & Vendor Research', ic: 'SV', c: '#34D399', modal: 'other',
+        blurb: 'Reliable suppliers, manufacturers and vendors for your products.',
+        types: ['Supplier research', 'Manufacturer research', 'Vendor research', 'Wholesaler & distributor lists', 'Sourcing comparisons'],
+        fields: ['Company & website', 'Contact person', 'Email & phone', 'Products / MOQ', 'Location'] },
+      { id: 'records', name: 'Public Records & Real Estate Research', ic: 'PR', c: '#FACC15', modal: 'Real Estate Leads',
+        blurb: 'Property, ownership and public-record research done carefully by hand.',
+        types: ['Public records research', 'Real estate research', 'Property owner lookup', 'Skip tracing'],
+        fields: ['Owner name', 'Property address', 'Contact details found', 'Source'] },
+      { id: 'mining', name: 'Data Mining & Extraction', ic: 'DM', c: '#F97316', modal: 'other',
+        blurb: 'Collect data from websites, directories and documents into a clean sheet.',
+        types: ['Data collection', 'Data mining', 'Data extraction', 'Directory extraction', 'Website data collection', 'Online research tasks'],
+        fields: ['Structured spreadsheet', 'Columns you choose', 'Duplicates removed'] }
+    ]},
+    { id: 'data', name: 'Data & File Services', short: 'Clean, organised data and files', subs: [
+      { id: 'entry', name: 'Data Entry', ic: 'DE', c: '#60A5FA', modal: 'other',
+        blurb: 'Fast, accurate data entry into any sheet, CRM or platform.',
+        types: ['Data entry', 'CRM data entry', 'Catalog & product data entry', 'Product data upload', 'Copy & paste tasks', 'Online form filling', 'Data processing'],
+        fields: ['Accurate entries', 'Your format and template', 'Double-checked'] },
+      { id: 'clean', name: 'Data Cleaning & Validation', ic: 'DC', c: '#34D399', modal: 'other',
+        blurb: 'Turn messy lists into clean, usable data.',
+        types: ['Data cleaning', 'Duplicate removal', 'Data validation', 'Email list verification', 'Data formatting', 'Data enrichment', 'CRM data cleanup'],
+        fields: ['Cleaned file', 'Duplicates removed', 'Invalid data flagged', 'Summary of changes'] },
+      { id: 'convert', name: 'File Conversion', ic: 'FC', c: '#F97316', modal: 'other',
+        blurb: 'Convert PDFs, images and scans into editable files.',
+        types: ['PDF to Excel', 'PDF to Word', 'Image to Excel', 'Image to Word', 'OCR (scanned documents)', 'File conversion', 'Document formatting'],
+        fields: ['Editable file', 'Original layout kept', 'Checked for errors'] },
+      { id: 'sheets', name: 'Spreadsheets & Databases', ic: 'XL', c: '#22C55E', modal: 'other',
+        blurb: 'Well-organised spreadsheets, CSV files and databases.',
+        types: ['Microsoft Excel', 'Google Sheets', 'CSV file management', 'Spreadsheet management', 'Database management', 'File organisation'],
+        fields: ['Organised file', 'Formulas & filters', 'Clear structure'] },
+      { id: 'label', name: 'Data Labeling & Annotation', ic: 'AI', c: '#A78BFA', modal: 'other',
+        blurb: 'Careful labeling and tagging for AI and analytics projects.',
+        types: ['Data annotation', 'Data labeling', 'Image tagging', 'Text categorisation'],
+        fields: ['Labeled dataset', 'Your guidelines followed', 'Quality checked'] }
+    ]}
+  ];
 
-  function renderSpecialty(key) {
-    const data = specialtyData[key];
-    if (!data || !specialtyPanel) return;
-    const LIMIT = 12;
-    const itemsHtml = data.items.map((i, n) => `<li${n >= LIMIT ? ' class="spec-extra" hidden' : ''}>${i}</li>`).join('');
-    const more = data.items.length > LIMIT ? `<button type="button" class="spec-more">Show all ${data.items.length} services</button>` : '';
-    specialtyPanel.innerHTML = `<div class="specialty-panel-inner"><h3>${data.title}</h3><ul>${itemsHtml}</ul>${more}</div>`;
-    const btn = specialtyPanel.querySelector('.spec-more');
-    if (btn) btn.addEventListener('click', () => {
-      const open = btn.dataset.open === '1';
-      specialtyPanel.querySelectorAll('.spec-extra').forEach(li => { li.hidden = open; });
-      btn.dataset.open = open ? '0' : '1';
-      btn.textContent = open ? `Show all ${data.items.length} services` : 'Show fewer';
-    });
-  }
+  (function(){
+    const root = document.getElementById('specExplorer');
+    if (!root) return;
+    const esc = (s) => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    const catsEl = root.querySelector('.sx-cats'), listEl = root.querySelector('.sx-list'), detailEl = root.querySelector('.sx-detail');
+    const searchEl = root.querySelector('#sxSearch'), resultsEl = root.querySelector('.sx-results'), bodyEl = root.querySelector('.sx-body');
+    let cat = SPEC_TREE[0], sub = cat.subs[0], highlight = '';
+    const total = SPEC_TREE.reduce((n, c) => n + c.subs.reduce((m, s) => m + s.types.length, 0), 0);
+    searchEl.placeholder = 'Search all ' + total + ' services, e.g. "FBA", "dentists", "PDF"';
 
-  specialtyTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      specialtyTabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      renderSpecialty(tab.getAttribute('data-spec'));
-    });
-  });
+    catsEl.innerHTML = SPEC_TREE.map(c => {
+      const n = c.subs.reduce((m, s) => m + s.types.length, 0);
+      return '<button type="button" class="sx-cat" role="tab" data-cat="' + c.id + '"><span class="sx-cat-name">' + esc(c.name) + '</span><span class="sx-cat-meta"><span class="sx-m-full">' + c.subs.length + ' categories · </span>' + n + ' types</span></button>';
+    }).join('');
+    catsEl.querySelectorAll('.sx-cat').forEach(b => b.addEventListener('click', () => { cat = SPEC_TREE.find(c => c.id === b.dataset.cat); sub = cat.subs[0]; highlight = ''; render(true); }));
 
-  if (specialtyPanel) renderSpecialty('leadgen');
+    function render(scrollList){
+      catsEl.querySelectorAll('.sx-cat').forEach(b => { const on = b.dataset.cat === cat.id; b.classList.toggle('active', on); b.setAttribute('aria-selected', on); });
+      listEl.innerHTML = cat.subs.map(s => '<button type="button" class="sx-sub' + (s === sub ? ' active' : '') + '" data-sub="' + s.id + '" style="--c:' + s.c + '">' +
+        '<span class="sx-ic">' + esc(s.ic) + '</span><span class="sx-sub-txt"><b>' + esc(s.name) + '</b><small>' + s.types.length + ' types</small></span><span class="sx-arrow" aria-hidden="true">&rsaquo;</span></button>').join('');
+      listEl.querySelectorAll('.sx-sub').forEach(b => b.addEventListener('click', () => {
+        sub = cat.subs.find(s => s.id === b.dataset.sub); highlight = ''; render();
+        if (innerWidth < 860) { const hd = document.querySelector('header'); const off = hd && getComputedStyle(hd).position !== 'static' ? hd.offsetHeight : 0; scrollTo({ top: detailEl.getBoundingClientRect().top + scrollY - off - 12, behavior: 'smooth' }); }
+      }));
+      if (scrollList) listEl.scrollLeft = 0;
+      const a = listEl.querySelector('.sx-sub.active'); if (a && innerWidth < 860) listEl.scrollTo({ left: a.offsetLeft - 16, behavior: 'smooth' });
+      detailEl.style.setProperty('--c', sub.c);
+      detailEl.innerHTML =
+        '<div class="sx-crumb">' + esc(cat.name) + ' <span>&rsaquo;</span> <b>' + esc(sub.name) + '</b></div>' +
+        '<div class="sx-head"><span class="sx-ic big">' + esc(sub.ic) + '</span><div><h3>' + esc(sub.name) + '</h3><p>' + esc(sub.blurb) + '</p></div></div>' +
+        '<h4>All types I cover <span>' + sub.types.length + '</span></h4>' +
+        '<div class="sx-types">' + sub.types.map(t => '<button type="button" class="sx-type' + (t === highlight ? ' hit' : '') + '" data-type="' + esc(t) + '"><span class="sx-check" aria-hidden="true">&#10003;</span>' + esc(t) + '</button>').join('') + '</div>' +
+        '<h4>What you get</h4><ul class="sx-fields">' + sub.fields.map(f => '<li>' + esc(f) + '</li>').join('') + '</ul>' +
+        '<div class="sx-cta"><button type="button" class="sx-btn" data-act="quote">Get a quote for ' + esc(sub.name) + '</button><a href="#pricing" class="sx-btn ghost">See pricing</a></div>' +
+        '<p class="sx-tip">Tip: tap any type to request it.</p>';
+      detailEl.classList.remove('sx-pop'); void detailEl.offsetWidth; detailEl.classList.add('sx-pop');
+      detailEl.querySelector('[data-act="quote"]').addEventListener('click', (e) => ask(e, ''));
+      detailEl.querySelectorAll('.sx-type').forEach(b => b.addEventListener('click', (e) => ask(e, b.dataset.type)));
+      const hit = detailEl.querySelector('.sx-type.hit'); if (hit) setTimeout(() => hit.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 200);
+    }
+    function ask(e, type){
+      if (typeof openLeadModal !== 'function') return;
+      openLeadModal(e);
+      const msg = 'I am interested in: ' + cat.name + ' > ' + sub.name + (type ? ' > ' + type : '') + '\nTarget country / location: \nHow many records: \nOther details: ';
+      applyPrefill(sub.modal, msg, sub.modal === 'other' ? sub.name + (type ? ' - ' + type : '') : '');
+    }
+
+    // search across everything
+    function search(){
+      const q = searchEl.value.trim().toLowerCase();
+      if (q.length < 2) { resultsEl.hidden = true; bodyEl.hidden = false; return; }
+      const hits = [];
+      SPEC_TREE.forEach(c => c.subs.forEach(s => {
+        if (s.name.toLowerCase().indexOf(q) !== -1) hits.push({ c, s, t: '' });
+        s.types.forEach(t => { if (t.toLowerCase().indexOf(q) !== -1) hits.push({ c, s, t }); });
+      }));
+      resultsEl.hidden = false; bodyEl.hidden = true;
+      resultsEl.innerHTML = hits.length
+        ? '<div class="sx-res-head">' + hits.length + ' match' + (hits.length > 1 ? 'es' : '') + '</div>' + hits.slice(0, 30).map((h, i) =>
+            '<button type="button" class="sx-res" data-i="' + i + '" style="--c:' + h.s.c + '"><span class="sx-ic">' + esc(h.s.ic) + '</span><span><b>' + esc(h.t || h.s.name) + '</b><small>' + esc(h.c.name) + ' &rsaquo; ' + esc(h.s.name) + '</small></span></button>').join('')
+        : '<p class="sx-none">No exact match, but I can probably still do it. <button type="button" class="sx-link" data-open-custom>Ask me about &ldquo;' + esc(searchEl.value.trim()) + '&rdquo;</button></p>';
+      resultsEl.querySelectorAll('.sx-res').forEach(b => b.addEventListener('click', () => {
+        const h = hits[+b.dataset.i]; cat = h.c; sub = h.s; highlight = h.t; searchEl.value = ''; resultsEl.hidden = true; bodyEl.hidden = false; render(true);
+      }));
+      const custom = resultsEl.querySelector('[data-open-custom]');
+      if (custom) custom.addEventListener('click', (e) => { openLeadModal(e); applyPrefill('other', 'I need: ' + searchEl.value.trim() + '\nTarget country / location: \nHow many records: ', searchEl.value.trim()); });
+    }
+    searchEl.addEventListener('input', search);
+    render();
+  })();
+
 
   const typewriterEls = document.querySelectorAll('.typewriter');
   const typeSpeed = 14;
@@ -3896,7 +4115,7 @@
     const ov = document.createElement('div'); ov.className = 'fx-cmd-overlay'; ov.setAttribute('aria-hidden', 'true');
     ov.innerHTML = '<div class="fx-cmd" role="dialog" aria-modal="true" aria-label="Command menu"><div class="fx-cmd-top">' +
       '<svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6.2" stroke="currentColor" stroke-width="1.8"/><path d="m13.6 13.6 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>' +
-      '<input type="text" id="fxCmdInput" placeholder="Jump anywhere, or describe the leads you need&hellip;" autocomplete="off" aria-label="Search the website or describe leads"><kbd>Esc</kbd></div>' +
+      '<input type="text" id="fxCmdInput" placeholder="Jump anywhere or describe leads&hellip;" autocomplete="off" aria-label="Search the website or describe leads"><kbd>Esc</kbd></div>' +
       '<div class="fx-cmd-list" id="fxCmdList" role="listbox"></div>' +
       '<div class="fx-cmd-foot"><span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> to move</span><span><kbd>Enter</kbd> to open</span><span>Type a request, e.g. &ldquo;2,000 roofers in Florida&rdquo;</span></div></div>';
     document.body.appendChild(ov);
@@ -3926,7 +4145,7 @@
     function mark(){ list.querySelectorAll('.fx-cmd-item').forEach((b, i) => { b.classList.toggle('sel', i === sel); b.setAttribute('aria-selected', i === sel); if (i === sel) b.scrollIntoView({ block: 'nearest' }); }); }
     function choose(i){ const it = items[i]; close(); if (it) setTimeout(it.run, 60); }
     function open(){ lastFocus = document.activeElement; ov.classList.add('open'); ov.setAttribute('aria-hidden', 'false'); input.value = ''; build(); setTimeout(() => input.focus(), 30); hint.classList.remove('show'); }
-    function close(){ ov.classList.remove('open'); ov.setAttribute('aria-hidden', 'true'); if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+    function close(){ ov.classList.remove('open'); ov.setAttribute('aria-hidden', 'true'); if (lastFocus && lastFocus.focus) lastFocus.focus(); setTimeout(() => hint.classList.add('show'), 400); }
     input.addEventListener('input', build);
     input.addEventListener('keydown', e => {
       if (e.key === 'ArrowDown') { e.preventDefault(); sel = Math.min(items.length - 1, sel + 1); mark(); }
@@ -3940,13 +4159,9 @@
     });
     // a small hint, shown once per visit after a few seconds (desktop only)
     const hint = document.createElement('button'); hint.type = 'button'; hint.className = 'fx-kbd-hint';
-    hint.innerHTML = '<kbd>' + (isMac ? '&#8984;' : 'Ctrl') + '</kbd><kbd>K</kbd> Jump anywhere or ask AI';
+    hint.innerHTML = '<kbd>' + (isMac ? '&#8984;' : 'Ctrl') + '</kbd><kbd>K</kbd> <span class="fx-desk">Jump anywhere or ask AI</span><span class="fx-touch">&#10022; Jump anywhere or ask AI</span>'; hint.setAttribute('aria-label', 'Open the menu: jump anywhere or ask AI');
     hint.addEventListener('click', open); document.body.appendChild(hint);
-    if (finePointer) {
-      let seen = false; try { seen = sessionStorage.getItem('fxHint') === '1'; } catch (e) {}
-      setTimeout(() => { hint.classList.add('show'); }, seen ? 800 : 6000);
-      try { sessionStorage.setItem('fxHint', '1'); } catch (e) {}
-    }
+    setTimeout(() => { hint.classList.add('show'); }, 1800);   // always visible, on every device
   })();
 })();
 </script>
