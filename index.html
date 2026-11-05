@@ -6,6 +6,8 @@
 <meta name="description" content="The Right Data. The Right People. Real Opportunities. Kamruzzaman Minju helps businesses find the right companies, decision-makers and Amazon sellers with manually researched, verified lead lists. Free sample before you pay.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Kamruzzaman Minju">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='gle' x1='0' y1='0' x2='64' y2='64' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2322D3EE'/%3E%3Cstop offset='.55' stop-color='%231261FF'/%3E%3Cstop offset='1' stop-color='%237C3AED'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url%28%23gle%29'/%3E%0A%3Cpath d='M31 9.5C21.3 9.5 13.5 17.1 13.5 26.6 13.5 39.2 31 55.5 31 55.5S48.5 39.2 48.5 26.6C48.5 17.1 40.7 9.5 31 9.5Z' fill='%23fff'/%3E%0A%3Ccircle cx='31' cy='22.6' r='5.4' fill='%231261FF'/%3E%3Cpath d='M21.6 37.6c1.4-5.6 5.1-8.4 9.4-8.4s8 2.8 9.4 8.4c-2.6 2.5-5.8 3.9-9.4 3.9s-6.8-1.4-9.4-3.9Z' fill='%231261FF'/%3E%0A%3Cpath d='M50.5 7.5l1.6 4.2 4.2 1.6-4.2 1.6-1.6 4.2-1.6-4.2-4.2-1.6 4.2-1.6Z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="leads-expert-icon.png">
 <meta name="theme-color" content="#070D1A">
 <link rel="canonical" href="https://ariyanminju.github.io/">
 <meta property="og:type" content="website">
@@ -1046,18 +1048,104 @@
   .tr-card p{margin:0; font-size:14.5px; color:#C9D2E3; line-height:1.5;}
   @media (prefers-reduced-motion:reduce){ .tw-tile{animation:none;} .tr-bar span{transition:none; width:var(--w);} }
 
+  /* ================= AI Lead Planner ================= */
+  .ai-planner{position:relative; overflow:hidden; padding:88px 0 80px; color:#D7E0EE;
+    background:radial-gradient(ellipse 55% 70% at 20% 0%, rgba(34,211,238,0.16), transparent 65%), radial-gradient(ellipse 55% 70% at 85% 100%, rgba(139,92,246,0.22), transparent 65%), #08101F;}
+  .aip-glow{position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(148,197,255,0.14) 1px, transparent 1.2px); background-size:22px 22px;
+    -webkit-mask-image:radial-gradient(ellipse 60% 55% at 50% 45%, #000, transparent 75%); mask-image:radial-gradient(ellipse 60% 55% at 50% 45%, #000, transparent 75%);}
+  .ai-planner .wrap{position:relative;}
+  .aip-head{text-align:center; max-width:700px; margin:0 auto 34px;}
+  .aip-eyebrow{display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:#C4B5FD;
+    padding:7px 14px; border-radius:30px; background:rgba(139,92,246,0.12); border:1px solid rgba(167,139,250,0.35);}
+  .aip-spark{display:inline-block; color:#22D3EE; animation:aipTwinkle 2.4s ease-in-out infinite;}
+  @keyframes aipTwinkle{0%,100%{transform:scale(1) rotate(0); opacity:1;} 50%{transform:scale(1.25) rotate(20deg); opacity:.75;}}
+  .aip-head h2{color:#fff; margin:16px 0 12px; font-size:clamp(28px,3.6vw,42px); line-height:1.15;}
+  .aip-head h2 span{background:linear-gradient(90deg,#22D3EE,#A78BFA); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .aip-head p{color:#9AA8BF; margin:0; font-size:16.5px;}
+  .aip-card{max-width:860px; margin:0 auto; padding:22px; border-radius:20px; position:relative;
+    background:linear-gradient(160deg, rgba(30,44,80,0.62), rgba(10,17,33,0.85)); border:1px solid rgba(148,197,255,0.16);
+    box-shadow:0 30px 80px -40px rgba(34,211,238,0.45), 0 0 0 1px rgba(167,139,250,0.08) inset;}
+  .aip-card::before{content:''; position:absolute; inset:-1px; border-radius:21px; padding:1px; pointer-events:none;
+    background:linear-gradient(120deg, rgba(34,211,238,0.6), transparent 35%, transparent 65%, rgba(167,139,250,0.6));
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude;}
+  .aip-tabs{display:flex; gap:6px; padding:5px; border-radius:12px; background:rgba(7,13,26,0.7); border:1px solid rgba(148,197,255,0.10); margin-bottom:16px; width:max-content; max-width:100%;}
+  .aip-tab{font:600 14px var(--font-body, inherit); color:#9AA8BF; background:transparent; border:0; padding:9px 16px; border-radius:9px; cursor:pointer; transition:background .2s, color .2s;}
+  .aip-tab:hover{color:#fff;}
+  .aip-tab.active{color:#fff; background:linear-gradient(135deg,#1261FF,#7C3AED); box-shadow:0 6px 18px -8px rgba(124,58,237,0.8);}
+  .aip-form textarea{width:100%; box-sizing:border-box; resize:vertical; min-height:92px; padding:16px 18px; border-radius:14px; font:16px/1.5 var(--font-body, inherit);
+    color:#fff; background:rgba(7,13,26,0.75); border:1px solid rgba(148,197,255,0.18); outline:none; transition:border-color .2s, box-shadow .2s;}
+  .aip-form textarea::placeholder{color:#64748B;}
+  .aip-form textarea:focus{border-color:#22D3EE; box-shadow:0 0 0 4px rgba(34,211,238,0.14);}
+  .aip-bottom{display:flex; align-items:center; justify-content:space-between; gap:14px; margin-top:12px; flex-wrap:wrap;}
+  .aip-examples{display:flex; gap:8px; flex-wrap:wrap; flex:1 1 300px;}
+  .aip-ex{font-size:12.5px; color:#B4C2D8; background:rgba(148,197,255,0.06); border:1px solid rgba(148,197,255,0.16); padding:6px 11px; border-radius:20px; cursor:pointer; text-align:left;}
+  .aip-ex:hover{border-color:#22D3EE; color:#fff;}
+  .aip-go{display:inline-flex; align-items:center; gap:8px; font:700 15px var(--font-body, inherit); color:#fff; border:0; cursor:pointer; padding:13px 22px; border-radius:12px;
+    background:linear-gradient(135deg,#22D3EE,#1261FF 55%,#7C3AED); background-size:160% 100%; transition:background-position .4s, transform .2s, box-shadow .2s; box-shadow:0 10px 26px -10px rgba(18,97,255,0.9);}
+  .aip-go .aip-spark{color:#fff;}
+  .aip-go:hover{background-position:100% 0; transform:translateY(-1px);}
+  .aip-go:disabled{opacity:.6; cursor:wait; transform:none;}
+  .aip-thinking{display:flex; align-items:center; gap:6px; margin-top:18px; color:#9AA8BF; font-size:14px;}
+  .aip-thinking[hidden]{display:none;}
+  .aip-thinking span{width:8px; height:8px; border-radius:50%; background:#22D3EE; animation:aipDot 1s ease-in-out infinite;}
+  .aip-thinking span:nth-child(2){animation-delay:.15s; background:#60A5FA;} .aip-thinking span:nth-child(3){animation-delay:.3s; background:#A78BFA;}
+  .aip-thinking em{font-style:normal; margin-left:6px;}
+  @keyframes aipDot{0%,100%{transform:translateY(0); opacity:.5;} 50%{transform:translateY(-5px); opacity:1;}}
+  .aip-result{margin-top:20px; padding-top:20px; border-top:1px dashed rgba(148,197,255,0.18); animation:aipIn .45s ease both;}
+  @keyframes aipIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:none;}}
+  .aip-sum{margin:0 0 16px; color:#E2E8F0; font-size:15.5px; line-height:1.55;}
+  .aip-sum b{color:#fff;}
+  .aip-res-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:18px; align-items:start;}
+  @media (max-width:760px){ .aip-res-grid{grid-template-columns:1fr;} }
+  .aip-fields{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px;}
+  @media (max-width:480px){ .aip-fields{grid-template-columns:1fr;} }
+  .aip-field{padding:11px 13px; border-radius:11px; background:rgba(7,13,26,0.6); border:1px solid rgba(148,197,255,0.12); min-width:0;}
+  .aip-field small{display:block; font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:#7C8BA5; margin-bottom:4px;}
+  .aip-field span{display:block; color:#fff; font-weight:600; font-size:14.5px; overflow-wrap:anywhere;}
+  .aip-field.muted span{color:#7C8BA5; font-weight:500;}
+  .aip-price{padding:18px; border-radius:14px; background:linear-gradient(160deg, rgba(18,97,255,0.18), rgba(124,58,237,0.14)); border:1px solid rgba(96,165,250,0.30);}
+  .aip-price small{font-family:var(--font-mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#93C5FD;}
+  .aip-price .big{font-family:var(--font-display); font-weight:800; font-size:34px; color:#fff; margin:6px 0 2px; letter-spacing:-0.02em;}
+  .aip-price p{margin:0 0 14px; font-size:13.5px; color:#B4C2D8;}
+  .aip-actions{display:flex; flex-direction:column; gap:8px;}
+  .aip-btn{display:block; width:100%; text-align:center; font:700 14.5px var(--font-body, inherit); padding:12px 14px; border-radius:11px; cursor:pointer; border:0; color:#fff; background:#1261FF; transition:background .2s, transform .2s;}
+  .aip-btn:hover{background:#2B74FF; transform:translateY(-1px);}
+  .aip-btn.ghost{background:transparent; color:#D7E0EE; border:1px solid rgba(148,197,255,0.28);}
+  .aip-btn.ghost:hover{border-color:#22D3EE; color:#fff;}
+  .aip-group{margin-bottom:14px;}
+  .aip-group h4{margin:0 0 8px; font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#7C8BA5;}
+  .aip-chips{display:flex; flex-wrap:wrap; gap:7px;}
+  .aip-chip{font-size:13.5px; font-weight:600; color:#E2E8F0; padding:6px 11px; border-radius:9px; background:rgba(34,211,238,0.08); border:1px solid rgba(34,211,238,0.25);}
+  .aip-group.titles .aip-chip{background:rgba(167,139,250,0.10); border-color:rgba(167,139,250,0.30);}
+  .aip-group.geo .aip-chip{background:rgba(74,222,128,0.08); border-color:rgba(74,222,128,0.28);}
+  .aip-tip{margin:12px 0 0; font-size:13.5px; color:#9AA8BF;}
+  .aip-tip b{color:#C4B5FD;}
+  .aip-err{color:#FCA5A5; font-size:14px; margin:0;}
+  .aip-note{text-align:center; color:#64748B; font-size:13px; margin:16px 0 0;}
+  @media (max-width:560px){ .aip-card{padding:16px;} .aip-tab{padding:9px 11px; font-size:13px;} .aip-go{width:100%; justify-content:center;} }
+  @media (prefers-reduced-motion:reduce){ .aip-spark, .aip-thinking span{animation:none;} .aip-result{animation:none;} }
+
+  .brand-logo{display:flex; flex-shrink:0; width:40px; height:40px; border-radius:11px; box-shadow:0 8px 22px -8px rgba(34,211,238,0.7); transition:transform .25s ease;}
+  .brand:hover .brand-logo{transform:rotate(-6deg) scale(1.05);}
+  @media (max-width:480px){ .brand-logo, .brand-logo svg{width:34px; height:34px;} }
+  @media (max-width:1440px) and (min-width:761px){ .nav-right a{margin-left:13px; font-size:14.5px;} .nav .name{font-size:20px;} }
+  @media (max-width:1180px) and (min-width:761px){ .nav{flex-wrap:wrap; row-gap:10px;} .nav-right{flex-wrap:wrap; justify-content:flex-end; row-gap:8px;} }
 </style>
 </head>
 <body>
 
 <header>
   <div class="nav">
-    <a href="#" class="brand" aria-label="Leads Expert home"><span class="brand-mark" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" stroke="#fff" stroke-width="1.8"/><circle cx="10" cy="10" r="3.6" stroke="#fff" stroke-width="1.8"/><circle cx="10" cy="10" r="1.2" fill="#fff"/></svg></span><span class="name">Leads Expert</span></a>
+    <a href="#" class="brand" aria-label="Leads Expert home"><span class="brand-logo"><svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="gnav" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#22D3EE"/><stop offset=".55" stop-color="#1261FF"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#gnav)"/>
+<path d="M31 9.5C21.3 9.5 13.5 17.1 13.5 26.6 13.5 39.2 31 55.5 31 55.5S48.5 39.2 48.5 26.6C48.5 17.1 40.7 9.5 31 9.5Z" fill="#fff"/>
+<circle cx="31" cy="22.6" r="5.4" fill="#1261FF"/><path d="M21.6 37.6c1.4-5.6 5.1-8.4 9.4-8.4s8 2.8 9.4 8.4c-2.6 2.5-5.8 3.9-9.4 3.9s-6.8-1.4-9.4-3.9Z" fill="#1261FF"/>
+<path d="M50.5 7.5l1.6 4.2 4.2 1.6-4.2 1.6-1.6 4.2-1.6-4.2-4.2-1.6 4.2-1.6Z" fill="#fff"/></svg></span><span class="name">Leads Expert</span></a>
     <div class="nav-right">
       <a href="#about">About</a>
       <a href="#specialties">Specialties</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#reviews">Reviews</a>
+      <a href="#ai-planner">AI Planner</a>
       <a href="#pricing">Pricing</a>
       <a href="#work">Track Record</a>
       <a href="#company-search">Company Search</a>
@@ -1519,6 +1607,35 @@
   </div>
 </div>
     </div>
+  </div>
+</section>
+
+<section class="ai-planner" id="ai-planner">
+  <div class="aip-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="aip-head">
+      <div class="aip-eyebrow"><span class="aip-spark" aria-hidden="true">&#10022;</span> AI Lead Planner</div>
+      <h2>Tell AI what you need. <span>Get a plan in seconds.</span></h2>
+      <p>Type your request in plain words. The AI reads it, builds your order and shows the price, or works out who your best customers are.</p>
+    </div>
+
+    <div class="aip-card">
+      <div class="aip-tabs" role="tablist" aria-label="AI Lead Planner mode">
+        <button type="button" role="tab" class="aip-tab active" data-mode="order" aria-selected="true">Quote my order</button>
+        <button type="button" role="tab" class="aip-tab" data-mode="icp" aria-selected="false">Find my ideal customers</button>
+      </div>
+      <form class="aip-form" id="aipForm" autocomplete="off">
+        <label for="aipInput" class="sr-only" id="aipLabel">Describe the leads you need</label>
+        <textarea id="aipInput" rows="3" maxlength="600" placeholder="e.g. I need 3,000 dentists in Texas with emails and phone numbers"></textarea>
+        <div class="aip-bottom">
+          <div class="aip-examples" id="aipExamples"></div>
+          <button type="submit" class="aip-go" id="aipGo"><span class="aip-spark" aria-hidden="true">&#10022;</span> <span id="aipGoText">Plan my order</span></button>
+        </div>
+      </form>
+      <div class="aip-thinking" id="aipThinking" hidden><span></span><span></span><span></span> <em>AI is reading your request&hellip;</em></div>
+      <div class="aip-result" id="aipResult" aria-live="polite" hidden></div>
+    </div>
+    <p class="aip-note">Plans are a starting point. I check every order personally before it starts.</p>
   </div>
 </section>
 
@@ -2643,6 +2760,423 @@
       applyPrefill(MODAL_TYPE[cat] || cat, lastSummary, $('calcCategoryText').value.trim());
     });
     render();
+  })();
+
+
+  // ================= AI Lead Planner =================
+  // Paste your AI Worker address between the quotes (see AI-PLANNER-SETUP.md).
+  // Left empty, the planner still works with the built-in smart reader below.
+  const AI_PLANNER_URL = "";
+
+  (function(){
+    const form = document.getElementById('aipForm');
+    if (!form) return;
+    const $ = (id) => document.getElementById(id);
+    const input = $('aipInput'), resultEl = $('aipResult'), thinking = $('aipThinking'), goBtn = $('aipGo');
+    const money = (c) => (c / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+    const num = (n) => Number(n).toLocaleString('en-US');
+    const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    let mode = 'order';
+
+    const LEAD_CATS = Array.from($('calcLeadCat').options).map(o => o.value);
+    const AMAZON_COUNTRY_VALUES = AMAZON_COUNTRIES[0].list.map(e => entry(e)[0]);
+    const WORLD_VALUES = WORLD_COUNTRIES.reduce((a, g) => a.concat(g.list.map(e => entry(e)[0])), []);
+    const REVENUE_OPTS = Array.from($('calcRevenue').options).map(o => o.value);
+    const AMZ_CAT_OPTS = Array.from($('calcCategory').options).map(o => o.value);
+    const SELLER_TYPES = ['Private label', 'FBA', 'FBM', 'Reseller'];
+
+    const MODES = {
+      order: {
+        label: 'Describe the leads you need', go: 'Plan my order',
+        placeholder: 'e.g. I need 3,000 dentists in Texas with emails and phone numbers',
+        examples: ['5,000 Amazon private label sellers in the US doing $50K+ a month', '2,000 real estate agents in London', '10k Shopify store owners in Australia with phone numbers']
+      },
+      icp: {
+        label: 'Describe your business', go: 'Find my customers',
+        placeholder: 'e.g. We sell inventory software to Amazon brands and small ecommerce stores',
+        examples: ['We run a marketing agency for dental clinics', 'We sell POS software to restaurants in the UK', 'We offer Amazon PPC management']
+      }
+    };
+
+    // ---------- Built-in smart reader (used when the AI Worker is not set up or not reachable) ----------
+    const COUNTRY_WORDS = [
+      [/\b(usa|u\.s\.a?\.?|us|united states|america|american)\b/i, 'USA'],
+      [/\b(uk|u\.k\.|united kingdom|britain|great britain|england|scotland|wales|london|manchester|birmingham)\b/i, 'United Kingdom'],
+      [/\b(germany|german|deutschland|berlin|munich|hamburg|frankfurt)\b/i, 'Germany'],
+      [/\b(australia|australian|aus|sydney|melbourne|brisbane|perth)\b/i, 'Australia'],
+      [/\b(canada|canadian|toronto|vancouver|montreal)\b/i, 'Canada'],
+      [/\b(spain|spanish|madrid|barcelona)\b/i, 'Spain'],
+      [/\b(france|french|paris)\b/i, 'France'],
+      [/\b(mexico|mexican)\b/i, 'Mexico'],
+      [/\b(uae|dubai|abu dhabi|emirates)\b/i, 'United Arab Emirates'],
+      [/\b(worldwide|global|globally|multiple countries|international)\b/i, 'Other']
+    ];
+    const US_PLACES = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming','Los Angeles','Chicago','Houston','Miami','Dallas','Atlanta','Boston','Seattle','San Francisco','San Diego','Phoenix','Denver','Las Vegas','Austin'];
+    const UK_PLACES = ['London','Manchester','Birmingham','Leeds','Glasgow','Liverpool','Bristol','Edinburgh'];
+    const DE_PLACES = ['Berlin','Munich','Hamburg','Frankfurt','Cologne','Stuttgart'];
+    const AU_PLACES = ['Sydney','Melbourne','Brisbane','Perth','Adelaide'];
+
+    function detectCategory(t){
+      const s = t.toLowerCase();
+      if (/amazon/.test(s) && /private[\s-]?label|\bpl\b/.test(s)) return 'Amazon Private Label';
+      if (/amazon|\bfba\b|\bfbm\b/.test(s)) return 'Amazon Leads';
+      if (/shopify/.test(s) && /mailchimp|klaviyo/.test(s)) return 'Shopify + Mailchimp Users';
+      if (/shopify/.test(s)) return 'Shopify Store Leads';
+      if (/etsy/.test(s)) return 'Etsy Seller Leads';
+      if (/\botto\b/.test(s)) return 'Otto Leads';
+      if (/kaufland/.test(s)) return 'Kaufland Leads';
+      if (/venture|\bvcs?\b/.test(s)) return 'Venture Capital Leads';
+      if (/investor|angel|family office|private equity/.test(s)) return 'Investor Leads';
+      if (/real ?estate|realtor|realty|property|brokerage|mortgage/.test(s)) return 'Real Estate Leads';
+      if (/\bevent|conference|exhibitor|trade ?show|expo\b/.test(s)) return 'Event Leads';
+      if (/\berg\b|employee resource/.test(s)) return "Women's ERG Research";
+      if (/spf|dmarc|dkim|ga4|gtm|tag manager/.test(s)) return 'SPF/DMARC/DKIM & GA4/GTM Issue Leads';
+      if (/stripe|gmail|ecommerce|e-commerce|online store|dtc|d2c/.test(s)) return 'Ecommerce (Stripe / Gmail)';
+      return 'Lead Generation';
+    }
+
+    function detectQuantity(t){
+      // 1) a number right before "leads / contacts / sellers ..." wins
+      const strong = t.match(/(?:^|[^$\d.,])(\d{1,3}(?:,\d{3})+|\d+(?:\.\d+)?)\s*(k|thousand)?\s+(?:[a-z-]+\s+){0,4}?(leads|contacts|records|emails|sellers|owners|companies|stores|agents|businesses|profiles|people)\b/i);
+      if (strong) { let n = parseFloat(strong[1].replace(/,/g, '')); if (/^(k|thousand)$/i.test(strong[2] || '')) n *= 1000; if (n >= 100 && n <= 5000000) return Math.round(n); }
+      // 2) otherwise the first plain number that is not a revenue amount
+      const rv = revenueMatch(t); if (rv) t = t.replace(rv[0], ' ');
+      const re = /(\$?)(\d{1,3}(?:[,\s]\d{3})+|\d+(?:\.\d+)?)\s*(k|thousand|m|million)?\b(\s*\+)?(\s*(?:\/|per|a)\s*(?:mo|month))?/gi;
+      let m, best = null;
+      while ((m = re.exec(t))) {
+        if (m[1]) continue;                              // $ amounts are revenue, not quantity
+        if (m[5]) continue;                              // "... per month" is revenue
+        const after = t.slice(re.lastIndex, re.lastIndex + 22).toLowerCase();
+        if (/^\s*(\+\s*)?(in |of )?(monthly |month|revenue|sales|a month|per month|\/mo)/.test(after)) continue;
+        let n = parseFloat(m[2].replace(/[,\s]/g, ''));
+        const unit = (m[3] || '').toLowerCase();
+        if (unit === 'k' || unit === 'thousand') n *= 1000;
+        if (unit === 'm' || unit === 'million') n *= 1000000;
+        if (n >= 100 && n <= 5000000 && !(n >= 1900 && n <= 2100 && !unit && !/,/.test(m[2]) && /\b(in|since|year)\s*$/i.test(t.slice(0, m.index)))) { best = Math.round(n); break; }
+      }
+      return best;
+    }
+
+    function revenueMatch(t){
+      return t.match(/\$\s?(\d+(?:\.\d+)?)\s*(k|m)?\s*(\+|plus|or more)?(?:\s*(?:-|to|–)\s*\$?\s?(\d+(?:\.\d+)?)\s*(k|m)?)?/i)
+          || t.match(/(\d+(?:\.\d+)?)\s*(k|m)\s*(\+|plus)?(?:\s*(?:-|to|–)\s*(\d+(?:\.\d+)?)\s*(k|m))?\s*(?:\/|per|a|in)?\s*(?:mo|month|monthly|revenue|sales)/i);
+    }
+    function detectRevenue(t){
+      const m = revenueMatch(t);
+      if (!m) return null;
+      const val = (n, u) => parseFloat(n) * ((u || '').toLowerCase() === 'm' ? 1000000 : (u || '').toLowerCase() === 'k' ? 1000 : 1);
+      const lo = val(m[1], m[2]); const hi = m[4] ? val(m[4], m[5] || m[2]) : null;
+      return { min: lo, max: hi, plus: !!m[3] || !hi };
+    }
+    function revenueOption(r){
+      if (!r) return null;
+      const lo = r.min, hi = r.max;
+      if (hi) {
+        if (hi <= 10000) return 'Under $10K';
+        if (lo >= 10000 && hi <= 25000) return '$10K - $25K';
+        if (lo >= 25000 && hi <= 50000) return '$25K - $50K';
+        if (lo >= 50000 && hi <= 100000) return '$50K - $100K';
+        if (lo >= 100000) return '$100K+';
+        return { custom: [lo, hi] };
+      }
+      if (lo >= 100000) return '$100K+';
+      if (lo >= 50000) return { custom: [lo, 1000000], text: '$' + num(lo) + '+' };
+      if (lo >= 25000) return { custom: [lo, 1000000], text: '$' + num(lo) + '+' };
+      if (lo >= 10000) return { custom: [lo, 1000000], text: '$' + num(lo) + '+' };
+      return null;
+    }
+
+    function detectAmazonCategory(t){
+      const s = t.toLowerCase();
+      const map = [[/kitchen|home decor|household goods|\bhome\b/, 'Home & Kitchen'], [/beauty|cosmetic|skin ?care|makeup|personal care/, 'Beauty & Personal Care'],
+        [/supplement|health|vitamin/, 'Health & Household'], [/sport|fitness|outdoor|gym|camping/, 'Sports & Outdoors'], [/\btoy|games?\b/, 'Toys & Games'],
+        [/\bpets?\b|dog|cat food/, 'Pet Supplies'], [/electronic|gadget|phone accessor/, 'Electronics'], [/cloth|fashion|apparel|shoe|jewel/, 'Clothing, Shoes & Jewelry'],
+        [/grocery|food|snack|coffee|tea\b/, 'Grocery & Gourmet Food'], [/\bbaby|infant|kids\b/, 'Baby'], [/\btools?\b|home improvement|hardware/, 'Tools & Home Improvement'],
+        [/garden|lawn|patio/, 'Patio, Lawn & Garden'], [/automotive|\bcar\b|auto parts/, 'Automotive'], [/office/, 'Office Products'], [/craft|sewing|\barts?\b/, 'Arts, Crafts & Sewing']];
+      for (const [re, v] of map) if (re.test(s)) return v;
+      return null;
+    }
+
+    function detectPlace(t){
+      const lists = [[US_PLACES, 'USA'], [UK_PLACES, 'United Kingdom'], [DE_PLACES, 'Germany'], [AU_PLACES, 'Australia']];
+      for (const [list, country] of lists) {
+        for (const p of list) {
+          if (new RegExp('\\b' + p.replace(/ /g, '\\s+') + '\\b', 'i').test(t)) {
+            if (p === 'Georgia' && /\bgeorgia\s+(country|tbilisi)/i.test(t)) continue;
+            if (p === 'Washington' && /washington\s+(dc|d\.c\.)/i.test(t)) return { place: 'Washington, D.C.', country };
+            return { place: p, country };
+          }
+        }
+      }
+      return null;
+    }
+
+    function detectCountry(t){
+      for (const [re, v] of COUNTRY_WORDS) if (re.test(t)) {
+        if (v === 'USA' && /\b(us|US)\b/.test(t) && !/\b(USA|U\.S\.|United States|America)\b/i.test(t) && !/\b(in|from|across|the)\s+(the\s+)?US\b/.test(t)) continue;
+        return v;
+      }
+      const lower = t.toLowerCase();
+      const hit = WORLD_VALUES.filter(v => v !== 'Other' && v.length > 3).sort((a, b) => b.length - a.length).find(v => lower.indexOf(v.toLowerCase()) !== -1);
+      return hit || null;
+    }
+
+    function detectAudience(t){
+      // "3,000 dentists in Texas" -> "Dentists"
+      let s = ' ' + t + ' ';
+      s = s.replace(/\$\s?\d[\d,.]*\s*[km]?\+?/gi, ' ');
+      s = s.replace(/\b(?:leads?|contacts?|emails?)\s+(?:for|of)\s+/gi, '');
+      const m = s.match(/(?:\d[\d,.]*\s*(?:k|thousand)?\+?\s+|\b(?:need|want|get|find|looking for|list of|leads? (?:for|of))\s+)(?:verified\s+|b2b\s+|targeted\s+)?([a-z][a-z&/\- ]{2,60}?)(?=\s+(?:in|from|based|across|located|within|with|who|that|for|doing|selling|on)\b|[,.;!?]|\s*$)/i);
+      if (!m) return '';
+      let a = m[1].replace(/\b(leads?|contacts?|emails?|records?|list|data|decision[- ]makers? at|owners? of)\b/gi, ' ').replace(/\s+/g, ' ').trim();
+      a = a.replace(/^(?:(?:the|some|a|an|of|for)\s+)+/i, '');
+      if (!a || /^(i|we|you|me|us|need|want)$/i.test(a) || a.length < 3) return '';
+      return a.charAt(0).toUpperCase() + a.slice(1);
+    }
+
+    function localOrder(t){
+      const leadCat = detectCategory(t);
+      const amazon = leadCat === 'Amazon Leads' || leadCat === 'Amazon Private Label';
+      const placeHit = detectPlace(t);
+      let country = detectCountry(t) || (placeHit ? placeHit.country : null);
+      const r = amazon ? detectRevenue(t) : null;
+      const types = SELLER_TYPES.filter(x => new RegExp('\\b' + x.replace(' ', '[\\s-]?') + '\\b', 'i').test(t) || (x === 'Reseller' && /wholesale|reseller|arbitrage/i.test(t)));
+      return {
+        leadCat, country, quantity: detectQuantity(t),
+        phone: /phone|mobile|cell|whatsapp|call/i.test(t),
+        revenue: r, amazonCategory: amazon ? detectAmazonCategory(t) : null,
+        sellerTypes: amazon ? types : [],
+        category: amazon ? '' : detectAudience(t),
+        location: !amazon && placeHit ? placeHit.place : '',
+        zip: ((t.match(/\b\d{5}\b(?:\s*,\s*\d{5}\b)*/) || [''])[0]),
+        note: ''
+      };
+    }
+
+    const ICP_LIBRARY = [
+      { re: /amazon|fba|seller central|marketplace seller/i, sum: 'Amazon brands and sellers who need help growing on the marketplace.',
+        industries: ['Amazon private label brands', 'Amazon FBA sellers', 'DTC brands selling on Amazon'], titles: ['Founder / Owner', 'Head of Ecommerce', 'Amazon Account Manager', 'Marketing Director'],
+        size: '1-50 employees, $20K+ monthly revenue', countries: ['USA', 'United Kingdom', 'Germany'], leadCat: 'Amazon Private Label', qty: 2000 },
+      { re: /restaurant|cafe|hospitality|pos\b|food service|bar\b/i, sum: 'Independent restaurants, cafes and small hospitality groups.',
+        industries: ['Restaurants', 'Cafes & coffee shops', 'Bars & pubs', 'Hospitality groups'], titles: ['Owner', 'General Manager', 'Operations Manager', 'Franchise Owner'],
+        size: '5-200 employees, 1-20 locations', countries: ['USA', 'United Kingdom', 'Australia'], leadCat: 'Lead Generation', qty: 3000 },
+      { re: /dental|dentist|clinic|medical|healthcare|doctor|physician|chiropract|med ?spa/i, sum: 'Private clinics and practices that buy services to win more patients.',
+        industries: ['Dental clinics', 'Medical practices', 'Med spas', 'Chiropractors'], titles: ['Practice Owner', 'Practice Manager', 'Clinic Director', 'Marketing Manager'],
+        size: '3-100 employees, independent or small groups', countries: ['USA', 'Canada', 'Australia'], leadCat: 'Lead Generation', qty: 2000 },
+      { re: /real ?estate|realtor|property|mortgage|broker/i, sum: 'Real estate agents, brokerages and property businesses.',
+        industries: ['Real estate brokerages', 'Independent agents', 'Property management', 'Mortgage brokers'], titles: ['Broker / Owner', 'Real Estate Agent', 'Team Lead', 'Managing Broker'],
+        size: '1-200 employees', countries: ['USA', 'United Kingdom', 'United Arab Emirates'], leadCat: 'Real Estate Leads', qty: 3000 },
+      { re: /saas|software|app\b|platform|crm|it services|tech/i, sum: 'Growing B2B companies that buy software to save time or grow revenue.',
+        industries: ['B2B SaaS', 'IT services', 'Professional services', 'Ecommerce brands'], titles: ['CEO / Founder', 'CTO', 'Head of Operations', 'VP Sales'],
+        size: '10-500 employees', countries: ['USA', 'United Kingdom', 'Germany', 'Canada'], leadCat: 'Lead Generation', qty: 3000 },
+      { re: /agency|marketing|seo|ppc|advertising|branding|web design|social media/i, sum: 'Small and mid-size businesses with a marketing budget but no in-house team.',
+        industries: ['Local service businesses', 'Ecommerce brands', 'Professional services', 'Healthcare practices'], titles: ['Owner / Founder', 'Marketing Director', 'Head of Growth', 'CEO'],
+        size: '5-200 employees', countries: ['USA', 'United Kingdom', 'Australia', 'Canada'], leadCat: 'Lead Generation', qty: 2000 },
+      { re: /shopify|ecommerce|e-commerce|online store|dtc|d2c|klaviyo|email marketing/i, sum: 'Online stores and DTC brands that are actively growing.',
+        industries: ['Shopify stores', 'DTC brands', 'Fashion & beauty ecommerce', 'Home & lifestyle stores'], titles: ['Founder / Owner', 'Head of Ecommerce', 'Marketing Manager', 'CMO'],
+        size: '1-100 employees', countries: ['USA', 'United Kingdom', 'Australia'], leadCat: 'Shopify Store Leads', qty: 3000 },
+      { re: /logistic|freight|shipping|warehouse|3pl|fulfil/i, sum: 'Brands and wholesalers that ship physical products.',
+        industries: ['Ecommerce brands', 'Wholesalers & distributors', 'Manufacturers', 'Amazon sellers'], titles: ['Operations Director', 'Supply Chain Manager', 'Logistics Manager', 'Founder'],
+        size: '10-1,000 employees', countries: ['USA', 'Germany', 'United Kingdom'], leadCat: 'Lead Generation', qty: 2000 },
+      { re: /recruit|staffing|hiring|hr\b|payroll/i, sum: 'Companies that are hiring and growing their teams.',
+        industries: ['Tech companies', 'Healthcare providers', 'Logistics companies', 'Professional services'], titles: ['HR Director', 'Head of Talent', 'CEO / Founder', 'Operations Manager'],
+        size: '50-1,000 employees', countries: ['USA', 'United Kingdom', 'Canada'], leadCat: 'Lead Generation', qty: 2000 },
+      { re: /startup|funding|investor|fundrais|raise/i, sum: 'Investors who back companies at your stage and in your industry.',
+        industries: ['Venture capital firms', 'Angel investors', 'Family offices', 'Accelerators'], titles: ['Partner', 'Managing Partner', 'Principal', 'Investment Director'],
+        size: 'Any', countries: ['USA', 'United Kingdom', 'Germany'], leadCat: 'Venture Capital Leads', qty: 1000 }
+    ];
+    function localIcp(t){
+      const hit = ICP_LIBRARY.find(x => x.re.test(t)) || { sum: 'Small and mid-size B2B companies that match what you sell.',
+        industries: ['Professional services', 'Ecommerce brands', 'Local service businesses', 'Tech companies'], titles: ['Owner / Founder', 'CEO', 'Operations Manager', 'Marketing Manager'],
+        size: '5-200 employees', countries: ['USA', 'United Kingdom', 'Canada'], leadCat: 'Lead Generation', qty: 2000 };
+      const c = detectCountry(t);
+      const countries = c && c !== 'Other' ? [c].concat(hit.countries.filter(x => x !== c)).slice(0, 4) : hit.countries;
+      return { summary: hit.sum, industries: hit.industries, titles: hit.titles, companySize: hit.size, countries, leadCat: hit.leadCat, quantity: hit.qty, tip: '' };
+    }
+
+    // ---------- Clean anything that comes back (AI or local) so it always fits the calculator ----------
+    function cleanOrder(o, text){
+      const local = localOrder(text);
+      o = o || {};
+      const leadCat = LEAD_CATS.indexOf(o.leadCat) !== -1 ? o.leadCat : local.leadCat;
+      const amazon = leadCat === 'Amazon Leads' || leadCat === 'Amazon Private Label';
+      let country = o.country || local.country;
+      if (country === 'United States' || country === 'US') country = 'USA';
+      if (country === 'UK') country = 'United Kingdom';
+      const allowed = amazon ? AMAZON_COUNTRY_VALUES : WORLD_VALUES;
+      if (allowed.indexOf(country) === -1) country = amazon ? (country ? null : 'USA') : (country ? 'Other' : null);
+      let qty = parseInt(o.quantity, 10) || local.quantity || null;
+      let revenue = o.revenue && typeof o.revenue === 'object' ? o.revenue : local.revenue;
+      if (o.revenue && typeof o.revenue === 'object' && !(o.revenue.min > 0)) revenue = local.revenue;
+      const amazonCategory = AMZ_CAT_OPTS.indexOf(o.amazonCategory) !== -1 ? o.amazonCategory : local.amazonCategory;
+      const sellerTypes = (Array.isArray(o.sellerTypes) ? o.sellerTypes : local.sellerTypes).filter(x => SELLER_TYPES.indexOf(x) !== -1);
+      return {
+        leadCat, amazon, country, quantity: qty,
+        phone: typeof o.phone === 'boolean' ? (o.phone || local.phone) : local.phone,
+        revenue: amazon ? revenue : null, amazonCategory: amazon ? amazonCategory : null, sellerTypes: amazon ? sellerTypes : [],
+        category: amazon ? '' : String(o.category || local.category || '').slice(0, 80),
+        location: amazon ? '' : String(o.location || local.location || '').slice(0, 80),
+        zip: amazon ? '' : String(o.zip || local.zip || '').slice(0, 200),
+        note: String(o.note || '').slice(0, 220)
+      };
+    }
+    function cleanIcp(o, text){
+      const local = localIcp(text);
+      o = o || {};
+      const arr = (a, fb, n) => (Array.isArray(a) && a.length ? a : fb).map(x => String(x).slice(0, 60)).filter(Boolean).slice(0, n);
+      const leadCat = LEAD_CATS.indexOf(o.leadCat) !== -1 ? o.leadCat : local.leadCat;
+      const countries = arr(o.countries, local.countries, 4).map(c => c === 'United States' || c === 'US' ? 'USA' : (c === 'UK' ? 'United Kingdom' : c));
+      return {
+        summary: String(o.summary || local.summary).slice(0, 300),
+        industries: arr(o.industries, local.industries, 6), titles: arr(o.titles, local.titles, 6),
+        companySize: String(o.companySize || local.companySize).slice(0, 80), countries,
+        leadCat, quantity: parseInt(o.quantity, 10) || local.quantity, tip: String(o.tip || '').slice(0, 240)
+      };
+    }
+
+    // ---------- Fill the calculator, then the request form ----------
+    function setVal(id, v){ const el = $(id); if (!el) return; el.value = v; el.dispatchEvent(new Event('change', { bubbles: true })); }
+    function fillCalculator(p){
+      setVal('calcLeadCat', p.leadCat);
+      const countryEl = $('calcCountry');
+      if (p.country && Array.from(countryEl.options).some(o => o.value === p.country)) setVal('calcCountry', p.country);
+      if (p.amazon) {
+        const ro = revenueOption(p.revenue);
+        if (ro && typeof ro === 'object') { setVal('calcRevenue', 'Custom range'); setVal('calcRevMin', ro.custom[0]); setVal('calcRevMax', ro.custom[1]); }
+        else setVal('calcRevenue', ro || 'Any range');
+        setVal('calcCategory', p.amazonCategory || 'Any category');
+        document.querySelectorAll('input[name="calcType"]').forEach(i => { i.checked = p.sellerTypes.indexOf(i.value) !== -1; i.dispatchEvent(new Event('change', { bubbles: true })); });
+      } else {
+        setVal('calcCategoryText', p.category || '');
+        setVal('calcCity', p.location || '');
+        setVal('calcZip', p.zip || '');
+      }
+      $('calcPhone').checked = !!p.phone; $('calcPhone').dispatchEvent(new Event('change', { bubbles: true }));
+      setVal('calcQty', Math.max(PRICING.minLeads, p.quantity || PRICING.minLeads));
+    }
+    function goToCalculator(){
+      const c = $('calc');
+      c.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      c.classList.remove('cat-flash'); void c.offsetWidth; c.classList.add('cat-flash');
+    }
+    function requestOrder(p, original){
+      fillCalculator(p);
+      $('calcRequest').click();
+      const d = $('modalDesc');
+      if (d && original) d.value = (d.value ? d.value + '\n\n' : '') + 'Request in my words: ' + original;
+    }
+
+    // ---------- Render ----------
+    function field(label, value){
+      const has = value !== null && value !== undefined && value !== '';
+      return '<div class="aip-field' + (has ? '' : ' muted') + '"><small>' + esc(label) + '</small><span>' + esc(has ? value : 'Not set (any)') + '</span></div>';
+    }
+    function renderOrder(p, original){
+      const qty = Math.max(PRICING.minLeads, p.quantity || PRICING.minLeads);
+      const countryLabel = p.country === 'Other' ? 'Worldwide / multiple' : (p.country || (p.amazon ? 'Choose a marketplace' : 'Not set'));
+      const price = p.country ? priceOrder(qty, p.country, p.phone, p.leadCat) : null;
+      const fromPrice = !p.amazon;
+      let rows = field('Lead type', p.leadCat) + field('Country', countryLabel) + field('Quantity', num(qty) + ' leads' + (p.quantity && p.quantity < PRICING.minLeads ? ' (minimum)' : ''));
+      if (p.amazon) {
+        const ro = revenueOption(p.revenue);
+        rows += field('Monthly revenue', ro ? (typeof ro === 'object' ? (ro.text || ('$' + num(ro.custom[0]) + ' - $' + num(ro.custom[1]))) : ro) : '')
+             + field('Category', p.amazonCategory || '') + field('Seller type', p.sellerTypes.join(', '));
+      } else {
+        rows += field('Target', p.category) + field('City / region', p.location);
+        if (p.zip) rows += field('ZIP codes', p.zip);
+      }
+      rows += field('Personal phones', p.phone ? 'Yes (+$0.10 per lead)' : 'No');
+      const priceBox = price
+        ? '<small>' + (fromPrice ? 'Starting from' : 'Estimated total') + '</small><div class="big">' + money(price.totalCents) + '</div><p>' +
+          'About $' + (price.totalCents / qty / 100).toFixed(3) + ' per lead' + (price.pct ? ' · ' + price.pct + '% bulk discount included' : '') + '</p>'
+        : '<small>Price</small><div class="big">Custom quote</div><p>' + (p.country ? 'I will price this market for you.' : 'Add a country to see an instant price.') + '</p>';
+      resultEl.innerHTML =
+        '<p class="aip-sum">' + (p.note ? esc(p.note) : 'Here is the order I built from your request. Check it, then send it or fine-tune it in the calculator.') + '</p>' +
+        '<div class="aip-res-grid"><div class="aip-fields">' + rows + '</div>' +
+        '<div class="aip-price">' + priceBox + '<div class="aip-actions">' +
+          '<button type="button" class="aip-btn" data-act="request">Request this order</button>' +
+          '<button type="button" class="aip-btn ghost" data-act="calc">Adjust in calculator</button>' +
+        '</div></div></div>';
+      resultEl.hidden = false;
+      resultEl.querySelector('[data-act="request"]').addEventListener('click', () => requestOrder(p, original));
+      resultEl.querySelector('[data-act="calc"]').addEventListener('click', () => { fillCalculator(p); goToCalculator(); });
+    }
+    function chips(list){ return '<div class="aip-chips">' + list.map(x => '<span class="aip-chip">' + esc(x) + '</span>').join('') + '</div>'; }
+    function renderIcp(r, original){
+      const rate = rateFor(r.leadCat, r.countries[0] && WORLD_VALUES.indexOf(r.countries[0]) !== -1 ? r.countries[0] : 'USA');
+      resultEl.innerHTML =
+        '<p class="aip-sum"><b>Your best customers:</b> ' + esc(r.summary) + '</p>' +
+        '<div class="aip-res-grid"><div>' +
+          '<div class="aip-group"><h4>Industries to target</h4>' + chips(r.industries) + '</div>' +
+          '<div class="aip-group titles"><h4>Job titles to contact</h4>' + chips(r.titles) + '</div>' +
+          '<div class="aip-group geo"><h4>Best countries</h4>' + chips(r.countries) + '</div>' +
+          '<div class="aip-group"><h4>Company size</h4>' + chips([r.companySize]) + '</div>' +
+          (r.tip ? '<p class="aip-tip"><b>Tip:</b> ' + esc(r.tip) + '</p>' : '') +
+        '</div><div class="aip-price">' +
+          '<small>Recommended leads</small><div class="big" style="font-size:22px; line-height:1.25;">' + esc(r.leadCat) + '</div>' +
+          '<p>' + (rate ? 'From $' + (rate / 1000).toFixed(2) + ' per lead · ' : '') + 'Suggested start: ' + num(r.quantity) + ' leads</p>' +
+          '<div class="aip-actions"><button type="button" class="aip-btn" data-act="get">Get these leads</button>' +
+          '<button type="button" class="aip-btn ghost" data-act="calc">Price it in the calculator</button></div>' +
+        '</div></div>';
+      resultEl.hidden = false;
+      const amazon = r.leadCat === 'Amazon Leads' || r.leadCat === 'Amazon Private Label';
+      const plan = { leadCat: r.leadCat, amazon, country: r.countries[0] || null, quantity: r.quantity, phone: false, revenue: null, amazonCategory: null, sellerTypes: [],
+        category: amazon ? '' : r.industries.slice(0, 2).join(', '), location: '', zip: '' };
+      if (plan.country && (amazon ? AMAZON_COUNTRY_VALUES : WORLD_VALUES).indexOf(plan.country) === -1) plan.country = amazon ? 'USA' : 'Other';
+      const brief = 'About my business: ' + original + '\nIdeal customers: ' + r.summary + '\nIndustries: ' + r.industries.join(', ') +
+        '\nJob titles: ' + r.titles.join(', ') + '\nCompany size: ' + r.companySize + '\nCountries: ' + r.countries.join(', ');
+      resultEl.querySelector('[data-act="get"]').addEventListener('click', () => {
+        fillCalculator(plan); $('calcRequest').click();
+        const d = $('modalDesc'); if (d) d.value = brief + '\n\n' + d.value;
+      });
+      resultEl.querySelector('[data-act="calc"]').addEventListener('click', () => { fillCalculator(plan); goToCalculator(); });
+    }
+
+    // ---------- Ask the AI Worker (falls back to the built-in reader) ----------
+    async function askAI(kind, text){
+      if (!AI_PLANNER_URL) return null;
+      const ctrl = new AbortController(); const timer = setTimeout(() => ctrl.abort(), 15000);
+      try {
+        const r = await fetch(AI_PLANNER_URL.replace(/\/$/, '') + '/plan', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ mode: kind, text }), signal: ctrl.signal });
+        if (!r.ok) return null;
+        const d = await r.json();
+        return d && d.result ? d.result : null;
+      } catch (e) { return null; } finally { clearTimeout(timer); }
+    }
+
+    function setMode(m){
+      mode = m;
+      document.querySelectorAll('.aip-tab').forEach(b => { const on = b.dataset.mode === m; b.classList.toggle('active', on); b.setAttribute('aria-selected', on); });
+      input.placeholder = MODES[m].placeholder; $('aipLabel').textContent = MODES[m].label; $('aipGoText').textContent = MODES[m].go;
+      $('aipExamples').innerHTML = MODES[m].examples.map(x => '<button type="button" class="aip-ex">' + esc(x) + '</button>').join('');
+      $('aipExamples').querySelectorAll('.aip-ex').forEach(b => b.addEventListener('click', () => { input.value = b.textContent; form.requestSubmit ? form.requestSubmit() : form.dispatchEvent(new Event('submit')); }));
+      resultEl.hidden = true;
+    }
+    document.querySelectorAll('.aip-tab').forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
+
+    let busy = false;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const text = input.value.trim();
+      if (busy) return;
+      if (text.length < 4) { resultEl.innerHTML = '<p class="aip-err">Tell me a little more about what you need.</p>'; resultEl.hidden = false; input.focus(); return; }
+      busy = true; goBtn.disabled = true; resultEl.hidden = true; thinking.hidden = false;
+      const kind = mode;
+      const started = Date.now();
+      const ai = await askAI(kind, text);
+      const wait = Math.max(0, 700 - (Date.now() - started));    // short pause so the result does not flash in
+      setTimeout(() => {
+        thinking.hidden = true; busy = false; goBtn.disabled = false;
+        if (kind === 'order') renderOrder(cleanOrder(ai, text), text);
+        else renderIcp(cleanIcp(ai, text), text);
+      }, wait);
+    });
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); form.requestSubmit ? form.requestSubmit() : form.dispatchEvent(new Event('submit')); } });
+    setMode('order');
+
+    // Expose the reader for testing in the browser console: LeadPlanner.read('...')
+    window.LeadPlanner = { read: (t) => cleanOrder(null, t), icp: (t) => cleanIcp(null, t) };
   })();
 
 
