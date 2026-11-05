@@ -993,6 +993,59 @@
   @media (max-width:480px){ .wc-card{padding:22px 18px;} .wc-stats b{font-size:19px;} }
   @media (prefers-reduced-motion:reduce){ .wc-card.reveal li{opacity:1; transform:none; transition:none;} .wc-good::before, .wc-good .wc-dot{animation:none;} }
 
+  /* ================= Tools We Use (floating tiles, like the company site) ================= */
+  .tools-we-use{background:#F8FAFC; padding:84px 0;}
+  .tw-stage{position:relative; min-height:440px; display:flex; align-items:center; justify-content:center; overflow:hidden;}
+  .tw-dots{position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(#D9DEEA 1.4px, transparent 1.6px); background-size:26px 26px;
+    -webkit-mask-image:linear-gradient(90deg, #000 0 30%, transparent 42% 58%, #000 70%); mask-image:linear-gradient(90deg, #000 0 30%, transparent 42% 58%, #000 70%);}
+  .tw-copy{position:relative; z-index:2; text-align:center; max-width:440px; padding:0 10px;}
+  .tw-copy h2{font-size:clamp(30px,3.6vw,44px); margin:8px 0 14px; color:#0B1220;}
+  .tw-copy p{color:#5B6474; margin:0 0 22px; font-size:16px;}
+  .tw-btn{display:inline-block; padding:12px 22px; border-radius:10px; background:#0B1220; color:#fff; font-weight:600; text-decoration:none; transition:background .2s ease, transform .2s ease;}
+  .tw-btn:hover{background:#1261FF; transform:translateY(-1px);}
+  .tw-tile{position:absolute; z-index:1; width:96px; height:96px; border-radius:12px; background:#fff; border:1px solid #DDE3F7; box-shadow:0 10px 24px -14px rgba(18,97,255,0.45), 0 0 0 5px rgba(238,243,255,0.6);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:7px; animation:twFloat 6s ease-in-out infinite; animation-delay:var(--dl, 0s);}
+  .tw-mono{width:44px; height:44px; border-radius:11px; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:800; font-size:15px; color:#fff; background:var(--c);}
+  .tw-nm{font-size:10.5px; font-weight:600; color:#1F2937; text-align:center; line-height:1.15; padding:0 6px;}
+  @keyframes twFloat{0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);}}
+  .tw1{left:15%; top:6%;} .tw2{left:4%; top:30%;} .tw3{left:11%; top:58%;} .tw4{left:20%; top:76%;}
+  .tw5{right:16%; top:6%;} .tw6{right:3%; top:27%;} .tw7{right:10%; top:52%;} .tw8{right:20%; top:76%;}
+  @media (max-width:1100px){ .tw1{left:8%;} .tw2{left:0;} .tw3{left:4%;} .tw4{left:12%;} .tw5{right:8%;} .tw6{right:0;} .tw7{right:3%;} .tw8{right:12%;} .tw-copy{max-width:380px;} }
+  @media (min-width:861px){ .tw-grid{display:contents;} }
+  @media (max-width:860px){
+    .tw-stage{flex-direction:column; min-height:0; gap:28px;}
+    .tw-dots{display:none;}
+    .tw-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; width:100%;}
+    .tw-tile{position:static; width:auto; height:96px; animation:none;}
+  }
+  @media (max-width:480px){ .tw-grid{grid-template-columns:repeat(2, 1fr);} }
+
+  /* ================= Track record (new style) ================= */
+  .track{position:relative; overflow:hidden; padding:90px 0; background:#070D1A; color:#D7E0EE;}
+  .tr-bg{position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse 50% 70% at 15% 0%, rgba(34,211,238,0.16), transparent 60%), radial-gradient(ellipse 50% 70% at 90% 100%, rgba(124,58,237,0.20), transparent 60%);}
+  .tr-bg::after{content:''; position:absolute; inset:0; background-image:radial-gradient(rgba(148,197,255,0.16) 1px, transparent 1.2px); background-size:24px 24px; -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 50%, #000, transparent 75%); mask-image:radial-gradient(ellipse 70% 60% at 50% 50%, #000, transparent 75%);}
+  .track .wrap{position:relative;}
+  .tr-head{text-align:center; max-width:640px; margin:0 auto 44px;}
+  .tr-head .eyebrow{color:#22D3EE;}
+  .tr-head h2{color:#fff; margin:10px 0 10px;}
+  .tr-head p{color:#9AA8BF; margin:0; font-size:16px;}
+  .tr-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
+  @media (max-width:860px){ .tr-grid{grid-template-columns:1fr; max-width:480px; margin:0 auto;} }
+  .tr-card{position:relative; padding:28px 26px 26px; border-radius:18px; background:linear-gradient(160deg, rgba(40,58,100,0.45), rgba(12,20,38,0.7)); border:1px solid rgba(148,197,255,0.14); overflow:hidden; transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;}
+  .tr-card::before{content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, transparent, var(--c), transparent);}
+  .tr-card:hover{transform:translateY(-5px); border-color:color-mix(in srgb, var(--c) 55%, transparent); box-shadow:0 24px 50px -24px color-mix(in srgb, var(--c) 60%, transparent);}
+  .tr-top{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:18px;}
+  .tr-plat{font-family:var(--font-display); font-weight:700; font-size:18px; color:#fff;}
+  .tr-badge{font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:0.04em; padding:5px 10px; border-radius:20px; white-space:nowrap; color:var(--c); background:color-mix(in srgb, var(--c) 12%, transparent); border:1px solid color-mix(in srgb, var(--c) 40%, transparent);}
+  .tr-big{display:flex; align-items:baseline; font-family:var(--font-display); font-weight:800; font-size:clamp(46px,5vw,60px); line-height:1; color:#fff; letter-spacing:-0.03em;}
+  .tr-big .num{color:#fff; font-size:inherit; font-weight:inherit;}
+  .tr-label{margin-top:8px; font-size:14px; color:#9AA8BF;}
+  .tr-bar{height:6px; border-radius:6px; background:rgba(148,197,255,0.10); margin:18px 0 16px; overflow:hidden;}
+  .tr-bar span{display:block; height:100%; width:0; border-radius:6px; background:linear-gradient(90deg, color-mix(in srgb, var(--c) 50%, #1261FF), var(--c)); box-shadow:0 0 12px var(--c); transition:width 1.4s cubic-bezier(.16,.9,.3,1) .2s;}
+  .tr-card.in-view .tr-bar span{width:var(--w);}
+  .tr-card p{margin:0; font-size:14.5px; color:#C9D2E3; line-height:1.5;}
+  @media (prefers-reduced-motion:reduce){ .tw-tile{animation:none;} .tr-bar span{transition:none; width:var(--w);} }
+
 </style>
 </head>
 <body>
@@ -1323,31 +1376,6 @@
     </div>
   </div>
 </div>
-  </div>
-</section>
-
-<section class="sample-file" id="sample">
-  <div class="wrap">
-    <div class="eyebrow">Free sample</div>
-    <h2>See exactly what you get</h2>
-    <p class="sample-sub">Every order comes as a clean spreadsheet (Excel, CSV or Google Sheets) with the columns you need. Here's the standard layout.</p>
-    <div class="sample-card reveal">
-      <div class="sample-bar">
-        <span class="sample-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span class="sample-name">amazon_seller_leads_sample.csv</span>
-        <span class="sample-tag">Fictional sample data</span>
-      </div>
-      <div class="sample-scroll" tabindex="0" aria-label="Sample lead file, scrolls sideways">
-        <table class="sample-table" id="sampleTable"></table>
-      </div>
-      <div class="sample-foot">
-        <p>Columns can be customised: add LinkedIn URLs, company size, revenue range, tech stack, social profiles and more.</p>
-        <div class="sample-actions">
-          <button type="button" class="price-btn" id="sampleDownload">Download sample (CSV)</button>
-          <button type="button" class="price-btn secondary" data-open-lead>Get a free sample for my market</button>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1727,61 +1755,50 @@
   </div>
 </section>
 
-<section class="tools">
+<section class="tools-we-use" id="tools">
   <div class="wrap">
-    <div class="eyebrow" style="color:var(--amber);">Tools</div>
-    <h2>What I work with</h2>
-    <div class="tool-row">
-      <span class="tool-chip t1">LinkedIn Sales Navigator</span>
-      <span class="tool-chip t2">SalesQL</span>
-      <span class="tool-chip t3">Apollo</span>
-      <span class="tool-chip t4">Clearbit</span>
-      <span class="tool-chip t5">Hunter</span>
-      <span class="tool-chip t6">Name2Email</span>
-      <span class="tool-chip t7">Helium 10</span>
-      <span class="tool-chip t8">SmartScout</span>
+    <div class="tw-stage">
+      <div class="tw-dots" aria-hidden="true"></div>
+      <div class="tw-copy">
+        <div class="eyebrow">What I work with</div>
+        <h2>Tools We Use</h2>
+        <p>Premium research tools, combined with manual checks by a real person on every record.</p>
+        <a href="#specialties" class="tw-btn">See my services</a>
+      </div>
+      <div class="tw-grid"><div class="tw-tile tw1" style="--c:#1261FF;--dl:-0.0s"><span class="tw-mono">SN</span><span class="tw-nm">LinkedIn Sales Navigator</span></div><div class="tw-tile tw2" style="--c:#7C3AED;--dl:-0.7s"><span class="tw-mono">SQ</span><span class="tw-nm">SalesQL</span></div><div class="tw-tile tw3" style="--c:#F59E0B;--dl:-1.4s"><span class="tw-mono">AP</span><span class="tw-nm">Apollo</span></div><div class="tw-tile tw4" style="--c:#0EA5E9;--dl:-2.1s"><span class="tw-mono">CB</span><span class="tw-nm">Clearbit</span></div><div class="tw-tile tw5" style="--c:#F97316;--dl:-2.8s"><span class="tw-mono">HU</span><span class="tw-nm">Hunter</span></div><div class="tw-tile tw6" style="--c:#EC4899;--dl:-3.5s"><span class="tw-mono">N2</span><span class="tw-nm">Name2Email</span></div><div class="tw-tile tw7" style="--c:#4F46E5;--dl:-4.2s"><span class="tw-mono">H10</span><span class="tw-nm">Helium 10</span></div><div class="tw-tile tw8" style="--c:#16A34A;--dl:-4.9s"><span class="tw-mono">SS</span><span class="tw-nm">SmartScout</span></div></div>
     </div>
   </div>
 </section>
 
-<section class="work" id="work">
+<section class="track" id="work">
+  <div class="tr-bg" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="eyebrow">Track Record</div>
-    <h2>Where I deliver</h2>
-    <p class="work-sub">A steady track record across marketplaces and direct client work.</p>
-    <div class="work-grid">
-      <div class="work-card reveal">
-        <div class="work-icon icon-cyan">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="4" y="9" width="18" height="12" rx="2" stroke="#fff" stroke-width="1.8"/>
-            <path d="M9 9V6.5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2V9" stroke="#fff" stroke-width="1.8"/>
-          </svg>
-        </div>
-        <div class="plat">Upwork</div>
-        <div class="desc">Lead generation, LinkedIn research, Amazon seller leads</div>
-        <div class="figure figure-cyan">100% Job Success &middot; Top Rated</div>
+    <div class="tr-head">
+      <div class="eyebrow">Track Record</div>
+      <h2>Where I deliver</h2>
+      <p>A steady record across marketplaces and direct client work.</p>
+    </div>
+    <div class="tr-grid">
+      <div class="tr-card reveal" style="--c:#22D3EE">
+        <div class="tr-top"><span class="tr-plat">Upwork</span><span class="tr-badge">Top Rated</span></div>
+        <div class="tr-big"><span class="num" data-count-to="100" data-suffix="%">100%</span></div>
+        <div class="tr-label">Job Success</div>
+        <div class="tr-bar"><span style="--w:100%"></span></div>
+        <p>Lead generation, LinkedIn research and Amazon seller leads.</p>
       </div>
-      <div class="work-card reveal">
-        <div class="work-icon icon-green">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M6 13 L11 18 L20 7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="plat">Fiverr</div>
-        <div class="desc">Amazon seller leads, ecommerce &amp; B2B lead lists</div>
-        <div class="figure figure-green">500+ orders &middot; $50K+ earned</div>
+      <div class="tr-card reveal" style="--c:#4ADE80">
+        <div class="tr-top"><span class="tr-plat">Fiverr</span><span class="tr-badge">$50K+ earned</span></div>
+        <div class="tr-big"><span class="num" data-count-to="500" data-suffix="+">500+</span></div>
+        <div class="tr-label">Orders completed</div>
+        <div class="tr-bar"><span style="--w:82%"></span></div>
+        <p>Amazon seller leads, ecommerce and B2B lead lists.</p>
       </div>
-      <div class="work-card reveal">
-        <div class="work-icon icon-amber">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="13" cy="13" r="9" stroke="#fff" stroke-width="1.8"/>
-            <path d="M13 4 C 9 8, 9 18, 13 22 C 17 18, 17 8, 13 4 Z" stroke="#fff" stroke-width="1.6"/>
-            <path d="M4 13 H22" stroke="#fff" stroke-width="1.6"/>
-          </svg>
-        </div>
-        <div class="plat">Direct &amp; Off-Marketplace Clients</div>
-        <div class="desc">Large-scale lead generation projects outside Upwork and Fiverr</div>
-        <div class="figure figure-amber">$70K+ earned</div>
+      <div class="tr-card reveal" style="--c:#A78BFA">
+        <div class="tr-top"><span class="tr-plat">Direct clients</span><span class="tr-badge">Off-marketplace</span></div>
+        <div class="tr-big"><span class="tr-pre">$</span><span class="num" data-count-to="70" data-suffix="K+">70K+</span></div>
+        <div class="tr-label">Earned on direct projects</div>
+        <div class="tr-bar"><span style="--w:90%"></span></div>
+        <p>Large-scale lead generation projects outside Upwork and Fiverr.</p>
       </div>
     </div>
   </div>
@@ -1812,7 +1829,7 @@
     </div>
     <div class="wc-cta">
       <button type="button" class="hero-btn primary" data-open-lead>Get a free sample</button>
-      <a href="#sample" class="wc-link">See what a lead file looks like &rarr;</a>
+      <a href="#pricing" class="wc-link">See pricing &rarr;</a>
     </div>
   </div>
 </section>
