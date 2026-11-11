@@ -2667,7 +2667,7 @@
 
   // ---------------- Leads order calculator ----------------
   // Edit the numbers below to change prices, the phone add-on or the discounts.
-  // Any country without a price here shows "Custom quote" in the calculator.
+  // Any Amazon marketplace without a price here shows a starting price (lowest listed rate) in the calculator.
   const PRICING = {
     ratePer1000: { 'USA': 280, 'Germany': 280, 'United Kingdom': 320 },
     // Optional: a different per-1,000 price for one lead category, for example:
@@ -2702,7 +2702,7 @@
     { region: 'Africa', list: ['Algeria','Angola','Benin','Botswana','Burkina Faso','Burundi','Cabo Verde','Cameroon','Central African Republic','Chad','Comoros','Congo','DR Congo',"Côte d'Ivoire",'Djibouti','Egypt','Equatorial Guinea','Eritrea','Eswatini','Ethiopia','Gabon','Gambia','Ghana','Guinea','Guinea-Bissau','Kenya','Lesotho','Liberia','Libya','Madagascar','Malawi','Mali','Mauritania','Mauritius','Morocco','Mozambique','Namibia','Niger','Nigeria','Rwanda','São Tomé and Príncipe','Senegal','Seychelles','Sierra Leone','Somalia','South Africa','South Sudan','Sudan','Tanzania','Togo','Tunisia','Uganda','Zambia','Zimbabwe'] },
     { region: 'Asia', list: ['Afghanistan','Armenia','Azerbaijan','Bangladesh','Bhutan','Brunei','Cambodia','China','Georgia','Hong Kong','India','Indonesia','Japan','Kazakhstan','Kyrgyzstan','Laos','Macau','Malaysia','Maldives','Mongolia','Myanmar','Nepal','Pakistan','Philippines','Singapore','South Korea','Sri Lanka','Taiwan','Tajikistan','Thailand','Timor-Leste','Turkmenistan','Uzbekistan','Vietnam'] },
     { region: 'Oceania', list: ['Fiji','Kiribati','Marshall Islands','Micronesia','Nauru','New Zealand','Palau','Papua New Guinea','Samoa','Solomon Islands','Tonga','Tuvalu','Vanuatu'] },
-    { region: 'Other', list: [['Other', 'Multiple countries / worldwide (custom quote)']] }
+    { region: 'Other', list: [['Other', 'Multiple countries / worldwide']] }
   ];
   // Example ZIP / postal codes shown in the ZIP field for the main markets
   const ZIP_EXAMPLES = {
@@ -2835,18 +2835,25 @@
     'Shopify Store Leads': 200,
     'Shopify + Mailchimp Users': 200,
     'Etsy Seller Leads': 180,
-    'Other (not listed)': undefined,   // always a custom quote
+    'Other (not listed)': 180,         // starting price, confirmed after the request
     '_default': 180                    // every other category
   };
   const isAmazonCat = (c) => c === 'Amazon Leads' || c === 'Amazon Private Label';
   function rateFor(leadCategory, country){
     if (!isAmazonCat(leadCategory)) {
-      if (country === 'Other' || leadCategory === 'Other (not listed)') return undefined;
       return FROM_RATES[leadCategory] !== undefined ? FROM_RATES[leadCategory] : FROM_RATES._default;
     }
     const o = PRICING.categoryRates[leadCategory];
     if (o && o[country] !== undefined) return o[country];
-    return PRICING.ratePer1000[country];
+    if (PRICING.ratePer1000[country] !== undefined) return PRICING.ratePer1000[country];
+    // Marketplaces without a listed price: show a starting price from the lowest listed rate
+    return Math.min.apply(null, Object.values(PRICING.ratePer1000));
+  }
+  // true when the price is a fixed listed price, false when it is only a starting estimate
+  function isListedPrice(leadCategory, country){
+    if (!isAmazonCat(leadCategory)) return false;
+    const o = PRICING.categoryRates[leadCategory];
+    return (o && o[country] !== undefined) || PRICING.ratePer1000[country] !== undefined;
   }
   function priceOrder(qty, country, phone, leadCategory){
     const rate = rateFor(leadCategory, country);
@@ -2901,7 +2908,7 @@
       });
       if (Array.from(countryEl.options).some(o => o.value === prev)) countryEl.value = prev;
       $('calcCountryHint').textContent = key === 'amazon'
-        ? 'Instant price: US, UK, Germany. Others: custom quote.'
+        ? 'Fixed price: US, UK, Germany. Other marketplaces show a starting price.'
         : countMarkets(groups) + ' countries. Starting price shown; final price depends on requirements.';
     }
 
@@ -2983,20 +2990,8 @@
       }
       lines.push('Personal phone numbers: ' + (phone ? 'Yes (+$0.10 per lead)' : 'No'));
 
-      // No listed price for this country/marketplace -> custom quote
-      if (rateFor(leadCat, country) === undefined) {
-        document.querySelector('.calc-total-label').textContent = 'Estimated total';
-        totalEl.textContent = 'Custom quote';
-        perEl.textContent = country === 'Other'
-          ? 'Tell me the country and volume and I will price it.'
-          : 'Send the request and I will price ' + countryText.replace(/ \(.*\)$/, '') + ' for you.';
-        reqBtn.textContent = 'Request a quote';
-        reqBtn.disabled = !rev.ok;
-        lastSummary = lines.concat(['Quantity: ' + (qty ? num(qty) : 'Not set')]).join('\n');
-        return;
-      }
       reqBtn.textContent = 'Request this order';
-      const fromPrice = !isAmazonCat(leadCat);
+      const fromPrice = !isListedPrice(leadCat, country);
       document.querySelector('.calc-total-label').textContent = fromPrice ? 'Starting from' : 'Estimated total';
 
       const p = priceOrder(qty, country, phone, leadCat);
@@ -3014,7 +3009,7 @@
         addRow('Bulk discount (' + p.pct + '%)', '-' + money(p.discountCents), 'discount');
       }
       totalEl.textContent = money(p.totalCents);
-      perEl.textContent = 'About $' + (p.totalCents / qty / 100).toFixed(3) + ' per lead' + (fromPrice ? ' · final price depends on your requirements' : '');
+      perEl.textContent = 'About $' + (p.totalCents / qty / 100).toFixed(3) + ' per lead' + (fromPrice ? (country === 'Other' || leadCat === 'Other (not listed)' || isAmazon ? ' · I will confirm the exact price for this market' : ' · final price depends on your requirements') : '');
 
       const next = PRICING.tiers.slice().reverse().find(t => qty < t.min);
       if (p.pct) hintEl.textContent = p.pct + '% bulk discount applied.';
@@ -3352,8 +3347,9 @@
     function renderOrder(p, original){
       const qty = Math.max(PRICING.minLeads, p.quantity || PRICING.minLeads);
       const countryLabel = p.country === 'Other' ? 'Worldwide / multiple' : (p.country || (p.amazon ? 'Choose a marketplace' : 'Not set'));
-      const price = p.country ? priceOrder(qty, p.country, p.phone, p.leadCat) : null;
-      const fromPrice = !p.amazon;
+      const priceCountry = p.country || (p.amazon ? 'USA' : 'Other');
+      const price = priceOrder(qty, priceCountry, p.phone, p.leadCat);
+      const fromPrice = !p.country || !isListedPrice(p.leadCat, priceCountry);
       let rows = field('Lead type', p.leadCat) + field('Country', countryLabel) + field('Quantity', num(qty) + ' leads' + (p.quantity && p.quantity < PRICING.minLeads ? ' (minimum)' : ''));
       if (p.amazon) {
         const ro = revenueOption(p.revenue);
