@@ -26,7 +26,7 @@
 </script>
 <title>Minju | Leads Expert: Verified B2B, Ecommerce &amp; Amazon Seller Leads</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#0B1220;
@@ -1282,6 +1282,104 @@
   @media (max-width:760px){ .sx-cats{grid-template-columns:repeat(3, minmax(0,1fr));} }
   @media (prefers-reduced-motion:reduce){ .sx-pop > *, .sx-type.hit{animation:none;} }
 
+  /* ================= Sign in / Sign up: lamp room ================= */
+  .nav-sign{display:inline-flex; align-items:center; gap:7px; margin-left:16px; padding:9px 14px; border-radius:10px; cursor:pointer; font:600 14.5px var(--font-body); color:#FFD48A !important;
+    background:rgba(245,165,36,0.08); border:1.5px solid rgba(245,165,36,0.45); transition:background .2s, box-shadow .2s;}
+  .nav-sign:hover{background:rgba(245,165,36,0.18); box-shadow:0 0 22px -6px rgba(245,165,36,0.7);}
+  .nav-sign svg{flex:none;}
+  @media (max-width:1440px) and (min-width:761px){ .nav-sign{margin-left:12px; padding:9px 11px;} .nav-sign .nav-sign-txt{display:none;} }
+  .lx-overlay{position:fixed; inset:0; z-index:3500; display:flex; align-items:center; justify-content:center; padding:16px; overflow-y:auto;
+    background:#0B0B0D; opacity:0; pointer-events:none; transition:opacity .35s ease;}
+  .lx-overlay.open{opacity:1; pointer-events:auto;}
+  .lx-room{position:relative; width:min(960px, 100%); min-height:600px; display:flex; align-items:center; justify-content:flex-end;}
+  .lx-ambient{position:fixed; inset:0; pointer-events:none; opacity:0; transition:opacity 1.2s ease;
+    background:radial-gradient(ellipse 60% 55% at 42% 40%, rgba(245,165,36,0.16), transparent 70%), radial-gradient(ellipse 80% 80% at 50% 50%, #1A1712, #0B0B0D 75%);}
+  .lx-overlay.on .lx-ambient{opacity:1;}
+  .lx-scene{position:absolute; inset:0; width:100%; height:100%; overflow:visible;}
+  .lx-cone, .lx-pool, .lx-bulb-glow{opacity:0; transition:opacity .5s ease;}
+  .lx-pool{filter:blur(30px);}
+  .lx-overlay.on .lx-cone{animation:lxFlicker 1.1s ease forwards;}
+  .lx-overlay.on .lx-pool{opacity:.12;}
+  .lx-overlay.on .lx-bulb-glow{opacity:1;}
+  .lx-overlay.on .lx-bulb{fill:#FFF3D1;}
+  @keyframes lxFlicker{0%{opacity:0;} 10%{opacity:.8;} 18%{opacity:.1;} 30%{opacity:.9;} 38%{opacity:.35;} 55%,100%{opacity:1;}}
+  .lx-lamp{cursor:pointer; outline:none;}
+  .lx-lamp:focus-visible .lx-pull{stroke:#fff; stroke-width:2;}
+  .lx-pull{transition:transform .2s ease; transform-box:fill-box; transform-origin:center;}
+  .lx-lamp:hover .lx-pull{transform:translateY(3px) scale(1.15);}
+  .lx-hint{position:absolute; left:4%; bottom:8%; z-index:2; font:500 13px var(--font-mono); color:#C8A770; background:rgba(245,165,36,0.06); border:1px solid rgba(245,165,36,0.25);
+    padding:8px 13px; border-radius:30px; cursor:pointer; animation:lxBob 2.4s ease-in-out infinite; transition:opacity .4s;}
+  .lx-overlay.on .lx-hint{opacity:0; pointer-events:none;}
+  @keyframes lxBob{50%{transform:translateY(-4px);}}
+  .lx-card{position:relative; z-index:2; width:min(380px, 100%); margin-right:3%; padding:26px 26px 22px; border-radius:16px; color:#E8E2D6;
+    background:linear-gradient(170deg, rgba(38,36,32,0.92), rgba(22,21,19,0.95)); border:1px solid rgba(245,165,36,0.16);
+    box-shadow:0 40px 90px -30px rgba(0,0,0,0.9), 0 0 0 1px rgba(255,255,255,0.02) inset;
+    opacity:.06; filter:blur(2px) saturate(.4); transform:translateY(10px) scale(.98); transition:opacity .9s ease .25s, filter .9s ease .25s, transform .9s cubic-bezier(.16,.9,.3,1) .25s, box-shadow .9s;}
+  .lx-overlay.on .lx-card{opacity:1; filter:none; transform:none; box-shadow:0 40px 90px -30px rgba(0,0,0,0.9), -30px -10px 80px -40px rgba(245,165,36,0.45);}
+  .lx-overlay:not(.on) .lx-card *{pointer-events:none;}
+  .lx-close{position:absolute; top:14px; right:14px; width:30px; height:30px; border-radius:8px; border:0; cursor:pointer; color:#F5A524; background:transparent; font-size:22px; line-height:1;}
+  .lx-close:hover{background:rgba(245,165,36,0.1);}
+  .lx-overlay .lx-close{pointer-events:auto !important;}
+  .lx-eyebrow{font:700 10.5px var(--font-mono); letter-spacing:.22em; text-transform:uppercase; color:#F5A524;}
+  .lx-card h2{font-family:'Fraunces', Georgia, 'Times New Roman', serif; font-weight:500; font-size:34px; letter-spacing:-0.01em; margin:12px 0 4px; color:#F6F1E7;}
+  .lx-lead{margin:0 0 18px; font-size:13.5px; color:#9C958A;}
+  .lx-tabs{display:flex; gap:22px; border-bottom:1px solid rgba(255,255,255,0.08); margin-bottom:18px;}
+  .lx-tab{background:none; border:0; cursor:pointer; padding:0 0 10px; font:600 13.5px var(--font-body); color:#8A847A; position:relative;}
+  .lx-tab.active{color:#F6F1E7;}
+  .lx-tab.active::after{content:''; position:absolute; left:0; right:0; bottom:-1px; height:2px; border-radius:2px; background:#F5A524;}
+  .lx-form[hidden], .lx-social[hidden], .lx-signed[hidden], #lxForms[hidden]{display:none;}
+  .lx-label{display:block; font:600 12.5px var(--font-body); color:#CFC8BB; margin:0 0 7px;}
+  .lx-label em{font-style:normal; color:#7D776D; font-weight:500;}
+  .lx-row{display:flex; justify-content:space-between; align-items:baseline;}
+  .lx-link{background:none; border:0; padding:0; cursor:pointer; font:600 12.5px var(--font-body); color:#F5A524;}
+  .lx-link:hover{text-decoration:underline;}
+  .lx-field{display:flex; align-items:center; gap:9px; padding:0 12px; height:44px; border-radius:10px; margin-bottom:14px; background:rgba(0,0,0,0.32); border:1px solid rgba(255,255,255,0.08); transition:border-color .2s, box-shadow .2s;}
+  .lx-field:focus-within{border-color:rgba(245,165,36,0.7); box-shadow:0 0 0 3px rgba(245,165,36,0.14);}
+  .lx-field input{flex:1; min-width:0; background:transparent; border:0; outline:none; color:#F6F1E7; font:14.5px var(--font-body);}
+  .lx-field input::placeholder{color:#6A655D;}
+  .lx-ic{font-size:13px; opacity:.55; filter:grayscale(1);}
+  .lx-eye{background:none; border:0; cursor:pointer; opacity:.5; font-size:14px; filter:grayscale(1); padding:4px;}
+  .lx-eye:hover{opacity:.9;}
+  .lx-check{display:flex; align-items:center; gap:9px; font-size:13px; color:#B5AEA2; margin:2px 0 16px; cursor:pointer;}
+  .lx-check a{color:#F5A524;}
+  .lx-check input{position:absolute; opacity:0; width:1px; height:1px;}
+  .lx-check span{width:16px; height:16px; border-radius:4px; border:1.5px solid #6A655D; flex:none; display:flex; align-items:center; justify-content:center; transition:background .2s, border-color .2s;}
+  .lx-check input:checked + span{background:#F5A524; border-color:#F5A524;}
+  .lx-check input:checked + span::after{content:'\2713'; font-size:11px; font-weight:800; color:#1A1712;}
+  .lx-check input:focus-visible + span{box-shadow:0 0 0 3px rgba(245,165,36,0.3);}
+  .lx-btn{display:block; width:100%; height:46px; border:0; border-radius:10px; cursor:pointer; font:700 14.5px var(--font-body); color:#1A1306;
+    background:linear-gradient(180deg,#FFB938,#F29A12); box-shadow:0 10px 24px -12px rgba(245,165,36,0.9), inset 0 1px 0 rgba(255,255,255,0.35); transition:transform .2s, filter .2s;}
+  .lx-btn:hover{transform:translateY(-1px); filter:brightness(1.06);}
+  .lx-btn:disabled{opacity:.6; cursor:wait; transform:none;}
+  .lx-btn.ghost{background:transparent; color:#E8E2D6; border:1px solid rgba(255,255,255,0.14); box-shadow:none; margin-top:10px;}
+  .lx-or{display:flex; align-items:center; gap:12px; margin:18px 0 12px; font:600 10.5px var(--font-mono); letter-spacing:.16em; text-transform:uppercase; color:#7D776D;}
+  .lx-or::before, .lx-or::after{content:''; flex:1; height:1px; background:rgba(255,255,255,0.08);}
+  .lx-sbtn{display:flex; align-items:center; justify-content:center; gap:10px; width:100%; height:42px; border-radius:10px; cursor:pointer; font:600 14px var(--font-body); color:#E8E2D6; background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.1);}
+  .lx-sbtn:hover{border-color:rgba(245,165,36,0.5);}
+  .lx-g{width:20px; height:20px; border-radius:50%; background:#fff; color:#1A1712; font:800 12px var(--font-body); display:flex; align-items:center; justify-content:center;}
+  .lx-msg{margin:14px 0 0; font-size:13px; min-height:1px; color:#C8BFAF;}
+  .lx-msg.ok{color:#86EFAC;} .lx-msg.err{color:#FCA5A5;}
+  .lx-hello{margin:0 0 16px; color:#CFC8BB;} .lx-hello b{color:#FFD48A;}
+  @media (max-width:760px){
+    .lx-room{flex-direction:column; justify-content:flex-start; align-items:center; min-height:0; padding-top:236px;}
+    .lx-scene{inset:0 auto auto 50%; width:190px; height:200px; transform:translateX(-50%);}
+    .lx-cone{display:none;}
+    .lx-hint{left:50%; top:196px; bottom:auto; transform:translateX(-50%); white-space:nowrap; animation:none;}
+    .lx-card{margin:0 auto 20px;}
+    .lx-ambient{background:radial-gradient(ellipse 90% 45% at 50% 30%, rgba(245,165,36,0.20), transparent 70%), #0E0D0B;}
+  }
+  @media (prefers-reduced-motion:reduce){ .lx-overlay.on .lx-cone{animation:none; opacity:1;} .lx-hint{animation:none;} .lx-card{transition:none;} }
+
+  /* lamp motion: swinging pull cord, looking-around head, head follows the mouse when on */
+  .lx-cord{transform-box:view-box; transform-origin:258px 224px; animation:lxSwing 2.6s ease-in-out infinite; cursor:grab;}
+  .lx-cord.drag{animation:none; cursor:grabbing;}
+  .lx-overlay.on .lx-cord{animation-duration:3.6s;}
+  @keyframes lxSwing{0%,100%{transform:rotate(7deg);} 50%{transform:rotate(-7deg);}}
+  .lx-pull{filter:drop-shadow(0 0 0 rgba(245,165,36,0)); transition:filter .3s;}
+  .lx-cord:hover .lx-pull{filter:drop-shadow(0 0 6px rgba(245,165,36,0.9));}
+  .lx-lamp:hover .lx-pull{transform:none;}
+  @media (prefers-reduced-motion:reduce){ .lx-cord{animation:none;} }
+
 </style>
 </head>
 <body>
@@ -1302,6 +1400,7 @@
       <a href="#work">Track Record</a>
       <a href="#company-search">Company Search</a>
       <a href="#contact">Contact</a>
+      <a href="#signin" class="nav-sign" data-open-signin="in" aria-label="Sign in or sign up"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="6.5" r="3.6" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 17.5c.9-3.4 3.4-5.2 6.5-5.2s5.6 1.8 6.5 5.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="nav-sign-txt">Sign in</span></a>
       <a href="#contact" class="nav-cta" id="openLeadModalBtn">Request Custom Leads</a>
     </div>
   </div>
@@ -4221,6 +4320,337 @@
     hint.addEventListener('click', open); document.body.appendChild(hint);
     setTimeout(() => { hint.classList.add('show'); }, 1800);   // always visible, on every device
   })();
+})();
+</script>
+
+
+<div class="lx-overlay" id="lxOverlay" role="dialog" aria-modal="true" aria-labelledby="lxTitle" aria-hidden="true">
+  <div class="lx-room">
+    <div class="lx-ambient" aria-hidden="true"></div>
+    <svg class="lx-scene" viewBox="0 0 900 580" preserveAspectRatio="xMinYMid meet" aria-hidden="true">
+      <defs>
+        <radialGradient id="lxCone" cx="0.28" cy="0.3" r="0.85">
+          <stop offset="0" stop-color="#FFD48A" stop-opacity=".55"/>
+          <stop offset=".35" stop-color="#F5A524" stop-opacity=".22"/>
+          <stop offset="1" stop-color="#F5A524" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="lxBulb"><stop offset="0" stop-color="#FFF6DD"/><stop offset=".5" stop-color="#FFD48A"/><stop offset="1" stop-color="#F5A524" stop-opacity="0"/></radialGradient>
+        <linearGradient id="lxMetal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3A3A40"/><stop offset="1" stop-color="#121216"/></linearGradient>
+        <linearGradient id="lxShade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2A2A30"/><stop offset=".5" stop-color="#46464E"/><stop offset="1" stop-color="#1A1A1F"/></linearGradient>
+        <filter id="lxBlur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="14"/></filter>
+      </defs>
+      <g class="lx-cone-wrap" id="lxConeWrap"><polygon class="lx-cone" points="272,213 900,40 900,580 410,580 215,281" fill="url(#lxCone)" filter="url(#lxBlur)"/></g>
+      <ellipse class="lx-pool" cx="560" cy="540" rx="300" ry="40" fill="#F5A524"/>
+      <g class="lx-lamp" id="lxLamp" tabindex="0" role="button" aria-label="Turn the lamp on or off">
+        <rect x="60" y="150" width="260" height="330" fill="transparent"/>
+        <ellipse cx="170" cy="462" rx="66" ry="11" fill="#000" opacity=".55"/>
+        <path d="M112 456c0-16 26-24 58-24s58 8 58 24c0 5-26 8-58 8s-58-3-58-8Z" fill="url(#lxMetal)"/>
+        <ellipse cx="170" cy="449" rx="38" ry="6" fill="#4A4A52"/>
+        <line x1="170" y1="445" x2="120" y2="330" stroke="url(#lxMetal)" stroke-width="8" stroke-linecap="round"/>
+        <line x1="120" y1="330" x2="205" y2="215" stroke="url(#lxMetal)" stroke-width="8" stroke-linecap="round"/>
+        <circle cx="120" cy="330" r="9" fill="#C8922E"/><circle cx="120" cy="330" r="4" fill="#5A4214"/>
+        <circle cx="170" cy="443" r="7" fill="#C8922E"/>
+        <g class="lx-head" id="lxHead">
+        <g transform="translate(205 215) rotate(-50)">
+          <circle class="lx-bulb-glow" cx="0" cy="54" r="34" fill="url(#lxBulb)"/>
+          <path d="M-16 -12h32l30 62c-8 8-28 12-46 12s-38-4-46-12Z" fill="url(#lxShade)"/>
+          <path d="M-44 50c8 8 28 12 44 12s36-4 44-12" fill="none" stroke="#C8922E" stroke-width="3"/>
+          <ellipse class="lx-bulb" cx="0" cy="52" rx="12" ry="7" fill="#3A3A40"/>
+          <rect x="-9" y="-22" width="18" height="12" rx="3" fill="#2A2A30"/>
+          <circle cx="0" cy="-12" r="8" fill="#C8922E"/>
+        </g>
+        <g class="lx-cord" id="lxCord">
+          <line id="lxCordLine" x1="258" y1="224" x2="258" y2="300" stroke="#9A9AA2" stroke-width="1.6" stroke-linecap="round"/>
+          <circle class="lx-pull" id="lxPull" cx="258" cy="306" r="6.5" fill="#C8922E"/>
+          <circle cx="258" cy="306" r="18" fill="transparent"/>
+        </g>
+        </g>
+      </g>
+    </svg>
+    <button type="button" class="lx-hint" id="lxHint"><span aria-hidden="true">&#9759;</span> Pull the cord to turn on the light</button>
+
+    <div class="lx-card" id="lxCard">
+      <button type="button" class="lx-close" id="lxClose" aria-label="Close">&times;</button>
+      <div class="lx-eyebrow">Your space</div>
+      <h2 id="lxTitle">Welcome</h2>
+      <p class="lx-lead" id="lxLead">Sign in to continue to your account</p>
+
+      <div class="lx-signed" id="lxSigned" hidden>
+        <p class="lx-hello">Signed in as <b id="lxUserName"></b></p>
+        <button type="button" class="lx-btn" id="lxOrder">Request new leads &rarr;</button>
+        <button type="button" class="lx-btn ghost" id="lxSignOut">Sign out</button>
+      </div>
+
+      <div id="lxForms">
+        <div class="lx-tabs" role="tablist">
+          <button type="button" role="tab" class="lx-tab active" data-tab="in" aria-selected="true">Sign In</button>
+          <button type="button" role="tab" class="lx-tab" data-tab="up" aria-selected="false">Sign Up</button>
+        </div>
+
+        <form class="lx-form" id="lxIn" novalidate>
+          <label class="lx-label" for="lxInEmail">Email</label>
+          <div class="lx-field"><span class="lx-ic" aria-hidden="true">&#9993;</span><input id="lxInEmail" type="email" autocomplete="email" placeholder="Enter your email" required></div>
+          <div class="lx-row"><label class="lx-label" for="lxInPass">Password</label><button type="button" class="lx-link" id="lxForgot">Forgot?</button></div>
+          <div class="lx-field"><span class="lx-ic" aria-hidden="true">&#128274;</span><input id="lxInPass" type="password" autocomplete="current-password" placeholder="Enter your password" required minlength="6"><button type="button" class="lx-eye" aria-label="Show password">&#128065;</button></div>
+          <label class="lx-check"><input type="checkbox" id="lxRemember" checked><span></span> Remember me</label>
+          <button type="submit" class="lx-btn">Sign In &rarr;</button>
+        </form>
+
+        <form class="lx-form" id="lxUp" novalidate hidden>
+          <label class="lx-label" for="lxUpName">Full name</label>
+          <div class="lx-field"><span class="lx-ic" aria-hidden="true">&#128100;</span><input id="lxUpName" type="text" autocomplete="name" placeholder="Your name" required></div>
+          <label class="lx-label" for="lxUpEmail">Email</label>
+          <div class="lx-field"><span class="lx-ic" aria-hidden="true">&#9993;</span><input id="lxUpEmail" type="email" autocomplete="email" placeholder="you@company.com" required></div>
+          <label class="lx-label" for="lxUpCompany">Company or website <em>(optional)</em></label>
+          <div class="lx-field"><span class="lx-ic" aria-hidden="true">&#127970;</span><input id="lxUpCompany" type="text" autocomplete="organization" placeholder="Company name or URL"></div>
+          <div class="lx-pass-wrap">
+            <label class="lx-label" for="lxUpPass">Password</label>
+            <div class="lx-field"><span class="lx-ic" aria-hidden="true">&#128274;</span><input id="lxUpPass" type="password" autocomplete="new-password" placeholder="At least 8 characters" minlength="8"><button type="button" class="lx-eye" aria-label="Show password">&#128065;</button></div>
+          </div>
+          <label class="lx-check"><input type="checkbox" id="lxAgree"><span></span> I agree to the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a></label>
+          <button type="submit" class="lx-btn">Create account &rarr;</button>
+        </form>
+
+        <div class="lx-social" id="lxSocial" hidden>
+          <div class="lx-or"><span>or continue with</span></div>
+          <button type="button" class="lx-sbtn" id="lxGoogle"><span class="lx-g" aria-hidden="true">G</span> Google</button>
+        </div>
+      </div>
+      <p class="lx-msg" id="lxMsg" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ================= Sign in / Sign up (lamp room) =================
+   Real accounts use Supabase (free). Paste your project URL and anon key below (see ACCOUNTS-SETUP.md).
+   Until then, Sign Up still works: it sends the new client's details to your email. */
+const AUTH_CONFIG = {
+  supabaseUrl: "",        // e.g. "https://abcdxyz.supabase.co"
+  supabaseAnonKey: "",    // the "anon public" key from Supabase > Project Settings > API
+  google: false           // true after you turn on Google in Supabase > Authentication > Providers
+};
+(function(){
+  const $ = (id) => document.getElementById(id);
+  const ov = $('lxOverlay'); if (!ov) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const live = !!(AUTH_CONFIG.supabaseUrl && AUTH_CONFIG.supabaseAnonKey);
+  const msg = $('lxMsg');
+  let sb = null, user = null, lastFocus = null, audioCtx = null;
+
+  // ---------- sounds (click + warm hum, made in the browser, no files) ----------
+  function sound(turningOn){
+    try {
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      const now = audioCtx.currentTime;
+      const len = Math.floor(audioCtx.sampleRate * 0.03), buf = audioCtx.createBuffer(1, len, audioCtx.sampleRate), d = buf.getChannelData(0);
+      for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3);
+      const click = audioCtx.createBufferSource(), cg = audioCtx.createGain(); click.buffer = buf; cg.gain.value = 0.25;
+      click.connect(cg).connect(audioCtx.destination); click.start(now);
+      if (turningOn) {
+        const hum = audioCtx.createOscillator(), hg = audioCtx.createGain();
+        hum.type = 'sine'; hum.frequency.setValueAtTime(120, now + 0.05);
+        hg.gain.setValueAtTime(0.001, now); hg.gain.linearRampToValueAtTime(0.06, now + 0.08); hg.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+        hum.connect(hg).connect(audioCtx.destination); hum.start(now); hum.stop(now + 0.4);
+      }
+    } catch (e) {}
+  }
+  function setLight(on, silent){
+    ov.classList.toggle('on', on);
+    if (!silent) sound(on);
+    if (on) setTimeout(() => { const f = ov.querySelector('.lx-form:not([hidden]) input, #lxSigned:not([hidden]) button'); if (f && ov.classList.contains('open')) f.focus(); }, 700);
+  }
+  const scene = ov.querySelector('.lx-scene'), mq = window.matchMedia('(max-width:760px)');
+  function fitScene(){ scene.setAttribute('viewBox', mq.matches ? '70 180 260 300' : '0 0 900 580'); }
+  fitScene(); if (mq.addEventListener) mq.addEventListener('change', fitScene);
+  const lamp = $('lxLamp');
+  lamp.addEventListener('click', () => { if (suppressClick) return; setLight(!ov.classList.contains('on')); });
+
+  // ---------- motion: head looks around / follows the mouse, pull cord can be dragged ----------
+  const head = $('lxHead'), coneWrap = $('lxConeWrap'), cord = $('lxCord'), cordLine = $('lxCordLine'), pull = $('lxPull');
+  let angle = 0, target = 0, mouse = null, t0 = performance.now(), suppressClick = false;
+  function pivotScreen(){ const m = scene.getScreenCTM(); if (!m) return null; const pt = scene.createSVGPoint(); pt.x = 205; pt.y = 215; return pt.matrixTransform(m); }
+  ov.addEventListener('pointermove', (e) => { mouse = { x: e.clientX, y: e.clientY }; });
+  (function loop(now){
+    if (ov.classList.contains('open')) {
+      if (ov.classList.contains('on') && mouse && !reduce) {
+        const p = pivotScreen();
+        if (p) { const a = Math.atan2(mouse.y - p.y, mouse.x - p.x) * 180 / Math.PI; target = Math.max(-16, Math.min(14, a - 30)); }
+      } else if (!reduce) {
+        target = Math.sin((now - t0) / 1100) * 6 + Math.sin((now - t0) / 530) * 1.5;   // gently looking around in the dark
+      } else target = 0;
+      angle += (target - angle) * 0.08;
+      const tr = 'rotate(' + angle.toFixed(2) + ' 205 215)';
+      head.setAttribute('transform', tr); coneWrap.setAttribute('transform', tr);
+    }
+    requestAnimationFrame(loop);
+  })(t0);
+  // drag the cord down to switch the light
+  let drag = null;
+  function svgY(e){ const m = scene.getScreenCTM(); return m ? (e.clientY - m.f) / m.d : 0; }
+  cord.addEventListener('pointerdown', (e) => { e.preventDefault(); e.stopPropagation(); drag = { y0: svgY(e), dy: 0 }; cord.classList.add('drag'); try { cord.setPointerCapture(e.pointerId); } catch (err) {} });
+  cord.addEventListener('pointermove', (e) => {
+    if (!drag) return; drag.dy = Math.max(0, Math.min(46, svgY(e) - drag.y0));
+    cordLine.setAttribute('y2', 300 + drag.dy); pull.setAttribute('cy', 306 + drag.dy);
+  });
+  function release(){
+    if (!drag) return;
+    const pulled = drag.dy > 16 || drag.dy < 3;   // a real pull, or a simple tap on the cord
+    drag = null; cord.classList.remove('drag'); suppressClick = true; setTimeout(() => { suppressClick = false; }, 50);
+    // spring back
+    let k = 0; const startY = parseFloat(pull.getAttribute('cy')) - 306;
+    (function spring(){ k++; const off = startY * Math.exp(-k / 4) * Math.cos(k / 2.2); cordLine.setAttribute('y2', 300 + off); pull.setAttribute('cy', 306 + off); if (k < 40) requestAnimationFrame(spring); else { cordLine.setAttribute('y2', 300); pull.setAttribute('cy', 306); } })();
+    if (pulled) setLight(!ov.classList.contains('on'));
+  }
+  cord.addEventListener('pointerup', release); cord.addEventListener('pointercancel', release);
+
+  lamp.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setLight(!ov.classList.contains('on')); } });
+  $('lxHint').addEventListener('click', () => setLight(true));
+
+  // ---------- open / close ----------
+  function open(tab){
+    lastFocus = document.activeElement;
+    ov.classList.add('open'); ov.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
+    if (tab) showTab(tab);
+    msg.textContent = ''; msg.className = 'lx-msg';
+    if (reduce) setLight(true, true); else setTimeout(() => lamp.focus({ preventScroll: true }), 50);
+    if (live) loadSupabase();
+  }
+  function close(){
+    ov.classList.remove('open', 'on'); ov.setAttribute('aria-hidden', 'true'); document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  $('lxClose').addEventListener('click', close);
+  addEventListener('keydown', (e) => { if (e.key === 'Escape' && ov.classList.contains('open')) close(); });
+  document.querySelectorAll('[data-open-signin]').forEach(b => b.addEventListener('click', (e) => { e.preventDefault(); open(b.dataset.openSignin || 'in'); }));
+
+  // ---------- tabs ----------
+  function showTab(t){
+    document.querySelectorAll('.lx-tab').forEach(b => { const on = b.dataset.tab === t; b.classList.toggle('active', on); b.setAttribute('aria-selected', on); });
+    $('lxIn').hidden = t !== 'in'; $('lxUp').hidden = t !== 'up';
+    $('lxLead').textContent = t === 'in' ? 'Sign in to continue to your account' : 'Create your client account in a minute';
+    msg.textContent = ''; msg.className = 'lx-msg';
+  }
+  document.querySelectorAll('.lx-tab').forEach(b => b.addEventListener('click', () => showTab(b.dataset.tab)));
+  document.querySelectorAll('.lx-eye').forEach(b => b.addEventListener('click', () => {
+    const i = b.parentElement.querySelector('input'); const show = i.type === 'password'; i.type = show ? 'text' : 'password'; b.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+  }));
+  if (!live) { const pw = ov.querySelector('.lx-pass-wrap'); if (pw) pw.hidden = true; }
+  if (live && AUTH_CONFIG.google) $('lxSocial').hidden = false;
+
+  const say = (t, kind) => { msg.textContent = t; msg.className = 'lx-msg' + (kind ? ' ' + kind : ''); };
+  const validEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+  function busy(form, on){ const b = form.querySelector('.lx-btn'); b.disabled = on; }
+
+  // ---------- notify Minju by email (Web3Forms) ----------
+  function notify(subject, fields){
+    const fd = new FormData();
+    fd.append('access_key', '7df4e95a-d03c-424e-8ab6-084da23f16b3');
+    fd.append('subject', subject); fd.append('from_name', 'Leads Expert website');
+    Object.keys(fields).forEach(k => fd.append(k, fields[k] || '-'));
+    return fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd, headers: { Accept: 'application/json' } }).then(r => r.json()).catch(() => ({ success: false }));
+  }
+
+  // ---------- Supabase (real accounts) ----------
+  let sbLoading = null;
+  function loadSupabase(){
+    if (sb) return Promise.resolve(sb);
+    if (sbLoading) return sbLoading;
+    sbLoading = new Promise((res, rej) => {
+      const s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js';
+      s.onload = () => {
+        try {
+          sb = window.supabase.createClient(AUTH_CONFIG.supabaseUrl, AUTH_CONFIG.supabaseAnonKey, { auth: { persistSession: true, storage: storageFor() } });
+          sb.auth.onAuthStateChange((_e, session) => setUser(session ? session.user : null));
+          sb.auth.getSession().then(r => setUser(r.data.session ? r.data.session.user : null));
+          res(sb);
+        } catch (e) { rej(e); }
+      };
+      s.onerror = rej; document.head.appendChild(s);
+    });
+    return sbLoading;
+  }
+  function storageFor(){
+    // "Remember me" off -> session ends when the tab closes
+    try { return ($('lxRemember') && !$('lxRemember').checked) ? window.sessionStorage : window.localStorage; } catch (e) { return undefined; }
+  }
+  function setUser(u){
+    user = u;
+    const name = u ? ((u.user_metadata && (u.user_metadata.full_name || u.user_metadata.name)) || u.email.split('@')[0]) : '';
+    document.querySelectorAll('.nav-sign-txt').forEach(el => el.textContent = u ? 'Hi, ' + name.split(' ')[0] : 'Sign in');
+    $('lxSigned').hidden = !u; $('lxForms').hidden = !!u;
+    $('lxUserName').textContent = u ? name + ' (' + u.email + ')' : '';
+    $('lxLead').textContent = u ? 'Good to see you again.' : 'Sign in to continue to your account';
+    if (u) $('lxTitle').textContent = 'Welcome back'; else $('lxTitle').textContent = 'Welcome';
+  }
+  if (live) { try { if (localStorage.getItem('sb-' + AUTH_CONFIG.supabaseUrl.split('//')[1].split('.')[0] + '-auth-token')) loadSupabase(); } catch (e) {} }
+
+  // ---------- Sign in ----------
+  $('lxIn').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = $('lxInEmail').value.trim(), pass = $('lxInPass').value;
+    if (!validEmail(email)) return say('Please enter a valid email.', 'err');
+    if (pass.length < 6) return say('Please enter your password.', 'err');
+    if (!live) return say('Client accounts are opening soon. Please use Sign Up for now and I will set up your access.', 'err');
+    busy(e.target, true); say('Signing you in…');
+    try {
+      await loadSupabase();
+      const { error } = await sb.auth.signInWithPassword({ email, password: pass });
+      if (error) say(/confirm/i.test(error.message) ? 'Please confirm your email first. Check your inbox.' : 'Email or password is not correct.', 'err');
+      else say('Signed in. Welcome back!', 'ok');
+    } catch (err) { say('Could not connect. Please try again.', 'err'); }
+    busy(e.target, false);
+  });
+  $('lxForgot').addEventListener('click', async () => {
+    const email = $('lxInEmail').value.trim();
+    if (!validEmail(email)) { $('lxInEmail').focus(); return say('Type your email above, then press Forgot? again.', 'err'); }
+    if (!live) { await notify('Password help request', { email }); return say('Thanks. I will email you at ' + email + ' to help you get in.', 'ok'); }
+    try { await loadSupabase(); await sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin + location.pathname }); say('Check your inbox for a password reset link.', 'ok'); }
+    catch (err) { say('Could not send the link. Please try again.', 'err'); }
+  });
+
+  // ---------- Sign up ----------
+  $('lxUp').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = $('lxUpName').value.trim(), email = $('lxUpEmail').value.trim(), company = $('lxUpCompany').value.trim(), pass = $('lxUpPass').value;
+    if (name.length < 2) return say('Please enter your name.', 'err');
+    if (!validEmail(email)) return say('Please enter a valid email.', 'err');
+    if (live && pass.length < 8) return say('Password needs at least 8 characters.', 'err');
+    if (!$('lxAgree').checked) return say('Please accept the Privacy Policy.', 'err');
+    busy(e.target, true); say('Creating your account…');
+    try {
+      if (live) {
+        await loadSupabase();
+        const { data, error } = await sb.auth.signUp({ email, password: pass, options: { data: { full_name: name, company }, emailRedirectTo: location.origin + location.pathname } });
+        if (error) { say(/registered|exists/i.test(error.message) ? 'This email already has an account. Please sign in.' : error.message, 'err'); busy(e.target, false); return; }
+        notify('New client account: ' + name, { name, email, company, page: location.href });
+        say(data.session ? 'Account created. You are signed in!' : 'Account created! Check your inbox to confirm your email.', 'ok');
+      } else {
+        const r = await notify('New client sign-up: ' + name, { name, email, company, page: location.href });
+        if (r && r.success) { say('Thanks, ' + name.split(' ')[0] + '! You are on my client list. I will email you within 24 hours.', 'ok'); e.target.reset(); }
+        else say('Something went wrong. Please try again or email kamruzzamanmju@gmail.com.', 'err');
+      }
+    } catch (err) { say('Could not connect. Please try again.', 'err'); }
+    busy(e.target, false);
+  });
+
+  // ---------- Google ----------
+  $('lxGoogle').addEventListener('click', async () => {
+    try { await loadSupabase(); await sb.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: location.origin + location.pathname } }); }
+    catch (err) { say('Google sign-in is not available right now.', 'err'); }
+  });
+
+  // ---------- signed-in actions ----------
+  $('lxSignOut').addEventListener('click', async () => { try { await sb.auth.signOut(); } catch (e) {} setUser(null); say('You are signed out.', 'ok'); });
+  $('lxOrder').addEventListener('click', (e) => {
+    close();
+    setTimeout(() => {
+      const btn = $('openLeadModalBtn'); if (btn) btn.click();
+      const n = $('modalName'), m = $('modalEmail');
+      if (user) { if (n && !n.value) n.value = (user.user_metadata && user.user_metadata.full_name) || ''; if (m && !m.value) m.value = user.email; }
+    }, 200);
+  });
 })();
 </script>
 
